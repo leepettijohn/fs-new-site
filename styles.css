@@ -834,6 +834,15 @@ a { color: var(--forward-blue); text-decoration: none; }
 }
 
 /* FAQ accordion */
+.faq-section-head {
+  margin-bottom: 2.5rem;
+  text-align: left;
+}
+.faq-section-head .eyebrow { margin-bottom: 0.5rem; }
+.faq-section-head .section-sub {
+  margin: 0.75rem 0 0;
+  text-align: left;
+}
 .faq-list {
   max-width: 720px;
   margin: 0 auto;

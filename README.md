@@ -10,6 +10,7 @@ Static HTML site for gottamoveforward.com. Drop the folder on Netlify (or any st
 - `systems.html` — Complex Systems page
 - `work.html` — case studies index
 - `about.html` — about Lee
+- `faq.html` — long-form FAQ, SEO landing target for "can you help with X" queries
 - `start.html` — intake form + book-a-call page
 - `styles.css` — single stylesheet for all pages
 - `script.js` — minimal JS for scroll-triggered reveals only
