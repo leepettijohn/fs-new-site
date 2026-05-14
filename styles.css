@@ -122,7 +122,8 @@ a { color: var(--forward-blue); text-decoration: none; }
   font-weight: 600;
   font-size: 1rem;
 }
-.logo-mark { display: inline-flex; }
+.logo-mark { display: inline-flex; align-items: center; }
+.logo-mark img { display: block; height: 28px; width: auto; }
 .logo-text {
   font-family: var(--font-display);
   font-weight: 600;

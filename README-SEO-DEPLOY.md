@@ -23,16 +23,27 @@ This zip contains your eight HTML pages with SEO baked in, plus new assets to pu
 - `/systems.html` — **Service** schema for Complex Systems.
 - `/faq.html` — **FAQPage** schema with all 26 Q/A pairs extracted from the page. This is what makes accordion FAQ results possible in Google search.
 
-### New files at the root
+### New files
 
-- `og-image.png` — 1200×630 social sharing image, brand-colored, with logo, tagline, and pricing.
-- `favicon.ico` — multi-size favicon (16/32/48/64).
-- `favicon-32x32.png` — PNG fallback.
-- `apple-touch-icon.png` — 180×180 iOS home-screen icon.
-- `icon-192.png` / `icon-512.png` — PWA icons.
+Images are organized into an `/assets/` folder. The only image that stays at the root is `favicon.ico` (browsers auto-request it from the root regardless of HTML).
+
+**Site root:**
+- `favicon.ico` — multi-size favicon (browser tab icon). Stays at root by convention.
 - `site.webmanifest` — web app manifest for proper mobile icon handling.
 - `sitemap.xml` — XML sitemap of all 8 pages with priorities and lastmod dates.
 - `robots.txt` — allows all crawlers and points to the sitemap.
+
+**`/assets/` folder:**
+- `og-image.png` — 1200×630 social sharing image, brand-colored, with the full logo and pricing.
+- `logo-mark.png` — transparent PNG of the airplane mark, used in nav and footer of every page.
+- `favicon-32x32.png` — PNG favicon fallback.
+- `apple-touch-icon.png` — 180×180 iOS home-screen icon.
+- `icon-192.png` / `icon-512.png` — PWA icons.
+
+### Other site changes
+
+- **Nav header and footer brand mark** — placeholder SVG icon replaced with the real airplane mark image on all 8 pages. The "Forward Solutions" wordmark next to it still renders in Inter/Fraunces from your existing CSS, so the typography stays crisp at every screen size.
+- **styles.css** — one small rule added (`.logo-mark img`) to size the new mark to 28px tall in the nav/footer.
 
 ## How to deploy
 
