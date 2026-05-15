@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Start here — Tell me what you need · Forward Solutions</title>
-<meta name="description" content="Describe what you need in your own words. Free 15-minute call. I'll tell you whether it's a quick ticket, a fixed-price build, or a custom system — and what it'll cost.">
+<meta name="description" content="Describe what you need in your own words. Free 30-minute call. I'll tell you whether it's a quick ticket, a fixed-price build, or a custom system — and what it'll cost.">
 <meta name="robots" content="noindex, follow">
 <link rel="canonical" href="https://gottamoveforward.com/start.html">
 
@@ -12,7 +12,7 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Forward Solutions">
 <meta property="og:title" content="Start here — Tell me what you need · Forward Solutions">
-<meta property="og:description" content="Describe what you need in your own words. Free 15-minute call. I'll tell you whether it's a quick ticket, a fixed-price build, or a custom system — and what it'll cost.">
+<meta property="og:description" content="Describe what you need in your own words. Free 30-minute call. I'll tell you whether it's a quick ticket, a fixed-price build, or a custom system — and what it'll cost.">
 <meta property="og:url" content="https://gottamoveforward.com/start.html">
 <meta property="og:image" content="https://gottamoveforward.com/assets/og-image.png">
 <meta property="og:image:width" content="1200">
@@ -22,7 +22,7 @@
 <!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Start here — Tell me what you need · Forward Solutions">
-<meta name="twitter:description" content="Describe what you need in your own words. Free 15-minute call. I'll tell you whether it's a quick ticket, a fixed-price build, or a custom system — and what it'll cost.">
+<meta name="twitter:description" content="Describe what you need in your own words. Free 30-minute call. I'll tell you whether it's a quick ticket, a fixed-price build, or a custom system — and what it'll cost.">
 <meta name="twitter:image" content="https://gottamoveforward.com/assets/og-image.png">
 
 <link rel="icon" href="/favicon.ico" sizes="any">
@@ -34,6 +34,32 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
+
+<style>
+  /* Wrapper to make the embedded calendar feel intentional on the page */
+  .calendar-embed-wrap {
+    max-width: 820px;
+    margin: 0 auto;
+    background: var(--white);
+    border: 1px solid var(--hairline);
+    border-radius: var(--radius);
+    padding: 1rem;
+    box-shadow: 0 12px 32px rgba(30, 91, 186, 0.06);
+  }
+  .calendar-embed-wrap iframe {
+    display: block;
+    width: 100%;
+    border: 0;
+    border-radius: 8px;
+  }
+  .calendar-fallback {
+    text-align: center;
+    margin-top: 1.25rem;
+    color: var(--slate);
+    font-size: 0.9375rem;
+  }
+  .calendar-fallback a { margin-right: 0.75rem; }
+</style>
 </head>
 <body>
 
@@ -59,7 +85,7 @@
   <div class="container">
     <p class="eyebrow">Start here</p>
     <h1 class="display">Let's figure out what you need.</h1>
-    <p class="lead">Fill out the form, book a 15-minute call, or both. I'll get back to you within one business day.</p>
+    <p class="lead">Fill out the form, book a 30-minute call, or both. I'll get back to you within one business day.</p>
   </div>
 </section>
 
@@ -128,15 +154,19 @@
   <div class="container">
     <div class="section-head">
       <p class="eyebrow">Or skip the form</p>
-      <h2 class="h2">Grab 15 minutes on my calendar.</h2>
+      <h2 class="h2">Grab 30 minutes on my calendar.</h2>
       <p class="section-sub">Free. No prep required. We figure out if I'm the right person for what you need.</p>
     </div>
-    <div class="calendar-block">
-      <strong>Calendar embed goes here</strong>
-      Cal.com, Calendly, or Google Appointment Schedule — embed lives in this block.<br>
-      <span style="margin-top: 1rem; display:inline-block;">Prefer to email? <a href="mailto:lee@gottamoveforward.com">lee@gottamoveforward.com</a>
-        <a href="tel:+19707126933" class="footer-phone">(970) 712-6933</a></span>
+    <div class="calendar-embed-wrap">
+      <!-- Google Calendar Appointment Scheduling begin -->
+      <iframe src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ33H70a05FDaXtSdYl1auiKBpBHMUnZPefHEc65-Vv811IUhO_CWmcbP_ExeQXNR3Os0JBPhhK4?gv=true" style="border: 0" width="100%" height="600" frameborder="0"></iframe>
+      <!-- end Google Calendar Appointment Scheduling -->
     </div>
+    <p class="calendar-fallback">
+      Prefer to email or call?
+      <a href="mailto:lee@gottamoveforward.com">lee@gottamoveforward.com</a>
+      <a href="tel:+19707126933" class="footer-phone">(970) 712-6933</a>
+    </p>
   </div>
 </section>
 
@@ -193,7 +223,7 @@
         <p class="footer-meta">Hermann, MO → Nashville, TN<br>Working across the country</p>
       </div>
     </div>
-    <div class="footer-bottom"><p>© 2026 Forward Solutions · Lee Pettijohn · gottamoveforward.com</p></div>
+    <div class="footer-bottom"><p>Established in 2020 · Forward Solutions · Lee Pettijohn · gottamoveforward.com</p></div>
   </div>
 </footer>
 

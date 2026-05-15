@@ -35,6 +35,91 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 
+<!-- FAQ marquee styles (scoped to homepage) -->
+<style>
+  .faq-marquee {
+    padding: 3rem 0 3.5rem;
+    background: var(--white);
+    border-top: 1px solid var(--hairline);
+    border-bottom: 1px solid var(--hairline);
+    overflow: hidden;
+  }
+  .faq-marquee-head {
+    text-align: center;
+    margin-bottom: 1.75rem;
+    padding: 0 1.5rem;
+  }
+  .faq-marquee-head .eyebrow { margin-bottom: 0.5rem; }
+  .faq-marquee-head h2 {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: clamp(1.5rem, 2.5vw, 2rem);
+    letter-spacing: -0.01em;
+    margin: 0;
+    color: var(--ink);
+  }
+  .faq-marquee-viewport {
+    overflow: hidden;
+    mask-image: linear-gradient(to right, transparent 0, #000 6%, #000 94%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to right, transparent 0, #000 6%, #000 94%, transparent 100%);
+  }
+  .faq-marquee-track {
+    display: flex;
+    gap: 1rem;
+    width: max-content;
+    animation: faq-marquee-scroll 90s linear infinite;
+  }
+  .faq-marquee-viewport:hover .faq-marquee-track {
+    animation-play-state: paused;
+  }
+  .faq-chip {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.75rem 1.25rem;
+    background: var(--paper);
+    border: 1px solid var(--hairline);
+    border-radius: 28px;
+    color: var(--ink);
+    font-size: 0.9375rem;
+    font-weight: 500;
+    white-space: nowrap;
+    text-decoration: none;
+    transition: border-color 0.18s ease, background 0.18s ease, color 0.18s ease, transform 0.18s ease;
+  }
+  .faq-chip:hover {
+    border-color: var(--forward-blue);
+    background: var(--white);
+    color: var(--forward-blue);
+    transform: translateY(-1px);
+  }
+  .faq-chip::after {
+    content: "→";
+    margin-left: 0.5rem;
+    color: var(--forward-blue);
+    transition: transform 0.18s ease;
+  }
+  .faq-chip:hover::after {
+    transform: translateX(2px);
+  }
+  @keyframes faq-marquee-scroll {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .faq-marquee-track {
+      animation: none;
+      flex-wrap: wrap;
+      justify-content: center;
+      width: 100%;
+      padding: 0 1.5rem;
+    }
+    .faq-marquee-viewport {
+      mask-image: none;
+      -webkit-mask-image: none;
+    }
+  }
+</style>
+
 <!-- Structured data -->
 <script type="application/ld+json">
 {
@@ -154,6 +239,72 @@
           <rect class="tile t9" x="320" y="320" width="100" height="100" rx="8" fill="#3FA9F5" opacity="0.7"/>
         </g>
       </svg>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ MARQUEE ============ -->
+<section class="faq-marquee" aria-labelledby="faq-marquee-heading">
+  <div class="faq-marquee-head">
+    <p class="eyebrow">Common questions</p>
+    <h2 id="faq-marquee-heading">Hover to pause. Click to read the answer.</h2>
+  </div>
+  <div class="faq-marquee-viewport">
+    <div class="faq-marquee-track">
+      <!-- Track contents (full set, duplicated for seamless loop) -->
+      <a class="faq-chip" href="faq.html#q-access">Can you fix my Microsoft Access database?</a>
+      <a class="faq-chip" href="faq.html#q-zap">My Zapier zap stopped working — can you figure out why?</a>
+      <a class="faq-chip" href="faq.html#q-contact-form">My contact form stopped sending emails. Can you fix that?</a>
+      <a class="faq-chip" href="faq.html#q-airtable-formula">My Airtable formula isn't working. Can you take a look?</a>
+      <a class="faq-chip" href="faq.html#q-wordpress-errors">My WordPress site is showing errors. Can you fix it?</a>
+      <a class="faq-chip" href="faq.html#q-job-board">Can you connect my job board to my website and CRM?</a>
+      <a class="faq-chip" href="faq.html#q-typeform">Can you make a TypeForm submission create a custom webpage?</a>
+      <a class="faq-chip" href="faq.html#q-email-calendar">Can you make emails automatically create calendar events?</a>
+      <a class="faq-chip" href="faq.html#q-airtable-wordpress">Can you connect my Airtable to my WordPress site?</a>
+      <a class="faq-chip" href="faq.html#q-stripe-crm">Can you connect Stripe (or Square, or PayPal) to my CRM?</a>
+      <a class="faq-chip" href="faq.html#q-simple-site">Can you build me a super simple website?</a>
+      <a class="faq-chip" href="faq.html#q-poc">Can you build me a proof of concept for my business idea?</a>
+      <a class="faq-chip" href="faq.html#q-inventory">Can you build me an inventory tracking system?</a>
+      <a class="faq-chip" href="faq.html#q-airtable-crm">Can you build me a CRM in Airtable?</a>
+      <a class="faq-chip" href="faq.html#q-onboarding-system">Can you build me a system to manage onboarding and inspections?</a>
+      <a class="faq-chip" href="faq.html#q-sheet-formula">Can you write a formula for my Google Sheet (or Excel)?</a>
+      <a class="faq-chip" href="faq.html#q-squarespace">Can you make a quick change on my Squarespace site?</a>
+      <a class="faq-chip" href="faq.html#q-wp-updates">Can you keep my WordPress plugins and themes updated?</a>
+      <a class="faq-chip" href="faq.html#q-tool-choice">Can you help me figure out which tool to use?</a>
+      <a class="faq-chip" href="faq.html#q-training">Can you train me or my team on a tool we already pay for?</a>
+      <a class="faq-chip" href="faq.html#q-membership-required">Do I have to be a Forward Support member to hire you?</a>
+      <a class="faq-chip" href="faq.html#q-out-of-state">Do you work with clients outside Missouri or Tennessee?</a>
+      <a class="faq-chip" href="faq.html#q-nda">Do you sign NDAs?</a>
+      <a class="faq-chip" href="faq.html#q-timeline">How long does a typical project take?</a>
+      <a class="faq-chip" href="faq.html#q-not-sure">What if I don't know what I need?</a>
+      <a class="faq-chip" href="faq.html#q-other-question">What if my question isn't on this page?</a>
+      <!-- Duplicate set for seamless loop -->
+      <a class="faq-chip" href="faq.html#q-access" aria-hidden="true" tabindex="-1">Can you fix my Microsoft Access database?</a>
+      <a class="faq-chip" href="faq.html#q-zap" aria-hidden="true" tabindex="-1">My Zapier zap stopped working — can you figure out why?</a>
+      <a class="faq-chip" href="faq.html#q-contact-form" aria-hidden="true" tabindex="-1">My contact form stopped sending emails. Can you fix that?</a>
+      <a class="faq-chip" href="faq.html#q-airtable-formula" aria-hidden="true" tabindex="-1">My Airtable formula isn't working. Can you take a look?</a>
+      <a class="faq-chip" href="faq.html#q-wordpress-errors" aria-hidden="true" tabindex="-1">My WordPress site is showing errors. Can you fix it?</a>
+      <a class="faq-chip" href="faq.html#q-job-board" aria-hidden="true" tabindex="-1">Can you connect my job board to my website and CRM?</a>
+      <a class="faq-chip" href="faq.html#q-typeform" aria-hidden="true" tabindex="-1">Can you make a TypeForm submission create a custom webpage?</a>
+      <a class="faq-chip" href="faq.html#q-email-calendar" aria-hidden="true" tabindex="-1">Can you make emails automatically create calendar events?</a>
+      <a class="faq-chip" href="faq.html#q-airtable-wordpress" aria-hidden="true" tabindex="-1">Can you connect my Airtable to my WordPress site?</a>
+      <a class="faq-chip" href="faq.html#q-stripe-crm" aria-hidden="true" tabindex="-1">Can you connect Stripe (or Square, or PayPal) to my CRM?</a>
+      <a class="faq-chip" href="faq.html#q-simple-site" aria-hidden="true" tabindex="-1">Can you build me a super simple website?</a>
+      <a class="faq-chip" href="faq.html#q-poc" aria-hidden="true" tabindex="-1">Can you build me a proof of concept for my business idea?</a>
+      <a class="faq-chip" href="faq.html#q-inventory" aria-hidden="true" tabindex="-1">Can you build me an inventory tracking system?</a>
+      <a class="faq-chip" href="faq.html#q-airtable-crm" aria-hidden="true" tabindex="-1">Can you build me a CRM in Airtable?</a>
+      <a class="faq-chip" href="faq.html#q-onboarding-system" aria-hidden="true" tabindex="-1">Can you build me a system to manage onboarding and inspections?</a>
+      <a class="faq-chip" href="faq.html#q-sheet-formula" aria-hidden="true" tabindex="-1">Can you write a formula for my Google Sheet (or Excel)?</a>
+      <a class="faq-chip" href="faq.html#q-squarespace" aria-hidden="true" tabindex="-1">Can you make a quick change on my Squarespace site?</a>
+      <a class="faq-chip" href="faq.html#q-wp-updates" aria-hidden="true" tabindex="-1">Can you keep my WordPress plugins and themes updated?</a>
+      <a class="faq-chip" href="faq.html#q-tool-choice" aria-hidden="true" tabindex="-1">Can you help me figure out which tool to use?</a>
+      <a class="faq-chip" href="faq.html#q-training" aria-hidden="true" tabindex="-1">Can you train me or my team on a tool we already pay for?</a>
+      <a class="faq-chip" href="faq.html#q-membership-required" aria-hidden="true" tabindex="-1">Do I have to be a Forward Support member to hire you?</a>
+      <a class="faq-chip" href="faq.html#q-out-of-state" aria-hidden="true" tabindex="-1">Do you work with clients outside Missouri or Tennessee?</a>
+      <a class="faq-chip" href="faq.html#q-nda" aria-hidden="true" tabindex="-1">Do you sign NDAs?</a>
+      <a class="faq-chip" href="faq.html#q-timeline" aria-hidden="true" tabindex="-1">How long does a typical project take?</a>
+      <a class="faq-chip" href="faq.html#q-not-sure" aria-hidden="true" tabindex="-1">What if I don't know what I need?</a>
+      <a class="faq-chip" href="faq.html#q-other-question" aria-hidden="true" tabindex="-1">What if my question isn't on this page?</a>
     </div>
   </div>
 </section>
@@ -423,7 +574,7 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <p>© 2026 Forward Solutions · Lee Pettijohn · gottamoveforward.com</p>
+      <p>Established in 2020 · Forward Solutions · Lee Pettijohn · gottamoveforward.com</p>
     </div>
   </div>
 </footer>

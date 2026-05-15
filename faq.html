@@ -252,6 +252,18 @@
   ]
 }
 </script>
+
+<style>
+  /* Scroll target offset so anchor links don't land under the sticky nav */
+  .faq-item { scroll-margin-top: 88px; }
+  /* Make a deep-linked item visually highlighted briefly */
+  .faq-item:target {
+    background: rgba(63, 169, 245, 0.06);
+    border-radius: 8px;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+</style>
 </head>
 <body>
 
@@ -293,23 +305,23 @@
       <p class="section-sub">If something used to work and now it doesn't, this is the most common kind of ticket I get.</p>
     </div>
     <div class="faq-list">
-      <details class="faq-item">
+      <details class="faq-item" id="q-access">
         <summary>Can you fix my Microsoft Access database?</summary>
         <p>Usually yes. Access is old but it isn't dead — plenty of small businesses still run on it. I can fix broken queries, busted forms, reports that won't open, and tables that have gotten tangled. I can also tell you honestly if it's time to migrate to something more modern (often it is), and quote that separately.</p>
       </details>
-      <details class="faq-item">
+      <details class="faq-item" id="q-zap">
         <summary>My Zapier zap stopped working — can you figure out why?</summary>
         <p>Yes. Most failed zaps come down to one of three things: an authentication that expired, an upstream tool that changed its data format, or a step that's hitting a rate limit. I can usually diagnose and fix in under an hour. This is a one-ticket job on Forward Support.</p>
       </details>
-      <details class="faq-item">
+      <details class="faq-item" id="q-contact-form">
         <summary>My contact form stopped sending emails. Can you fix that?</summary>
         <p>Yes. Common culprits: SMTP credentials expired, the form plugin updated and broke something, or your domain's email authentication (SPF/DKIM) is out of date. Fixable in a single ticket.</p>
       </details>
-      <details class="faq-item">
+      <details class="faq-item" id="q-airtable-formula">
         <summary>My Airtable formula isn't working. Can you take a look?</summary>
         <p>Yes — formula debugging is one of the most common things I do. Send me the base and tell me what you're trying to get the formula to do. Usually fixable in 15 minutes.</p>
       </details>
-      <details class="faq-item">
+      <details class="faq-item" id="q-wordpress-errors">
         <summary>My WordPress site is showing errors. Can you fix it?</summary>
         <p>Depends on the error. For specific bugs — a broken form, a plugin conflict, a layout that broke after an update — yes. For ongoing maintenance of a heavy WordPress site with 30+ plugins, I'm not your best option (and I'll tell you who is). I'll be honest after I take one look.</p>
       </details>
@@ -326,23 +338,23 @@
       <p class="section-sub">Integration work is half of what I do. If two of your tools should be talking and aren't, there's almost always a way.</p>
     </div>
     <div class="faq-list">
-      <details class="faq-item">
+      <details class="faq-item" id="q-job-board">
         <summary>Can you connect my job board to my website and CRM?</summary>
         <p>Yes — this is a typical Forward Flow build. Most job boards have an API or a Zapier integration; the question is what your CRM expects on the other end. If it's a 30-minute connection, it's a ticket. If it's a multi-step automation with custom data mapping, it's a small fixed-price build.</p>
       </details>
-      <details class="faq-item">
+      <details class="faq-item" id="q-typeform">
         <summary>Can you make a TypeForm submission create a custom webpage for the user who submitted?</summary>
         <p>Yes — this is exactly the kind of build I did for Neat and Nimble. TypeForm → Airtable → page generator → published URL. Usually a $500–$1,000 Forward Flow build depending on the page complexity.</p>
       </details>
-      <details class="faq-item">
+      <details class="faq-item" id="q-email-calendar">
         <summary>Can you make it so when I get an email, a Google Calendar event is automatically created?</summary>
         <p>Yes. This is a classic Zapier or Make automation — about an hour of work to set up and test. One ticket on Forward Support, or a tiny one-off Forward Flow if you're not a member.</p>
       </details>
-      <details class="faq-item">
+      <details class="faq-item" id="q-airtable-wordpress">
         <summary>Can you connect my Airtable to my WordPress site?</summary>
         <p>Yes — and there are several ways to do it depending on what you want the site to show. We can pipe data through an API, use a plugin like AirPress, or build a Stacker front-end if it's a customer-facing app. I'll recommend the right approach after a short call.</p>
       </details>
-      <details class="faq-item">
+      <details class="faq-item" id="q-stripe-crm">
         <summary>Can you connect Stripe (or Square, or PayPal) to my CRM?</summary>
         <p>Yes. Payments-to-CRM is one of the most common integrations I build. Stripe is the easiest. Square and PayPal both work but have quirks. Quote depends on which CRM and how much data you want passed.</p>
       </details>
@@ -359,23 +371,23 @@
       <p class="section-sub">Whether it's a starter website or a custom system that replaces three tools, I quote a fixed price before any work starts.</p>
     </div>
     <div class="faq-list">
-      <details class="faq-item">
+      <details class="faq-item" id="q-simple-site">
         <summary>Can you build me a super simple website?</summary>
         <p>Yes — that's a Forward Site Starter, from $750. A clean 3-to-5 page site on a custom domain, mobile-friendly, easy for you to update. Usually delivered in two to three weeks.</p>
       </details>
-      <details class="faq-item">
+      <details class="faq-item" id="q-poc">
         <summary>Can you build me a proof of concept for my business idea?</summary>
         <p>Yes — that's a Forward Proof, from $500. The goal is to show what's possible before you commit to building the real version. Recent example: Josie Meyers needed a working prototype of her Airtable + Stacker concept before deciding whether to invest in the full build. We did it in about a week.</p>
       </details>
-      <details class="faq-item">
+      <details class="faq-item" id="q-inventory">
         <summary>Can you build me an inventory tracking system?</summary>
         <p>Yes. For most small businesses, an Airtable-based inventory system runs $1,000–$2,500 depending on complexity. I built one for Quality Drywall that tracks materials across active jobs — included setup, forms, views, and a one-hour training. <a href="builds.html">See Forward Data</a>.</p>
       </details>
-      <details class="faq-item">
+      <details class="faq-item" id="q-airtable-crm">
         <summary>Can you build me a CRM in Airtable?</summary>
         <p>Yes — and I'd usually recommend it before recommending you buy HubSpot or similar. For a one-to-twenty-person business, a custom Airtable CRM costs less, fits your exact workflow, and doesn't lock you into per-seat pricing. Typical build: $1,500–$3,000.</p>
       </details>
-      <details class="faq-item">
+      <details class="faq-item" id="q-onboarding-system">
         <summary>Can you build me a system to manage onboarding, client messages, and inspections?</summary>
         <p>Yes — that's the kind of multi-function system I built for BBIM / Stay Inn the Heartland. It's a Complex System (from $5,000) because there are multiple workflows that need to talk to each other. <a href="systems.html">See Complex Systems</a> or <a href="work.html">read the case study</a>.</p>
       </details>
@@ -392,23 +404,23 @@
       <p class="section-sub">A lot of what I do is small. Forward Support exists for exactly this reason — pay a monthly fee, text me when you need something.</p>
     </div>
     <div class="faq-list">
-      <details class="faq-item">
+      <details class="faq-item" id="q-sheet-formula">
         <summary>Can you write a formula for my Google Sheet (or Excel)?</summary>
         <p>Yes. Almost always one ticket on Forward Support. If you're not a member yet, I can do it as a one-off, but if you find yourself needing formula help more than once a quarter, the membership pays for itself.</p>
       </details>
-      <details class="faq-item">
+      <details class="faq-item" id="q-squarespace">
         <summary>Can you make a quick change on my Squarespace site?</summary>
         <p>Yes, even though Squarespace isn't my main platform. Most "quick changes" are quick regardless of platform — copy edits, image swaps, color tweaks, adding a section, fixing a broken link. One ticket.</p>
       </details>
-      <details class="faq-item">
+      <details class="faq-item" id="q-wp-updates">
         <summary>Can you keep my WordPress plugins, themes, and core updated?</summary>
         <p>Yes — this is a great fit for Priority-tier Forward Support. I'll check your site monthly, apply updates, and flag anything that broke. Note: this is different from "manage" a heavy plugin-laden WordPress site. I do updates and tune-ups, not deep custom plugin development.</p>
       </details>
-      <details class="faq-item">
+      <details class="faq-item" id="q-tool-choice">
         <summary>Can you help me figure out which tool to use for [problem]?</summary>
         <p>Yes — and honestly, this is one of the most valuable things I do. Before you spend $400/mo on software, it's worth a 30-minute call to make sure you're buying the right thing. Often the answer is "you don't need to buy anything new; the tool you already have can do this."</p>
       </details>
-      <details class="faq-item">
+      <details class="faq-item" id="q-training">
         <summary>Can you train me or my team on a tool we already pay for?</summary>
         <p>Yes — Airtable, Stacker, Zapier, WordPress, basic WooCommerce. A one-hour training is one ticket. A multi-session training program is a small fixed-price build.</p>
       </details>
@@ -424,27 +436,27 @@
       <h2 class="h2">How does this actually work?</h2>
     </div>
     <div class="faq-list">
-      <details class="faq-item">
+      <details class="faq-item" id="q-membership-required">
         <summary>Do I have to be a Forward Support member to hire you?</summary>
         <p>No. Most of my clients start with a one-off build (a website, a small system, a proof of concept) and decide later whether they want ongoing support. Some never sign up for Support and that's fine. The membership is for people who want a person on call, not a gate.</p>
       </details>
-      <details class="faq-item">
+      <details class="faq-item" id="q-out-of-state">
         <summary>Do you work with clients outside Missouri or Tennessee?</summary>
         <p>Yes — most of my work is remote. I'm based in Hermann, Missouri through July 2026, then moving south of Nashville. Either way, the work doesn't depend on geography.</p>
       </details>
-      <details class="faq-item">
+      <details class="faq-item" id="q-nda">
         <summary>Do you sign NDAs?</summary>
         <p>Yes. Send me yours or ask for mine.</p>
       </details>
-      <details class="faq-item">
+      <details class="faq-item" id="q-timeline">
         <summary>How long does a typical project take?</summary>
         <p>A Forward Support ticket: under an hour, usually within a business day or two depending on your plan. A Simple Build: two to four weeks. A Complex System: four to twelve weeks, depending on scope.</p>
       </details>
-      <details class="faq-item">
+      <details class="faq-item" id="q-not-sure">
         <summary>What if I don't know what I need?</summary>
         <p>That's the most common starting point. Book a free 15-minute call from <a href="start.html">the start page</a> and describe what you're trying to do. I'll tell you whether it's a ticket, a build, a system, or "you don't need to hire me for this, here's what to do yourself."</p>
       </details>
-      <details class="faq-item">
+      <details class="faq-item" id="q-other-question">
         <summary>What if my question isn't on this page?</summary>
         <p>Ask anyway. I add to this page over time based on what people actually ask. <a href="start.html">Send me your question</a> — I'll get back to you within one business day either way.</p>
       </details>
@@ -489,7 +501,7 @@
         <p class="footer-meta">Hermann, MO → Nashville, TN<br>Working across the country</p>
       </div>
     </div>
-    <div class="footer-bottom"><p>© 2026 Forward Solutions · Lee Pettijohn · gottamoveforward.com</p></div>
+    <div class="footer-bottom"><p>Established in 2020 · Forward Solutions · Lee Pettijohn · gottamoveforward.com</p></div>
   </div>
 </footer>
 
