@@ -32,8 +32,97 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://cdn.simpleicons.org">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
+
+<!-- FAQ rotating cards styles (scoped to homepage) -->
+<style>
+  .faq-rotator {
+    background: var(--paper);
+    padding: var(--section-y) 0;
+  }
+  .faq-rotator .faq-stage {
+    position: relative;
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+  .faq-rotator .faq-pair {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+  }
+  .faq-rotator .faq-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-height: 170px;
+    padding: 1.75rem 1.25rem;
+    background: var(--white);
+    border: 1px solid var(--hairline);
+    border-radius: var(--radius);
+    color: var(--ink);
+    text-decoration: none;
+    transition:
+      opacity 600ms ease,
+      transform 600ms ease,
+      border-color 0.2s ease,
+      box-shadow 0.2s ease,
+      color 0.2s ease;
+    opacity: 0;
+    transform: translateY(14px);
+    will-change: opacity, transform;
+  }
+  .faq-rotator .faq-card.is-in {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .faq-rotator .faq-card.is-out {
+    opacity: 0;
+    transform: translateY(-14px);
+  }
+  .faq-rotator .faq-card:hover {
+    border-color: var(--forward-blue);
+    color: var(--forward-blue);
+    box-shadow: 0 12px 32px rgba(30, 91, 186, 0.08);
+    transform: translateY(-2px);
+  }
+  .faq-rotator .faq-icon-slot {
+    height: 32px;
+    margin-bottom: 0.875rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .faq-rotator .faq-icon-slot img {
+    height: 32px;
+    width: auto;
+    display: block;
+  }
+  .faq-rotator .faq-icon-slot:empty {
+    display: none;
+  }
+  .faq-rotator .faq-text {
+    font-size: 1.0625rem;
+    font-weight: 600;
+    line-height: 1.4;
+    color: inherit;
+  }
+  @media (max-width: 560px) {
+    .faq-rotator .faq-pair { grid-template-columns: 1fr; }
+    .faq-rotator .faq-card-2 { display: none; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .faq-rotator .faq-card {
+      transition: none;
+      opacity: 1;
+      transform: none;
+    }
+  }
+</style>
 
 <!-- Structured data -->
 <script type="application/ld+json">
@@ -125,14 +214,12 @@
     </div>
     <div class="hero-visual reveal" style="--delay:0.2s">
       <svg viewBox="0 0 480 480" xmlns="http://www.w3.org/2000/svg" class="hero-svg" aria-hidden="true">
-        <!-- Scattered shapes that animate to a grid on load -->
         <defs>
           <linearGradient id="blueGrad" x1="0%" y1="0%" x2="100%" y2="100%">
             <stop offset="0%" stop-color="#3FA9F5"/>
             <stop offset="100%" stop-color="#1E5BBA"/>
           </linearGradient>
         </defs>
-        <!-- Background subtle grid -->
         <g opacity="0.08" stroke="#1E5BBA" stroke-width="1">
           <line x1="0" y1="120" x2="480" y2="120"/>
           <line x1="0" y1="240" x2="480" y2="240"/>
@@ -141,7 +228,6 @@
           <line x1="240" y1="0" x2="240" y2="480"/>
           <line x1="360" y1="0" x2="360" y2="480"/>
         </g>
-        <!-- Animated tiles -->
         <g class="tile-group">
           <rect class="tile t1" x="80" y="80" width="100" height="100" rx="8" fill="#1E5BBA"/>
           <rect class="tile t2" x="200" y="80" width="100" height="100" rx="8" fill="#3FA9F5"/>
@@ -158,8 +244,31 @@
   </div>
 </section>
 
+<!-- ============ FAQ ROTATING CARDS ============ -->
+<section class="faq-rotator" aria-labelledby="faq-rotator-heading">
+  <div class="container">
+    <div class="section-head">
+      <p class="eyebrow">Common questions</p>
+      <h2 class="h2" id="faq-rotator-heading">Can I help with…?</h2>
+      <p class="section-sub">A few of the questions I get most often. Click one to read the answer. Hover to pause.</p>
+    </div>
+  </div>
+  <div class="faq-stage" id="faq-stage">
+    <div class="faq-pair">
+      <a class="faq-card faq-card-1 is-in" id="faq-card-1" href="#">
+        <span class="faq-icon-slot"></span>
+        <span class="faq-text"></span>
+      </a>
+      <a class="faq-card faq-card-2 is-in" id="faq-card-2" href="#">
+        <span class="faq-icon-slot"></span>
+        <span class="faq-text"></span>
+      </a>
+    </div>
+  </div>
+</section>
+
 <!-- ============ THREE THINGS I DO ============ -->
-<section class="section section-offerings">
+<section class="section section-offerings section-alt">
   <div class="container">
     <div class="section-head">
       <p class="eyebrow">What I do</p>
@@ -199,7 +308,7 @@
 </section>
 
 <!-- ============ HOW I WORK ============ -->
-<section class="section section-alt" id="how">
+<section class="section" id="how">
   <div class="container">
     <div class="section-head">
       <p class="eyebrow">How I work</p>
@@ -226,7 +335,7 @@
 </section>
 
 <!-- ============ FEATURED WORK ============ -->
-<section class="section">
+<section class="section section-alt">
   <div class="container">
     <div class="featured-grid">
       <div class="featured-visual">
@@ -236,7 +345,6 @@
             <span class="screenshot-url">stayinntheheartland.com</span>
           </div>
           <div class="screenshot-body">
-            <!-- Placeholder representation of a Stacker dashboard -->
             <div class="ss-sidebar">
               <div class="ss-sidebar-item active"></div>
               <div class="ss-sidebar-item"></div>
@@ -287,7 +395,7 @@
 </section>
 
 <!-- ============ WHO I HELP ============ -->
-<section class="section section-alt">
+<section class="section">
   <div class="container container-narrow">
     <div class="section-head">
       <p class="eyebrow">Who I help</p>
@@ -304,7 +412,7 @@
 </section>
 
 <!-- ============ AI vs LEE ============ -->
-<section class="section">
+<section class="section section-alt">
   <div class="container container-narrow">
     <div class="section-head">
       <p class="eyebrow">Why people hire me</p>
@@ -423,11 +531,153 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <p>© 2026 Forward Solutions · Lee Pettijohn · gottamoveforward.com</p>
+      <p>Established in 2020 · Forward Solutions · Lee Pettijohn · gottamoveforward.com</p>
     </div>
   </div>
 </footer>
 
 <script src="script.js"></script>
+
+<!-- FAQ rotating cards behavior -->
+<script>
+  (function(){
+    var BRAND_BLUE = "1E5BBA";
+
+    var BRANDS = {
+      wordpress:   { slug: "wordpress",        label: "WordPress" },
+      airtable:    { slug: "airtable",         label: "Airtable" },
+      zapier:      { slug: "zapier",           label: "Zapier" },
+      stripe:      { slug: "stripe",           label: "Stripe" },
+      square:      { slug: "square",           label: "Square" },
+      paypal:      { slug: "paypal",           label: "PayPal" },
+      typeform:    { slug: "typeform",         label: "Typeform" },
+      squarespace: { slug: "squarespace",      label: "Squarespace" },
+      access:      { slug: "microsoft",        label: "Microsoft Access" },
+      googlesheet: { slug: "googlesheets",     label: "Google Sheets" },
+      excel:       { slug: "microsoftexcel",   label: "Microsoft Excel" },
+      gcal:        { slug: "googlecalendar",   label: "Google Calendar" }
+    };
+
+    function iconUrl(slug){
+      return "https://cdn.simpleicons.org/" + slug + "/" + BRAND_BLUE;
+    }
+
+    var QUESTIONS = [
+      { q: "Can you fix my Microsoft Access database?",                        id: "q-access",              brands: ["access"] },
+      { q: "My Zapier zap stopped working — can you figure out why?",          id: "q-zap",                 brands: ["zapier"] },
+      { q: "My contact form stopped sending emails. Can you fix that?",       id: "q-contact-form",        brands: [] },
+      { q: "My Airtable formula isn't working. Can you take a look?",          id: "q-airtable-formula",    brands: ["airtable"] },
+      { q: "My WordPress site is showing errors. Can you fix it?",            id: "q-wordpress-errors",    brands: ["wordpress"] },
+      { q: "Can you connect my job board to my website and CRM?",             id: "q-job-board",           brands: [] },
+      { q: "Can you make a TypeForm submission create a custom webpage?",     id: "q-typeform",            brands: ["typeform"] },
+      { q: "Can you make emails automatically create calendar events?",       id: "q-email-calendar",      brands: ["gcal"] },
+      { q: "Can you connect my Airtable to my WordPress site?",               id: "q-airtable-wordpress",  brands: ["airtable", "wordpress"] },
+      { q: "Can you connect Stripe (or Square, or PayPal) to my CRM?",        id: "q-stripe-crm",          brands: ["stripe"] },
+      { q: "Can you build me a super simple website?",                        id: "q-simple-site",         brands: [] },
+      { q: "Can you build me a proof of concept for my business idea?",       id: "q-poc",                 brands: [] },
+      { q: "Can you build me an inventory tracking system?",                  id: "q-inventory",           brands: ["airtable"] },
+      { q: "Can you build me a CRM in Airtable?",                             id: "q-airtable-crm",        brands: ["airtable"] },
+      { q: "Can you build me a system to manage onboarding and inspections?", id: "q-onboarding-system",   brands: [] },
+      { q: "Can you write a formula for my Google Sheet (or Excel)?",         id: "q-sheet-formula",       brands: ["googlesheet"] },
+      { q: "Can you make a quick change on my Squarespace site?",             id: "q-squarespace",         brands: ["squarespace"] },
+      { q: "Can you keep my WordPress plugins and themes updated?",           id: "q-wp-updates",          brands: ["wordpress"] },
+      { q: "Can you help me figure out which tool to use?",                   id: "q-tool-choice",         brands: [] },
+      { q: "Can you train me or my team on a tool we already pay for?",       id: "q-training",            brands: [] },
+      { q: "Do I have to be a Forward Support member to hire you?",           id: "q-membership-required", brands: [] },
+      { q: "Do you work with clients outside Missouri or Tennessee?",         id: "q-out-of-state",        brands: [] },
+      { q: "Do you sign NDAs?",                                                id: "q-nda",                 brands: [] },
+      { q: "How long does a typical project take?",                           id: "q-timeline",            brands: [] },
+      { q: "What if I don't know what I need?",                                id: "q-not-sure",            brands: [] },
+      { q: "What if my question isn't on this page?",                         id: "q-other-question",      brands: [] }
+    ];
+
+    var BASE = "faq.html#";
+    var HOLD_MS = 5000;
+    var ANIM_MS = 600;
+
+    var stage = document.getElementById('faq-stage');
+    var c1    = document.getElementById('faq-card-1');
+    var c2    = document.getElementById('faq-card-2');
+    if (!stage || !c1 || !c2) return;
+
+    var deck = QUESTIONS.slice();
+    for (var i = deck.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var tmp = deck[i]; deck[i] = deck[j]; deck[j] = tmp;
+    }
+    var idx = 0;
+
+    function setCard(card, item){
+      card.querySelector('.faq-text').textContent = item.q;
+      card.setAttribute('href', BASE + item.id);
+      var iconSlot = card.querySelector('.faq-icon-slot');
+      iconSlot.innerHTML = '';
+      if (item.brands && item.brands.length) {
+        var key = item.brands[0];
+        var brand = BRANDS[key];
+        if (brand) {
+          var img = document.createElement('img');
+          img.src = iconUrl(brand.slug);
+          img.alt = brand.label;
+          img.loading = 'lazy';
+          iconSlot.appendChild(img);
+        }
+      }
+    }
+
+    function nextPair(){
+      return [ deck[idx % deck.length], deck[(idx + 1) % deck.length] ];
+    }
+
+    var first = nextPair();
+    setCard(c1, first[0]);
+    setCard(c2, first[1]);
+    idx += 2;
+
+    var paused = false;
+    stage.addEventListener('mouseenter', function(){ paused = true;  });
+    stage.addEventListener('mouseleave', function(){ paused = false; });
+
+    function cycle(){
+      if (paused) { setTimeout(cycle, 250); return; }
+
+      c1.classList.remove('is-in');
+      c2.classList.remove('is-in');
+      c1.classList.add('is-out');
+      c2.classList.add('is-out');
+
+      setTimeout(function(){
+        var pair = nextPair();
+        setCard(c1, pair[0]);
+        setCard(c2, pair[1]);
+        idx += 2;
+
+        c1.style.transition = 'none';
+        c2.style.transition = 'none';
+        c1.classList.remove('is-out');
+        c2.classList.remove('is-out');
+        c1.style.transform = 'translateY(14px)';
+        c2.style.transform = 'translateY(14px)';
+        c1.style.opacity = '0';
+        c2.style.opacity = '0';
+
+        void c1.offsetWidth;
+
+        c1.style.transition = '';
+        c2.style.transition = '';
+        c1.style.removeProperty('transform');
+        c2.style.removeProperty('transform');
+        c1.style.removeProperty('opacity');
+        c2.style.removeProperty('opacity');
+        c1.classList.add('is-in');
+        c2.classList.add('is-in');
+
+        setTimeout(cycle, HOLD_MS);
+      }, ANIM_MS);
+    }
+
+    setTimeout(cycle, HOLD_MS);
+  })();
+</script>
 </body>
 </html>
