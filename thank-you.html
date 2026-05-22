@@ -45,14 +45,15 @@
 
 <!-- Fire a GA conversion event for a completed intake submission -->
 <script>
-  window.addEventListener('DOMContentLoaded', function () {
-    if (typeof gtag === 'function') {
-      gtag('event', 'generate_lead', {
-        'event_category': 'intake',
-        'event_label': 'start_form_submission'
-      });
-    }
-  });
+  // gtag is defined in the GA snippet above and safely queues events
+  // even before the library finishes loading. Call it directly — do not
+  // wait on DOMContentLoaded, which may have already fired by now.
+  if (typeof gtag === 'function') {
+    gtag('event', 'generate_lead', {
+      'event_category': 'intake',
+      'event_label': 'start_form_submission'
+    });
+  }
 </script>
 
 <style>
