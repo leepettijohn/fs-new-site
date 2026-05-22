@@ -99,7 +99,11 @@
 
 <section class="section" style="padding-top: 2rem;">
   <div class="container">
-    <form class="intake-form" id="intake-form">
+    <form class="intake-form" id="intake-form" name="intake" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/start">
+      <input type="hidden" name="form-name" value="intake">
+      <p class="hidden" style="display:none;">
+        <label>Don't fill this out if you're human: <input name="bot-field"></label>
+      </p>
       <div class="form-row">
         <label for="name">Your name</label>
         <input type="text" id="name" name="name" required>
@@ -122,7 +126,7 @@
 
       <div class="form-row">
         <label for="need">What are you trying to do?</label>
-        <textarea id="need" name="need" placeholder="Describe it the way you'd describe it to a friend. No tech jargon required."></textarea>
+        <textarea id="need" name="need" required placeholder="Describe it the way you'd describe it to a friend. No tech jargon required."></textarea>
       </div>
 
       <div class="form-row">
@@ -138,7 +142,7 @@
       <div class="form-row">
         <label>Budget, roughly?</label>
         <div class="form-radios">
-          <label><input type="radio" name="budget" value="under500"> Under $500</label>
+          <label><input type="radio" name="budget" value="200-500"> $200–$500</label>
           <label><input type="radio" name="budget" value="500-2000"> $500–$2,000</label>
           <label><input type="radio" name="budget" value="2000-10000"> $2,000–$10,000</label>
           <label><input type="radio" name="budget" value="10000plus"> $10,000+</label>
@@ -236,12 +240,5 @@
 </footer>
 
 <script src="script.js"></script>
-<script>
-  // Demo-only: prevent form submission on this draft
-  document.getElementById('intake-form').addEventListener('submit', function(e) {
-    e.preventDefault();
-    alert('Form submission is wired up at launch. This is a draft preview.');
-  });
-</script>
 </body>
 </html>
