@@ -1052,7 +1052,7 @@ a { color: var(--forward-blue); text-decoration: none; }
   .plan-compare,
   .tickets-grid,
   .footer-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr !important;
     gap: 1.25rem;
   }
   .steps-grid { gap: 2rem; }
