@@ -702,7 +702,7 @@ a { color: var(--forward-blue); text-decoration: none; }
 
 /* ====== STARTER PAGE STYLES (subpages) ====== */
 .page-hero {
-  padding: 5rem 0 3rem;
+  padding: 5rem 0 2rem;
   background: var(--paper);
   text-align: center;
 }
@@ -716,12 +716,22 @@ a { color: var(--forward-blue); text-decoration: none; }
 }
 .page-hero .lead {
   max-width: 52ch;
-  margin: 0 auto 2rem;
+  margin: 0 auto 1.25rem;
   color: var(--slate);
   font-size: 1.25rem;
 }
 .page-hero .hero-cta {
   justify-content: center;
+}
+.jump-nav {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 0.5rem;
+}
+.casestudy {
+  scroll-margin-top: 90px;
 }
 
 /* Build catalog cards */
