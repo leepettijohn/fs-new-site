@@ -79,9 +79,8 @@
       <h2 class="h2">A membership organization that runs onboarding, inspections, and approvals in one place.</h2>
     </div>
 
-    <figure class="cs-figure">
-      <img src="images/work-stayinn-dashboard.jpg" width="1600" height="888" alt="The Stay Inn the Heartland member portal — a custom Stacker app showing the navigation for members, properties, and inspections alongside a grid of member lodging properties. Member details are blurred for privacy." loading="lazy">
-      <figcaption>The member portal I built on Airtable and Stacker. Member names and contact details are blurred here for their privacy.</figcaption>
+    <figure class="cs-figure cs-figure-concept">
+      <img src="images/work-chaos-to-order.jpg" width="1600" height="900" alt="Abstract illustration: scattered, misaligned blue rectangles on the left resolve into a clean, organized grid on the right." loading="lazy">
     </figure>
 
     <div class="cs-body">
@@ -94,12 +93,84 @@
         <h3 class="cs-subhead">What I built</h3>
         <p>A custom membership system on Airtable and Stacker that takes a property from purchase to approval without anyone holding the whole process in their head. A new member buys through Shopify, and the system creates their user and property record automatically. The owner fills in their own property details. Those get reviewed, the property gets inspected against a defined checklist, and once it passes, the board approves it — each step visible, each handoff tracked.</p>
       </div>
+    </div>
 
+    <figure class="cs-figure cs-figure-concept">
+      <img src="images/work-connected-systems.jpg" width="1600" height="900" alt="Abstract illustration: several separate app windows connected by lines to one central dashboard, suggesting multiple tools working together as one system." loading="lazy">
+      <figcaption>Several tools — purchase, records, automations, role-based views — wired into one system.</figcaption>
+    </figure>
+
+    <figure class="cs-figure">
+      <img src="images/work-stayinn-dashboard.jpg" width="1600" height="888" alt="The Stay Inn the Heartland member portal — a custom Stacker app showing the navigation for members, properties, and inspections alongside a grid of member lodging properties. Member details are blurred for privacy." loading="lazy">
+      <figcaption>The member portal I built on Airtable and Stacker. Member names and contact details are blurred here for their privacy.</figcaption>
+    </figure>
+
+    <div class="cs-body">
       <div class="cs-block">
         <h3 class="cs-subhead">Why Airtable and Stacker</h3>
         <p>Airtable holds the data and runs the automations. Stacker puts a clean, role-aware interface on top of it — which mattered here, because the organization has several kinds of people touching the system: board members, inspectors, and property owners, each of whom should see and do different things. Role-based permissions mean an inspector sees what an inspector needs, an owner sees only their own property, and the board sees the whole picture.</p>
       </div>
+    </div>
 
+    <figure class="cs-diagram" aria-labelledby="flow-title">
+      <svg viewBox="0 0 680 300" role="img" xmlns="http://www.w3.org/2000/svg" width="100%">
+        <title id="flow-title">The Stay Inn the Heartland onboarding and approval flow</title>
+        <desc>A six-step flow: a member purchases through Shopify, the system creates their record, the owner fills in property details, the details are reviewed, the property is inspected, and the board approves it.</desc>
+        <defs>
+          <marker id="fsArrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M2 1L8 5L2 9" fill="none" stroke="#5B6470" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </marker>
+        </defs>
+
+        <!-- Row 1 -->
+        <g>
+          <rect x="20" y="40" width="190" height="64" rx="10" fill="#E6F1FB" stroke="#1E5BBA" stroke-width="1"/>
+          <text x="115" y="66" text-anchor="middle" font-family="Inter, sans-serif" font-size="15" font-weight="600" fill="#0C447C">1 · Member buys in</text>
+          <text x="115" y="86" text-anchor="middle" font-family="Inter, sans-serif" font-size="13" fill="#185FA5">Shopify purchase</text>
+        </g>
+        <line x1="214" y1="72" x2="242" y2="72" stroke="#5B6470" stroke-width="1.5" marker-end="url(#fsArrow)"/>
+        <g>
+          <rect x="245" y="40" width="190" height="64" rx="10" fill="#E6F1FB" stroke="#1E5BBA" stroke-width="1"/>
+          <text x="340" y="66" text-anchor="middle" font-family="Inter, sans-serif" font-size="15" font-weight="600" fill="#0C447C">2 · Record created</text>
+          <text x="340" y="86" text-anchor="middle" font-family="Inter, sans-serif" font-size="13" fill="#185FA5">User + property, automatically</text>
+        </g>
+        <line x1="439" y1="72" x2="467" y2="72" stroke="#5B6470" stroke-width="1.5" marker-end="url(#fsArrow)"/>
+        <g>
+          <rect x="470" y="40" width="190" height="64" rx="10" fill="#E6F1FB" stroke="#1E5BBA" stroke-width="1"/>
+          <text x="565" y="66" text-anchor="middle" font-family="Inter, sans-serif" font-size="15" font-weight="600" fill="#0C447C">3 · Owner fills in</text>
+          <text x="565" y="86" text-anchor="middle" font-family="Inter, sans-serif" font-size="13" fill="#185FA5">Their property details</text>
+        </g>
+
+        <!-- Down connector from step 3 to step 4 -->
+        <path d="M565 104 L565 130 L115 130 L115 156" fill="none" stroke="#5B6470" stroke-width="1.5" marker-end="url(#fsArrow)"/>
+
+        <!-- Row 2 -->
+        <g>
+          <rect x="20" y="158" width="190" height="64" rx="10" fill="#EAF4FE" stroke="#3FA9F5" stroke-width="1"/>
+          <text x="115" y="184" text-anchor="middle" font-family="Inter, sans-serif" font-size="15" font-weight="600" fill="#0C447C">4 · Reviewed</text>
+          <text x="115" y="204" text-anchor="middle" font-family="Inter, sans-serif" font-size="13" fill="#185FA5">A human checks it</text>
+        </g>
+        <line x1="214" y1="190" x2="242" y2="190" stroke="#5B6470" stroke-width="1.5" marker-end="url(#fsArrow)"/>
+        <g>
+          <rect x="245" y="158" width="190" height="64" rx="10" fill="#EAF4FE" stroke="#3FA9F5" stroke-width="1"/>
+          <text x="340" y="184" text-anchor="middle" font-family="Inter, sans-serif" font-size="15" font-weight="600" fill="#0C447C">5 · Inspected</text>
+          <text x="340" y="204" text-anchor="middle" font-family="Inter, sans-serif" font-size="13" fill="#185FA5">Against a defined checklist</text>
+        </g>
+        <line x1="439" y1="190" x2="467" y2="190" stroke="#5B6470" stroke-width="1.5" marker-end="url(#fsArrow)"/>
+        <g>
+          <rect x="470" y="158" width="190" height="64" rx="10" fill="#FDF1DC" stroke="#F5A524" stroke-width="1.5"/>
+          <text x="565" y="184" text-anchor="middle" font-family="Inter, sans-serif" font-size="15" font-weight="600" fill="#854F0B">6 · Board approves</text>
+          <text x="565" y="204" text-anchor="middle" font-family="Inter, sans-serif" font-size="13" fill="#9A6410">Member goes live</text>
+        </g>
+
+        <!-- Legend -->
+        <circle cx="24" cy="260" r="6" fill="#FDF1DC" stroke="#F5A524" stroke-width="1.5"/>
+        <text x="38" y="264" font-family="Inter, sans-serif" font-size="13" fill="#5B6470">The amber step is the human go/no-go — nothing goes live until the board approves.</text>
+      </svg>
+      <figcaption>How a property moves from purchase to approval. People make the judgment calls; the system handles the rest.</figcaption>
+    </figure>
+
+    <div class="cs-body">
       <div class="cs-block">
         <h3 class="cs-subhead">What changed</h3>
         <p>They went from a disjointed process held together by notes and reminders to a streamlined system where the routine communication runs automatically. People are still in charge of the judgment calls — reviewing and approving is a human decision, and it should be — but the busywork around those decisions mostly takes care of itself now. The system tracks a growing roster of around twenty member properties.</p>
