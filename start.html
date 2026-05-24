@@ -67,6 +67,93 @@
     font-size: 0.9375rem;
   }
   .calendar-fallback a { margin-right: 0.75rem; }
+
+  /* Multi-tab contact */
+  .contact-tabs {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid var(--hairline);
+    padding-bottom: 0;
+  }
+  .contact-tab {
+    appearance: none;
+    background: none;
+    border: none;
+    border-bottom: 3px solid transparent;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--slate);
+    padding: 0.75rem 1rem;
+    cursor: pointer;
+    transition: color 0.15s ease, border-color 0.15s ease;
+    margin-bottom: -1px;
+  }
+  .contact-tab:hover { color: var(--forward-blue); }
+  .contact-tab.is-active {
+    color: var(--forward-blue);
+    border-bottom-color: var(--forward-blue);
+  }
+  .contact-panel { display: none; }
+  .contact-panel.is-active { display: block; }
+  .contact-panel-inner {
+    max-width: 640px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .contact-panel-title {
+    font-family: var(--font-display);
+    font-size: 1.75rem;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    margin: 0 0 0.75rem;
+    color: var(--ink);
+  }
+  .contact-panel-sub {
+    color: var(--slate);
+    font-size: 1.0625rem;
+    line-height: 1.6;
+    margin: 0 auto 1.75rem;
+    max-width: 52ch;
+  }
+  .contact-panel-note {
+    margin-top: 1.25rem;
+    color: var(--slate);
+    font-size: 0.9375rem;
+  }
+  .contact-btn-row {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .text-qr {
+    margin-top: 1.75rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  .text-qr img {
+    width: 160px;
+    height: 160px;
+    border: 1px solid var(--hairline);
+    border-radius: 12px;
+    padding: 8px;
+    background: var(--white);
+  }
+  .text-qr .contact-panel-note {
+    margin-top: 0;
+    max-width: 42ch;
+  }
+  /* The form panel content stays left-aligned for readability */
+  #panel-form .contact-panel-inner { text-align: center; }
+  #panel-form .intake-form { text-align: left; margin-top: 1rem; }
+  #panel-form .calendar-embed-wrap,
+  #panel-call .calendar-embed-wrap { margin-top: 1.75rem; }
 </style>
 </head>
 <body>
@@ -93,92 +180,126 @@
   <div class="container">
     <p class="eyebrow">Start here</p>
     <h1 class="display">Let's figure out what you need.</h1>
-    <p class="lead">Fill out the form, book a 30-minute call, or both. I'll get back to you within one business day.</p>
+    <p class="lead">Reach me however's easiest — text, call, email, or a quick form. I'll get back to you within one business day.</p>
   </div>
 </section>
 
 <section class="section" style="padding-top: 2rem;">
-  <div class="container">
-    <form class="intake-form" id="intake-form" name="intake" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/thank-you">
-      <input type="hidden" name="form-name" value="intake">
-      <p class="hidden" style="display:none;">
-        <label>Don't fill this out if you're human: <input name="bot-field"></label>
-      </p>
-      <div class="form-row">
-        <label for="name">Your name</label>
-        <input type="text" id="name" name="name" required>
-      </div>
+  <div class="container container-narrow">
 
-      <div class="form-row">
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" required>
-      </div>
+    <div class="contact-tabs" role="tablist" aria-label="Ways to reach me">
+      <button class="contact-tab is-active" role="tab" aria-selected="true" aria-controls="panel-text" id="tab-text" data-panel="text">Text me</button>
+      <button class="contact-tab" role="tab" aria-selected="false" aria-controls="panel-call" id="tab-call" data-panel="call">Call</button>
+      <button class="contact-tab" role="tab" aria-selected="false" aria-controls="panel-email" id="tab-email" data-panel="email">Email</button>
+      <button class="contact-tab" role="tab" aria-selected="false" aria-controls="panel-form" id="tab-form" data-panel="form">Fill out a form</button>
+    </div>
 
-      <div class="form-row">
-        <label for="phone">Phone <span class="optional">if you'd rather I call</span></label>
-        <input type="tel" id="phone" name="phone">
-      </div>
-
-      <div class="form-row">
-        <label for="business">Business name and what it does <span class="optional">one line</span></label>
-        <input type="text" id="business" name="business" placeholder="e.g. Rain or Shine Pet Grooming — mobile pet grooming in mid-MO">
-      </div>
-
-      <div class="form-row">
-        <label for="need">What are you trying to do?</label>
-        <textarea id="need" name="need" required placeholder="Describe it the way you'd describe it to a friend. No tech jargon required."></textarea>
-      </div>
-
-      <div class="form-row">
-        <label>What's your timeline?</label>
-        <div class="form-radios">
-          <label><input type="radio" name="timeline" value="week"> This week</label>
-          <label><input type="radio" name="timeline" value="month"> This month</label>
-          <label><input type="radio" name="timeline" value="quarter"> Next few months</label>
-          <label><input type="radio" name="timeline" value="exploring"> Just exploring</label>
+    <!-- TEXT -->
+    <div class="contact-panel is-active" role="tabpanel" id="panel-text" aria-labelledby="tab-text">
+      <div class="contact-panel-inner">
+        <h2 class="contact-panel-title">Send me a text.</h2>
+        <p class="contact-panel-sub">Quickest way to reach me. A sentence about what you're after is plenty — I'll take it from there.</p>
+        <a href="sms:+19707126933" class="btn btn-primary btn-large">Text (970) 712-6933 →</a>
+        <div class="text-qr">
+          <img src="images/text-qr.png" width="160" height="160" alt="QR code that opens a text message to (970) 712-6933" loading="lazy">
+          <p class="contact-panel-note">On a computer? Point your phone camera at this code and it'll open a text to me — or just save my number: <strong>(970) 712-6933</strong>.</p>
         </div>
       </div>
+    </div>
 
-      <div class="form-row">
-        <label>Budget, roughly?</label>
-        <div class="form-radios">
-          <label><input type="radio" name="budget" value="200-500"> $200–$500</label>
-          <label><input type="radio" name="budget" value="500-2000"> $500–$2,000</label>
-          <label><input type="radio" name="budget" value="2000-10000"> $2,000–$10,000</label>
-          <label><input type="radio" name="budget" value="10000plus"> $10,000+</label>
-          <label><input type="radio" name="budget" value="unsure"> Not sure yet</label>
+    <!-- CALL -->
+    <div class="contact-panel" role="tabpanel" id="panel-call" aria-labelledby="tab-call" hidden>
+      <div class="contact-panel-inner">
+        <h2 class="contact-panel-title">Give me a call.</h2>
+        <p class="contact-panel-sub">If you'd rather just talk it through, call me directly — or grab a free 30-minute slot on my calendar and we'll dig in properly.</p>
+        <div class="contact-btn-row">
+          <a href="tel:+19707126933" class="btn btn-primary btn-large">Call (970) 712-6933 →</a>
+          <a href="#book" class="btn btn-secondary btn-large" id="show-calendar">Book a 30-min call →</a>
+        </div>
+        <div class="calendar-embed-wrap" id="book" hidden>
+          <iframe src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ33H70a05FDaXtSdYl1auiKBpBHMUnZPefHEc65-Vv811IUhO_CWmcbP_ExeQXNR3Os0JBPhhK4?gv=true" style="border: 0" width="100%" height="600" frameborder="0" title="Book a 30-minute call with Lee"></iframe>
         </div>
       </div>
-
-      <div class="form-row">
-        <label for="source">How did you hear about me? <span class="optional">optional</span></label>
-        <input type="text" id="source" name="source">
-      </div>
-
-      <div class="form-submit">
-        <button type="submit" class="btn btn-primary btn-large">Send it →</button>
-      </div>
-    </form>
-  </div>
-</section>
-
-<section class="section section-alt">
-  <div class="container">
-    <div class="section-head">
-      <p class="eyebrow">Or skip the form</p>
-      <h2 class="h2">Grab 30 minutes on my calendar.</h2>
-      <p class="section-sub">Free. No prep required. We figure out if I'm the right person for what you need.</p>
     </div>
-    <div class="calendar-embed-wrap">
-      <!-- Google Calendar Appointment Scheduling begin -->
-      <iframe src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ33H70a05FDaXtSdYl1auiKBpBHMUnZPefHEc65-Vv811IUhO_CWmcbP_ExeQXNR3Os0JBPhhK4?gv=true" style="border: 0" width="100%" height="600" frameborder="0"></iframe>
-      <!-- end Google Calendar Appointment Scheduling -->
+
+    <!-- EMAIL -->
+    <div class="contact-panel" role="tabpanel" id="panel-email" aria-labelledby="tab-email" hidden>
+      <div class="contact-panel-inner">
+        <h2 class="contact-panel-title">Drop me an email.</h2>
+        <p class="contact-panel-sub">Tell me what you're trying to do, the way you'd explain it to a friend. No tech jargon required. I reply within one business day.</p>
+        <a href="mailto:leepettijohn@gottamoveforward.com" class="btn btn-primary btn-large">Email me →</a>
+        <p class="contact-panel-note">Or copy it down: <strong>leepettijohn@gottamoveforward.com</strong></p>
+      </div>
     </div>
-    <p class="calendar-fallback">
-      Prefer to email or call?
-      <a href="mailto:leepettijohn@gottamoveforward.com">leepettijohn@gottamoveforward.com</a>
-      <a href="tel:+19707126933" class="footer-phone">(970) 712-6933</a>
-    </p>
+
+    <!-- FORM -->
+    <div class="contact-panel" role="tabpanel" id="panel-form" aria-labelledby="tab-form" hidden>
+      <div class="contact-panel-inner">
+        <h2 class="contact-panel-title">Fill out a quick form.</h2>
+        <p class="contact-panel-sub">A few details up front means a faster, more useful first reply. Only name, email, and what you need are required.</p>
+        <form class="intake-form" id="intake-form" name="intake" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/thank-you">
+          <input type="hidden" name="form-name" value="intake">
+          <p class="hidden" style="display:none;">
+            <label>Don't fill this out if you're human: <input name="bot-field"></label>
+          </p>
+          <div class="form-row">
+            <label for="name">Your name</label>
+            <input type="text" id="name" name="name" required>
+          </div>
+
+          <div class="form-row">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+
+          <div class="form-row">
+            <label for="phone">Phone <span class="optional">if you'd rather I call</span></label>
+            <input type="tel" id="phone" name="phone">
+          </div>
+
+          <div class="form-row">
+            <label for="business">Business name and what it does <span class="optional">one line</span></label>
+            <input type="text" id="business" name="business" placeholder="e.g. Rain or Shine Pet Grooming — mobile pet grooming in Ft. Myers">
+          </div>
+
+          <div class="form-row">
+            <label for="need">What are you trying to do?</label>
+            <textarea id="need" name="need" required placeholder="Describe it the way you'd describe it to a friend. No tech jargon required."></textarea>
+          </div>
+
+          <div class="form-row">
+            <label>What's your timeline?</label>
+            <div class="form-radios">
+              <label><input type="radio" name="timeline" value="week"> This week</label>
+              <label><input type="radio" name="timeline" value="month"> This month</label>
+              <label><input type="radio" name="timeline" value="quarter"> Next few months</label>
+              <label><input type="radio" name="timeline" value="exploring"> Just exploring</label>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <label>Budget, roughly?</label>
+            <div class="form-radios">
+              <label><input type="radio" name="budget" value="200-500"> $200–$500</label>
+              <label><input type="radio" name="budget" value="500-2000"> $500–$2,000</label>
+              <label><input type="radio" name="budget" value="2000-10000"> $2,000–$10,000</label>
+              <label><input type="radio" name="budget" value="10000plus"> $10,000+</label>
+              <label><input type="radio" name="budget" value="unsure"> Not sure yet</label>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <label for="source">How did you hear about me? <span class="optional">optional</span></label>
+            <input type="text" id="source" name="source">
+          </div>
+
+          <div class="form-submit">
+            <button type="submit" class="btn btn-primary btn-large">Send it →</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -232,7 +353,7 @@
         <a href="start.html">Start here →</a>
         <a href="mailto:leepettijohn@gottamoveforward.com">leepettijohn@gottamoveforward.com</a>
         <a href="tel:+19707126933" class="footer-phone">(970) 712-6933</a>
-        <p class="footer-meta">Hermann, MO → Nashville, TN<br>Working across the country</p>
+        <p class="footer-meta">Middle Tennessee<br>Serving Middle Tennessee and beyond</p>
       </div>
     </div>
     <div class="footer-bottom"><p>Established in 2020 · Forward Solutions · Lee Pettijohn · gottamoveforward.com</p></div>
@@ -240,5 +361,43 @@
 </footer>
 
 <script src="js/script.js"></script>
+<script>
+  // Multi-tab contact switcher
+  (function () {
+    var tabs = document.querySelectorAll('.contact-tab');
+    var panels = document.querySelectorAll('.contact-panel');
+    if (!tabs.length) return;
+
+    function activate(name) {
+      tabs.forEach(function (t) {
+        var on = t.getAttribute('data-panel') === name;
+        t.classList.toggle('is-active', on);
+        t.setAttribute('aria-selected', on ? 'true' : 'false');
+      });
+      panels.forEach(function (p) {
+        var on = p.id === 'panel-' + name;
+        p.classList.toggle('is-active', on);
+        if (on) { p.removeAttribute('hidden'); } else { p.setAttribute('hidden', ''); }
+      });
+    }
+
+    tabs.forEach(function (t) {
+      t.addEventListener('click', function () {
+        activate(t.getAttribute('data-panel'));
+      });
+    });
+
+    // Reveal calendar embed on demand (keeps the iframe from loading until wanted)
+    var showCal = document.getElementById('show-calendar');
+    var book = document.getElementById('book');
+    if (showCal && book) {
+      showCal.addEventListener('click', function (e) {
+        e.preventDefault();
+        book.removeAttribute('hidden');
+        book.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      });
+    }
+  })();
+</script>
 </body>
 </html>
