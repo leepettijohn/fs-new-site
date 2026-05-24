@@ -130,6 +130,25 @@
     justify-content: center;
     flex-wrap: wrap;
   }
+  .text-qr {
+    margin-top: 1.75rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  .text-qr img {
+    width: 160px;
+    height: 160px;
+    border: 1px solid var(--hairline);
+    border-radius: 12px;
+    padding: 8px;
+    background: var(--white);
+  }
+  .text-qr .contact-panel-note {
+    margin-top: 0;
+    max-width: 42ch;
+  }
   /* The form panel content stays left-aligned for readability */
   #panel-form .contact-panel-inner { text-align: center; }
   #panel-form .intake-form { text-align: left; margin-top: 1rem; }
@@ -181,7 +200,10 @@
         <h2 class="contact-panel-title">Send me a text.</h2>
         <p class="contact-panel-sub">Quickest way to reach me. A sentence about what you're after is plenty — I'll take it from there.</p>
         <a href="sms:+19707126933" class="btn btn-primary btn-large">Text (970) 712-6933 →</a>
-        <p class="contact-panel-note">On a desktop? My number is <strong>(970) 712-6933</strong> — text me from your phone any time.</p>
+        <div class="text-qr">
+          <img src="images/text-qr.png" width="160" height="160" alt="QR code that opens a text message to (970) 712-6933" loading="lazy">
+          <p class="contact-panel-note">On a computer? Point your phone camera at this code and it'll open a text to me — or just save my number: <strong>(970) 712-6933</strong>.</p>
+        </div>
       </div>
     </div>
 
