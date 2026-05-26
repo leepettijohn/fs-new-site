@@ -118,7 +118,7 @@
     <h1 class="display">Text a person instead of fighting with software.</h1>
     <p class="lead">A monthly membership for small business owners who'd rather have someone on call than spend Saturday morning on a help forum.</p>
     <div class="hero-cta">
-      <a href="start.html" class="btn btn-primary">Start a membership →</a>
+      <a href="#join" class="btn btn-primary">Start a membership →</a>
       <a href="start.html" class="btn btn-text">Or ask me a question first →</a>
     </div>
   </div>
@@ -137,10 +137,10 @@
           <li>2 tickets per month</li>
           <li>2 business-day response</li>
           <li>Tickets roll over 1 month</li>
-          <li>$250 one-time onboarding</li>
+          <li><span class="onboard-sale"><s>$250</s> <span class="sale-price">$99</span></span> one-time onboarding</li>
           <li>Cancel anytime</li>
         </ul>
-        <a href="start.html" class="btn btn-secondary">Start Standard →</a>
+        <a href="#join" class="btn btn-secondary">Start Standard →</a>
       </div>
       <div class="plan-card plan-featured">
         <p class="plan-name">Priority</p>
@@ -149,10 +149,10 @@
           <li>5 tickets per month</li>
           <li>1 business-day response</li>
           <li>Tickets roll over 1 month</li>
-          <li>$250 one-time onboarding</li>
+          <li><span class="onboard-sale"><s>$250</s> <span class="sale-price">$99</span></span> one-time onboarding</li>
           <li>Cancel anytime</li>
         </ul>
-        <a href="start.html" class="btn btn-primary">Start Priority →</a>
+        <a href="#join" class="btn btn-primary">Start Priority →</a>
       </div>
     </div>
     <p style="text-align:center; margin-top:2rem; color: var(--slate);">Not sure which? Start with Standard. You can upgrade anytime.</p>
@@ -201,7 +201,7 @@
       <div class="step">
         <div class="step-number">01</div>
         <h3 class="step-title">You sign up.</h3>
-        <p class="step-body">$250 onboarding, then your monthly plan starts.</p>
+        <p class="step-body"><s>$250</s> <span class="sale-price">$99</span> onboarding, then your monthly plan starts.</p>
       </div>
       <div class="step">
         <div class="step-number">02</div>
@@ -280,7 +280,54 @@
   </div>
 </section>
 
-<section class="section section-cta">
+<section id="join" class="section section-alt">
+  <div class="container container-narrow">
+    <div class="section-head">
+      <p class="eyebrow">Join Forward Support</p>
+      <h2 class="h2">Sign up and I'll get you set up.</h2>
+      <p class="section-sub">Fill this out and I'll be in touch within one business day to get your onboarding scheduled and your plan started. Onboarding is <s>$250</s> <span class="sale-price">$99</span> right now.</p>
+    </div>
+
+    <form class="intake-form join-form" id="support-signup" name="support-signup" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/thank-you">
+      <input type="hidden" name="form-name" value="support-signup">
+      <p class="hidden" style="display:none;">
+        <label>Don't fill this out if you're human: <input name="bot-field"></label>
+      </p>
+
+      <div class="form-row">
+        <label for="su-name">Your name</label>
+        <input type="text" id="su-name" name="name" required>
+      </div>
+
+      <div class="form-row">
+        <label for="su-email">Email</label>
+        <input type="email" id="su-email" name="email" required>
+      </div>
+
+      <div class="form-row">
+        <label for="su-phone">Phone</label>
+        <input type="tel" id="su-phone" name="phone" required>
+      </div>
+
+      <div class="form-row">
+        <label for="su-business">Business name</label>
+        <input type="text" id="su-business" name="business" required>
+      </div>
+
+      <div class="form-row">
+        <label>Which plan?</label>
+        <div class="form-radios">
+          <label><input type="radio" name="plan" value="standard" required> Standard — $79/mo</label>
+          <label><input type="radio" name="plan" value="priority"> Priority — $179/mo</label>
+        </div>
+      </div>
+
+      <div class="form-submit">
+        <button type="submit" class="btn btn-primary btn-large">Sign me up →</button>
+      </div>
+    </form>
+  </div>
+</section>
   <div class="container">
     <div class="cta-inner">
       <h2 class="display">Ready to have someone on call?</h2>
