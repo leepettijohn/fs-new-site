@@ -61,3 +61,27 @@
     }
   });
 })();
+
+/* Mobile hamburger menu toggle */
+(function () {
+  var burger = document.getElementById('nav-hamburger');
+  var menu = document.getElementById('mobile-menu');
+  if (!burger || !menu) return;
+
+  burger.addEventListener('click', function () {
+    var open = menu.classList.toggle('is-open');
+    burger.classList.toggle('is-open', open);
+    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    burger.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    if (open) { menu.removeAttribute('hidden'); }
+  });
+
+  // Close the menu when any link inside it is tapped
+  menu.querySelectorAll('a').forEach(function (a) {
+    a.addEventListener('click', function () {
+      menu.classList.remove('is-open');
+      burger.classList.remove('is-open');
+      burger.setAttribute('aria-expanded', 'false');
+    });
+  });
+})();
