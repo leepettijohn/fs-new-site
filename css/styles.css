@@ -145,6 +145,51 @@ a { color: var(--forward-blue); text-decoration: none; }
 .nav-links a:hover { color: var(--forward-blue); }
 .btn-nav { padding: 0.5rem 1rem; font-size: 0.875rem; }
 
+/* Nav dropdown */
+.nav-dropdown { position: relative; }
+.nav-dropdown-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  cursor: pointer;
+}
+.nav-caret { font-size: 0.7em; transition: transform 0.2s ease; }
+.nav-dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(6px);
+  background: var(--white);
+  border: 1px solid var(--hairline);
+  border-radius: 10px;
+  box-shadow: 0 14px 32px rgba(26, 29, 36, 0.12);
+  padding: 0.5rem;
+  min-width: 190px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.16s ease, transform 0.16s ease, visibility 0.16s;
+  z-index: 60;
+}
+.nav-dropdown-menu a {
+  padding: 0.6rem 0.85rem;
+  border-radius: 6px;
+  white-space: nowrap;
+  transition: background 0.14s ease, color 0.14s ease;
+}
+.nav-dropdown-menu a:hover { background: var(--paper); color: var(--forward-blue); }
+/* Open on hover (desktop) and when JS adds .is-open (touch/keyboard) */
+.nav-dropdown:hover .nav-dropdown-menu,
+.nav-dropdown.is-open .nav-dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(2px);
+}
+.nav-dropdown:hover .nav-caret,
+.nav-dropdown.is-open .nav-caret { transform: rotate(180deg); }
+
 /* ====== BUTTONS ====== */
 .btn {
   display: inline-flex;
@@ -1236,7 +1281,8 @@ a { color: var(--forward-blue); text-decoration: none; }
   .nav-links {
     gap: 1.25rem;
   }
-  .nav-links a:not(.btn) {
+  .nav-links a:not(.btn),
+  .nav-dropdown {
     display: none;
   }
 }

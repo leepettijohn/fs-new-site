@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Google Analytics (GA4) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4LVHYV3DDK"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-4LVHYV3DDK');
+</script>
+<title>The tools you already use — and what I fix in them · Forward Solutions</title>
+<meta name="description" content="The everyday tools small businesses run on — WordPress, Airtable, Zapier, QuickBooks, and more — and the specific headaches I fix in each one. Recognize one? Let's fix it.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://gottamoveforward.com/tools.html">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Forward Solutions">
+<meta property="og:title" content="The tools you already use — and what I fix in them · Forward Solutions">
+<meta property="og:description" content="The everyday tools small businesses run on — WordPress, Airtable, Zapier, QuickBooks, and more — and the specific headaches I fix in each one. Recognize one? Let's fix it.">
+<meta property="og:url" content="https://gottamoveforward.com/tools.html">
+<meta property="og:image" content="https://gottamoveforward.com/images/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Forward Solutions — websites, spreadsheets, and systems for small business. Support $79/$179 mo, Builds from $750, Systems from $5,000.">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The tools you already use — and what I fix in them · Forward Solutions">
+<meta name="twitter:description" content="The everyday tools small businesses run on — WordPress, Airtable, Zapier, QuickBooks, and more — and the specific headaches I fix in each one.">
+<meta name="twitter:image" content="https://gottamoveforward.com/images/og-image.png">
+
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+
+<style>
+  .tools-section-label {
+    text-align: center;
+    margin: 0.5rem 0 1.5rem;
+  }
+  .tools-section-label.specialty .eyebrow { color: var(--signal-amber); }
+  .tools-section-label h2 {
+    font-family: var(--font-display);
+    font-size: 2.5rem;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    margin: 0.4rem 0 0;
+  }
+  .tools-section-label .specialty-note {
+    font-size: 1rem;
+    color: var(--slate);
+    margin: 0.5rem auto 0;
+    max-width: 48ch;
+  }
+
+  /* Section color bands — alternating blue / amber */
+  .tools-band { border-radius: 20px; padding: 2rem 1.75rem 2.5rem; margin-bottom: 1.75rem; }
+  .tools-band.band-blue  { background: #F0F5FC; }
+  .tools-band.band-amber { background: #FDF6EA; }
+
+  .tools-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+    align-items: stretch;
+  }
+
+  .tool-card {
+    position: relative;
+    background: var(--white);
+    border: 1px solid var(--hairline);
+    border-radius: var(--radius);
+    padding: 1.75rem 1.5rem 1.5rem;
+    cursor: pointer;
+    transition: border-color 0.18s ease, box-shadow 0.18s ease, transform 0.18s ease;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    width: 100%;
+    font-family: inherit;
+    appearance: none;
+  }
+  .tool-card:hover {
+    border-color: var(--sky-blue);
+    box-shadow: 0 12px 28px rgba(30,91,186,0.10);
+    transform: translateY(-2px);
+  }
+  .tool-card.is-open {
+    border-color: var(--forward-blue);
+    box-shadow: 0 14px 32px rgba(30,91,186,0.14);
+  }
+  .tool-card-name {
+    font-family: var(--font-display);
+    font-size: 1.9rem;
+    font-weight: 600;
+    color: var(--ink);
+    margin: 0;
+    letter-spacing: -0.015em;
+    line-height: 1.12;
+  }
+  .tool-card-prompt {
+    font-size: 0.8125rem;
+    color: var(--slate);
+    opacity: 0.7;
+    font-weight: 500;
+    margin: auto 0 0;
+    padding-top: 1.1rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0.35rem;
+    align-self: flex-end;
+  }
+  .tool-card-prompt .chev { transition: transform 0.2s ease; }
+  .tool-card.is-open .tool-card-prompt { display: none; }
+
+  .tool-card-reveal {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.28s ease, margin-top 0.28s ease;
+  }
+  .tool-card.is-open .tool-card-reveal { max-height: 400px; margin-top: 1.1rem; }
+  .tool-card-reveal ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+  .tool-card-reveal li {
+    font-size: 0.9375rem;
+    line-height: 1.45;
+    color: var(--slate);
+    padding-left: 1.1rem;
+    position: relative;
+  }
+  .tool-card-reveal li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.5rem;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--sky-blue);
+  }
+  .tool-card-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: #fff;
+    background: var(--forward-blue);
+    padding: 0.6rem 1rem;
+    border-radius: 8px;
+    text-decoration: none;
+    align-self: flex-start;
+    transition: background 0.15s ease;
+  }
+  .tool-card-cta:hover { background: #17498f; }
+
+  @media (max-width: 760px) {
+    .tools-grid { grid-template-columns: 1fr !important; }
+  }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <span class="logo-mark" aria-hidden="true"><img src="images/logo-mark.png" alt="" width="32" height="29"></span>
+      <span class="logo-text">Forward Solutions</span>
+    </a>
+    <nav class="nav-links">
+      <div class="nav-dropdown">
+        <a href="services.html" class="nav-dropdown-trigger" aria-haspopup="true" aria-expanded="false">Services <span class="nav-caret" aria-hidden="true">▾</span></a>
+        <div class="nav-dropdown-menu">
+          <a href="support.html">Forward Support</a>
+          <a href="builds.html">Simple Builds</a>
+          <a href="systems.html">Complex Systems</a>
+        </div>
+      </div>
+      <a href="work.html">My Work</a>
+      <a href="tools.html">Tools</a>
+      <a href="about.html">About</a>
+      <a href="faq.html">FAQ</a>
+      <a href="start.html" class="btn btn-primary btn-nav">Start here</a>
+    </nav>
+  </div>
+</header>
+
+<section class="page-hero">
+  <div class="container">
+    <p class="eyebrow">Tools</p>
+    <h1 class="display">You already use these. I fix what's broken in them.</h1>
+    <p class="lead">Most people don't think they need help — until they remember the one thing that's been bugging them for months. Here are the everyday tools small businesses run on, and the specific headaches I take off your plate. Recognize one? That's your sign.</p>
+    <div class="jump-nav">
+      <a href="start.html" class="btn btn-primary btn-large cta-start">Tell me what's bugging you →</a>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+
+    <!-- Websites & online presence -->
+    <div class="tools-band band-blue">
+      <div class="tools-section-label">
+        <p class="eyebrow">Websites &amp; online presence</p>
+        <h2>Your site and storefront</h2>
+      </div>
+      <div class="tools-grid">
+        <button type="button" class="tool-card" data-tool="WordPress">
+          <h3 class="tool-card-name">WordPress</h3>
+          <p class="tool-card-prompt"><span>See complaint examples</span><span class="chev">&rarr;</span></p>
+          <div class="tool-card-reveal">
+            <ul><li>Site feels slow or outdated.</li><li>Can't update a page without breaking something.</li><li>Plugin or update warnings you're ignoring.</li></ul>
+            <a href="start.html" class="tool-card-cta cta-tool">This is me — let's fix it →</a>
+          </div>
+        </button>
+        <button type="button" class="tool-card" data-tool="Divi">
+          <h3 class="tool-card-name">Divi</h3>
+          <p class="tool-card-prompt"><span>See complaint examples</span><span class="chev">&rarr;</span></p>
+          <div class="tool-card-reveal">
+            <ul><li>Want to change your site yourself, but the builder is overwhelming.</li><li>Layouts that look off on mobile.</li></ul>
+            <a href="start.html" class="tool-card-cta cta-tool">This is me — let's fix it →</a>
+          </div>
+        </button>
+        <button type="button" class="tool-card" data-tool="WooCommerce">
+          <h3 class="tool-card-name">WooCommerce</h3>
+          <p class="tool-card-prompt"><span>See complaint examples</span><span class="chev">&rarr;</span></p>
+          <div class="tool-card-reveal">
+            <ul><li>Products or inventory out of sync.</li><li>Checkout or shipping rules that don't work right.</li></ul>
+            <a href="start.html" class="tool-card-cta cta-tool">This is me — let's fix it →</a>
+          </div>
+        </button>
+        <button type="button" class="tool-card" data-tool="Squarespace / Wix">
+          <h3 class="tool-card-name">Squarespace / Wix</h3>
+          <p class="tool-card-prompt"><span>See complaint examples</span><span class="chev">&rarr;</span></p>
+          <div class="tool-card-reveal">
+            <ul><li>Outgrew it and not sure what's next.</li><li>Want it to do something it won't do out of the box.</li></ul>
+            <a href="start.html" class="tool-card-cta cta-tool">This is me — let's fix it →</a>
+          </div>
+        </button>
+      </div>
+    </div>
+
+    <!-- Data & automation — SPECIALTY -->
+    <div class="tools-band band-amber">
+      <div class="tools-section-label specialty">
+        <p class="eyebrow">Data &amp; automation</p>
+        <h2>My specialty</h2>
+        <p class="specialty-note">This is the heart of what I do. If your data and your tools don't talk to each other, start here.</p>
+      </div>
+      <div class="tools-grid">
+        <button type="button" class="tool-card" data-tool="Airtable">
+          <h3 class="tool-card-name">Airtable</h3>
+          <p class="tool-card-prompt"><span>See complaint examples</span><span class="chev">&rarr;</span></p>
+          <div class="tool-card-reveal">
+            <ul><li>Spreadsheets held together with duct tape.</li><li>Same data re-entered in three places.</li><li>Know it can do more, but don't know how.</li></ul>
+            <a href="start.html" class="tool-card-cta cta-tool">This is me — let's fix it →</a>
+          </div>
+        </button>
+        <button type="button" class="tool-card" data-tool="Zapier / Make">
+          <h3 class="tool-card-name">Zapier / Make</h3>
+          <p class="tool-card-prompt"><span>See complaint examples</span><span class="chev">&rarr;</span></p>
+          <div class="tool-card-reveal">
+            <ul><li>Still copy-pasting between two apps by hand.</li><li>An automation that broke and you never fixed.</li></ul>
+            <a href="start.html" class="tool-card-cta cta-tool">This is me — let's fix it →</a>
+          </div>
+        </button>
+      </div>
+    </div>
+
+    <!-- Forms & scheduling -->
+    <div class="tools-band band-blue">
+      <div class="tools-section-label">
+        <p class="eyebrow">Forms &amp; scheduling</p>
+        <h2>Getting information in</h2>
+      </div>
+      <div class="tools-grid">
+        <button type="button" class="tool-card" data-tool="Gravity Forms / Formstack">
+          <h3 class="tool-card-name">Gravity Forms / Formstack</h3>
+          <p class="tool-card-prompt"><span>See complaint examples</span><span class="chev">&rarr;</span></p>
+          <div class="tool-card-reveal">
+            <ul><li>A form that doesn't go where it should.</li><li>Want submissions to flow straight into your system.</li></ul>
+            <a href="start.html" class="tool-card-cta cta-tool">This is me — let's fix it →</a>
+          </div>
+        </button>
+        <button type="button" class="tool-card" data-tool="Acuity / booking tools">
+          <h3 class="tool-card-name">Acuity / booking tools</h3>
+          <p class="tool-card-prompt"><span>See complaint examples</span><span class="chev">&rarr;</span></p>
+          <div class="tool-card-reveal">
+            <ul><li>Double-bookings.</li><li>Scheduling that doesn't talk to your calendar or your payments.</li></ul>
+            <a href="start.html" class="tool-card-cta cta-tool">This is me — let's fix it →</a>
+          </div>
+        </button>
+      </div>
+    </div>
+
+    <!-- Money & operations -->
+    <div class="tools-band band-amber">
+      <div class="tools-section-label">
+        <p class="eyebrow">Money &amp; operations</p>
+        <h2>Getting paid and keeping books</h2>
+      </div>
+      <div class="tools-grid">
+        <button type="button" class="tool-card" data-tool="QuickBooks">
+          <h3 class="tool-card-name">QuickBooks</h3>
+          <p class="tool-card-prompt"><span>See complaint examples</span><span class="chev">&rarr;</span></p>
+          <div class="tool-card-reveal">
+            <ul><li>Reports that don't match reality.</li><li>Manual entry that should be automatic.</li></ul>
+            <a href="start.html" class="tool-card-cta cta-tool">This is me — let's fix it →</a>
+          </div>
+        </button>
+        <button type="button" class="tool-card" data-tool="Stripe / Square / PayPal">
+          <h3 class="tool-card-name">Stripe / Square / PayPal</h3>
+          <p class="tool-card-prompt"><span>See complaint examples</span><span class="chev">&rarr;</span></p>
+          <div class="tool-card-reveal">
+            <ul><li>Payments that don't sync to your books or your records.</li></ul>
+            <a href="start.html" class="tool-card-cta cta-tool">This is me — let's fix it →</a>
+          </div>
+        </button>
+      </div>
+    </div>
+
+    <!-- Email & marketing -->
+    <div class="tools-band band-blue">
+      <div class="tools-section-label">
+        <p class="eyebrow">Email &amp; marketing</p>
+        <h2>Staying in touch with customers</h2>
+      </div>
+      <div class="tools-grid">
+        <button type="button" class="tool-card" data-tool="Mailchimp / Constant Contact">
+          <h3 class="tool-card-name">Mailchimp / Constant Contact</h3>
+          <p class="tool-card-prompt"><span>See complaint examples</span><span class="chev">&rarr;</span></p>
+          <div class="tool-card-reveal">
+            <ul><li>A list you never email.</li><li>Signups that don't land in your audience automatically.</li></ul>
+            <a href="start.html" class="tool-card-cta cta-tool">This is me — let's fix it →</a>
+          </div>
+        </button>
+      </div>
+    </div>
+
+    <!-- Files & comms -->
+    <div class="tools-band band-amber">
+      <div class="tools-section-label">
+        <p class="eyebrow">Files &amp; communication</p>
+        <h2>Where your stuff lives</h2>
+      </div>
+      <div class="tools-grid">
+        <button type="button" class="tool-card" data-tool="Google Workspace">
+          <h3 class="tool-card-name">Google Workspace</h3>
+          <p class="tool-card-prompt"><span>See complaint examples</span><span class="chev">&rarr;</span></p>
+          <div class="tool-card-reveal">
+            <ul><li>Drive is a mess.</li><li>Email, calendar, and docs not set up to actually save you time.</li></ul>
+            <a href="start.html" class="tool-card-cta cta-tool">This is me — let's fix it →</a>
+          </div>
+        </button>
+        <button type="button" class="tool-card" data-tool="Dropbox">
+          <h3 class="tool-card-name">Dropbox</h3>
+          <p class="tool-card-prompt"><span>See complaint examples</span><span class="chev">&rarr;</span></p>
+          <div class="tool-card-reveal">
+            <ul><li>Can't find files.</li><li>No system for what goes where.</li></ul>
+            <a href="start.html" class="tool-card-cta cta-tool">This is me — let's fix it →</a>
+          </div>
+        </button>
+      </div>
+    </div>
+
+  </div>
+</section>
+<section class="section section-cta">
+  <div class="container">
+    <div class="cta-inner">
+      <h2 class="display">See yourself in any of these?</h2>
+      <p class="cta-sub">You don't have to know the fix — that's my job. Just tell me what's been bugging you.</p>
+      <a href="start.html" class="btn btn-primary btn-large cta-start">Let's sort it out →</a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo">
+          <span class="logo-mark" aria-hidden="true"><img src="images/logo-mark.png" alt="" width="32" height="29"></span>
+          <span class="logo-text">Forward Solutions</span>
+        </a>
+        <p class="footer-tagline">Data organization and process automation for small business.</p>
+      </div>
+      <div class="footer-nav">
+        <p class="footer-heading">Site</p>
+        <a href="services.html">Services</a>
+        <a href="support.html">Forward Support</a>
+        <a href="builds.html">Simple Builds</a>
+        <a href="systems.html">Complex Systems</a>
+        <a href="work.html">My Work</a>
+        <a href="tools.html">Tools</a>
+        <a href="about.html">About</a>
+        <a href="faq.html">FAQ</a>
+      </div>
+      <div class="footer-contact">
+        <p class="footer-heading">Get in touch</p>
+        <a href="start.html">Start here →</a>
+        <a href="mailto:leepettijohn@gottamoveforward.com">leepettijohn@gottamoveforward.com</a>
+        <a href="tel:+19707126933" class="footer-phone">(970) 712-6933</a>
+        <p class="footer-meta">Middle Tennessee<br>Serving Middle Tennessee and beyond</p>
+      </div>
+    </div>
+    <div class="footer-bottom"><p>Established in 2020 · Forward Solutions · Lee Pettijohn · gottamoveforward.com</p></div>
+  </div>
+</footer>
+
+<script src="js/script.js"></script>
+<script>
+  (function () {
+    // --- UTM carry-through: append current UTM params to all /start links ---
+    var params = new URLSearchParams(window.location.search);
+    var utmKeys = ['utm_source','utm_medium','utm_campaign','utm_content','utm_term'];
+    var utms = new URLSearchParams();
+    utmKeys.forEach(function (k) { if (params.get(k)) utms.set(k, params.get(k)); });
+    var utmString = utms.toString();
+    if (utmString) {
+      document.querySelectorAll('a[href="start.html"], a[href^="start.html"]').forEach(function (a) {
+        var base = a.getAttribute('href').split('?')[0];
+        a.setAttribute('href', base + '?' + utmString);
+      });
+    }
+
+    // --- Tool card: click to expand + fire GA4 engagement event (once per card) ---
+    var cards = document.querySelectorAll('.tool-card');
+    var fired = {};
+    cards.forEach(function (card) {
+      card.addEventListener('click', function (e) {
+        // Don't toggle when the inner CTA link is clicked — let it navigate
+        if (e.target.closest('.tool-card-cta')) return;
+
+        var tool = card.getAttribute('data-tool');
+        var opening = !card.classList.contains('is-open');
+        card.classList.toggle('is-open');
+
+        // Fire engagement event only on open, only once per card per page load
+        if (opening && !fired[tool] && typeof gtag === 'function') {
+          gtag('event', 'tool_card_engage', {
+            'event_category': 'tools_page',
+            'event_label': tool,
+            'tool_name': tool
+          });
+          fired[tool] = true;
+        }
+      });
+    });
+  })();
+</script>
+</body>
+</html>

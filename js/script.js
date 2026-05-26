@@ -26,3 +26,38 @@
     observer.observe(el);
   });
 })();
+
+/* Nav dropdown — touch & keyboard support (hover handled by CSS) */
+(function () {
+  var dd = document.querySelector('.nav-dropdown');
+  if (!dd) return;
+  var trigger = dd.querySelector('.nav-dropdown-trigger');
+
+  // On touch devices, first tap opens the menu instead of navigating.
+  var isTouch = window.matchMedia('(hover: none)').matches;
+  if (isTouch) {
+    trigger.addEventListener('click', function (e) {
+      if (!dd.classList.contains('is-open')) {
+        e.preventDefault();
+        dd.classList.add('is-open');
+        trigger.setAttribute('aria-expanded', 'true');
+      }
+      // second tap (already open) falls through and navigates to services.html
+    });
+    document.addEventListener('click', function (e) {
+      if (!dd.contains(e.target)) {
+        dd.classList.remove('is-open');
+        trigger.setAttribute('aria-expanded', 'false');
+      }
+    });
+  }
+
+  // Keyboard: open on focus-within, close on Escape
+  dd.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') {
+      dd.classList.remove('is-open');
+      trigger.setAttribute('aria-expanded', 'false');
+      trigger.blur();
+    }
+  });
+})();
