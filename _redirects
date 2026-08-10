@@ -1,0 +1,7 @@
+# Retired service pages → new equivalents
+# Simple Builds → Sprint (scoped project work)
+/builds        /sprint        301
+/builds.html   /sprint        301
+# Complex Systems → Expedition (start with scoping)
+/systems       /expedition    301
+/systems.html  /expedition    301
