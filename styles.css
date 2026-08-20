@@ -1327,7 +1327,7 @@ a { color: var(--forward-blue); text-decoration: none; }
 
 /* Book a call section */
 .section-book {
-  background: #F0F5FC;
+  background: #E1ECF9;
   scroll-margin-top: 90px;
 }
 .section-book .calendar-embed-wrap {
