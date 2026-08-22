@@ -1,0 +1,1405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!--
+  FORWARD SOLUTIONS — gottamoveforward.com
+  walk-one-job.html · v1.0 · 2026-08-20
+-->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Google Analytics (GA4) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4LVHYV3DDK"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-4LVHYV3DDK');
+</script>
+<title>Walk one job with me — Forward Solutions</title>
+<meta name="description" content="Eight questions about how one customer moves through your business. At the end you get a map of your own process with the spots marked where time leaks out.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://gottamoveforward.com/walk-one-job.html">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Forward Solutions">
+<meta property="og:title" content="Walk one job with me — Forward Solutions">
+<meta property="og:description" content="Eight questions about how one customer moves through your business. At the end you get a map of your own process with the spots marked where time leaks out.">
+<meta property="og:url" content="https://gottamoveforward.com/walk-one-job.html">
+<meta property="og:image" content="https://gottamoveforward.com/images/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Forward Solutions — websites, spreadsheets, and systems for small business. Support from $79/mo, Sprint $225/hr, Expedition $2,000.">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Walk one job with me — Forward Solutions">
+<meta name="twitter:description" content="Eight questions about how one customer moves through your business. At the end you get a map of your own process.">
+<meta name="twitter:image" content="https://gottamoveforward.com/images/og-image.png">
+
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css?v=1.2">
+
+<style>
+  /* Semantic "running clean" green — separate from the amber accent per spec */
+  :root {
+    --running-clean: #3F9F6E;
+    --running-clean-soft: #E8F3ED;
+    --leak-soft: #FDF1DC;
+    --leak-border: #F5A524;
+  }
+
+  /* Progress bar */
+  .woj-progress {
+    position: fixed;
+    top: 0; left: 0;
+    height: 3px;
+    width: 0%;
+    background: var(--forward-blue);
+    z-index: 100;
+    transition: width 0.25s ease;
+  }
+
+  .woj-page { min-height: 60vh; }
+  .woj-container { max-width: 720px; margin: 0 auto; padding: 0 1.5rem; }
+
+  /* Screens swap in place, no reload */
+  .woj-screen { display: none; }
+  .woj-screen.is-active { display: block; }
+  @media (prefers-reduced-motion: no-preference) {
+    .woj-screen.is-active { animation: wojFade 0.25s ease-out; }
+  }
+  @keyframes wojFade {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Step counter (small utility label — the only place letter-spacing/uppercase appears per spec) */
+  .woj-step {
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--slate);
+    font-weight: 600;
+    margin: 0 0 1.5rem;
+  }
+
+  .woj-question {
+    font-family: var(--font-display);
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    font-weight: 600;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    margin: 0 0 0.75rem;
+  }
+  .woj-hint {
+    color: var(--slate);
+    font-size: 1rem;
+    line-height: 1.5;
+    margin: 0 0 2rem;
+  }
+
+  /* Option cards (A/B/C/D) — big tap targets */
+  .woj-options {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-bottom: 2rem;
+  }
+  .woj-option {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+    text-align: left;
+    padding: 1.125rem 1.25rem;
+    background: var(--white);
+    border: 1.5px solid var(--hairline);
+    border-radius: 12px;
+    font-family: var(--font-body);
+    font-size: 1.0625rem;
+    font-weight: 500;
+    color: var(--ink);
+    cursor: pointer;
+    transition: border-color 0.15s ease, background 0.15s ease, transform 0.1s ease;
+    line-height: 1.4;
+  }
+  .woj-option:hover { border-color: var(--sky-blue); background: #FBFCFE; }
+  .woj-option:focus-visible {
+    outline: 3px solid var(--forward-blue);
+    outline-offset: 2px;
+  }
+  .woj-option:active { transform: scale(0.995); }
+  .woj-option-key {
+    flex-shrink: 0;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--paper-warm);
+    color: var(--slate);
+    font-weight: 600;
+    font-size: 0.9375rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.15s ease, color 0.15s ease;
+  }
+  .woj-option:hover .woj-option-key { background: var(--sky-blue); color: #fff; }
+
+  .woj-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    color: var(--slate);
+    font-size: 0.9375rem;
+    font-weight: 500;
+    text-decoration: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem 0;
+    font-family: var(--font-body);
+  }
+  .woj-back:hover { color: var(--forward-blue); }
+  .woj-back:focus-visible { outline: 2px solid var(--forward-blue); outline-offset: 2px; border-radius: 4px; }
+
+  /* Intro screen */
+  .woj-intro {
+    text-align: center;
+    padding: 3rem 0 2rem;
+  }
+  .woj-intro-headline {
+    font-family: var(--font-display);
+    font-size: clamp(2.25rem, 5vw, 3.25rem);
+    font-weight: 600;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    margin: 0 0 1.5rem;
+    max-width: 18ch;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .woj-intro-body {
+    color: var(--slate);
+    font-size: 1.125rem;
+    line-height: 1.6;
+    max-width: 52ch;
+    margin: 0 auto 1.25rem;
+  }
+  .woj-intro-cta { margin-top: 2rem; }
+  .woj-btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 1rem 1.75rem;
+    background: var(--signal-amber);
+    color: var(--ink);
+    font-family: var(--font-body);
+    font-size: 1.0625rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.15s ease;
+  }
+  .woj-btn-primary:hover { background: #e0961a; }
+  .woj-btn-primary:focus-visible { outline: 3px solid var(--forward-blue); outline-offset: 3px; }
+  .woj-btn-primary:disabled { opacity: 0.4; cursor: not-allowed; }
+  .woj-btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.75rem 1.25rem;
+    background: none;
+    color: var(--forward-blue);
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 500;
+    border: 1.5px solid var(--forward-blue);
+    border-radius: 10px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.15s ease;
+  }
+  .woj-btn-secondary:hover { background: #F0F5FC; }
+  .woj-btn-secondary:focus-visible { outline: 2px solid var(--forward-blue); outline-offset: 2px; }
+  .woj-skip {
+    display: inline-block;
+    margin-top: 1.5rem;
+    color: var(--forward-blue);
+    font-size: 0.9375rem;
+    font-weight: 500;
+    text-decoration: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: var(--font-body);
+  }
+  .woj-skip:hover { text-decoration: underline; }
+  .woj-attribution {
+    margin-top: 3rem;
+    color: var(--slate);
+    font-size: 0.875rem;
+    line-height: 1.5;
+    max-width: 42ch;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* Email form */
+  .woj-form-row { margin-bottom: 1.25rem; }
+  .woj-form-row label {
+    display: block;
+    font-size: 0.9375rem;
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: 0.4rem;
+  }
+  .woj-form-row .woj-optional {
+    color: var(--slate);
+    font-weight: 400;
+    font-size: 0.875rem;
+    margin-left: 0.35rem;
+  }
+  .woj-form-row input {
+    width: 100%;
+    padding: 0.875rem 1rem;
+    border: 1.5px solid var(--hairline);
+    border-radius: 10px;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    color: var(--ink);
+    background: var(--white);
+    transition: border-color 0.15s ease;
+  }
+  .woj-form-row input:focus {
+    outline: none;
+    border-color: var(--forward-blue);
+  }
+  .woj-form-row input:focus-visible {
+    outline: 3px solid var(--forward-blue);
+    outline-offset: 1px;
+  }
+  .woj-reassurance {
+    color: var(--slate);
+    font-size: 0.875rem;
+    line-height: 1.55;
+    margin-top: 1rem;
+    max-width: 48ch;
+  }
+
+  /* MAP — the payoff */
+  .woj-map { padding: 2rem 0 3rem; }
+
+  /* Part A: Verdict banner */
+  .woj-verdict {
+    background: var(--white);
+    border-radius: 14px;
+    border-top: 6px solid var(--leak-border);
+    padding: 1.75rem 1.75rem;
+    box-shadow: 0 8px 24px rgba(26, 29, 36, 0.06);
+    margin-bottom: 2.5rem;
+  }
+  .woj-verdict.clean { border-top-color: var(--running-clean); }
+  .woj-verdict-headline {
+    font-family: var(--font-display);
+    font-size: 1.625rem;
+    font-weight: 600;
+    letter-spacing: -0.015em;
+    line-height: 1.2;
+    color: var(--ink);
+    margin: 0 0 0.6rem;
+  }
+  .woj-verdict-body {
+    color: var(--slate);
+    font-size: 1rem;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  /* Part B: Flow */
+  .woj-flow-and-math {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+    margin-bottom: 2.5rem;
+  }
+  @media (max-width: 760px) {
+    .woj-flow-and-math { grid-template-columns: 1fr; gap: 2rem; }
+  }
+  .woj-flow-title,
+  .woj-math-title {
+    font-family: var(--font-display);
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--ink);
+    margin: 0 0 1rem;
+  }
+
+  .woj-flow {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    position: relative;
+  }
+  .woj-flow::before {
+    content: "";
+    position: absolute;
+    left: 8px;
+    top: 8px;
+    bottom: 8px;
+    width: 1.5px;
+    background: var(--hairline);
+  }
+  .woj-flow-step {
+    position: relative;
+    padding-left: 2rem;
+    padding-bottom: 1.25rem;
+  }
+  .woj-flow-step:last-child { padding-bottom: 0; }
+  .woj-flow-dot {
+    position: absolute;
+    left: 2px;
+    top: 6px;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: var(--leak-border);
+    border: 2px solid var(--paper);
+    box-sizing: content-box;
+  }
+  .woj-flow-step.clean .woj-flow-dot { background: var(--running-clean); }
+  .woj-flow-name {
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--slate);
+    font-weight: 600;
+    margin: 0 0 0.25rem;
+  }
+  .woj-flow-answer {
+    font-weight: 600;
+    color: var(--ink);
+    font-size: 0.9375rem;
+    line-height: 1.35;
+    margin: 0 0 0.5rem;
+  }
+  .woj-chip {
+    display: inline-block;
+    padding: 0.25rem 0.6rem;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    background: var(--leak-soft);
+    color: #8A5A0F;
+    border: 1px solid rgba(245, 165, 36, 0.35);
+  }
+  .woj-chip.clean {
+    background: var(--running-clean-soft);
+    color: #245A44;
+    border-color: rgba(63, 159, 110, 0.35);
+  }
+
+  /* Part C: Math */
+  .woj-math { }
+  .woj-big-number {
+    font-family: var(--font-display);
+    font-size: 3.5rem;
+    font-weight: 600;
+    color: var(--ink);
+    line-height: 1;
+    letter-spacing: -0.03em;
+    margin: 0;
+    font-variant-numeric: tabular-nums;
+  }
+  .woj-big-number-label {
+    color: var(--slate);
+    font-size: 1rem;
+    margin: 0.35rem 0 0.25rem;
+  }
+  .woj-annual {
+    color: var(--slate);
+    font-size: 0.9375rem;
+    margin: 0 0 1.5rem;
+  }
+  .woj-math-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1.25rem;
+  }
+  .woj-math-table td {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--hairline);
+    font-size: 0.9375rem;
+    color: var(--slate);
+  }
+  .woj-math-table td:last-child {
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+    font-weight: 500;
+    color: var(--ink);
+  }
+  .woj-math-table tr:last-child td { border-bottom: none; }
+  .woj-math-note {
+    color: var(--slate);
+    font-size: 0.875rem;
+    line-height: 1.55;
+    margin: 0;
+    font-style: italic;
+  }
+
+  /* Part D: Ask */
+  .woj-ask {
+    background: var(--paper-warm);
+    border-radius: 14px;
+    padding: 2rem;
+    text-align: center;
+  }
+  .woj-ask.clean { background: var(--running-clean-soft); }
+  .woj-ask-headline {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--ink);
+    line-height: 1.2;
+    letter-spacing: -0.015em;
+    margin: 0 0 0.75rem;
+  }
+  .woj-ask-body {
+    color: var(--ink);
+    font-size: 1rem;
+    line-height: 1.6;
+    margin: 0 auto 1.5rem;
+    max-width: 52ch;
+  }
+  .woj-ask-actions {
+    display: flex;
+    gap: 0.75rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .woj-quiet-link {
+    display: inline-block;
+    color: var(--slate);
+    font-size: 0.9375rem;
+    font-weight: 500;
+    text-decoration: underline;
+    text-decoration-color: rgba(91, 100, 112, 0.35);
+    text-underline-offset: 3px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: var(--font-body);
+  }
+  .woj-quiet-link:hover { color: var(--forward-blue); }
+
+  /* Ready-now screen */
+  .woj-ready {
+    text-align: center;
+    padding: 3rem 0 2rem;
+    max-width: 42rem;
+    margin: 0 auto;
+  }
+  .woj-ready p {
+    color: var(--ink);
+    font-size: 1.0625rem;
+    line-height: 1.65;
+    text-align: left;
+    margin: 0 0 1.25rem;
+  }
+
+  /* Toast for "copied" */
+  .woj-toast {
+    position: fixed;
+    left: 50%;
+    bottom: 32px;
+    transform: translateX(-50%) translateY(20px);
+    background: var(--ink);
+    color: var(--paper);
+    padding: 0.75rem 1.25rem;
+    border-radius: 999px;
+    font-size: 0.9375rem;
+    font-weight: 500;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    z-index: 200;
+  }
+  .woj-toast.is-visible {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+</style>
+</head>
+<body>
+
+<!-- Progress bar (top of page) -->
+<div class="woj-progress" id="wojProgress" role="progressbar" aria-label="Progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"></div>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <span class="logo-mark" aria-hidden="true"><img src="images/logo-mark.png" alt="" width="32" height="29"></span>
+      <span class="logo-text">Forward Solutions</span>
+    </a>
+    <nav class="nav-links">
+      <div class="nav-dropdown">
+        <a href="services.html" class="nav-dropdown-trigger" aria-haspopup="true" aria-expanded="false">Services <span class="nav-caret" aria-hidden="true">▾</span></a>
+        <div class="nav-dropdown-menu">
+          <a href="support.html">Forward Support</a>
+          <a href="sprint.html">Forward Sprint</a>
+          <a href="expedition.html">Forward Expedition</a>
+        </div>
+      </div>
+      <a href="work.html">My Work</a>
+      <a href="tools.html">Tools</a>
+      <a href="about.html">About</a>
+      <a href="faq.html">FAQ</a>
+      <a href="start.html" class="btn btn-primary btn-nav">Start here</a>
+      <button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </div>
+  <div class="mobile-menu" id="mobile-menu">
+    <p class="mobile-menu-heading">Services</p>
+    <a href="services.html">All services</a>
+    <a href="support.html">Forward Support</a>
+    <a href="sprint.html">Forward Sprint</a>
+    <a href="expedition.html">Forward Expedition</a>
+    <div class="mobile-menu-divider"></div>
+    <a href="work.html">My Work</a>
+    <a href="tools.html">Tools</a>
+    <a href="about.html">About</a>
+    <a href="faq.html">FAQ</a>
+    <a href="index.html#book">Book a call</a>
+    <a href="start.html" class="btn btn-primary btn-large mobile-menu-cta">Start here →</a>
+  </div>
+</header>
+
+<!-- Netlify Forms detection stub — never rendered, but Netlify's build parser picks up form definition -->
+<form name="walk-one-job" method="POST" data-netlify="true" netlify-honeypot="bot-field" hidden>
+  <input type="text" name="bot-field">
+  <input type="text" name="name">
+  <input type="email" name="email">
+  <input type="text" name="businessType">
+  <input type="text" name="diagnosis">
+  <input type="number" name="hoursPerMonth">
+  <input type="number" name="hoursPerYear">
+  <textarea name="summary"></textarea>
+</form>
+
+<main class="woj-page">
+  <div class="woj-container">
+
+    <!-- ========== SCREEN 1: INTRO ========== -->
+    <section class="woj-screen is-active" id="woj-intro" data-screen="intro">
+      <div class="woj-intro">
+        <h1 class="woj-intro-headline">Walk one job with me.</h1>
+        <p class="woj-intro-body">Eight questions about how one customer actually moves through your business — from the first inquiry to the money in the bank. About three minutes.</p>
+        <p class="woj-intro-body">At the end you get a map of your own process, with the spots marked where time leaks out. No score, no grade. Just your answers, drawn.</p>
+        <div class="woj-intro-cta">
+          <button type="button" class="woj-btn-primary" id="wojStart">Start the walk</button>
+        </div>
+        <button type="button" class="woj-skip" id="wojReadyNow">I'm ready now — skip this →</button>
+        <p class="woj-attribution">Built by Lee Pettijohn. This little tool is the kind of thing I build for people — which is the other reason it exists.</p>
+      </div>
+    </section>
+
+    <!-- ========== SCREENS 2–9: QUESTIONS (rendered by JS into this slot) ========== -->
+    <section class="woj-screen" id="woj-question" data-screen="question" aria-live="polite">
+      <p class="woj-step" id="wojStepLabel"></p>
+      <h2 class="woj-question" id="wojQuestionText"></h2>
+      <p class="woj-hint" id="wojHint"></p>
+      <div class="woj-options" id="wojOptions" role="group"></div>
+      <button type="button" class="woj-back" data-back>← Back</button>
+    </section>
+
+    <!-- ========== SCREEN 10: VOLUME ========== -->
+    <section class="woj-screen" id="woj-volume" data-screen="volume">
+      <p class="woj-step">Step 9 of 9</p>
+      <h2 class="woj-question">Roughly how many jobs, customers, or bookings run through in a typical month?</h2>
+      <p class="woj-hint">A rough number is fine. It only sets the scale.</p>
+      <div class="woj-options" id="wojVolumeOptions" role="group"></div>
+      <button type="button" class="woj-back" data-back>← Back</button>
+    </section>
+
+    <!-- ========== SCREEN 11: EMAIL CAPTURE ========== -->
+    <section class="woj-screen" id="woj-email" data-screen="email">
+      <p class="woj-step">Last step</p>
+      <h2 class="woj-question">Where should I send your map?</h2>
+      <p class="woj-hint">Your map appears on the next screen either way. This just sends you a copy you can keep.</p>
+      <div class="woj-form-row">
+        <label for="wojName">Name <span class="woj-optional">optional</span></label>
+        <input type="text" id="wojName" autocomplete="name">
+      </div>
+      <div class="woj-form-row">
+        <label for="wojEmail">Email</label>
+        <input type="email" id="wojEmail" required autocomplete="email" inputmode="email">
+      </div>
+      <div class="woj-form-row">
+        <label for="wojBusiness">What kind of business is it? <span class="woj-optional">optional</span></label>
+        <input type="text" id="wojBusiness">
+      </div>
+      <button type="button" class="woj-btn-primary" id="wojShowMap" disabled>Show me the map</button>
+      <p class="woj-reassurance">I don't sell lists and I don't run a newsletter you didn't ask for. This goes to me, and that's it.</p>
+      <div style="margin-top: 1.5rem;">
+        <button type="button" class="woj-back" data-back>← Back</button>
+      </div>
+    </section>
+
+    <!-- ========== SCREEN 12: THE MAP ========== -->
+    <section class="woj-screen" id="woj-map" data-screen="map">
+      <div class="woj-map">
+        <!-- Part A: Verdict banner -->
+        <div class="woj-verdict" id="wojVerdict">
+          <h2 class="woj-verdict-headline" id="wojVerdictHeadline"></h2>
+          <p class="woj-verdict-body" id="wojVerdictBody"></p>
+        </div>
+
+        <!-- Parts B & C: Flow (left) + Math (right) -->
+        <div class="woj-flow-and-math">
+          <div>
+            <h3 class="woj-flow-title">Your flow</h3>
+            <ol class="woj-flow" id="wojFlow"></ol>
+          </div>
+          <div>
+            <h3 class="woj-math-title">The math</h3>
+            <p class="woj-big-number" id="wojBigNumber"></p>
+            <p class="woj-big-number-label">hours per month</p>
+            <p class="woj-annual" id="wojAnnual"></p>
+            <table class="woj-math-table" id="wojMathTable"></table>
+            <p class="woj-math-note" id="wojMathNote"></p>
+          </div>
+        </div>
+
+        <!-- Part D: The ask -->
+        <div class="woj-ask" id="wojAsk">
+          <h2 class="woj-ask-headline" id="wojAskHeadline"></h2>
+          <p class="woj-ask-body" id="wojAskBody"></p>
+          <div class="woj-ask-actions" id="wojAskActions"></div>
+        </div>
+
+        <div style="text-align: center; margin-top: 2rem;">
+          <button type="button" class="woj-back" id="wojStartOver">← Start over</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== "I'M READY NOW" ESCAPE HATCH ========== -->
+    <section class="woj-screen" id="woj-ready" data-screen="ready">
+      <div class="woj-ready">
+        <h1 class="woj-intro-headline" style="text-align: left;">Then you get the next slot.</h1>
+        <p>If you already know something's broken and you want somebody to go through the whole operation and tell you what to fix in what order — that's a Forward Expedition. I run one at a time, and I keep the next slot open.</p>
+        <p>Move now and you skip the line, not the price. Flat $2,000, same as always, and I start inside five business days instead of the month you'd normally wait.</p>
+        <p>One fifteen-minute call first — not to sell you, to make sure an Expedition is the right thing to buy. Sometimes the honest answer is that it's a two-hour job, and I'd rather tell you that before you pay me. I can usually take that call the same day.</p>
+        <div style="margin-top: 2rem;">
+          <a href="#" class="woj-btn-primary" id="wojExpeditionCTA">Claim the slot — book fifteen minutes</a>
+        </div>
+        <div style="margin-top: 1.5rem;">
+          <button type="button" class="woj-back" data-back-to-intro>← Actually, let me walk through it first</button>
+        </div>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo">
+          <span class="logo-mark" aria-hidden="true"><img src="images/logo-mark.png" alt="" width="32" height="29"></span>
+          <span class="logo-text">Forward Solutions</span>
+        </a>
+        <p class="footer-tagline">Data organization and process automation for small business.</p>
+      </div>
+      <div class="footer-nav">
+        <p class="footer-heading">Site</p>
+        <a href="services.html">Services</a>
+        <a href="support.html">Forward Support</a>
+        <a href="sprint.html">Forward Sprint</a>
+        <a href="expedition.html">Forward Expedition</a>
+        <a href="work.html">My Work</a>
+        <a href="tools.html">Tools</a>
+        <a href="about.html">About</a>
+        <a href="faq.html">FAQ</a>
+      </div>
+      <div class="footer-contact">
+        <p class="footer-heading">Get in touch</p>
+        <a href="start.html">Start here →</a>
+        <a href="mailto:leepettijohn@gottamoveforward.com">leepettijohn@gottamoveforward.com</a>
+        <a href="tel:+19707126933" class="footer-phone">(970) 712-6933</a>
+        <p class="footer-meta">Middle Tennessee<br>Serving Middle Tennessee and beyond</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>Established in 2020 · Forward Solutions · Lee Pettijohn · gottamoveforward.com</p>
+    </div>
+  </div>
+</footer>
+
+<div class="woj-toast" id="wojToast" role="status" aria-live="polite">Copied to clipboard</div>
+
+<script src="js/script.js"></script>
+<script>
+/* ============================================================
+   WALK ONE JOB — configuration
+   Wire these four values and you're done. Everything else is
+   handled below.
+   ============================================================ */
+const CONFIG = {
+  // Where the "Book a free 30-minute call" button sends people (main outcome)
+  discoveryBookingURL: "https://calendar.app.google/ZsoW1iZoVs3fdzvaA",
+
+  // Where the "let's keep it small" outcome's booking button sends people (low-volume with leaks)
+  sprintBookingURL: "https://calendar.app.google/ZsoW1iZoVs3fdzvaA",
+
+  // Where the "Claim the slot" button on the escape-hatch screen sends people (fifteen-minute Expedition confirm)
+  expeditionConfirmURL: "https://calendar.app.google/ZsoW1iZoVs3fdzvaA",
+
+  // Optional POST endpoint. Leave "" to disable; a Netlify Form submission still fires either way.
+  // Payload includes all answers, flags, diagnosis, and summary. Fire-and-forget — never blocks the map.
+  webhookURL: ""
+};
+
+/* ============================================================
+   QUESTION DATA (spec verbatim)
+   ============================================================ */
+const QUESTIONS = [
+  {
+    step: "Intake",
+    question: "A new job or inquiry comes in. Where does it land?",
+    hint: "Wherever it shows up first — that's the answer.",
+    options: [
+      { label: "My email inbox",                            min: 3, flags: ["scattered"],           tag: "hunted for" },
+      { label: "Texts or DMs",                              min: 4, flags: ["scattered"],           tag: "easy to lose" },
+      { label: "A form that fills a spreadsheet or app",    min: 0, flags: [],                      tag: "" },
+      { label: "Phone call, and I write it down",           min: 5, flags: ["scattered","manual"],  tag: "on paper" }
+    ]
+  },
+  {
+    step: "The record",
+    question: "You need to check what that customer actually asked for. Where do you look?",
+    hint: "",
+    options: [
+      { label: "Somewhere in the email thread",             min: 5, flags: ["scattered"],           tag: "hunted for" },
+      { label: "A spreadsheet",                             min: 2, flags: [],                      tag: "half-solved" },
+      { label: "A real system built for it",                min: 0, flags: [],                      tag: "" },
+      { label: "My head, or a notebook",                    min: 6, flags: ["scattered","owner"],   tag: "only you know" }
+    ]
+  },
+  {
+    step: "The quote",
+    question: "You send them a price. How does that get made?",
+    hint: "",
+    options: [
+      { label: "I type it fresh every time",                min: 8, flags: ["reentry"],             tag: "retyped" },
+      { label: "I copy an old one and edit it",             min: 5, flags: ["reentry"],             tag: "retyped" },
+      { label: "Software builds it from the job",           min: 0, flags: [],                      tag: "" },
+      { label: "We just talk — nothing written",            min: 4, flags: ["manual"],              tag: "nothing in writing" }
+    ]
+  },
+  {
+    step: "The schedule",
+    question: "It's a yes. How does it get on the schedule?",
+    hint: "",
+    options: [
+      { label: "I add it to my calendar by hand",           min: 3, flags: ["reentry"],             tag: "retyped" },
+      { label: "A shared calendar or booking app",          min: 0, flags: [],                      tag: "" },
+      { label: "A whiteboard or a paper planner",           min: 4, flags: ["scattered"],           tag: "one copy only" },
+      { label: "I just remember",                           min: 5, flags: ["manual","owner"],      tag: "in your head" }
+    ]
+  },
+  {
+    step: "Visibility",
+    question: "Somebody asks where that job stands. Who can answer without asking you?",
+    hint: "Customer, employee, spouse — anybody.",
+    options: [
+      { label: "Anyone — they can look it up",              min: 0, flags: [],                      tag: "" },
+      { label: "One other person",                          min: 2, flags: [],                      tag: "one deep" },
+      { label: "Nobody. Only me",                           min: 4, flags: ["owner"],               tag: "only you" },
+      { label: "I'd have to go check myself",               min: 5, flags: ["owner","scattered"],   tag: "only you" }
+    ]
+  },
+  {
+    step: "The customer's view",
+    question: "Between the yes and the delivery, what does the customer hear from you automatically?",
+    hint: "Automatically means it happens without you doing anything.",
+    options: [
+      { label: "Confirmations and reminders go out on their own", min: 0, flags: [],                 tag: "" },
+      { label: "I text or call them when I remember",             min: 4, flags: ["manual"],          tag: "when you remember" },
+      { label: "Nothing until I show up",                         min: 3, flags: ["manual"],          tag: "silence" },
+      { label: "Depends how busy I am",                           min: 4, flags: ["manual"],          tag: "when you remember" }
+    ]
+  },
+  {
+    step: "The invoice",
+    question: "The job's done. How does the invoice get made?",
+    hint: "",
+    options: [
+      { label: "I retype the details from my notes",        min: 6, flags: ["reentry"],             tag: "retyped" },
+      { label: "It pulls from the job record automatically", min: 0, flags: [],                     tag: "" },
+      { label: "I write it out by hand",                    min: 7, flags: ["reentry"],             tag: "retyped" },
+      { label: "Someone else does it from what I tell them", min: 5, flags: ["reentry","owner"],    tag: "retyped" }
+    ]
+  },
+  {
+    step: "What comes back around",
+    question: "Follow-ups, renewals, recurring invoices — how do those get remembered?",
+    hint: "",
+    options: [
+      { label: "A system reminds me",                       min: 0, flags: [],                      tag: "" },
+      { label: "A recurring calendar item",                 min: 1, flags: [],                      tag: "half-solved" },
+      { label: "I keep it in my head",                      min: 4, flags: ["manual","owner"],      tag: "in your head" },
+      { label: "Honestly, some get missed",                 min: 6, flags: ["manual"],              tag: "some get missed" }
+    ]
+  }
+];
+
+const VOLUME_OPTIONS = [
+  { label: "Fewer than 5",       value: 3,  bucket: "fewer-than-5" },
+  { label: "Between 5 and 20",   value: 12, bucket: "5-to-20" },
+  { label: "Between 20 and 50",  value: 32, bucket: "20-to-50" },
+  { label: "More than 50",       value: 65, bucket: "more-than-50" }
+];
+
+const DIAGNOSIS = {
+  reentry: {
+    headline: "The same facts, typed over and over.",
+    body: "The details of one job get entered by hand in more than one place. Nothing is broken exactly — it just costs you a few minutes every single time, and it never stops costing you."
+  },
+  scattered: {
+    headline: "There's no single place where the truth lives.",
+    body: "To answer a basic question about a job, you have to go looking — email, a notebook, a spreadsheet, your memory. The information exists. It's just not anywhere you can point to."
+  },
+  owner: {
+    headline: "Everything runs through you.",
+    body: "Most of what moves a job forward requires you specifically. That works right up until you're sick, on vacation, or busy — and it's the reason the business can't get much bigger than you are."
+  },
+  manual: {
+    headline: "The system is your memory.",
+    body: "A lot of what has to happen depends on you remembering to make it happen. You're probably good at it. That's not the same as it being safe."
+  },
+  clean: {
+    headline: "You're in better shape than most.",
+    body: "Your answers don't show much leaking. The information has a home, things happen without you pushing them, and somebody other than you can see what's going on. That's rarer than you'd think."
+  }
+};
+
+/* ============================================================
+   STATE
+   ============================================================ */
+const state = {
+  screen: "intro",
+  screenHistory: ["intro"],       // for Back button
+  currentQuestionIndex: 0,
+  answers: [],                    // one entry per question: {step, question, optionIndex, label, min, flags, tag}
+  volume: null,                   // {label, value, bucket}
+  name: "",
+  email: "",
+  businessType: ""
+};
+
+/* ============================================================
+   HELPERS
+   ============================================================ */
+const $ = (sel) => document.querySelector(sel);
+const $$ = (sel) => document.querySelectorAll(sel);
+
+function showScreen(name, pushHistory) {
+  $$(".woj-screen").forEach(s => s.classList.remove("is-active"));
+  const target = document.querySelector(`[data-screen="${name}"]`);
+  if (target) target.classList.add("is-active");
+  state.screen = name;
+  if (pushHistory !== false) state.screenHistory.push(name);
+  updateProgress();
+  // Scroll to top of content (not window) so users see the new question
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+function goBack() {
+  // Pop current
+  state.screenHistory.pop();
+  const prev = state.screenHistory[state.screenHistory.length - 1] || "intro";
+  // Reset if we're stepping back into questions
+  if (prev === "question") {
+    state.currentQuestionIndex--;
+    state.answers.pop();
+  } else if (state.screen === "question" && state.screenHistory[state.screenHistory.length - 2] !== "question") {
+    // going from Q1 back to intro
+  } else if (prev === "volume") {
+    state.volume = null;
+  } else if (prev === "email") {
+    // stepping back to email keeps name/email/business as-is
+  }
+  showScreen(prev, false);
+  if (prev === "question") renderQuestion();
+}
+
+function updateProgress() {
+  // Total logical steps in the flow: 8 questions + volume + email + map = 11
+  const map = {
+    intro: 0,
+    question: state.currentQuestionIndex + 1,
+    volume: 9,
+    email: 10,
+    map: 11,
+    ready: 0
+  };
+  const pct = (map[state.screen] / 11) * 100;
+  const bar = $("#wojProgress");
+  bar.style.width = pct + "%";
+  bar.setAttribute("aria-valuenow", Math.round(pct));
+}
+
+/* ============================================================
+   RENDER: QUESTION
+   ============================================================ */
+function renderQuestion() {
+  const idx = state.currentQuestionIndex;
+  const q = QUESTIONS[idx];
+  $("#wojStepLabel").textContent = `Step ${idx + 1} of 9`;
+  $("#wojQuestionText").textContent = q.question;
+  const hintEl = $("#wojHint");
+  if (q.hint) {
+    hintEl.textContent = q.hint;
+    hintEl.style.display = "";
+  } else {
+    hintEl.style.display = "none";
+  }
+  const optsEl = $("#wojOptions");
+  optsEl.innerHTML = "";
+  q.options.forEach((opt, i) => {
+    const key = ["A","B","C","D"][i];
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "woj-option";
+    btn.setAttribute("data-option-index", i);
+    btn.setAttribute("data-key", key);
+    btn.innerHTML = `<span class="woj-option-key" aria-hidden="true">${key}</span><span>${opt.label}</span>`;
+    btn.addEventListener("click", () => selectOption(i));
+    optsEl.appendChild(btn);
+  });
+  // Focus the first option for keyboard users
+  setTimeout(() => {
+    const first = optsEl.querySelector(".woj-option");
+    if (first) first.focus();
+  }, 100);
+}
+
+function selectOption(i) {
+  const q = QUESTIONS[state.currentQuestionIndex];
+  const opt = q.options[i];
+  state.answers[state.currentQuestionIndex] = {
+    step: q.step,
+    question: q.question,
+    optionIndex: i,
+    label: opt.label,
+    min: opt.min,
+    flags: opt.flags,
+    tag: opt.tag
+  };
+  // Advance
+  if (state.currentQuestionIndex < QUESTIONS.length - 1) {
+    state.currentQuestionIndex++;
+    renderQuestion();
+    // Screen didn't change, but push a "question" marker so Back works
+    state.screenHistory.push("question");
+    updateProgress();
+  } else {
+    // Done with questions — go to volume
+    showScreen("volume");
+    renderVolume();
+  }
+}
+
+/* ============================================================
+   RENDER: VOLUME
+   ============================================================ */
+function renderVolume() {
+  const optsEl = $("#wojVolumeOptions");
+  optsEl.innerHTML = "";
+  VOLUME_OPTIONS.forEach((opt, i) => {
+    const key = ["A","B","C","D"][i];
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "woj-option";
+    btn.setAttribute("data-option-index", i);
+    btn.setAttribute("data-key", key);
+    btn.innerHTML = `<span class="woj-option-key" aria-hidden="true">${key}</span><span>${opt.label}</span>`;
+    btn.addEventListener("click", () => {
+      state.volume = opt;
+      showScreen("email");
+      setTimeout(() => $("#wojEmail").focus(), 150);
+    });
+    optsEl.appendChild(btn);
+  });
+  setTimeout(() => {
+    const first = optsEl.querySelector(".woj-option");
+    if (first) first.focus();
+  }, 100);
+}
+
+/* ============================================================
+   EMAIL SCREEN — validation + submit
+   ============================================================ */
+function initEmailScreen() {
+  const emailInput = $("#wojEmail");
+  const showBtn = $("#wojShowMap");
+  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  function validate() {
+    showBtn.disabled = !emailPattern.test(emailInput.value.trim());
+  }
+  emailInput.addEventListener("input", validate);
+  validate();
+
+  showBtn.addEventListener("click", () => {
+    state.name = $("#wojName").value.trim();
+    state.email = emailInput.value.trim();
+    state.businessType = $("#wojBusiness").value.trim();
+    submitAndShowMap();
+  });
+  // Enter key on email input submits
+  emailInput.addEventListener("keydown", (e) => {
+    if (e.key === "Enter" && !showBtn.disabled) {
+      e.preventDefault();
+      showBtn.click();
+    }
+  });
+}
+
+function submitAndShowMap() {
+  // Compute everything before we send or render
+  const analysis = analyze();
+
+  // Fire-and-forget: Netlify Forms submission
+  try {
+    const fd = new FormData();
+    fd.append("form-name", "walk-one-job");
+    fd.append("name", state.name);
+    fd.append("email", state.email);
+    fd.append("businessType", state.businessType);
+    fd.append("diagnosis", analysis.diagnosisKey);
+    fd.append("hoursPerMonth", analysis.hoursPerMonth);
+    fd.append("hoursPerYear", analysis.hoursPerYear);
+    fd.append("summary", buildSummary(analysis));
+    fetch("/", { method: "POST", body: new URLSearchParams(fd).toString(), headers: {"Content-Type": "application/x-www-form-urlencoded"} })
+      .catch(() => {/* silent */});
+  } catch (e) { /* silent */ }
+
+  // Fire-and-forget: webhook (optional)
+  if (CONFIG.webhookURL) {
+    try {
+      const payload = {
+        name: state.name,
+        email: state.email,
+        businessType: state.businessType,
+        answers: state.answers,
+        volume: state.volume,
+        diagnosis: analysis.diagnosisKey,
+        flagCounts: analysis.flagCounts,
+        hoursPerMonth: analysis.hoursPerMonth,
+        hoursPerYear: analysis.hoursPerYear,
+        summary: buildSummary(analysis)
+      };
+      fetch(CONFIG.webhookURL, {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify(payload)
+      }).catch(() => {/* silent */});
+    } catch (e) { /* silent */ }
+  }
+
+  // Analytics
+  try { gtag("event", "walk_one_job_complete", { diagnosis: analysis.diagnosisKey, hours_per_month: analysis.hoursPerMonth }); } catch (e) {}
+
+  // Show the map
+  renderMap(analysis);
+  showScreen("map");
+}
+
+/* ============================================================
+   ANALYSIS — flags, diagnosis, math
+   ============================================================ */
+function analyze() {
+  const flagCounts = { reentry: 0, scattered: 0, owner: 0, manual: 0 };
+  let totalMinutes = 0;
+  state.answers.forEach(a => {
+    totalMinutes += a.min;
+    a.flags.forEach(f => { if (flagCounts[f] !== undefined) flagCounts[f]++; });
+  });
+
+  // Diagnosis: clean if total minutes <= 8, else highest-count flag with tie-break order
+  let diagnosisKey;
+  if (totalMinutes <= 8) {
+    diagnosisKey = "clean";
+  } else {
+    const tieBreakOrder = ["reentry", "scattered", "owner", "manual"];
+    let max = -1;
+    diagnosisKey = "manual"; // fallback
+    tieBreakOrder.forEach(k => {
+      if (flagCounts[k] > max) {
+        max = flagCounts[k];
+        diagnosisKey = k;
+      }
+    });
+    // If no flags at all (totalMinutes > 8 but no flags — edge case), call it clean
+    if (max === 0) diagnosisKey = "clean";
+  }
+
+  const volumeValue = state.volume ? state.volume.value : 12;
+  const hoursPerMonth = Math.round((totalMinutes * volumeValue) / 60);
+  const hoursPerYear = hoursPerMonth * 12;
+
+  return {
+    flagCounts,
+    totalMinutes,
+    diagnosisKey,
+    volumeValue,
+    hoursPerMonth,
+    hoursPerYear
+  };
+}
+
+/* ============================================================
+   RENDER: THE MAP
+   ============================================================ */
+function renderMap(analysis) {
+  const diag = DIAGNOSIS[analysis.diagnosisKey];
+  const isClean = analysis.diagnosisKey === "clean";
+
+  // Part A: Verdict
+  const verdictEl = $("#wojVerdict");
+  verdictEl.classList.toggle("clean", isClean);
+  $("#wojVerdictHeadline").textContent = diag.headline;
+  $("#wojVerdictBody").textContent = diag.body;
+
+  // Part B: Flow
+  const flowEl = $("#wojFlow");
+  flowEl.innerHTML = "";
+  state.answers.forEach(a => {
+    const li = document.createElement("li");
+    li.className = "woj-flow-step" + (a.min === 0 ? " clean" : "");
+    li.innerHTML = `
+      <span class="woj-flow-dot" aria-hidden="true"></span>
+      <p class="woj-flow-name">${escapeHtml(a.step)}</p>
+      <p class="woj-flow-answer">${escapeHtml(a.label)}</p>
+      <span class="woj-chip ${a.min === 0 ? "clean" : ""}">${a.min === 0 ? "running clean" : escapeHtml(a.tag || "leak")}</span>
+    `;
+    flowEl.appendChild(li);
+  });
+
+  // Part C: Math
+  if (analysis.hoursPerMonth < 1) {
+    $("#wojBigNumber").textContent = "under 1";
+    $("#wojAnnual").style.display = "none";
+  } else {
+    $("#wojBigNumber").textContent = analysis.hoursPerMonth;
+    $("#wojAnnual").style.display = "";
+    $("#wojAnnual").textContent = `That's about ${analysis.hoursPerYear} hours a year.`;
+  }
+  const tableEl = $("#wojMathTable");
+  tableEl.innerHTML = "";
+  state.answers.forEach(a => {
+    if (a.min === 0) return;
+    const tr = document.createElement("tr");
+    tr.innerHTML = `<td>${escapeHtml(a.step)}</td><td>${a.min} min</td>`;
+    tableEl.appendChild(tr);
+  });
+  $("#wojMathNote").textContent = `Rough estimate: ${analysis.totalMinutes} minutes per job across those steps, times about ${analysis.volumeValue} jobs a month. Your real number is probably different. The point isn't the number — it's that it's the same number every month.`;
+
+  // Part D: Ask
+  const askEl = $("#wojAsk");
+  const askActionsEl = $("#wojAskActions");
+  askEl.classList.toggle("clean", isClean);
+  askActionsEl.innerHTML = "";
+
+  if (isClean) {
+    $("#wojAskHeadline").textContent = "You probably don't need me yet.";
+    $("#wojAskBody").textContent = "I'd feel bad taking your money right now. Keep this map. If the business grows and things start slipping through, that's when it's worth a conversation — not before.";
+    // Quiet link only, no amber button
+    const quiet = document.createElement("a");
+    quiet.className = "woj-quiet-link";
+    quiet.href = CONFIG.discoveryBookingURL;
+    quiet.target = "_blank";
+    quiet.rel = "noopener";
+    quiet.textContent = "Still want to talk it through";
+    askActionsEl.appendChild(quiet);
+  } else if (state.volume && state.volume.bucket === "fewer-than-5") {
+    $("#wojAskHeadline").textContent = "Worth fixing — but let's keep it small.";
+    $("#wojAskBody").textContent = "At your volume a big system build wouldn't pay for itself. This is a couple of hours of work, not a project, and I'd rather sell you the couple of hours.";
+    const primary = document.createElement("a");
+    primary.className = "woj-btn-primary";
+    primary.href = CONFIG.sprintBookingURL;
+    primary.target = "_blank";
+    primary.rel = "noopener";
+    primary.textContent = "Book a free 30-minute call";
+    askActionsEl.appendChild(primary);
+  } else {
+    $("#wojAskHeadline").textContent = "This is fixable. Most of it is ordinary.";
+    $("#wojAskBody").textContent = "If you want, we spend thirty minutes on the phone and I'll tell you which of these is worth fixing first, what it'd take, and whether it's me or somebody else who should do it. Free, and I'm not going to pitch you on the call.";
+    const primary = document.createElement("a");
+    primary.className = "woj-btn-primary";
+    primary.href = CONFIG.discoveryBookingURL;
+    primary.target = "_blank";
+    primary.rel = "noopener";
+    primary.textContent = "Book a free 30-minute call";
+    askActionsEl.appendChild(primary);
+  }
+
+  // Copy summary button — always present
+  const copyBtn = document.createElement("button");
+  copyBtn.type = "button";
+  copyBtn.className = "woj-btn-secondary";
+  copyBtn.textContent = "Copy summary";
+  copyBtn.addEventListener("click", () => {
+    copyToClipboard(buildSummary(analysis));
+    showToast();
+  });
+  askActionsEl.appendChild(copyBtn);
+}
+
+/* ============================================================
+   SUMMARY (plain text, for clipboard + webhook)
+   ============================================================ */
+function buildSummary(analysis) {
+  const lines = [];
+  lines.push("WALK ONE JOB — summary");
+  lines.push("=".repeat(40));
+  if (state.name) lines.push(`Name: ${state.name}`);
+  if (state.email) lines.push(`Email: ${state.email}`);
+  if (state.businessType) lines.push(`Business: ${state.businessType}`);
+  lines.push(`Volume: ${state.volume.label} (uses ${state.volume.value} jobs/month)`);
+  lines.push("");
+  lines.push("Answers:");
+  state.answers.forEach((a, i) => {
+    lines.push(`  ${i+1}. ${a.step}: ${a.label} (${a.min} min${a.flags.length ? "; flags: " + a.flags.join(", ") : ""})`);
+  });
+  lines.push("");
+  lines.push(`Flag counts: reentry=${analysis.flagCounts.reentry}, scattered=${analysis.flagCounts.scattered}, owner=${analysis.flagCounts.owner}, manual=${analysis.flagCounts.manual}`);
+  lines.push(`Total minutes per job (leaked steps only): ${analysis.totalMinutes}`);
+  lines.push(`Hours per month: ${analysis.hoursPerMonth}`);
+  lines.push(`Hours per year: ${analysis.hoursPerYear}`);
+  lines.push(`Diagnosis: ${analysis.diagnosisKey} — "${DIAGNOSIS[analysis.diagnosisKey].headline}"`);
+  return lines.join("\n");
+}
+
+function copyToClipboard(text) {
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(text).catch(() => fallbackCopy(text));
+  } else {
+    fallbackCopy(text);
+  }
+}
+function fallbackCopy(text) {
+  const ta = document.createElement("textarea");
+  ta.value = text;
+  ta.style.position = "fixed";
+  ta.style.left = "-9999px";
+  document.body.appendChild(ta);
+  ta.select();
+  try { document.execCommand("copy"); } catch (e) {}
+  document.body.removeChild(ta);
+}
+function showToast() {
+  const t = $("#wojToast");
+  t.classList.add("is-visible");
+  setTimeout(() => t.classList.remove("is-visible"), 1800);
+}
+
+function escapeHtml(s) {
+  if (s == null) return "";
+  return String(s).replace(/[&<>"']/g, ch => ({
+    "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;", "'":"&#39;"
+  }[ch]));
+}
+
+/* ============================================================
+   INIT — bindings
+   ============================================================ */
+function init() {
+  // Start button
+  $("#wojStart").addEventListener("click", () => {
+    state.currentQuestionIndex = 0;
+    state.answers = [];
+    showScreen("question");
+    renderQuestion();
+  });
+
+  // Ready-now escape hatch (intro → ready)
+  $("#wojReadyNow").addEventListener("click", () => {
+    showScreen("ready");
+  });
+
+  // Expedition CTA on the ready screen
+  $("#wojExpeditionCTA").addEventListener("click", (e) => {
+    e.preventDefault();
+    window.open(CONFIG.expeditionConfirmURL, "_blank", "noopener");
+  });
+
+  // Back buttons — one delegate handles all
+  document.addEventListener("click", (e) => {
+    if (e.target.closest("[data-back]")) {
+      goBack();
+    }
+    if (e.target.closest("[data-back-to-intro]")) {
+      state.screenHistory = ["intro"];
+      state.currentQuestionIndex = 0;
+      state.answers = [];
+      showScreen("intro", false);
+    }
+  });
+
+  // Start over on the map
+  $("#wojStartOver").addEventListener("click", () => {
+    state.screenHistory = ["intro"];
+    state.currentQuestionIndex = 0;
+    state.answers = [];
+    state.volume = null;
+    state.name = state.email = state.businessType = "";
+    showScreen("intro", false);
+  });
+
+  // Keyboard: A/B/C/D select options; Backspace goes back
+  document.addEventListener("keydown", (e) => {
+    // Ignore when typing in an input
+    if (e.target.tagName === "INPUT" || e.target.tagName === "TEXTAREA") return;
+
+    if (state.screen === "question" || state.screen === "volume") {
+      const key = e.key.toUpperCase();
+      if (["A","B","C","D"].includes(key)) {
+        const idx = { A:0, B:1, C:2, D:3 }[key];
+        const btn = document.querySelector(`.woj-screen.is-active .woj-option[data-option-index="${idx}"]`);
+        if (btn) {
+          e.preventDefault();
+          btn.click();
+        }
+      }
+    }
+    if (e.key === "Backspace" && state.screen !== "intro") {
+      // Only if not typing
+      if (state.screen !== "email" || (e.target.tagName !== "INPUT" && e.target.tagName !== "TEXTAREA")) {
+        e.preventDefault();
+        goBack();
+      }
+    }
+  });
+
+  initEmailScreen();
+}
+
+document.addEventListener("DOMContentLoaded", init);
+</script>
+</body>
+</html>
