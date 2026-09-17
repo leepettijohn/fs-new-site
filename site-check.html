@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Google Analytics (GA4) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4LVHYV3DDK"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-4LVHYV3DDK');
+</script>
+<title>Free site check — Forward Solutions</title>
+<meta name="description" content="Enter your website and get a task list of fixes for it in your inbox within a few minutes.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="canonical" href="https://gottamoveforward.com/site-check">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Forward Solutions">
+<meta property="og:title" content="Free site check — Forward Solutions">
+<meta property="og:description" content="Enter your website and get a task list of fixes for it in your inbox within a few minutes.">
+<meta property="og:url" content="https://gottamoveforward.com/site-check">
+<meta property="og:image" content="https://gottamoveforward.com/images/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Forward Solutions — websites, spreadsheets, and systems for small business. Support from $79/mo, Sprint $225/hr, Expedition $2,000.">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Free site check — Forward Solutions">
+<meta name="twitter:description" content="Enter your website and get a task list of fixes for it in your inbox within a few minutes.">
+<meta name="twitter:image" content="https://gottamoveforward.com/images/og-image.png">
+
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+
+<style>
+  .sitecheck-wrap { max-width: 560px; margin: 0 auto; }
+  .sitecheck-wrap .intake-form { margin-top: 0; }
+  .sitecheck-note { margin-top: 1rem; color: var(--slate); font-size: 0.9375rem; text-align: center; }
+  .sitecheck-done {
+    background: var(--white);
+    border: 1px solid var(--hairline);
+    border-radius: var(--radius);
+    padding: 2rem 1.5rem;
+    text-align: center;
+    box-shadow: 0 12px 32px rgba(30, 91, 186, 0.06);
+  }
+  .sitecheck-done h2 {
+    font-family: var(--font-display);
+    font-size: 1.75rem;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    margin: 0 0 0.75rem;
+    color: var(--ink);
+  }
+  .sitecheck-done p { color: var(--slate); margin: 0; line-height: 1.6; }
+  .sitecheck-error { margin-top: 1rem; color: #A3261A; text-align: center; font-weight: 500; }
+  [hidden] { display: none !important; }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <span class="logo-mark" aria-hidden="true"><img src="images/logo-mark.png" alt="" width="32" height="29"></span>
+      <span class="logo-text">Forward Solutions</span>
+    </a>
+    <nav class="nav-links">
+      <div class="nav-dropdown">
+        <a href="services.html" class="nav-dropdown-trigger" aria-haspopup="true" aria-expanded="false">Services <span class="nav-caret" aria-hidden="true">▾</span></a>
+        <div class="nav-dropdown-menu">
+          <a href="support.html">Forward Support</a>
+          <a href="sprint.html">Forward Sprint</a>
+          <a href="expedition.html">Forward Expedition</a>
+        </div>
+      </div>
+      <a href="work.html">My Work</a>
+      <a href="tools.html">Tools</a>
+      <a href="about.html">About</a>
+      <a href="faq.html">FAQ</a>
+      <a href="start.html" class="btn btn-primary btn-nav">Start here</a>
+      <button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </div>
+  <div class="mobile-menu" id="mobile-menu">
+    <p class="mobile-menu-heading">Services</p>
+    <a href="services.html">All services</a>
+    <a href="support.html">Forward Support</a>
+    <a href="sprint.html">Forward Sprint</a>
+    <a href="expedition.html">Forward Expedition</a>
+    <div class="mobile-menu-divider"></div>
+    <a href="work.html">My Work</a>
+    <a href="tools.html">Tools</a>
+    <a href="about.html">About</a>
+    <a href="faq.html">FAQ</a>
+    <a href="start.html" class="btn btn-primary btn-large mobile-menu-cta">Start here →</a>
+  </div>
+</header>
+
+<section class="page-hero" style="padding-bottom: 2rem;">
+  <div class="container">
+    <p class="eyebrow">Free site check</p>
+    <h1 class="display">See what's worth fixing on your website.</h1>
+    <p class="lead">Tell me your site and I'll send you a task list of fixes for it — usually within a few minutes.</p>
+  </div>
+</section>
+
+<section class="section" style="padding-top: 2rem;">
+  <div class="container container-narrow">
+    <div class="sitecheck-wrap">
+
+      <form class="intake-form" id="sitecheck-form" name="site-check" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/site-check#sent">
+        <input type="hidden" name="form-name" value="site-check">
+        <p class="hidden" style="display:none;">
+          <label>Don't fill this out if you're human: <input name="bot-field"></label>
+        </p>
+
+        <div class="form-row">
+          <label for="name">Your name</label>
+          <input type="text" id="name" name="name" autocomplete="name" required>
+        </div>
+
+        <div class="form-row">
+          <label for="email">Email <span class="optional">where the task list goes</span></label>
+          <input type="email" id="email" name="email" autocomplete="email" required>
+        </div>
+
+        <div class="form-row">
+          <label for="website">Website</label>
+          <input type="text" id="website" name="website" inputmode="url" autocomplete="url" autocapitalize="off" spellcheck="false" placeholder="yourbusiness.com" required>
+        </div>
+
+        <div class="form-submit">
+          <button type="submit" class="btn btn-primary btn-large" id="sitecheck-submit">Check my site →</button>
+        </div>
+        <p class="sitecheck-error" id="sitecheck-error" role="alert" hidden>That didn't go through. Please try again, or email me at <a href="mailto:leepettijohn@gottamoveforward.com">leepettijohn@gottamoveforward.com</a>.</p>
+      </form>
+
+      <div class="sitecheck-done" id="sitecheck-done" tabindex="-1" hidden>
+        <h2>Got it — your site check is running.</h2>
+        <p>Your task list will land in your inbox in a few minutes. If you don't see it, check your spam folder.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo">
+          <span class="logo-mark" aria-hidden="true"><img src="images/logo-mark.png" alt="" width="32" height="29"></span>
+          <span class="logo-text">Forward Solutions</span>
+        </a>
+        <p class="footer-tagline">Data organization and process automation for small business.</p>
+      </div>
+      <div class="footer-nav">
+        <p class="footer-heading">Site</p>
+        <a href="services.html">Services</a>
+        <a href="support.html">Forward Support</a>
+        <a href="sprint.html">Forward Sprint</a>
+        <a href="expedition.html">Forward Expedition</a>
+        <a href="work.html">My Work</a>
+        <a href="tools.html">Tools</a>
+        <a href="about.html">About</a>
+        <a href="faq.html">FAQ</a>
+      </div>
+      <div class="footer-contact">
+        <p class="footer-heading">Get in touch</p>
+        <a href="start.html">Start here →</a>
+        <a href="mailto:leepettijohn@gottamoveforward.com">leepettijohn@gottamoveforward.com</a>
+        <a href="tel:+19707126933" class="footer-phone">(970) 712-6933</a>
+        <p class="footer-meta">Middle Tennessee<br>Serving Middle Tennessee and beyond</p>
+      </div>
+    </div>
+    <div class="footer-bottom"><p>Established in 2020 · Forward Solutions · Lee Pettijohn · gottamoveforward.com</p></div>
+  </div>
+</footer>
+
+<script src="js/script.js"></script>
+<script>
+  (function () {
+    var form = document.getElementById('sitecheck-form');
+    var done = document.getElementById('sitecheck-done');
+    var err = document.getElementById('sitecheck-error');
+    var btn = document.getElementById('sitecheck-submit');
+    var site = document.getElementById('website');
+
+    function showDone() {
+      form.setAttribute('hidden', '');
+      done.removeAttribute('hidden');
+      done.focus();
+    }
+
+    // No-JS fallback lands back here with #sent
+    if (window.location.hash === '#sent') { showDone(); }
+
+    // Accept a bare domain or a full URL; reject anything that isn't a hostname
+    function cleanSite(value) {
+      var v = value.trim();
+      if (!/^https?:\/\//i.test(v)) { v = 'https://' + v; }
+      try {
+        var host = new URL(v).hostname.toLowerCase();
+        return /^[a-z0-9.-]+\.[a-z]{2,}$/.test(host) ? host : '';
+      } catch (e) { return ''; }
+    }
+
+    site.addEventListener('input', function () { site.setCustomValidity(''); });
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      err.setAttribute('hidden', '');
+      var host = cleanSite(site.value);
+      if (!host) {
+        site.setCustomValidity('Enter a website address, like yourbusiness.com');
+        site.reportValidity();
+        return;
+      }
+      site.value = host;
+      btn.disabled = true;
+      btn.textContent = 'Sending…';
+      fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(new FormData(form)).toString()
+      }).then(function (res) {
+        if (!res.ok) { throw new Error('Status ' + res.status); }
+        showDone();
+      }).catch(function () {
+        btn.disabled = false;
+        btn.textContent = 'Check my site →';
+        err.removeAttribute('hidden');
+      });
+    });
+  })();
+</script>
+</body>
+</html>
