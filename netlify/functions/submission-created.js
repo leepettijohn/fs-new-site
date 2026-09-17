@@ -1,11 +1,11 @@
 // submission-created — runs automatically on every verified Netlify form submission.
 // Only the "site-check" form is handled; every other form (e.g. "intake") is ignored.
-// Job: validate the submission and hand it to the demo scan runner, fast.
+// Job: validate the submission and hand it to the audit scan runner, fast.
 // The scan itself takes minutes and runs elsewhere (Netlify functions time out in seconds).
 //
 // Environment variables (Netlify → Site configuration → Environment variables):
-//   DEMO_RUNNER_URL     — the scan runner's endpoint that accepts new jobs
-//   DEMO_RUNNER_SECRET  — shared secret, sent as the X-Demo-Secret header
+//   AUDIT_RUNNER_URL     — the scan runner's endpoint that accepts new jobs
+//   AUDIT_RUNNER_SECRET  — shared secret, sent as the X-Audit-Secret header
 
 const FORM_NAME = 'site-check';
 const HANDOFF_TIMEOUT_MS = 8000;
@@ -65,10 +65,10 @@ exports.handler = async (event) => {
     return done(`rejected submission ${job.submission_id}: invalid ${missing.join(', ')}`);
   }
 
-  const url = process.env.DEMO_RUNNER_URL;
-  const secret = process.env.DEMO_RUNNER_SECRET;
+  const url = process.env.AUDIT_RUNNER_URL;
+  const secret = process.env.AUDIT_RUNNER_SECRET;
   if (!url || !secret) {
-    return done(`NOT HANDED OFF ${job.website}: DEMO_RUNNER_URL or DEMO_RUNNER_SECRET not set`);
+    return done(`NOT HANDED OFF ${job.website}: AUDIT_RUNNER_URL or AUDIT_RUNNER_SECRET not set`);
   }
 
   const controller = new AbortController();
@@ -76,7 +76,7 @@ exports.handler = async (event) => {
   try {
     const res = await fetch(url, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'X-Demo-Secret': secret },
+      headers: { 'Content-Type': 'application/json', 'X-Audit-Secret': secret },
       body: JSON.stringify(job),
       signal: controller.signal,
     });
