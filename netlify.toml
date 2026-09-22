@@ -1,0 +1,7 @@
+# Tells Netlify to rebuild share/index.html before publishing.
+# If this repo already has a netlify.toml, copy the [build] block into it
+# instead of replacing the file.
+
+[build]
+  command = "node scripts/build-share-index.js"
+  publish = "."
