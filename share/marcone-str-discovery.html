@@ -1,0 +1,807 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Your Rentals, Behind the Scenes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=Public+Sans:wght@400;500;600&display=swap">
+<style>
+:root{
+  --bg:#F4F6F5;
+  --surface:#FFFFFF;
+  --surface-2:#EDF1EF;
+  --ink:#16211F;
+  --ink-soft:#5A6664;
+  --line:#DCE3E1;
+  --accent:#1C5B57;
+  --accent-ink:#FFFFFF;
+  --accent-soft:#E2EEEB;
+  --ember:#A8442C;
+  --ember-ink:#FFFFFF;
+  --focus:#1C5B57;
+  --radius:10px;
+  --serif:"Newsreader",Georgia,"Times New Roman",serif;
+  --sans:"Public Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#0F1614;
+    --surface:#17211F;
+    --surface-2:#1E2A27;
+    --ink:#E8EEEC;
+    --ink-soft:#9AA8A5;
+    --line:#2B3735;
+    --accent:#5FB3A8;
+    --accent-ink:#0F1614;
+    --accent-soft:#1C2E2B;
+    --ember:#DE7A55;
+    --ember-ink:#1A0E09;
+    --focus:#5FB3A8;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0F1614;
+  --surface:#17211F;
+  --surface-2:#1E2A27;
+  --ink:#E8EEEC;
+  --ink-soft:#9AA8A5;
+  --line:#2B3735;
+  --accent:#5FB3A8;
+  --accent-ink:#0F1614;
+  --accent-soft:#1C2E2B;
+  --ember:#DE7A55;
+  --ember-ink:#1A0E09;
+  --focus:#5FB3A8;
+  color-scheme:dark;
+}
+
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--ink);
+  font-family:var(--sans);
+  font-size:16px;
+  line-height:1.55;
+  padding:0 20px env(safe-area-inset-bottom,0px);
+}
+img{max-width:100%}
+[hidden]{display:none!important}
+
+/* progress */
+.progress-track{
+  position:fixed;left:0;right:0;top:0;height:3px;
+  background:transparent;z-index:50;pointer-events:none;
+}
+.progress-fill{
+  height:100%;width:0%;
+  background:var(--ember);
+  transition:width .15s linear;
+}
+
+.wrap{
+  max-width:620px;margin:0 auto;
+  padding-block:calc(40px + env(safe-area-inset-top,0px)) 64px;
+}
+
+/* masthead */
+.eyebrow{
+  font-size:12px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--ink-soft);font-weight:600;margin:0 0 10px;
+}
+h1{
+  font-family:var(--serif);
+  font-weight:500;
+  font-size:clamp(30px,7vw,42px);
+  line-height:1.12;
+  letter-spacing:-.01em;
+  margin:0 0 18px;
+  text-wrap:balance;
+}
+.intro{
+  font-size:16.5px;
+  color:var(--ink-soft);
+  margin:0 0 10px;
+  max-width:60ch;
+}
+.meta-note{
+  font-size:14px;color:var(--ink-soft);
+  border-left:2px solid var(--accent);
+  padding-left:12px;margin:22px 0 0;
+}
+
+/* sections */
+.section{
+  margin-top:48px;
+  padding-top:28px;
+  border-top:1px solid var(--line);
+}
+.section:first-of-type{border-top:none;padding-top:0}
+.section-num{
+  font-family:var(--serif);
+  font-size:13px;color:var(--accent);
+  font-weight:600;letter-spacing:.08em;
+  display:block;margin-bottom:6px;
+}
+h2{
+  font-family:var(--serif);
+  font-weight:500;
+  font-size:24px;line-height:1.2;
+  margin:0 0 6px;text-wrap:balance;
+}
+.section-sub{font-size:14.5px;color:var(--ink-soft);margin:0 0 4px}
+
+/* fields */
+.field{margin-top:26px}
+.field > .q{
+  display:block;
+  font-weight:600;font-size:15.5px;
+  margin-bottom:4px;
+  text-wrap:balance;
+}
+.hint{font-size:13.5px;color:var(--ink-soft);margin:0 0 10px}
+
+input[type=text],textarea{
+  width:100%;
+  font:inherit;font-size:16px;
+  color:var(--ink);
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  padding:11px 12px;
+}
+textarea{min-height:104px;resize:vertical;line-height:1.5}
+input[type=text]::placeholder,textarea::placeholder{color:var(--ink-soft);opacity:.75}
+input[type=text]:focus-visible,textarea:focus-visible{
+  outline:2px solid var(--focus);outline-offset:1px;border-color:transparent;
+}
+
+/* chips */
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.chip{position:relative;display:inline-flex}
+.chip input{
+  position:absolute;opacity:0;width:100%;height:100%;
+  margin:0;cursor:pointer;
+}
+.chip span{
+  display:inline-flex;align-items:center;
+  min-height:42px;padding:6px 15px;
+  border:1px solid var(--line);
+  border-radius:999px;
+  background:var(--surface);
+  font-size:14.5px;line-height:1.25;
+  color:var(--ink);
+  transition:background .12s,border-color .12s,color .12s;
+  cursor:pointer;
+}
+.chip input:checked + span{
+  background:var(--accent);
+  border-color:var(--accent);
+  color:var(--accent-ink);
+  font-weight:500;
+}
+.chip input:focus-visible + span{outline:2px solid var(--focus);outline-offset:2px}
+.chip input:disabled + span{opacity:.42;cursor:not-allowed}
+
+/* checklist */
+.checklist{
+  display:flex;flex-direction:column;gap:2px;margin-top:8px;
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  padding:4px;
+}
+.check{display:flex;align-items:center;gap:11px;padding:10px 10px;border-radius:7px;cursor:pointer}
+.check:hover{background:var(--surface-2)}
+.check input{width:19px;height:19px;accent-color:var(--accent);flex:0 0 auto;margin:0}
+.check span{font-size:15px}
+
+/* task cards (who does what) */
+.task{
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  padding:14px 14px 15px;
+  margin-top:10px;
+}
+.task-name{font-weight:600;font-size:15px;margin:0 0 9px}
+.task .chips{margin-top:0;gap:7px}
+.task .chip span{min-height:38px;padding:5px 13px;font-size:14px}
+
+/* property blocks */
+.prop{
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  padding:16px 15px 18px;
+  margin-top:12px;
+}
+.prop-head{
+  font-family:var(--serif);
+  font-size:15px;font-weight:600;
+  color:var(--accent);
+  margin:0 0 12px;
+  letter-spacing:.02em;
+}
+.prop .field{margin-top:16px}
+.prop .field:first-of-type{margin-top:0}
+
+.add-btn{
+  margin-top:12px;
+  font:inherit;font-size:14.5px;font-weight:500;
+  color:var(--accent);
+  background:transparent;
+  border:1px dashed var(--line);
+  border-radius:var(--radius);
+  padding:11px 16px;width:100%;
+  cursor:pointer;
+}
+.add-btn:hover{background:var(--accent-soft);border-color:var(--accent)}
+.add-btn:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
+
+/* slider */
+.slider-wrap{margin-top:14px}
+input[type=range]{width:100%;accent-color:var(--accent);height:26px}
+input[type=range]:focus-visible{outline:2px solid var(--focus);outline-offset:4px}
+.slider-ends{
+  display:flex;justify-content:space-between;gap:16px;
+  font-size:13px;color:var(--ink-soft);margin-top:2px;
+}
+.slider-ends span{max-width:45%}
+.slider-ends span:last-child{text-align:right}
+.slider-val{
+  font-family:var(--serif);font-size:15px;color:var(--accent);
+  font-weight:600;margin-top:8px;text-align:center;
+}
+
+/* submit */
+.submit-row{margin-top:44px;padding-top:28px;border-top:1px solid var(--line)}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;
+  font:inherit;font-size:16px;font-weight:600;
+  border-radius:var(--radius);
+  padding:14px 26px;min-height:50px;
+  border:none;cursor:pointer;text-decoration:none;
+}
+.btn-primary{background:var(--ember);color:var(--ember-ink);width:100%}
+.btn-primary:hover{filter:brightness(1.07)}
+.btn-primary:focus-visible{outline:2px solid var(--focus);outline-offset:3px}
+.saved-note{font-size:13px;color:var(--ink-soft);margin-top:12px;text-align:center;min-height:19px}
+
+/* thank you */
+.thanks{padding-block:calc(70px + env(safe-area-inset-top,0px)) 80px;text-align:center}
+.thanks h2{font-size:28px;margin-bottom:14px}
+.thanks p{color:var(--ink-soft);max-width:44ch;margin:0 auto 28px}
+.thanks .btn{background:var(--accent);color:var(--accent-ink)}
+
+.hp{position:absolute;left:-9999px;opacity:0;height:0;overflow:hidden}
+
+@media (max-width:420px){
+  body{padding-left:16px;padding-right:16px}
+  .chip span{padding:6px 13px}
+}
+@media (prefers-reduced-motion:reduce){
+  *{transition:none!important;animation:none!important}
+}
+</style>
+</head>
+<body>
+
+<div class="progress-track" aria-hidden="true"><div class="progress-fill" id="progressFill"></div></div>
+
+<main class="wrap" id="formView">
+
+  <p class="eyebrow">Forward Solutions &middot; Discovery</p>
+  <h1>Your Rentals, Behind the Scenes</h1>
+
+  <p class="intro">Danielle, thanks for the conversations over the past week. You and David have built something guests love &mdash; 40 reviews and a perfect score on the Red Cabin. What I heard is that the work behind it keeps landing on top of your full-time jobs.</p>
+  <p class="intro">These questions help me see where that time actually goes, so what I propose fits how you really run things.</p>
+  <p class="meta-note">It&rsquo;s best if you and David answer together. It takes about 7 minutes, and afterward we&rsquo;ll book a short call to talk it through.</p>
+
+  <form id="discoveryForm" name="discovery-marcone" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" netlify-honeypot="bot-field">
+    <input type="hidden" name="form-name" value="discovery-marcone">
+    <p class="hp"><label>Leave this blank: <input name="bot-field" id="botField" tabindex="-1" autocomplete="off"></label></p>
+
+    <!-- SECTION 1 -->
+    <section class="section">
+      <span class="section-num">One</span>
+      <h2>Your properties</h2>
+      <p class="section-sub">Rough answers are fine &mdash; nothing here needs looking up.</p>
+
+      <div id="propList">
+
+        <div class="prop" data-prop="1">
+          <p class="prop-head">Property 1</p>
+          <div class="field">
+            <label class="q" for="p1_name">Nickname for the property</label>
+            <input type="text" id="p1_name" name="p1_nickname" placeholder="Red Cabin">
+          </div>
+          <div class="field">
+            <label class="q" for="p1_town">Town</label>
+            <input type="text" id="p1_town" name="p1_town" placeholder="Springville, TN">
+          </div>
+          <div class="field">
+            <span class="q">Where is it listed?</span>
+            <p class="hint">Choose all that apply.</p>
+            <div class="chips">
+              <label class="chip"><input type="checkbox" name="p1_listed" value="Airbnb"><span>Airbnb</span></label>
+              <label class="chip"><input type="checkbox" name="p1_listed" value="VRBO"><span>VRBO</span></label>
+              <label class="chip"><input type="checkbox" name="p1_listed" value="Booking.com"><span>Booking.com</span></label>
+              <label class="chip"><input type="checkbox" name="p1_listed" value="Direct with you"><span>Direct with you</span></label>
+              <label class="chip"><input type="checkbox" name="p1_listed" value="Other"><span>Other</span></label>
+            </div>
+          </div>
+          <div class="field">
+            <span class="q">Roughly how many nights a month is it booked?</span>
+            <div class="chips">
+              <label class="chip"><input type="radio" name="p1_nights" value="Under 5"><span>Under 5</span></label>
+              <label class="chip"><input type="radio" name="p1_nights" value="5-10"><span>5&ndash;10</span></label>
+              <label class="chip"><input type="radio" name="p1_nights" value="10-20"><span>10&ndash;20</span></label>
+              <label class="chip"><input type="radio" name="p1_nights" value="20+"><span>20+</span></label>
+              <label class="chip"><input type="radio" name="p1_nights" value="Not sure"><span>Not sure</span></label>
+            </div>
+          </div>
+          <div class="field">
+            <span class="q">How far is it from home?</span>
+            <div class="chips">
+              <label class="chip"><input type="radio" name="p1_distance" value="Under 30 min"><span>Under 30 min</span></label>
+              <label class="chip"><input type="radio" name="p1_distance" value="30-90 min"><span>30&ndash;90 min</span></label>
+              <label class="chip"><input type="radio" name="p1_distance" value="90+ min"><span>90+ min</span></label>
+            </div>
+          </div>
+        </div>
+
+        <div class="prop" data-prop="2">
+          <p class="prop-head">Property 2</p>
+          <div class="field">
+            <label class="q" for="p2_name">Nickname for the property</label>
+            <input type="text" id="p2_name" name="p2_nickname">
+          </div>
+          <div class="field">
+            <label class="q" for="p2_town">Town</label>
+            <input type="text" id="p2_town" name="p2_town">
+          </div>
+          <div class="field">
+            <span class="q">Where is it listed?</span>
+            <p class="hint">Choose all that apply.</p>
+            <div class="chips">
+              <label class="chip"><input type="checkbox" name="p2_listed" value="Airbnb"><span>Airbnb</span></label>
+              <label class="chip"><input type="checkbox" name="p2_listed" value="VRBO"><span>VRBO</span></label>
+              <label class="chip"><input type="checkbox" name="p2_listed" value="Booking.com"><span>Booking.com</span></label>
+              <label class="chip"><input type="checkbox" name="p2_listed" value="Direct with you"><span>Direct with you</span></label>
+              <label class="chip"><input type="checkbox" name="p2_listed" value="Other"><span>Other</span></label>
+            </div>
+          </div>
+          <div class="field">
+            <span class="q">Roughly how many nights a month is it booked?</span>
+            <div class="chips">
+              <label class="chip"><input type="radio" name="p2_nights" value="Under 5"><span>Under 5</span></label>
+              <label class="chip"><input type="radio" name="p2_nights" value="5-10"><span>5&ndash;10</span></label>
+              <label class="chip"><input type="radio" name="p2_nights" value="10-20"><span>10&ndash;20</span></label>
+              <label class="chip"><input type="radio" name="p2_nights" value="20+"><span>20+</span></label>
+              <label class="chip"><input type="radio" name="p2_nights" value="Not sure"><span>Not sure</span></label>
+            </div>
+          </div>
+          <div class="field">
+            <span class="q">How far is it from home?</span>
+            <div class="chips">
+              <label class="chip"><input type="radio" name="p2_distance" value="Under 30 min"><span>Under 30 min</span></label>
+              <label class="chip"><input type="radio" name="p2_distance" value="30-90 min"><span>30&ndash;90 min</span></label>
+              <label class="chip"><input type="radio" name="p2_distance" value="90+ min"><span>90+ min</span></label>
+            </div>
+          </div>
+        </div>
+
+        <div class="prop" data-prop="3" hidden>
+          <p class="prop-head">Property 3</p>
+          <div class="field">
+            <label class="q" for="p3_name">Nickname for the property</label>
+            <input type="text" id="p3_name" name="p3_nickname">
+          </div>
+          <div class="field">
+            <label class="q" for="p3_town">Town</label>
+            <input type="text" id="p3_town" name="p3_town">
+          </div>
+          <div class="field">
+            <span class="q">Where is it listed?</span>
+            <p class="hint">Choose all that apply.</p>
+            <div class="chips">
+              <label class="chip"><input type="checkbox" name="p3_listed" value="Airbnb"><span>Airbnb</span></label>
+              <label class="chip"><input type="checkbox" name="p3_listed" value="VRBO"><span>VRBO</span></label>
+              <label class="chip"><input type="checkbox" name="p3_listed" value="Booking.com"><span>Booking.com</span></label>
+              <label class="chip"><input type="checkbox" name="p3_listed" value="Direct with you"><span>Direct with you</span></label>
+              <label class="chip"><input type="checkbox" name="p3_listed" value="Other"><span>Other</span></label>
+            </div>
+          </div>
+          <div class="field">
+            <span class="q">Roughly how many nights a month is it booked?</span>
+            <div class="chips">
+              <label class="chip"><input type="radio" name="p3_nights" value="Under 5"><span>Under 5</span></label>
+              <label class="chip"><input type="radio" name="p3_nights" value="5-10"><span>5&ndash;10</span></label>
+              <label class="chip"><input type="radio" name="p3_nights" value="10-20"><span>10&ndash;20</span></label>
+              <label class="chip"><input type="radio" name="p3_nights" value="20+"><span>20+</span></label>
+              <label class="chip"><input type="radio" name="p3_nights" value="Not sure"><span>Not sure</span></label>
+            </div>
+          </div>
+          <div class="field">
+            <span class="q">How far is it from home?</span>
+            <div class="chips">
+              <label class="chip"><input type="radio" name="p3_distance" value="Under 30 min"><span>Under 30 min</span></label>
+              <label class="chip"><input type="radio" name="p3_distance" value="30-90 min"><span>30&ndash;90 min</span></label>
+              <label class="chip"><input type="radio" name="p3_distance" value="90+ min"><span>90+ min</span></label>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <button type="button" class="add-btn" id="addProp">+ Add another property</button>
+
+      <div class="field">
+        <span class="q">Planning to add more properties in the next 12 months?</span>
+        <div class="chips">
+          <label class="chip"><input type="radio" name="more_properties" value="Yes"><span>Yes</span></label>
+          <label class="chip"><input type="radio" name="more_properties" value="Maybe"><span>Maybe</span></label>
+          <label class="chip"><input type="radio" name="more_properties" value="No"><span>No</span></label>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2 -->
+    <section class="section">
+      <span class="section-num">Two</span>
+      <h2>Who does what today</h2>
+      <p class="section-sub">Tap everyone who touches each one. More than one is normal.</p>
+
+      <div id="taskGrid">
+        <div class="task">
+          <p class="task-name">Guest messages and questions</p>
+          <div class="chips">
+            <label class="chip"><input type="checkbox" name="who_guest_messages" value="Danielle" id="who_guest_messages_0"><span>Danielle</span></label>
+            <label class="chip"><input type="checkbox" name="who_guest_messages" value="David" id="who_guest_messages_1"><span>David</span></label>
+            <label class="chip"><input type="checkbox" name="who_guest_messages" value="Someone else" id="who_guest_messages_3"><span>Someone else</span></label>
+            <label class="chip"><input type="checkbox" name="who_guest_messages" value="Nobody really" id="who_guest_messages_4"><span>Nobody really</span></label>
+          </div>
+        </div>
+        <div class="task">
+          <p class="task-name">Bookings and calendars across sites</p>
+          <div class="chips">
+            <label class="chip"><input type="checkbox" name="who_bookings_calendars" value="Danielle" id="who_bookings_calendars_0"><span>Danielle</span></label>
+            <label class="chip"><input type="checkbox" name="who_bookings_calendars" value="David" id="who_bookings_calendars_1"><span>David</span></label>
+            <label class="chip"><input type="checkbox" name="who_bookings_calendars" value="Someone else" id="who_bookings_calendars_3"><span>Someone else</span></label>
+            <label class="chip"><input type="checkbox" name="who_bookings_calendars" value="Nobody really" id="who_bookings_calendars_4"><span>Nobody really</span></label>
+          </div>
+        </div>
+        <div class="task">
+          <p class="task-name">Scheduling cleaners and turnovers</p>
+          <div class="chips">
+            <label class="chip"><input type="checkbox" name="who_cleaners" value="Danielle" id="who_cleaners_0"><span>Danielle</span></label>
+            <label class="chip"><input type="checkbox" name="who_cleaners" value="David" id="who_cleaners_1"><span>David</span></label>
+            <label class="chip"><input type="checkbox" name="who_cleaners" value="Someone else" id="who_cleaners_3"><span>Someone else</span></label>
+            <label class="chip"><input type="checkbox" name="who_cleaners" value="Nobody really" id="who_cleaners_4"><span>Nobody really</span></label>
+          </div>
+        </div>
+        <div class="task">
+          <p class="task-name">Restocking supplies</p>
+          <div class="chips">
+            <label class="chip"><input type="checkbox" name="who_restocking" value="Danielle" id="who_restocking_0"><span>Danielle</span></label>
+            <label class="chip"><input type="checkbox" name="who_restocking" value="David" id="who_restocking_1"><span>David</span></label>
+            <label class="chip"><input type="checkbox" name="who_restocking" value="Someone else" id="who_restocking_3"><span>Someone else</span></label>
+            <label class="chip"><input type="checkbox" name="who_restocking" value="Nobody really" id="who_restocking_4"><span>Nobody really</span></label>
+          </div>
+        </div>
+        <div class="task">
+          <p class="task-name">Maintenance and repairs</p>
+          <div class="chips">
+            <label class="chip"><input type="checkbox" name="who_maintenance" value="Danielle" id="who_maintenance_0"><span>Danielle</span></label>
+            <label class="chip"><input type="checkbox" name="who_maintenance" value="David" id="who_maintenance_1"><span>David</span></label>
+            <label class="chip"><input type="checkbox" name="who_maintenance" value="Someone else" id="who_maintenance_3"><span>Someone else</span></label>
+            <label class="chip"><input type="checkbox" name="who_maintenance" value="Nobody really" id="who_maintenance_4"><span>Nobody really</span></label>
+          </div>
+        </div>
+        <div class="task">
+          <p class="task-name">Setting and changing prices</p>
+          <div class="chips">
+            <label class="chip"><input type="checkbox" name="who_pricing" value="Danielle" id="who_pricing_0"><span>Danielle</span></label>
+            <label class="chip"><input type="checkbox" name="who_pricing" value="David" id="who_pricing_1"><span>David</span></label>
+            <label class="chip"><input type="checkbox" name="who_pricing" value="Someone else" id="who_pricing_3"><span>Someone else</span></label>
+            <label class="chip"><input type="checkbox" name="who_pricing" value="Nobody really" id="who_pricing_4"><span>Nobody really</span></label>
+          </div>
+        </div>
+        <div class="task">
+          <p class="task-name">Reviews and responses</p>
+          <div class="chips">
+            <label class="chip"><input type="checkbox" name="who_reviews" value="Danielle" id="who_reviews_0"><span>Danielle</span></label>
+            <label class="chip"><input type="checkbox" name="who_reviews" value="David" id="who_reviews_1"><span>David</span></label>
+            <label class="chip"><input type="checkbox" name="who_reviews" value="Someone else" id="who_reviews_3"><span>Someone else</span></label>
+            <label class="chip"><input type="checkbox" name="who_reviews" value="Nobody really" id="who_reviews_4"><span>Nobody really</span></label>
+          </div>
+        </div>
+        <div class="task">
+          <p class="task-name">Bookkeeping and tax filings</p>
+          <div class="chips">
+            <label class="chip"><input type="checkbox" name="who_bookkeeping" value="Danielle" id="who_bookkeeping_0"><span>Danielle</span></label>
+            <label class="chip"><input type="checkbox" name="who_bookkeeping" value="David" id="who_bookkeeping_1"><span>David</span></label>
+            <label class="chip"><input type="checkbox" name="who_bookkeeping" value="Someone else" id="who_bookkeeping_3"><span>Someone else</span></label>
+            <label class="chip"><input type="checkbox" name="who_bookkeeping" value="Nobody really" id="who_bookkeeping_4"><span>Nobody really</span></label>
+          </div>
+        </div>
+      </div>
+
+      <div class="field">
+        <span class="q">Which of these are written down well enough that someone else could do them?</span>
+        <div class="checklist" id="writtenDown">
+          <label class="check"><input type="checkbox" name="documented" value="Guest messages and questions" id="doc_guest_messages"><span>Guest messages and questions</span></label>
+          <label class="check"><input type="checkbox" name="documented" value="Bookings and calendars across sites" id="doc_bookings_calendars"><span>Bookings and calendars across sites</span></label>
+          <label class="check"><input type="checkbox" name="documented" value="Scheduling cleaners and turnovers" id="doc_cleaners"><span>Scheduling cleaners and turnovers</span></label>
+          <label class="check"><input type="checkbox" name="documented" value="Restocking supplies" id="doc_restocking"><span>Restocking supplies</span></label>
+          <label class="check"><input type="checkbox" name="documented" value="Maintenance and repairs" id="doc_maintenance"><span>Maintenance and repairs</span></label>
+          <label class="check"><input type="checkbox" name="documented" value="Setting and changing prices" id="doc_pricing"><span>Setting and changing prices</span></label>
+          <label class="check"><input type="checkbox" name="documented" value="Reviews and responses" id="doc_reviews"><span>Reviews and responses</span></label>
+          <label class="check"><input type="checkbox" name="documented" value="Bookkeeping and tax filings" id="doc_bookkeeping"><span>Bookkeeping and tax filings</span></label>
+          <label class="check"><input type="checkbox" name="documented" value="None of them" id="doc_none"><span>None of them</span></label>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3 -->
+    <section class="section">
+      <span class="section-num">Three</span>
+      <h2>What&rsquo;s eating your time</h2>
+
+      <div class="field">
+        <span class="q">Pick the three that take the most of your time or attention.</span>
+        <p class="hint" id="topThreeHint">Choose up to 3.</p>
+        <div class="chips" id="topThree">
+          <label class="chip"><input type="checkbox" name="top_three" value="Guest messages and questions" id="top_guest_messages"><span>Guest messages and questions</span></label>
+          <label class="chip"><input type="checkbox" name="top_three" value="Bookings and calendars across sites" id="top_bookings_calendars"><span>Bookings and calendars across sites</span></label>
+          <label class="chip"><input type="checkbox" name="top_three" value="Scheduling cleaners and turnovers" id="top_cleaners"><span>Scheduling cleaners and turnovers</span></label>
+          <label class="chip"><input type="checkbox" name="top_three" value="Restocking supplies" id="top_restocking"><span>Restocking supplies</span></label>
+          <label class="chip"><input type="checkbox" name="top_three" value="Maintenance and repairs" id="top_maintenance"><span>Maintenance and repairs</span></label>
+          <label class="chip"><input type="checkbox" name="top_three" value="Setting and changing prices" id="top_pricing"><span>Setting and changing prices</span></label>
+          <label class="chip"><input type="checkbox" name="top_three" value="Reviews and responses" id="top_reviews"><span>Reviews and responses</span></label>
+          <label class="chip"><input type="checkbox" name="top_three" value="Bookkeeping and tax filings" id="top_bookkeeping"><span>Bookkeeping and tax filings</span></label>
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="q" for="story">Think of the last time a rental interrupted your workday. What happened?</label>
+        <textarea id="story" name="interruption_story" placeholder="A quick story is perfect."></textarea>
+      </div>
+
+      <div class="field">
+        <span class="q">What do you use today?</span>
+        <p class="hint">Choose all that apply.</p>
+        <div class="chips">
+          <label class="chip"><input type="checkbox" name="tools" value="Smart lock or keypad"><span>Smart lock or keypad</span></label>
+          <label class="chip"><input type="checkbox" name="tools" value="Pricing tool"><span>Pricing tool</span></label>
+          <label class="chip"><input type="checkbox" name="tools" value="Cleaning or turnover app"><span>Cleaning or turnover app</span></label>
+          <label class="chip"><input type="checkbox" name="tools" value="Software that connects Airbnb and VRBO"><span>Software that connects Airbnb and VRBO</span></label>
+          <label class="chip"><input type="checkbox" name="tools" value="Shared calendar"><span>Shared calendar</span></label>
+          <label class="chip"><input type="checkbox" name="tools" value="Spreadsheet"><span>Spreadsheet</span></label>
+          <label class="chip"><input type="checkbox" name="tools" value="Saved message templates"><span>Saved message templates</span></label>
+          <label class="chip"><input type="checkbox" name="tools" value="Nothing formal"><span>Nothing formal</span></label>
+        </div>
+        <div class="field" style="margin-top:12px">
+          <label class="q" for="toolsOther" style="font-weight:500;font-size:14.5px">Anything else you use?</label>
+          <input type="text" id="toolsOther" name="tools_other">
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4 -->
+    <section class="section">
+      <span class="section-num">Four</span>
+      <h2>Where you&rsquo;re headed</h2>
+
+      <div class="field">
+        <label class="q" for="involvement">How involved do you want to be day to day?</label>
+        <div class="slider-wrap">
+          <input type="range" id="involvement" name="involvement" min="1" max="5" step="1" value="3">
+          <div class="slider-ends">
+            <span>I want to approve most things.</span>
+            <span>I don&rsquo;t want to know it happened unless something&rsquo;s wrong.</span>
+          </div>
+          <p class="slider-val" id="involvementVal" aria-live="polite">3 of 5</p>
+        </div>
+      </div>
+
+      <div class="field">
+        <span class="q">Do you get repeat guests who&rsquo;d book with you directly if they could?</span>
+        <div class="chips">
+          <label class="chip"><input type="radio" name="repeat_guests" value="Often"><span>Often</span></label>
+          <label class="chip"><input type="radio" name="repeat_guests" value="Sometimes"><span>Sometimes</span></label>
+          <label class="chip"><input type="radio" name="repeat_guests" value="Rarely"><span>Rarely</span></label>
+          <label class="chip"><input type="radio" name="repeat_guests" value="Not sure"><span>Not sure</span></label>
+        </div>
+      </div>
+
+      <div class="field">
+        <span class="q">When would you like a better setup running?</span>
+        <div class="chips">
+          <label class="chip"><input type="radio" name="timeline" value="As soon as possible"><span>As soon as possible</span></label>
+          <label class="chip"><input type="radio" name="timeline" value="Before next busy season"><span>Before next busy season</span></label>
+          <label class="chip"><input type="radio" name="timeline" value="Within 6 months"><span>Within 6 months</span></label>
+          <label class="chip"><input type="radio" name="timeline" value="No rush"><span>No rush</span></label>
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="q" for="budget">Do you have a budget range in mind?</label>
+        <input type="text" id="budget" name="budget" placeholder="A rough range is fine, or leave blank.">
+      </div>
+
+      <div class="field">
+        <label class="q" for="anythingElse">Anything else you want me to know?</label>
+        <textarea id="anythingElse" name="anything_else"></textarea>
+      </div>
+    </section>
+
+    <div class="submit-row">
+      <button type="submit" class="btn btn-primary" id="submitBtn">Send it over</button>
+      <p class="saved-note" id="savedNote"></p>
+    </div>
+
+  </form>
+</main>
+
+<div class="wrap thanks" id="thanksView" hidden>
+  <h2>Got it &mdash; thank you.</h2>
+  <p>Grab a time below for a short call with both of you, and we&rsquo;ll walk through what you shared.</p>
+  <a class="btn" href="https://calendar.app.google/yNqfN1wVizEdPQqdA" target="_blank" rel="noopener">Book the call</a>
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  var topThree=document.getElementById("topThree");
+  var hint=document.getElementById("topThreeHint");
+
+  function capTopThree(){
+    var boxes=topThree.querySelectorAll("input");
+    var picked=topThree.querySelectorAll("input:checked").length;
+    for(var i=0;i<boxes.length;i++){
+      boxes[i].disabled = (picked>=3 && !boxes[i].checked);
+    }
+    hint.textContent = picked>=3 ? "Three picked. Untap one to change it." : "Choose up to 3.";
+  }
+  topThree.addEventListener("change",capTopThree);
+
+  /* --- add another property --- */
+  var addBtn=document.getElementById("addProp");
+  addBtn.addEventListener("click",function(){
+    var next=document.querySelector('.prop[hidden]');
+    if(next){
+      next.hidden=false;
+      next.querySelector("input[type=text]").focus();
+    }
+    if(!document.querySelector('.prop[hidden]')) addBtn.hidden=true;
+  });
+
+  /* --- slider label --- */
+  var slider=document.getElementById("involvement");
+  var sliderVal=document.getElementById("involvementVal");
+  function updateSlider(){ sliderVal.textContent = slider.value + " of 5"; }
+  slider.addEventListener("input",updateSlider);
+  updateSlider();
+
+  /* --- scroll progress --- */
+  var fill=document.getElementById("progressFill");
+  function updateProgress(){
+    var h=document.documentElement.scrollHeight - window.innerHeight;
+    var pct = h>0 ? (window.scrollY / h) * 100 : 0;
+    fill.style.width = Math.max(0,Math.min(100,pct)) + "%";
+  }
+  window.addEventListener("scroll",updateProgress,{passive:true});
+  window.addEventListener("resize",updateProgress);
+  updateProgress();
+
+  /* --- draft save / restore --- */
+  var form=document.getElementById("discoveryForm");
+  var KEY="marcone-discovery-draft";
+  var note=document.getElementById("savedNote");
+  var saveTimer=null;
+
+  function collect(){
+    var out={};
+    var els=form.elements;
+    for(var i=0;i<els.length;i++){
+      var f=els[i];
+      if(!f.name || f.name==="bot-field" || f.name==="form-name") continue;
+      if(f.type==="checkbox"||f.type==="radio"){
+        if(f.checked){ (out[f.name]=out[f.name]||[]).push(f.value); }
+      } else {
+        out[f.name]=f.value;
+      }
+    }
+    out.__shownProps = document.querySelectorAll('.prop:not([hidden])').length;
+    return out;
+  }
+
+  function saveDraft(){
+    try{
+      localStorage.setItem(KEY, JSON.stringify(collect()));
+      note.textContent="Saved on this device — you can come back to it.";
+    }catch(e){ /* storage unavailable — form still works */ }
+  }
+
+  function restoreDraft(){
+    var raw=null;
+    try{ raw=localStorage.getItem(KEY); }catch(e){ return; }
+    if(!raw) return;
+    var data;
+    try{ data=JSON.parse(raw); }catch(e){ return; }
+
+    var shown = data.__shownProps || 2;
+    var props = document.querySelectorAll('.prop');
+    for(var p=0;p<props.length;p++){ if(p < shown) props[p].hidden=false; }
+    if(!document.querySelector('.prop[hidden]')) addBtn.hidden=true;
+
+    var els=form.elements;
+    for(var i=0;i<els.length;i++){
+      var f=els[i];
+      if(!f.name || !(f.name in data)) continue;
+      var v=data[f.name];
+      if(f.type==="checkbox"||f.type==="radio"){
+        if(Array.isArray(v) && v.indexOf(f.value)>-1) f.checked=true;
+      } else if(typeof v==="string"){
+        f.value=v;
+      }
+    }
+    capTopThree();
+    updateSlider();
+    note.textContent="Picked up where you left off.";
+  }
+
+  form.addEventListener("input",function(){
+    clearTimeout(saveTimer);
+    saveTimer=setTimeout(saveDraft,600);
+  });
+  form.addEventListener("change",function(){
+    clearTimeout(saveTimer);
+    saveTimer=setTimeout(saveDraft,300);
+  });
+
+  restoreDraft();
+  capTopThree();
+
+  /* --- submit via AJAX so we control the thank-you screen --- */
+  var btn=document.getElementById("submitBtn");
+  form.addEventListener("submit",function(e){
+    e.preventDefault();
+    btn.disabled=true;
+    btn.textContent="Sending…";
+
+    var data=new FormData(form);
+    var body=new URLSearchParams(data).toString();
+
+    fetch("/", {
+      method:"POST",
+      headers:{"Content-Type":"application/x-www-form-urlencoded"},
+      body:body
+    }).then(function(res){
+      if(!res.ok) throw new Error("Bad response");
+      try{ localStorage.removeItem(KEY); }catch(err){}
+      document.getElementById("formView").hidden=true;
+      document.getElementById("thanksView").hidden=false;
+      fill.style.width="100%";
+      window.scrollTo(0,0);
+    }).catch(function(){
+      btn.disabled=false;
+      btn.textContent="Send it over";
+      note.textContent="That didn't send. Check your connection and try again — your answers are saved.";
+    });
+  });
+
+})();
+</script>
+
+</body>
+</html>
