@@ -88,7 +88,7 @@ function render(pages, pinHash) {
           <a href="${esc(p.href)}" target="_blank" rel="noopener">${esc(p.title)}</a>
           <span class="date">${esc(fmt(p.date))}</span>
         </div>
-        <button class="copy" data-href="${esc(p.href)}" data-title="${esc(p.title)}">Copy</button>
+        <button class="copy" data-href="${esc(p.href)}">Copy</button>
       </li>`).join("\n");
 
   return `<!doctype html>
@@ -140,7 +140,7 @@ function render(pages, pinHash) {
 
 <main id="list" class="hidden">
   <h1>Shared Pages</h1>
-  <p class="sub">${pages.length} page${pages.length === 1 ? "" : "s"} &middot; newest first &middot; Copy puts the title and link on your clipboard</p>
+  <p class="sub">${pages.length} page${pages.length === 1 ? "" : "s"} &middot; newest first &middot; Copy puts the link on your clipboard</p>
   ${pages.length ? `<ul>\n${rows}\n  </ul>` : `<p class="empty">Nothing in share/ yet.</p>`}
 </main>
 
@@ -173,9 +173,8 @@ function render(pages, pinHash) {
   Array.prototype.forEach.call(document.querySelectorAll("button.copy"), function (btn) {
     btn.addEventListener("click", async function () {
       var url = new URL(btn.dataset.href, location.href).href;
-      var text = btn.dataset.title + "\\n" + url;
-      try { await navigator.clipboard.writeText(text); btn.textContent = "Copied"; }
-      catch (e) { prompt("Copy this:", text); }
+      try { await navigator.clipboard.writeText(url); btn.textContent = "Copied"; }
+      catch (e) { prompt("Copy this:", url); }
       setTimeout(function () { btn.textContent = "Copy"; }, 1500);
     });
   });
