@@ -6,7 +6,7 @@
 <meta name="robots" content="noindex, nofollow">
 <meta name="date" content="2026-09-24">
 <meta name="client" content="Escape to Center Hill">
-<title>8 things to fix on centerhillchalets.com</title>
+<title>9 things to fix on centerhillchalets.com</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
@@ -76,7 +76,7 @@
 <body>
 <main class="wrap">
   <p class="wordmark">Escape to Center Hill</p>
-  <h1>8 things to fix on centerhillchalets.com</h1>
+  <h1>9 things to fix on centerhillchalets.com</h1>
   <p class="looked">What I looked at on 24 September 2026:
     <a href="https://www.centerhillchalets.com/">Home</a>,
     <a href="https://www.centerhillchalets.com/center-hill-lake-rentals">Rentals</a>,
@@ -101,6 +101,31 @@
   </div>
 
   <ol class="tasks">
+
+    <li class="task" data-id="MAP-rentals-empty">
+      <div class="task-head">
+        <button class="task-toggle" type="button" aria-expanded="false" aria-controls="body-MAP-rentals-empty"><h2>Map View shows a Google error over your homes</h2><span class="chev" aria-hidden="true"></span></button>
+        <label class="tick"><input type="checkbox" aria-label="Mark task done"><span>Done</span></label>
+      </div>
+      <div class="task-body" id="body-MAP-rentals-empty" hidden>
+        <p class="label">Found</p>
+        <p>Switching your rentals page to <em>Map View</em> brings up the pins, but Google puts a message over the map reading <em>"This page can't load Google Maps correctly"</em>, and the map itself is watermarked <em>"For development purposes only"</em> in grey across every tile. Google shows both of those when the billing account behind a map has lapsed or was never switched on. The map is also calling a retired version of Google's mapping service, which the browser console reports as <em>RetiredVersion</em>. On my own passes the rentals page went further and returned <em>Results 0</em> with the property cards stuck as empty grey placeholders that never filled in.</p>
+        <p class="label">See it</p>
+        <ul class="see">
+          <li><a href="https://www.centerhillchalets.com/center-hill-lake-rentals">https://www.centerhillchalets.com/center-hill-lake-rentals</a> &mdash; then switch to Map View</li>
+          <li><a href="https://www.centerhillchalets.com/center-hill-lake-rentals/hot-tub">https://www.centerhillchalets.com/center-hill-lake-rentals/hot-tub</a></li>
+          <li><a href="https://www.centerhillchalets.com/search-location">https://www.centerhillchalets.com/search-location</a> &mdash; eight marina areas offered as a text list, with no map</li>
+        </ul>
+        <p class="label">Steps</p>
+        <ol class="steps">
+          <li>Open the Google Cloud project behind the map and check whether billing is active on it. The error and the watermark both clear once it is.</li>
+          <li>Confirm the map's key is restricted to your own domain, so an active billing account can't be used by anyone else.</li>
+          <li>Move the map off the retired version of the mapping service it currently loads.</li>
+          <li>Open the rentals page in a browser you have never used on your own site and confirm the homes list fills in rather than sitting as empty placeholders.</li>
+          <li>While you are in there, consider putting the same map on Search by Location &mdash; it currently offers eight marina areas as a text list, which is the one place on the site a guest is explicitly thinking about where a home sits.</li>
+        </ol>
+      </div>
+    </li>
 
     <li class="task" data-id="T-01-sitemap-rentals">
       <div class="task-head">
