@@ -1,7 +1,18 @@
 # Tells Netlify to rebuild share/index.html before publishing.
-# If this repo already has a netlify.toml, copy the [build] block into it
-# instead of replacing the file.
 
 [build]
   command = "node scripts/build-share-index.js"
   publish = "."
+
+# Keep shared and client pages out of search results on every request,
+# so no single page can forget it. This stops indexing, not anyone
+# holding the link.
+[[headers]]
+  for = "/share/*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+
+[[headers]]
+  for = "/clients/*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
