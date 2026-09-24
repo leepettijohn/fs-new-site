@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<meta name="date" content="2026-09-24">
+<meta name="client" content="Escape to Center Hill">
+<title>8 things to fix on centerhillchalets.com</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --accent: #01689B;
+    --accent-fill: #01689B;
+    --on-accent: #FFFFFF;
+    --bg: #FFFFFF;
+    --surface: #F2F6F8;
+    --text: #292929;
+    --muted: #5B6A73;
+    --line: #D6E0E6;
+    --flag-bg: #FFF4E0;
+    --flag-text: #7A3E00;
+    --font-head: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    --font-body: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; }
+  body { background: var(--bg); color: var(--text); font-family: var(--font-body); font-size: 17px; line-height: 1.6; overflow-x: hidden; }
+  a { color: var(--accent); overflow-wrap: anywhere; }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 40px 20px 64px; }
+  .wordmark { font-family: var(--font-head); color: var(--accent); font-size: 1.1rem; letter-spacing: .04em; margin: 0 0 28px; font-weight: 700; }
+  h1 { font-family: var(--font-head); font-size: clamp(2rem, 6vw, 3rem); line-height: 1.1; margin: 0 0 16px; }
+  .looked { color: var(--muted); font-size: .95rem; margin: 0 0 28px; }
+  .controls { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; margin: 0 0 22px; }
+  .expand-all { font: inherit; font-size: .9rem; background: none; border: 1px solid var(--line); border-radius: 999px; padding: 7px 16px; color: var(--accent); cursor: pointer; }
+  .expand-all:hover { background: var(--surface); }
+  .expand-all:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .hint-line { color: var(--muted); font-size: .9rem; margin: 0; }
+  .tasks { list-style: none; margin: 0; padding: 0; counter-reset: task; }
+  .task { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 18px 22px; margin: 0 0 12px; counter-increment: task; }
+  .task-head { display: flex; gap: 14px; align-items: flex-start; }
+  .task-head::before { content: counter(task); font-family: var(--font-head); color: var(--accent); font-size: 1.6rem; line-height: 1.2; min-width: 1.4em; }
+  .task-toggle { flex: 1; display: flex; align-items: flex-start; gap: 10px; background: none; border: 0; padding: 0; margin: 0; cursor: pointer; color: inherit; font: inherit; text-align: left; }
+  .task-toggle:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; border-radius: 4px; }
+  .task h2 { font-family: var(--font-head); font-size: 1.3rem; line-height: 1.25; margin: 0; flex: 1; text-align: left; }
+  .chev { flex: 0 0 auto; width: 10px; height: 10px; margin-top: .5em; border-right: 2px solid var(--accent); border-bottom: 2px solid var(--accent); transform: rotate(45deg); transition: transform .18s ease; }
+  .task-toggle[aria-expanded="true"] .chev { transform: rotate(-135deg); }
+  .task-body { padding-top: 4px; }
+  .tick { display: flex; align-items: center; gap: 6px; font-size: .85rem; color: var(--muted); cursor: pointer; white-space: nowrap; margin-top: .25em; }
+  .tick input { width: 22px; height: 22px; accent-color: var(--accent-fill); cursor: pointer; }
+  .task.done h2 { text-decoration: line-through; opacity: .7; }
+  .label { font-weight: 700; font-size: .8rem; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); margin: 16px 0 4px; }
+  .task p { margin: 0; }
+  .see { margin: 0; padding-left: 1.1em; }
+  .steps { margin: 0; padding-left: 1.4em; }
+  .steps li { margin: 4px 0; }
+  .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; margin-top: 6px; border: 1px solid var(--line); border-radius: 8px; }
+  table { border-collapse: collapse; min-width: 100%; font-size: .92rem; background: var(--bg); }
+  th, td { text-align: left; padding: 8px 12px; border-bottom: 1px solid var(--line); white-space: nowrap; vertical-align: top; }
+  th:first-child, td:first-child { white-space: normal; min-width: 8.5em; }
+  th:last-child, td:last-child { white-space: normal; min-width: 7em; }
+  th { font-weight: 700; }
+  tr:last-child td { border-bottom: 0; }
+  td.flag { background: var(--flag-bg); color: var(--flag-text); font-weight: 700; }
+  td.missing { color: var(--muted); font-style: italic; }
+  .pattern { margin: 8px 0 0; color: var(--muted); font-size: .92rem; }
+  .saved { color: var(--muted); font-size: .85rem; margin: 20px 0 0; }
+  footer { border-top: 1px solid var(--line); margin-top: 44px; padding-top: 18px; font-size: .9rem; color: var(--muted); }
+  footer a { font-weight: 700; }
+  @media (max-width: 480px) { .task { padding: 16px; } .tick span { display: none; } }
+  @media (prefers-reduced-motion: reduce) { .chev { transition: none; } }
+</style>
+</head>
+<body>
+<main class="wrap">
+  <p class="wordmark">Escape to Center Hill</p>
+  <h1>8 things to fix on centerhillchalets.com</h1>
+  <p class="looked">What I looked at on 24 September 2026:
+    <a href="https://www.centerhillchalets.com/">Home</a>,
+    <a href="https://www.centerhillchalets.com/center-hill-lake-rentals">Rentals</a>,
+    <a href="https://www.centerhillchalets.com/contact-us">Contact Us</a>,
+    <a href="https://www.centerhillchalets.com/about-us">About Us</a>,
+    <a href="https://www.centerhillchalets.com/property-management">Property Management</a>,
+    <a href="https://www.centerhillchalets.com/center-hill-rental-policy-overview">Rental Policy Overview</a>,
+    <a href="https://www.centerhillchalets.com/specials-2026">Specials</a>,
+    <a href="https://www.centerhillchalets.com/concierge-services">Concierge Services</a>,
+    <a href="https://www.centerhillchalets.com/center-hill-lake-guide">Lake Guide</a>,
+    <a href="https://www.centerhillchalets.com/directions-center-hill-lake">Directions</a>,
+    <a href="https://www.centerhillchalets.com/chl-webcam">CHL Webcam</a>,
+    <a href="https://www.centerhillchalets.com/blog">Blog</a>,
+    <a href="https://www.centerhillchalets.com/center-hill-lake-rentals/coconut-ridge-over-looking-center-hill">Coconut Ridge</a>,
+    <a href="https://www.centerhillchalets.com/center-hill-lake-rentals/relaxation-pointe">Relaxation Pointe</a>,
+    plus <a href="https://www.centerhillchalets.com/robots.txt">robots.txt</a> and all 145 addresses in <a href="https://www.centerhillchalets.com/sitemap.xml">your sitemap</a>.
+  </p>
+
+  <div class="controls">
+    <button class="expand-all" id="expandAll" type="button">Open all</button>
+    <p class="hint-line">Tap any item to open it.</p>
+  </div>
+
+  <ol class="tasks">
+
+    <li class="task" data-id="T-01-sitemap-rentals">
+      <div class="task-head">
+        <button class="task-toggle" type="button" aria-expanded="false" aria-controls="body-T-01-sitemap-rentals"><h2>37 rental pages in your sitemap never load</h2><span class="chev" aria-hidden="true"></span></button>
+        <label class="tick"><input type="checkbox" aria-label="Mark task done"><span>Done</span></label>
+      </div>
+      <div class="task-body" id="body-T-01-sitemap-rentals" hidden>
+        <p class="label">Found</p>
+        <p>Your sitemap lists 145 addresses. I requested every one of them twice, and 37 failed both times &mdash; all of them rental property pages. Birdsong, Coconut Cabin, Valhalla and Puckett's Point return <em>ERR_TOO_MANY_REDIRECTS</em> in the browser, and Just Heaven sends the visitor to <em>/user/login?destination=node/149</em>. In several cases the property is live at a shorter address: <em>/center-hill-lake-rentals/majestic-overlooking-center-hill-lake</em> fails, while <em>/center-hill-lake-rentals/majestic</em> loads normally.</p>
+        <p class="label">See it</p>
+        <ul class="see">
+          <li><a href="https://www.centerhillchalets.com/sitemap.xml">https://www.centerhillchalets.com/sitemap.xml</a></li>
+          <li><a href="https://www.centerhillchalets.com/center-hill-lake-rentals/birdsong">https://www.centerhillchalets.com/center-hill-lake-rentals/birdsong</a></li>
+          <li><a href="https://www.centerhillchalets.com/center-hill-lake-rentals/coconut-cabin">https://www.centerhillchalets.com/center-hill-lake-rentals/coconut-cabin</a></li>
+          <li><a href="https://www.centerhillchalets.com/center-hill-lake-rentals/just-heaven">https://www.centerhillchalets.com/center-hill-lake-rentals/just-heaven</a></li>
+          <li><a href="https://www.centerhillchalets.com/center-hill-lake-rentals/majestic-overlooking-center-hill-lake">https://www.centerhillchalets.com/center-hill-lake-rentals/majestic-overlooking-center-hill-lake</a> (fails) and <a href="https://www.centerhillchalets.com/center-hill-lake-rentals/majestic">https://www.centerhillchalets.com/center-hill-lake-rentals/majestic</a> (works)</li>
+        </ul>
+        <p class="label">Steps</p>
+        <ol class="steps">
+          <li>Open your sitemap and list every <em>/center-hill-lake-rentals/</em> address that does not open in a browser.</li>
+          <li>For each one, find the address that property is currently live at.</li>
+          <li>Point the old address at the working one with a permanent redirect, so saved links and search results land on the property instead of a redirect loop.</li>
+          <li>Delete from the sitemap any address with no working page behind it.</li>
+          <li>Reload the sitemap and open each remaining rental address once to confirm it returns a property page.</li>
+        </ol>
+      </div>
+    </li>
+
+    <li class="task" data-id="T-11-meta-description">
+      <div class="task-head">
+        <button class="task-toggle" type="button" aria-expanded="false" aria-controls="body-T-11-meta-description"><h2>Twelve pages have no description for search results</h2><span class="chev" aria-hidden="true"></span></button>
+        <label class="tick"><input type="checkbox" aria-label="Mark task done"><span>Done</span></label>
+      </div>
+      <div class="task-body" id="body-T-11-meta-description" hidden>
+        <p class="label">Found</p>
+        <p>Of the 14 pages I opened, only the home page and the rentals index have a meta description. Contact Us, About Us, Property Management, Rental Policy Overview, Specials, Concierge Services, Lake Guide, Directions, CHL Webcam, Blog and both rental pages I checked have none, so a search engine writes its own snippet for them.</p>
+        <p class="label">See it</p>
+        <ul class="see">
+          <li><a href="https://www.centerhillchalets.com/property-management">https://www.centerhillchalets.com/property-management</a></li>
+          <li><a href="https://www.centerhillchalets.com/about-us">https://www.centerhillchalets.com/about-us</a></li>
+          <li><a href="https://www.centerhillchalets.com/contact-us">https://www.centerhillchalets.com/contact-us</a></li>
+          <li><a href="https://www.centerhillchalets.com/center-hill-lake-rentals/coconut-ridge-over-looking-center-hill">https://www.centerhillchalets.com/center-hill-lake-rentals/coconut-ridge-over-looking-center-hill</a></li>
+        </ul>
+        <p class="label">Steps</p>
+        <ol class="steps">
+          <li>Write one or two sentences for each page above, describing what a visitor finds on it.</li>
+          <li>Add each as that page's meta description in your site's page settings.</li>
+          <li>Give the rental pages a repeatable pattern built from the property's own details, so every new listing gets one automatically.</li>
+          <li>Reload each page and confirm the description is now in the page's source.</li>
+        </ol>
+      </div>
+    </li>
+
+    <li class="task" data-id="C-06-name">
+      <div class="task-head">
+        <button class="task-toggle" type="button" aria-expanded="false" aria-controls="body-C-06-name"><h2>Your business name is published two different ways</h2><span class="chev" aria-hidden="true"></span></button>
+        <label class="tick"><input type="checkbox" aria-label="Mark task done"><span>Done</span></label>
+      </div>
+      <div class="task-body" id="body-C-06-name" hidden>
+        <p class="label">Found</p>
+        <div class="table-scroll"><table>
+          <thead><tr><th>Where</th><th>See it</th><th>Business name</th></tr></thead>
+          <tbody>
+            <tr><td>Browser tab title, every page</td><td><a href="https://www.centerhillchalets.com/">Home</a></td><td class="flag">Center Hill Chalets</td></tr>
+            <tr><td>Footer, every page</td><td><a href="https://www.centerhillchalets.com/">Home</a></td><td>Escape to Center Hill</td></tr>
+            <tr><td>Structured data for search engines</td><td><a href="https://www.centerhillchalets.com/">Home</a></td><td>Escape to Center Hill</td></tr>
+            <tr><td>About Us page</td><td><a href="https://www.centerhillchalets.com/about-us">About Us</a></td><td>Escape to Center Hill</td></tr>
+            <tr><td>Property Management page</td><td><a href="https://www.centerhillchalets.com/property-management">Property Management</a></td><td>Escape to Center Hill</td></tr>
+          </tbody>
+        </table></div>
+        <p class="pattern">The browser tab titles are the only place carrying "Center Hill Chalets"; every other source on the site says "Escape to Center Hill".</p>
+        <p class="label">Steps</p>
+        <ol class="steps">
+          <li>Decide which business name is correct for the public site.</li>
+          <li>Update the title of every page to use that name.</li>
+          <li>Check the footer, the About Us page and the Property Management page use the same name.</li>
+          <li>Update the structured data so the name it reports to search engines matches.</li>
+        </ol>
+      </div>
+    </li>
+
+    <li class="task" data-id="C-12-claims">
+      <div class="task-head">
+        <button class="task-toggle" type="button" aria-expanded="false" aria-controls="body-C-12-claims"><h2>Two facts on your site disagree with themselves</h2><span class="chev" aria-hidden="true"></span></button>
+        <label class="tick"><input type="checkbox" aria-label="Mark task done"><span>Done</span></label>
+      </div>
+      <div class="task-body" id="body-C-12-claims" hidden>
+        <p class="label">Found</p>
+        <div class="table-scroll"><table>
+          <thead><tr><th>Where</th><th>See it</th><th>Years in business</th></tr></thead>
+          <tbody>
+            <tr><td>Property Management page</td><td><a href="https://www.centerhillchalets.com/property-management">Property Management</a></td><td class="flag">33 years</td></tr>
+            <tr><td>Announcement post, May 2024</td><td><a href="https://www.centerhillchalets.com/blog/center-hill-celebrates-35-years">Blog post</a></td><td class="flag">35 years</td></tr>
+          </tbody>
+        </table></div>
+        <div class="table-scroll"><table>
+          <thead><tr><th>Where</th><th>See it</th><th>Guests Coconut Ridge sleeps</th></tr></thead>
+          <tbody>
+            <tr><td>Coconut Ridge, detail bar at the top</td><td><a href="https://www.centerhillchalets.com/center-hill-lake-rentals/coconut-ridge-over-looking-center-hill">Coconut Ridge</a></td><td class="flag">Sleeps 6</td></tr>
+            <tr><td>Coconut Ridge, description below</td><td><a href="https://www.centerhillchalets.com/center-hill-lake-rentals/coconut-ridge-over-looking-center-hill">Coconut Ridge</a></td><td class="flag">sleeps up to 8 guests</td></tr>
+          </tbody>
+        </table></div>
+        <p class="pattern">The second pair sits on a single page, a few lines apart, on the listing a guest uses to decide whether the house fits their group.</p>
+        <p class="label">Steps</p>
+        <ol class="steps">
+          <li>Decide how many years the company has been in business, and correct whichever page is wrong.</li>
+          <li>Decide how many guests Coconut Ridge sleeps.</li>
+          <li>Update both the detail bar and the description on the Coconut Ridge page to that number.</li>
+          <li>Check the other rental pages for the same split between the detail bar and the description.</li>
+        </ol>
+      </div>
+    </li>
+
+    <li class="task" data-id="T-20-open-graph">
+      <div class="task-head">
+        <button class="task-toggle" type="button" aria-expanded="false" aria-controls="body-T-20-open-graph"><h2>Shared links show no headline or summary</h2><span class="chev" aria-hidden="true"></span></button>
+        <label class="tick"><input type="checkbox" aria-label="Mark task done"><span>Done</span></label>
+      </div>
+      <div class="task-body" id="body-T-20-open-graph" hidden>
+        <p class="label">Found</p>
+        <p>None of the 14 pages I opened set a share title or a share description, and only the rental pages set a share image. When your home page is sent in a text message or posted to Facebook, the preview carries no headline of your choosing.</p>
+        <p class="label">See it</p>
+        <ul class="see">
+          <li><a href="https://www.centerhillchalets.com/">https://www.centerhillchalets.com/</a></li>
+          <li><a href="https://www.centerhillchalets.com/center-hill-lake-rentals">https://www.centerhillchalets.com/center-hill-lake-rentals</a></li>
+          <li><a href="https://www.centerhillchalets.com/specials-2026">https://www.centerhillchalets.com/specials-2026</a></li>
+        </ul>
+        <p class="label">Steps</p>
+        <ol class="steps">
+          <li>Add a share title and a one-sentence share description to the home page, the rentals index and the Specials page.</li>
+          <li>Add a share image to those same pages, sized for social previews.</li>
+          <li>Set the rental pages to build their share title from the property name, so each listing previews as itself.</li>
+          <li>Paste each page's address into a message to yourself and confirm the preview now shows a headline.</li>
+        </ol>
+      </div>
+    </li>
+
+    <li class="task" data-id="T-30-form-label">
+      <div class="task-head">
+        <button class="task-toggle" type="button" aria-expanded="false" aria-controls="body-T-30-form-label"><h2>The rental name search box has no label</h2><span class="chev" aria-hidden="true"></span></button>
+        <label class="tick"><input type="checkbox" aria-label="Mark task done"><span>Done</span></label>
+      </div>
+      <div class="task-body" id="body-T-30-form-label" hidden>
+        <p class="label">Found</p>
+        <p>The "Search rentals by name" menu in the footer of every page contains a field named <em>vr_jump</em> with no label attached to it, so a screen reader announces it without saying what it is for.</p>
+        <p class="label">See it</p>
+        <ul class="see">
+          <li><a href="https://www.centerhillchalets.com/">https://www.centerhillchalets.com/</a></li>
+          <li><a href="https://www.centerhillchalets.com/contact-us">https://www.centerhillchalets.com/contact-us</a></li>
+          <li><a href="https://www.centerhillchalets.com/property-management">https://www.centerhillchalets.com/property-management</a></li>
+        </ul>
+        <p class="label">Steps</p>
+        <ol class="steps">
+          <li>Attach a label reading "Search rentals by name" to the <em>vr_jump</em> field in the footer menu.</li>
+          <li>If the label should stay hidden, give the field a spoken label instead so it is still announced.</li>
+          <li>Check the other form fields in the footer and on the Contact Us page have labels too.</li>
+        </ol>
+      </div>
+    </li>
+
+    <li class="task" data-id="T-23-lang">
+      <div class="task-head">
+        <button class="task-toggle" type="button" aria-expanded="false" aria-controls="body-T-23-lang"><h2>Your pages don't say which language they're in</h2><span class="chev" aria-hidden="true"></span></button>
+        <label class="tick"><input type="checkbox" aria-label="Mark task done"><span>Done</span></label>
+      </div>
+      <div class="task-body" id="body-T-23-lang" hidden>
+        <p class="label">Found</p>
+        <p>None of the 14 pages I opened declare a language. Browsers use that declaration to decide whether to offer a translation, and screen readers use it to pick a voice.</p>
+        <p class="label">See it</p>
+        <ul class="see">
+          <li><a href="https://www.centerhillchalets.com/">https://www.centerhillchalets.com/</a></li>
+          <li><a href="https://www.centerhillchalets.com/about-us">https://www.centerhillchalets.com/about-us</a></li>
+          <li><a href="https://www.centerhillchalets.com/center-hill-lake-rentals/coconut-ridge-over-looking-center-hill">https://www.centerhillchalets.com/center-hill-lake-rentals/coconut-ridge-over-looking-center-hill</a></li>
+        </ul>
+        <p class="label">Steps</p>
+        <ol class="steps">
+          <li>Set the site's language to English in your site settings, so every page declares it.</li>
+          <li>Reload the home page and one rental page and confirm the declaration is there.</li>
+        </ol>
+      </div>
+    </li>
+
+    <li class="task" data-id="C-03-blog">
+      <div class="task-head">
+        <button class="task-toggle" type="button" aria-expanded="false" aria-controls="body-C-03-blog"><h2>Your blog's newest post is from January 2025</h2><span class="chev" aria-hidden="true"></span></button>
+        <label class="tick"><input type="checkbox" aria-label="Mark task done"><span>Done</span></label>
+      </div>
+      <div class="task-body" id="body-C-03-blog" hidden>
+        <p class="label">Found</p>
+        <p>The most recent post, "A Stress-Free Journey for The Dragon Fly Owners, Don and Tina Nickens", was last updated 7 January 2025. Blog is linked in the main menu on every page, so a visitor reaching it finds that post at the top.</p>
+        <p class="label">See it</p>
+        <ul class="see">
+          <li><a href="https://www.centerhillchalets.com/blog">https://www.centerhillchalets.com/blog</a></li>
+          <li><a href="https://www.centerhillchalets.com/blog/stress-free-journey-dragon-fly-owners-don-and-tina-nickens">https://www.centerhillchalets.com/blog/stress-free-journey-dragon-fly-owners-don-and-tina-nickens</a></li>
+        </ul>
+        <p class="label">Steps</p>
+        <ol class="steps">
+          <li>Decide whether the blog stays part of the site.</li>
+          <li>If it stays, publish on a set schedule you can hold to, and put the owner-interview posts in front of the property owners you want to reach.</li>
+          <li>If it doesn't, take Blog out of the main menu so the newest thing a visitor sees isn't from January 2025.</li>
+        </ol>
+      </div>
+    </li>
+
+  </ol>
+
+  <p class="saved" id="saved" hidden>Saved on this device.</p>
+
+  <footer>
+    Prepared by Lee Pettijohn &middot; Forward Solutions &middot;
+    <a href="https://calendar.app.google/yNqfN1wVizEdPQqdA">Book a call</a>
+  </footer>
+</main>
+<script>
+  (function () {
+    var toggles = [].slice.call(document.querySelectorAll('.task-toggle'));
+    var all = document.getElementById('expandAll');
+    function setOpen(btn, open) {
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      var body = document.getElementById(btn.getAttribute('aria-controls'));
+      if (body) body.hidden = !open;
+    }
+    function sync() {
+      var open = toggles.filter(function (b) { return b.getAttribute('aria-expanded') === 'true'; }).length;
+      all.textContent = open === toggles.length ? 'Close all' : 'Open all';
+    }
+    toggles.forEach(function (btn) {
+      setOpen(btn, false);
+      btn.addEventListener('click', function () {
+        setOpen(btn, btn.getAttribute('aria-expanded') !== 'true');
+        sync();
+      });
+    });
+    all.addEventListener('click', function () {
+      var openAll = all.textContent === 'Open all';
+      toggles.forEach(function (b) { setOpen(b, openAll); });
+      sync();
+    });
+    sync();
+  })();
+
+  (function () {
+    var key = 'audit-ticks:chc7q2vx4m9jd6kp3wzn8t';
+    var state = {};
+    try { state = JSON.parse(localStorage.getItem(key) || '{}') || {}; } catch (e) { state = {}; }
+    var saved = document.getElementById('saved');
+    document.querySelectorAll('.task').forEach(function (task) {
+      var id = task.getAttribute('data-id');
+      var box = task.querySelector('.tick input');
+      if (!box) return;
+      if (state[id]) { box.checked = true; task.classList.add('done'); }
+      box.addEventListener('change', function () {
+        task.classList.toggle('done', box.checked);
+        state[id] = box.checked;
+        try { localStorage.setItem(key, JSON.stringify(state)); saved.hidden = false; } catch (e) {}
+      });
+    });
+  })();
+</script>
+</body>
+</html>
