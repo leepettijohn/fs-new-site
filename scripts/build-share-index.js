@@ -97,52 +97,89 @@ function render(pages, pinHash) {
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
-<title>Shared Pages</title>
+<title>Shared Pages · Forward Solutions</title>
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Fraunces:opsz,wght@9..144,500&display=swap" rel="stylesheet">
 <style>
-  :root { --bg:#f7f6f3; --card:#fff; --ink:#1d1d1f; --muted:#6b6b70; --line:#e4e2dc; --accent:#2f5d50; }
+  /* Forward Solutions brand tokens, matched to css/styles.css */
+  :root {
+    --bg:#F7F6F2; --card:#FFFFFF; --ink:#1A1D24; --muted:#5B6470;
+    --line:rgba(26,29,36,0.10); --accent:#1E5BBA; --accent-ink:#FFFFFF; --signal:#F5A524;
+  }
   @media (prefers-color-scheme: dark) {
-    :root { --bg:#141414; --card:#1e1e1e; --ink:#f1f1f1; --muted:#9a9aa0; --line:#2e2e2e; --accent:#7fb8a4; }
+    :root {
+      --bg:#14161B; --card:#1D2028; --ink:#F1F1EE; --muted:#9AA1AB;
+      --line:rgba(255,255,255,0.09); --accent:#3FA9F5; --accent-ink:#0F1A2B; --signal:#F5A524;
+    }
   }
   * { box-sizing: border-box; }
   body { margin:0; background:var(--bg); color:var(--ink);
-         font:16px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
-  main { max-width:640px; margin:0 auto; padding:40px 16px; }
-  h1 { font-size:22px; margin:0 0 4px; }
-  .sub { color:var(--muted); margin:0 0 24px; font-size:14px; }
+         font:16px/1.55 'Inter', system-ui, -apple-system, sans-serif;
+         -webkit-font-smoothing:antialiased; }
+  .brand { display:flex; align-items:center; gap:10px; color:var(--ink); text-decoration:none;
+           font-weight:600; font-size:15px; letter-spacing:-0.01em; }
+  .brand img { width:28px; height:auto; }
+  header.bar { border-bottom:1px solid var(--line); }
+  header.bar .inner { max-width:680px; margin:0 auto; padding:16px; display:flex;
+                      align-items:center; justify-content:space-between; }
+  .tag { font-size:12px; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; color:var(--muted); }
+  main { max-width:680px; margin:0 auto; padding:40px 16px 64px; }
+  h1 { font-family:'Fraunces', Georgia, serif; font-weight:500; letter-spacing:-0.02em;
+       font-size:32px; line-height:1.1; margin:0 0 6px; }
+  .sub { color:var(--muted); margin:0 0 28px; font-size:14px; }
   ul { list-style:none; padding:0; margin:0; }
   li { display:flex; align-items:center; gap:12px; background:var(--card);
-       border:1px solid var(--line); border-radius:10px; padding:12px 14px; margin-bottom:8px; }
+       border:1px solid var(--line); border-left:3px solid var(--accent); border-radius:12px;
+       padding:14px 16px; margin-bottom:10px; }
   .info { flex:1; min-width:0; }
   .info a { color:var(--ink); font-weight:600; text-decoration:none; display:block; overflow-wrap:anywhere; }
   .info a:hover { color:var(--accent); }
   .date { color:var(--muted); font-size:13px; }
-  button { font:inherit; font-size:14px; border:1px solid var(--line); background:var(--bg);
-           color:var(--ink); border-radius:8px; padding:6px 12px; cursor:pointer; }
-  button:hover { border-color:var(--accent); }
-  #gate { max-width:320px; margin:18vh auto 0; padding:0 16px; text-align:center; }
-  #gate input { font:inherit; width:100%; padding:10px 12px; border:1px solid var(--line);
-                border-radius:8px; background:var(--card); color:var(--ink); margin:12px 0;
+  button { font:inherit; font-size:14px; font-weight:500; border:1px solid var(--line); background:transparent;
+           color:var(--ink); border-radius:8px; padding:7px 14px; cursor:pointer; }
+  button:hover { border-color:var(--accent); color:var(--accent); }
+  button.primary { background:var(--accent); border-color:var(--accent); color:var(--accent-ink); width:100%; padding:10px 14px; }
+  button.primary:hover { filter:brightness(1.08); color:var(--accent-ink); }
+  #gate { max-width:340px; margin:14vh auto 0; padding:0 16px; text-align:center; }
+  #gate .brand { justify-content:center; margin-bottom:28px; font-size:17px; }
+  #gate .brand img { width:40px; }
+  #gate h1 { font-size:26px; }
+  #gate input { font:inherit; width:100%; padding:11px 12px; border:1px solid var(--line);
+                border-radius:8px; background:var(--card); color:var(--ink); margin:16px 0 10px;
                 text-align:center; letter-spacing:4px; }
-  #err { color:#c0392b; font-size:14px; min-height:20px; }
+  #gate input:focus { outline:2px solid var(--accent); outline-offset:1px; }
+  #err { color:#c0392b; font-size:14px; min-height:20px; margin-top:10px; }
   .hidden { display:none; }
   .empty { color:var(--muted); }
+  footer { color:var(--muted); font-size:12px; text-align:center; padding:0 16px 32px; }
 </style>
 </head>
 <body>
 <div id="gate">
+  <a class="brand" href="/"><img src="/images/logo-mark.png" alt="">Forward Solutions</a>
   <h1>Shared Pages</h1>
   <form id="pinForm">
     <input id="pin" type="password" inputmode="numeric" autocomplete="off" placeholder="PIN" autofocus>
-    <button type="submit">Open</button>
+    <button type="submit" class="primary">Open</button>
   </form>
   <div id="err">${pinHash ? "" : "SHARE_PIN is not set in Netlify yet."}</div>
 </div>
 
-<main id="list" class="hidden">
+<div id="list" class="hidden">
+<header class="bar"><div class="inner">
+  <a class="brand" href="/"><img src="/images/logo-mark.png" alt="">Forward Solutions</a>
+  <span class="tag">Shared pages</span>
+</div></header>
+<main>
   <h1>Shared Pages</h1>
   <p class="sub">${pages.length} page${pages.length === 1 ? "" : "s"} &middot; newest first &middot; Copy puts the link on your clipboard</p>
   ${pages.length ? `<ul>\n${rows}\n  </ul>` : `<p class="empty">Nothing in share/ yet.</p>`}
 </main>
+<footer>Forward Solutions &middot; gottamoveforward.com</footer>
+</div>
 
 <script>
   var PIN_HASH = "${pinHash}";
