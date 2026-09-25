@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<meta name="date" content="2026-09-25">
+<meta name="client" content="Compass Advisory Group">
+<title>10 things to fix on mycompassadvisor.com</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Nunito+Sans:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --accent: #9F4118;
+    --accent-fill: #9F4118;
+    --on-accent: #FFFFFF;
+    --bg: #F2F1EC;
+    --surface: #EAE8E0;
+    --text: #1F2E44;
+    --muted: #5A6270;
+    --line: #D6D2C4;
+    --flag-bg: #F7E3D6;
+    --flag-text: #7A2E0E;
+    --font-head: "Playfair Display", Georgia, "Times New Roman", serif;
+    --font-body: "Nunito Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; }
+  body { background: var(--bg); color: var(--text); font-family: var(--font-body); font-size: 17px; line-height: 1.6; overflow-x: hidden; }
+  a { color: var(--accent); overflow-wrap: anywhere; }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 40px 20px 64px; }
+  .wordmark { font-family: var(--font-head); color: var(--accent); font-size: 1.1rem; letter-spacing: .04em; text-transform: none; margin: 0 0 28px; font-weight: 700; }
+  h1 { font-family: var(--font-head); font-size: clamp(1.75rem, 6vw, 3rem); overflow-wrap: anywhere; line-height: 1.1; margin: 0 0 16px; }
+  .looked { color: var(--muted); font-size: .95rem; margin: 0 0 36px; }
+  .tasks { list-style: none; margin: 0; padding: 0; counter-reset: task; }
+  .task { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 22px 22px 18px; margin: 0 0 18px; counter-increment: task; }
+  .task-head { display: flex; gap: 14px; align-items: flex-start; }
+  .task-head::before { content: counter(task); font-family: var(--font-head); color: var(--accent); font-size: 1.6rem; line-height: 1; min-width: 1.4em; }
+  .task h2 { font-family: var(--font-head); font-size: 1.3rem; line-height: 1.25; margin: 0; flex: 1; }
+  .tick { display: flex; align-items: center; gap: 6px; font-size: .85rem; color: var(--muted); cursor: pointer; white-space: nowrap; }
+  .tick input { width: 22px; height: 22px; accent-color: var(--accent-fill); cursor: pointer; }
+  .task.done h2 { text-decoration: line-through; opacity: .7; }
+  .label { font-weight: 700; font-size: .8rem; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); margin: 16px 0 4px; }
+  .task p { margin: 0; }
+  .see { margin: 0; padding-left: 1.1em; }
+  .steps { margin: 0; padding-left: 1.4em; }
+  .steps li { margin: 4px 0; }
+  .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; margin-top: 6px; border: 1px solid var(--line); border-radius: 8px; }
+  table { border-collapse: collapse; min-width: 100%; font-size: .92rem; }
+  th, td { text-align: left; padding: 8px 12px; border-bottom: 1px solid var(--line); white-space: nowrap; vertical-align: top; }
+  th { font-weight: 700; }
+  tr:last-child td { border-bottom: 0; }
+  td.flag { background: var(--flag-bg); color: var(--flag-text); font-weight: 700; }
+  td.missing { color: var(--muted); font-style: italic; }
+  .note { margin: 8px 0 0; font-size: .95rem; }
+  .saved { color: var(--muted); font-size: .85rem; margin: 20px 0 0; }
+  footer { border-top: 1px solid var(--line); margin-top: 44px; padding-top: 18px; font-size: .9rem; color: var(--muted); }
+  footer a { font-weight: 700; }
+  @media (max-width: 480px) { .task { padding: 18px 16px 14px; } .tick span { display: none; } }
+</style>
+</head>
+<body>
+<main class="wrap">
+  <p class="wordmark">Compass Advisory Group</p>
+  <h1>10 things to fix on mycompassadvisor.com</h1>
+  <p class="looked">What I looked at on September 25, 2026: <a href="https://www.mycompassadvisor.com/">Home</a> · <a href="https://www.mycompassadvisor.com/about">About</a> · <a href="https://www.mycompassadvisor.com/experience">Experience</a> · <a href="https://www.mycompassadvisor.com/advisor-acquisitions">Advisor Acquisitions</a> · <a href="https://www.mycompassadvisor.com/contact">Contact</a> · <a href="https://www.mycompassadvisor.com/get-started">Get Started</a> · <a href="https://www.mycompassadvisor.com/home">/home</a> · <a href="https://www.mycompassadvisor.com/contact-1">/contact-1</a> · <a href="https://www.mycompassadvisor.com/solomon-kafoure">Solomon Kafoure</a> · <a href="https://www.mycompassadvisor.com/rachel-carpenter">Rachel Carpenter</a>, plus your robots.txt and sitemap. Your privacy statement PDF couldn't be read.</p>
+
+  <ol class="tasks">
+    <li class="task" data-id="T-12">
+      <div class="task-head">
+        <h2>Your home page and team bio pages have no main heading</h2>
+        <label class="tick"><input type="checkbox" aria-label="Mark task done"><span>Done</span></label>
+      </div>
+      <p class="label">Found</p>
+      <p>I found no H1 heading on 10 pages: your home page, /compassadvisorygroup, and all eight team bio pages.</p>
+      <p class="label">See it</p>
+      <ul class="see">
+        <li><a href="https://www.mycompassadvisor.com/">https://www.mycompassadvisor.com/</a></li>
+        <li><a href="https://www.mycompassadvisor.com/compassadvisorygroup">https://www.mycompassadvisor.com/compassadvisorygroup</a></li>
+        <li><a href="https://www.mycompassadvisor.com/solomon-kafoure">https://www.mycompassadvisor.com/solomon-kafoure</a></li>
+        <li><a href="https://www.mycompassadvisor.com/leslie-janssen">https://www.mycompassadvisor.com/leslie-janssen</a></li>
+        <li><a href="https://www.mycompassadvisor.com/ryan-vorhies">https://www.mycompassadvisor.com/ryan-vorhies</a></li>
+        <li><a href="https://www.mycompassadvisor.com/grant-ramares">https://www.mycompassadvisor.com/grant-ramares</a></li>
+        <li><a href="https://www.mycompassadvisor.com/pat-moore">https://www.mycompassadvisor.com/pat-moore</a></li>
+        <li><a href="https://www.mycompassadvisor.com/rachel-carpenter">https://www.mycompassadvisor.com/rachel-carpenter</a></li>
+        <li><a href="https://www.mycompassadvisor.com/chelsea-monroe">https://www.mycompassadvisor.com/chelsea-monroe</a></li>
+        <li><a href="https://www.mycompassadvisor.com/maya-herrenbruck">https://www.mycompassadvisor.com/maya-herrenbruck</a></li>
+      </ul>
+      <p class="label">Steps</p>
+      <ol class="steps">
+        <li>On the home page, set the top line "Intentionally Excellent Financial Planning" as Heading 1.</li>
+        <li>On each bio page, change the "About [name]" heading to Heading 1, using the person's full name (e.g. "About Solomon Kafoure").</li>
+        <li>On /compassadvisorygroup, add a Heading 1, or remove the page if it's no longer used.</li>
+      </ol>
+    </li>
+
+    <li class="task" data-id="T-11">
+      <div class="task-head">
+        <h2>Nine pages have a blank search description</h2>
+        <label class="tick"><input type="checkbox" aria-label="Mark task done"><span>Done</span></label>
+      </div>
+      <p class="label">Found</p>
+      <p>Only your home page has a meta description ("Financial Advisors in Franklin, TN | 14 Years of Experience"); the description is empty on every other page I read.</p>
+      <p class="label">See it</p>
+      <ul class="see">
+        <li><a href="https://www.mycompassadvisor.com/about">https://www.mycompassadvisor.com/about</a></li>
+        <li><a href="https://www.mycompassadvisor.com/experience">https://www.mycompassadvisor.com/experience</a></li>
+        <li><a href="https://www.mycompassadvisor.com/advisor-acquisitions">https://www.mycompassadvisor.com/advisor-acquisitions</a></li>
+        <li><a href="https://www.mycompassadvisor.com/contact">https://www.mycompassadvisor.com/contact</a></li>
+        <li><a href="https://www.mycompassadvisor.com/get-started">https://www.mycompassadvisor.com/get-started</a></li>
+        <li><a href="https://www.mycompassadvisor.com/home">https://www.mycompassadvisor.com/home</a></li>
+        <li><a href="https://www.mycompassadvisor.com/contact-1">https://www.mycompassadvisor.com/contact-1</a></li>
+        <li><a href="https://www.mycompassadvisor.com/solomon-kafoure">https://www.mycompassadvisor.com/solomon-kafoure</a></li>
+        <li><a href="https://www.mycompassadvisor.com/rachel-carpenter">https://www.mycompassadvisor.com/rachel-carpenter</a></li>
+      </ul>
+      <p class="label">Steps</p>
+      <ol class="steps">
+        <li>In each page's SEO settings, write a one- or two-sentence description of that page, different for every page.</li>
+        <li>Start with About, Experience, Contact and Advisor Acquisitions, then the bio pages.</li>
+      </ol>
+    </li>
+
+    <li class="task" data-id="T-10">
+      <div class="task-head">
+        <h2>Two pairs of pages share the same title</h2>
+        <label class="tick"><input type="checkbox" aria-label="Mark task done"><span>Done</span></label>
+      </div>
+      <p class="label">Found</p>
+      <div class="table-scroll"><table>
+        <thead><tr><th>Page</th><th>See it</th><th>Title</th></tr></thead>
+        <tbody>
+          <tr><td>Home page</td><td><a href="https://www.mycompassadvisor.com/">https://www.mycompassadvisor.com/</a></td><td class="flag">Compass Advisory Group</td></tr>
+          <tr><td>/compassadvisorygroup</td><td><a href="https://www.mycompassadvisor.com/compassadvisorygroup">https://www.mycompassadvisor.com/compassadvisorygroup</a></td><td class="flag">Compass Advisory Group</td></tr>
+          <tr><td>Contact</td><td><a href="https://www.mycompassadvisor.com/contact">https://www.mycompassadvisor.com/contact</a></td><td class="flag">Contact - Compass Advisory Group</td></tr>
+          <tr><td>/contact-1</td><td><a href="https://www.mycompassadvisor.com/contact-1">https://www.mycompassadvisor.com/contact-1</a></td><td class="flag">Contact - Compass Advisory Group</td></tr>
+        </tbody>
+      </table></div>
+      <p class="note">Both extra pages are listed in your sitemap.</p>
+      <p class="label">Steps</p>
+      <ol class="steps">
+        <li>Decide whether /compassadvisorygroup and /contact-1 are still needed.</li>
+        <li>If not, delete them (or redirect them to the home and Contact pages).</li>
+        <li>If they stay, give each its own title.</li>
+      </ol>
+    </li>
+
+    <li class="task" data-id="C-06">
+      <div class="task-head">
+        <h2>An older page still shows a different office address</h2>
+        <label class="tick"><input type="checkbox" aria-label="Mark task done"><span>Done</span></label>
+      </div>
+      <p class="label">Found</p>
+      <div class="table-scroll"><table>
+        <thead><tr><th>Where</th><th>See it</th><th>Street</th><th>City</th><th>Phone</th></tr></thead>
+        <tbody>
+          <tr><td>Home page</td><td><a href="https://www.mycompassadvisor.com/">https://www.mycompassadvisor.com/</a></td><td>725 Cool Springs Blvd Suite 450</td><td>Franklin, TN 37067</td><td>(615) 472-8223</td></tr>
+          <tr><td>Contact page</td><td><a href="https://www.mycompassadvisor.com/contact">https://www.mycompassadvisor.com/contact</a></td><td>725 Cool Springs Blvd Suite 450</td><td>Franklin, TN 37067</td><td>(615) 472-8223</td></tr>
+          <tr><td>/home page</td><td><a href="https://www.mycompassadvisor.com/home">https://www.mycompassadvisor.com/home</a></td><td class="flag">321 Billingsly Court Suite 16</td><td>Franklin, TN 37067</td><td>(615) 472-8223</td></tr>
+        </tbody>
+      </table></div>
+      <p class="note">/home is the odd one out; it's live and listed in your sitemap. Phone and city agree everywhere.</p>
+      <p class="label">Steps</p>
+      <ol class="steps">
+        <li>Decide which address is correct.</li>
+        <li>Update or remove the "Connect with us" block on /home, or delete /home and redirect it to your home page.</li>
+        <li>Check the home page and Contact page match the address you chose.</li>
+      </ol>
+    </li>
+
+    <li class="task" data-id="C-11">
+      <div class="task-head">
+        <h2>Three team members are missing from the Contact page</h2>
+        <label class="tick"><input type="checkbox" aria-label="Mark task done"><span>Done</span></label>
+      </div>
+      <p class="label">Found</p>
+      <div class="table-scroll"><table>
+        <thead><tr><th>Person</th><th><a href="https://www.mycompassadvisor.com/about">About page</a></th><th><a href="https://www.mycompassadvisor.com/contact">Contact page</a></th></tr></thead>
+        <tbody>
+          <tr><td>Solomon Kafoure</td><td>Listed</td><td>Listed</td></tr>
+          <tr><td>Leslie Janssen</td><td>Listed</td><td>Listed</td></tr>
+          <tr><td>Ryan Vorhies</td><td>Listed</td><td>Listed</td></tr>
+          <tr><td>Grant Ramares</td><td>Listed</td><td>Listed</td></tr>
+          <tr><td>Patrick E. Moore</td><td>Listed</td><td>Listed</td></tr>
+          <tr><td>Rachel Carpenter</td><td>Listed</td><td class="flag">not shown</td></tr>
+          <tr><td>Chelsea Monroe</td><td>Listed</td><td class="flag">not shown</td></tr>
+          <tr><td>Maya Herrenbruck</td><td>Listed</td><td class="flag">not shown</td></tr>
+        </tbody>
+      </table></div>
+      <p class="note">The five advisors match; the three staff members appear only on About.</p>
+      <p class="label">Steps</p>
+      <ol class="steps">
+        <li>Decide whether the Contact page's "Reach the team" section should list everyone on About.</li>
+        <li>If yes, add Rachel Carpenter, Chelsea Monroe and Maya Herrenbruck with their phone and email.</li>
+      </ol>
+    </li>
+
+    <li class="task" data-id="T-28">
+      <div class="task-head">
+        <h2>The phone number on your home page can't be tapped to call</h2>
+        <label class="tick"><input type="checkbox" aria-label="Mark task done"><span>Done</span></label>
+      </div>
+      <p class="label">Found</p>
+      <p>In "Connect with us" on the home page, (615) 472-8223 is plain text, not a call link. The same number on the Contact page is a call link.</p>
+      <p class="label">See it</p>
+      <ul class="see">
+        <li><a href="https://www.mycompassadvisor.com/">https://www.mycompassadvisor.com/</a></li>
+        <li><a href="https://www.mycompassadvisor.com/home">https://www.mycompassadvisor.com/home</a></li>
+      </ul>
+      <p class="label">Steps</p>
+      <ol class="steps">
+        <li>On the home page, link (615) 472-8223 to tel:+16154728223.</li>
+        <li>Do the same on /home if you keep that page.</li>
+      </ol>
+    </li>
+
+    <li class="task" data-id="C-05">
+      <div class="task-head">
+        <h2>A second contact page still has sample form options</h2>
+        <label class="tick"><input type="checkbox" aria-label="Mark task done"><span>Done</span></label>
+      </div>
+      <p class="label">Found</p>
+      <p>The form on /contact-1 offers "Basic Service", "Intermediate Service", "Advanced Service" and budgets of "&lt; $500" to "&gt; $1000".</p>
+      <p class="label">See it</p>
+      <ul class="see"><li><a href="https://www.mycompassadvisor.com/contact-1">https://www.mycompassadvisor.com/contact-1</a></li></ul>
+      <p class="label">Steps</p>
+      <ol class="steps">
+        <li>Delete /contact-1, or redirect it to your Contact page.</li>
+        <li>If you keep it, replace the sample options with your real services.</li>
+      </ol>
+    </li>
+
+    <li class="task" data-id="T-20">
+      <div class="task-head">
+        <h2>Inner pages have no sharing image</h2>
+        <label class="tick"><input type="checkbox" aria-label="Mark task done"><span>Done</span></label>
+      </div>
+      <p class="label">Found</p>
+      <p>Your home page sets a sharing image (og:image); none of the nine other pages I read do, so links to them shared on social or in texts show no picture.</p>
+      <p class="label">See it</p>
+      <ul class="see">
+        <li><a href="https://www.mycompassadvisor.com/about">https://www.mycompassadvisor.com/about</a></li>
+        <li><a href="https://www.mycompassadvisor.com/experience">https://www.mycompassadvisor.com/experience</a></li>
+        <li><a href="https://www.mycompassadvisor.com/contact">https://www.mycompassadvisor.com/contact</a></li>
+        <li><a href="https://www.mycompassadvisor.com/advisor-acquisitions">https://www.mycompassadvisor.com/advisor-acquisitions</a></li>
+        <li><a href="https://www.mycompassadvisor.com/get-started">https://www.mycompassadvisor.com/get-started</a></li>
+        <li><a href="https://www.mycompassadvisor.com/solomon-kafoure">https://www.mycompassadvisor.com/solomon-kafoure</a></li>
+        <li><a href="https://www.mycompassadvisor.com/rachel-carpenter">https://www.mycompassadvisor.com/rachel-carpenter</a></li>
+        <li><a href="https://www.mycompassadvisor.com/home">https://www.mycompassadvisor.com/home</a></li>
+        <li><a href="https://www.mycompassadvisor.com/contact-1">https://www.mycompassadvisor.com/contact-1</a></li>
+      </ul>
+      <p class="label">Steps</p>
+      <ol class="steps">
+        <li>Set a site-wide default sharing image (your logo or an office photo).</li>
+        <li>Give Advisor Acquisitions and each bio page its own sharing image, such as the advisor's headshot.</li>
+      </ol>
+    </li>
+
+    <li class="task" data-id="T-30">
+      <div class="task-head">
+        <h2>The Message box on your forms has no label</h2>
+        <label class="tick"><input type="checkbox" aria-label="Mark task done"><span>Done</span></label>
+      </div>
+      <p class="label">Found</p>
+      <p>On five pages, the form's message box has no label tied to it, so screen readers announce it as an unnamed text box.</p>
+      <p class="label">See it</p>
+      <ul class="see">
+        <li><a href="https://www.mycompassadvisor.com/">https://www.mycompassadvisor.com/</a></li>
+        <li><a href="https://www.mycompassadvisor.com/contact">https://www.mycompassadvisor.com/contact</a></li>
+        <li><a href="https://www.mycompassadvisor.com/about">https://www.mycompassadvisor.com/about</a></li>
+        <li><a href="https://www.mycompassadvisor.com/advisor-acquisitions">https://www.mycompassadvisor.com/advisor-acquisitions</a></li>
+        <li><a href="https://www.mycompassadvisor.com/contact-1">https://www.mycompassadvisor.com/contact-1</a></li>
+      </ul>
+      <p class="label">Steps</p>
+      <ol class="steps">
+        <li>In each form's settings, give the message field a visible label (e.g. "Message").</li>
+        <li>Check the other fields still show their labels after saving.</li>
+      </ol>
+    </li>
+
+    <li class="task" data-id="T-24">
+      <div class="task-head">
+        <h2>One image on Advisor Acquisitions has no alt text</h2>
+        <label class="tick"><input type="checkbox" aria-label="Mark task done"><span>Done</span></label>
+      </div>
+      <p class="label">Found</p>
+      <p>One image on the Advisor Acquisitions page has no alt attribute at all.</p>
+      <p class="label">See it</p>
+      <ul class="see"><li><a href="https://www.mycompassadvisor.com/advisor-acquisitions">https://www.mycompassadvisor.com/advisor-acquisitions</a></li></ul>
+      <p class="label">Steps</p>
+      <ol class="steps">
+        <li>Open the Advisor Acquisitions page editor and find the image without a description.</li>
+        <li>Add a short description of what it shows, or mark it decorative if it carries no meaning.</li>
+      </ol>
+    </li>
+  </ol>
+
+  <p class="saved" id="saved" hidden>Saved on this device.</p>
+
+  <footer>
+    Prepared by Lee Pettijohn · Forward Solutions ·
+    <a href="https://calendar.app.google/yNqfN1wVizEdPQqdA">Book a call</a>
+  </footer>
+</main>
+<script>
+  (function () {
+    var key = 'audit-ticks:iirs0s';
+    var state = {};
+    try { state = JSON.parse(localStorage.getItem(key) || '{}') || {}; } catch (e) { state = {}; }
+    var saved = document.getElementById('saved');
+    document.querySelectorAll('.task').forEach(function (task) {
+      var id = task.getAttribute('data-id');
+      var box = task.querySelector('.tick input');
+      if (!box) return;
+      if (state[id]) { box.checked = true; task.classList.add('done'); }
+      box.addEventListener('change', function () {
+        task.classList.toggle('done', box.checked);
+        state[id] = box.checked;
+        try { localStorage.setItem(key, JSON.stringify(state)); saved.hidden = false; } catch (e) {}
+      });
+    });
+  })();
+</script>
+</body>
+</html>
