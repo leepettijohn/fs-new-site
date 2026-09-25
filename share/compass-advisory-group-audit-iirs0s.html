@@ -6,7 +6,7 @@
 <meta name="robots" content="noindex, nofollow">
 <meta name="date" content="2026-09-25">
 <meta name="client" content="Compass Advisory Group">
-<title>10 things to fix on mycompassadvisor.com</title>
+<title>9 things to fix on mycompassadvisor.com</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Nunito+Sans:wght@400;700&display=swap" rel="stylesheet">
@@ -35,7 +35,12 @@
   .looked { color: var(--muted); font-size: .95rem; margin: 0 0 36px; }
   .tasks { list-style: none; margin: 0; padding: 0; counter-reset: task; }
   .task { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 22px 22px 18px; margin: 0 0 18px; counter-increment: task; }
-  .task-head { display: flex; gap: 14px; align-items: flex-start; }
+  .task-head { display: flex; gap: 14px; align-items: flex-start; cursor: pointer; list-style: none; }
+  .task-head::-webkit-details-marker { display: none; }
+  .task-head:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; border-radius: 6px; }
+  .chev { width: 10px; height: 10px; margin-top: 8px; border-right: 2px solid var(--muted); border-bottom: 2px solid var(--muted); transform: rotate(45deg); transition: transform .15s; flex: none; }
+  details[open] .chev { transform: rotate(-135deg); margin-top: 12px; }
+  .task-body { padding-top: 4px; }
   .task-head::before { content: counter(task); font-family: var(--font-head); color: var(--accent); font-size: 1.6rem; line-height: 1; min-width: 1.4em; }
   .task h2 { font-family: var(--font-head); font-size: 1.3rem; line-height: 1.25; margin: 0; flex: 1; }
   .tick { display: flex; align-items: center; gap: 6px; font-size: .85rem; color: var(--muted); cursor: pointer; white-space: nowrap; }
@@ -63,15 +68,17 @@
 <body>
 <main class="wrap">
   <p class="wordmark">Compass Advisory Group</p>
-  <h1>10 things to fix on mycompassadvisor.com</h1>
+  <h1>9 things to fix on mycompassadvisor.com</h1>
   <p class="looked">What I looked at on September 25, 2026: <a href="https://www.mycompassadvisor.com/">Home</a> · <a href="https://www.mycompassadvisor.com/about">About</a> · <a href="https://www.mycompassadvisor.com/experience">Experience</a> · <a href="https://www.mycompassadvisor.com/advisor-acquisitions">Advisor Acquisitions</a> · <a href="https://www.mycompassadvisor.com/contact">Contact</a> · <a href="https://www.mycompassadvisor.com/get-started">Get Started</a> · <a href="https://www.mycompassadvisor.com/home">/home</a> · <a href="https://www.mycompassadvisor.com/contact-1">/contact-1</a> · <a href="https://www.mycompassadvisor.com/solomon-kafoure">Solomon Kafoure</a> · <a href="https://www.mycompassadvisor.com/rachel-carpenter">Rachel Carpenter</a>, plus your robots.txt and sitemap. Your privacy statement PDF couldn't be read.</p>
 
   <ol class="tasks">
-    <li class="task" data-id="T-12">
-      <div class="task-head">
+    <li class="task" data-id="T-12"><details>
+      <summary class="task-head">
         <h2>Your home page and team bio pages have no main heading</h2>
         <label class="tick"><input type="checkbox" aria-label="Mark task done"><span>Done</span></label>
-      </div>
+        <span class="chev" aria-hidden="true"></span>
+      </summary>
+      <div class="task-body">
       <p class="label">Found</p>
       <p>I found no H1 heading on 10 pages: your home page, /compassadvisorygroup, and all eight team bio pages.</p>
       <p class="label">See it</p>
@@ -93,13 +100,15 @@
         <li>On each bio page, change the "About [name]" heading to Heading 1, using the person's full name (e.g. "About Solomon Kafoure").</li>
         <li>On /compassadvisorygroup, add a Heading 1, or remove the page if it's no longer used.</li>
       </ol>
-    </li>
-
-    <li class="task" data-id="T-11">
-      <div class="task-head">
+      </div>
+    </details></li>
+    <li class="task" data-id="T-11"><details>
+      <summary class="task-head">
         <h2>Nine pages have a blank search description</h2>
         <label class="tick"><input type="checkbox" aria-label="Mark task done"><span>Done</span></label>
-      </div>
+        <span class="chev" aria-hidden="true"></span>
+      </summary>
+      <div class="task-body">
       <p class="label">Found</p>
       <p>Only your home page has a meta description ("Financial Advisors in Franklin, TN | 14 Years of Experience"); the description is empty on every other page I read.</p>
       <p class="label">See it</p>
@@ -119,13 +128,15 @@
         <li>In each page's SEO settings, write a one- or two-sentence description of that page, different for every page.</li>
         <li>Start with About, Experience, Contact and Advisor Acquisitions, then the bio pages.</li>
       </ol>
-    </li>
-
-    <li class="task" data-id="T-10">
-      <div class="task-head">
+      </div>
+    </details></li>
+    <li class="task" data-id="T-10"><details>
+      <summary class="task-head">
         <h2>Two pairs of pages share the same title</h2>
         <label class="tick"><input type="checkbox" aria-label="Mark task done"><span>Done</span></label>
-      </div>
+        <span class="chev" aria-hidden="true"></span>
+      </summary>
+      <div class="task-body">
       <p class="label">Found</p>
       <div class="table-scroll"><table>
         <thead><tr><th>Page</th><th>See it</th><th>Title</th></tr></thead>
@@ -143,13 +154,15 @@
         <li>If not, delete them (or redirect them to the home and Contact pages).</li>
         <li>If they stay, give each its own title.</li>
       </ol>
-    </li>
-
-    <li class="task" data-id="C-06">
-      <div class="task-head">
+      </div>
+    </details></li>
+    <li class="task" data-id="C-06"><details>
+      <summary class="task-head">
         <h2>An older page still shows a different office address</h2>
         <label class="tick"><input type="checkbox" aria-label="Mark task done"><span>Done</span></label>
-      </div>
+        <span class="chev" aria-hidden="true"></span>
+      </summary>
+      <div class="task-body">
       <p class="label">Found</p>
       <div class="table-scroll"><table>
         <thead><tr><th>Where</th><th>See it</th><th>Street</th><th>City</th><th>Phone</th></tr></thead>
@@ -166,13 +179,15 @@
         <li>Update or remove the "Connect with us" block on /home, or delete /home and redirect it to your home page.</li>
         <li>Check the home page and Contact page match the address you chose.</li>
       </ol>
-    </li>
-
-    <li class="task" data-id="C-11">
-      <div class="task-head">
+      </div>
+    </details></li>
+    <li class="task" data-id="C-11"><details>
+      <summary class="task-head">
         <h2>Three team members are missing from the Contact page</h2>
         <label class="tick"><input type="checkbox" aria-label="Mark task done"><span>Done</span></label>
-      </div>
+        <span class="chev" aria-hidden="true"></span>
+      </summary>
+      <div class="task-body">
       <p class="label">Found</p>
       <div class="table-scroll"><table>
         <thead><tr><th>Person</th><th><a href="https://www.mycompassadvisor.com/about">About page</a></th><th><a href="https://www.mycompassadvisor.com/contact">Contact page</a></th></tr></thead>
@@ -193,32 +208,15 @@
         <li>Decide whether the Contact page's "Reach the team" section should list everyone on About.</li>
         <li>If yes, add Rachel Carpenter, Chelsea Monroe and Maya Herrenbruck with their phone and email.</li>
       </ol>
-    </li>
-
-    <li class="task" data-id="T-28">
-      <div class="task-head">
-        <h2>The phone number on your home page can't be tapped to call</h2>
-        <label class="tick"><input type="checkbox" aria-label="Mark task done"><span>Done</span></label>
       </div>
-      <p class="label">Found</p>
-      <p>In "Connect with us" on the home page, (615) 472-8223 is plain text, not a call link. The same number on the Contact page is a call link.</p>
-      <p class="label">See it</p>
-      <ul class="see">
-        <li><a href="https://www.mycompassadvisor.com/">https://www.mycompassadvisor.com/</a></li>
-        <li><a href="https://www.mycompassadvisor.com/home">https://www.mycompassadvisor.com/home</a></li>
-      </ul>
-      <p class="label">Steps</p>
-      <ol class="steps">
-        <li>On the home page, link (615) 472-8223 to tel:+16154728223.</li>
-        <li>Do the same on /home if you keep that page.</li>
-      </ol>
-    </li>
-
-    <li class="task" data-id="C-05">
-      <div class="task-head">
+    </details></li>
+    <li class="task" data-id="C-05"><details>
+      <summary class="task-head">
         <h2>A second contact page still has sample form options</h2>
         <label class="tick"><input type="checkbox" aria-label="Mark task done"><span>Done</span></label>
-      </div>
+        <span class="chev" aria-hidden="true"></span>
+      </summary>
+      <div class="task-body">
       <p class="label">Found</p>
       <p>The form on /contact-1 offers "Basic Service", "Intermediate Service", "Advanced Service" and budgets of "&lt; $500" to "&gt; $1000".</p>
       <p class="label">See it</p>
@@ -228,13 +226,15 @@
         <li>Delete /contact-1, or redirect it to your Contact page.</li>
         <li>If you keep it, replace the sample options with your real services.</li>
       </ol>
-    </li>
-
-    <li class="task" data-id="T-20">
-      <div class="task-head">
+      </div>
+    </details></li>
+    <li class="task" data-id="T-20"><details>
+      <summary class="task-head">
         <h2>Inner pages have no sharing image</h2>
         <label class="tick"><input type="checkbox" aria-label="Mark task done"><span>Done</span></label>
-      </div>
+        <span class="chev" aria-hidden="true"></span>
+      </summary>
+      <div class="task-body">
       <p class="label">Found</p>
       <p>Your home page sets a sharing image (og:image); none of the nine other pages I read do, so links to them shared on social or in texts show no picture.</p>
       <p class="label">See it</p>
@@ -254,13 +254,15 @@
         <li>Set a site-wide default sharing image (your logo or an office photo).</li>
         <li>Give Advisor Acquisitions and each bio page its own sharing image, such as the advisor's headshot.</li>
       </ol>
-    </li>
-
-    <li class="task" data-id="T-30">
-      <div class="task-head">
+      </div>
+    </details></li>
+    <li class="task" data-id="T-30"><details>
+      <summary class="task-head">
         <h2>The Message box on your forms has no label</h2>
         <label class="tick"><input type="checkbox" aria-label="Mark task done"><span>Done</span></label>
-      </div>
+        <span class="chev" aria-hidden="true"></span>
+      </summary>
+      <div class="task-body">
       <p class="label">Found</p>
       <p>On five pages, the form's message box has no label tied to it, so screen readers announce it as an unnamed text box.</p>
       <p class="label">See it</p>
@@ -276,13 +278,15 @@
         <li>In each form's settings, give the message field a visible label (e.g. "Message").</li>
         <li>Check the other fields still show their labels after saving.</li>
       </ol>
-    </li>
-
-    <li class="task" data-id="T-24">
-      <div class="task-head">
+      </div>
+    </details></li>
+    <li class="task" data-id="T-24"><details>
+      <summary class="task-head">
         <h2>One image on Advisor Acquisitions has no alt text</h2>
         <label class="tick"><input type="checkbox" aria-label="Mark task done"><span>Done</span></label>
-      </div>
+        <span class="chev" aria-hidden="true"></span>
+      </summary>
+      <div class="task-body">
       <p class="label">Found</p>
       <p>One image on the Advisor Acquisitions page has no alt attribute at all.</p>
       <p class="label">See it</p>
@@ -292,8 +296,10 @@
         <li>Open the Advisor Acquisitions page editor and find the image without a description.</li>
         <li>Add a short description of what it shows, or mark it decorative if it carries no meaning.</li>
       </ol>
-    </li>
+      </div>
+    </details></li>
   </ol>
+
 
   <p class="saved" id="saved" hidden>Saved on this device.</p>
 
