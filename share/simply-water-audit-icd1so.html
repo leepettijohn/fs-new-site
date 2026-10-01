@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<meta name="date" content="2026-10-01">
+<meta name="client" content="Simply Water">
+<title>3 things to fix on simplywatertn.com</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  
+  :root {
+    --accent: #0077B6;            
+    --accent-fill: #0077B6;  
+    --on-accent: #FFFFFF;      
+    --bg: #FFFFFF;
+    --surface: #F6F6F6;          
+    --text: #1A1A1A;                
+    --muted: #6A6A6A;              
+    --line: #DFDFDF;
+    --flag-bg: #D1E3EC;          
+    --flag-text: #1A1A1A;      
+    --font-head: "Work Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+    --font-body: "Work Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; }
+  body { background: var(--bg); color: var(--text); font-family: var(--font-body); font-size: 17px; line-height: 1.6; overflow-x: hidden; }
+  a { color: var(--accent); overflow-wrap: anywhere; }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 40px 20px 64px; }
+  .wordmark { font-family: var(--font-head); color: var(--accent); font-size: 1.1rem; letter-spacing: .04em; text-transform: none; margin: 0 0 28px; font-weight: 700; }
+  h1 { overflow-wrap: anywhere; font-family: var(--font-head); font-size: clamp(2rem, 6vw, 3rem); line-height: 1.1; margin: 0 0 16px; }
+  .looked { color: var(--muted); font-size: .95rem; margin: 0 0 36px; }
+  
+  .tasks { list-style: none; margin: 0; padding: 0; counter-reset: task; }
+  .task { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 22px 22px 18px; margin: 0 0 18px; counter-increment: task; }
+  .task-head { display: flex; gap: 14px; align-items: flex-start; cursor: pointer; list-style: none; }
+  .task-head::-webkit-details-marker { display: none; }
+  .task-head:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; border-radius: 6px; }
+  .chev { width: 10px; height: 10px; margin-top: 8px; border-right: 2px solid var(--muted); border-bottom: 2px solid var(--muted); transform: rotate(45deg); transition: transform .15s; flex: none; }
+  details[open] .chev { transform: rotate(-135deg); margin-top: 12px; }
+  .task-body { padding-top: 4px; }
+  .task-head::before { content: counter(task); font-family: var(--font-head); color: var(--accent); font-size: 1.6rem; line-height: 1; min-width: 1.4em; }
+  .task h2 { font-family: var(--font-head); font-size: 1.3rem; line-height: 1.25; margin: 0; flex: 1; }
+  .tick { display: flex; align-items: center; gap: 6px; font-size: .85rem; color: var(--muted); cursor: pointer; white-space: nowrap; }
+  .tick input { width: 22px; height: 22px; accent-color: var(--accent-fill); cursor: pointer; }
+  .task.done h2 { text-decoration: line-through; opacity: .7; }
+  .label { font-weight: 700; font-size: .8rem; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); margin: 16px 0 4px; }
+  .task p { margin: 0; }
+  .see { margin: 0; padding-left: 1.1em; }
+  .steps { margin: 0; padding-left: 1.4em; }
+  .steps li { margin: 4px 0; }
+  .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; margin-top: 6px; border: 1px solid var(--line); border-radius: 8px; }
+  table { border-collapse: collapse; min-width: 100%; font-size: .92rem; }
+  th, td { text-align: left; padding: 8px 12px; border-bottom: 1px solid var(--line); white-space: nowrap; vertical-align: top; }
+  th { font-weight: 700; }
+  tr:last-child td { border-bottom: 0; }
+  td.flag { background: var(--flag-bg); color: var(--flag-text); font-weight: 700; }
+  td.missing { color: var(--muted); font-style: italic; }
+  .clean { margin: 0 0 24px; }
+  .saved { color: var(--muted); font-size: .85rem; margin: 20px 0 0; }
+  footer { border-top: 1px solid var(--line); margin-top: 44px; padding-top: 18px; font-size: .9rem; color: var(--muted); }
+  footer a { font-weight: 700; }
+  @media (max-width: 480px) { .task { padding: 18px 16px 14px; } .tick span { display: none; } }
+</style>
+</head>
+<body>
+<main class="wrap">
+  <p class="wordmark">Simply Water</p>
+  <h1>3 things to fix on simplywatertn.com</h1>
+  <p class="looked">What I looked at on October 1, 2026: <a href="https://simplywatertn.com/" target="_blank" rel="noopener">Home</a>, <a href="https://simplywatertn.com/about" target="_blank" rel="noopener">About</a>, <a href="https://simplywatertn.com/products" target="_blank" rel="noopener">Products</a>, <a href="https://simplywatertn.com/faq" target="_blank" rel="noopener">FAQ</a>, plus the request form behind “Get Your Free Water Analysis”.</p>
+
+  <ol class="tasks">
+    <li class="task" data-id="overflow-320"><details>
+      <summary class="task-head">
+        <h2>Your home page slides sideways on a small phone</h2>
+        <label class="tick"><input type="checkbox" aria-label="Mark task done"><span>Done</span></label>
+        <span class="chev" aria-hidden="true"></span>
+      </summary>
+      <div class="task-body">
+      <p class="label">Found</p>
+      <p>On a 320px-wide screen, your home page is 341px wide, so it scrolls sideways. I found the extra width in the “Do you know what’s in your water?” section, where the photo and the text block each run 21px past the right edge.</p>
+      <p class="label">See it</p>
+      <ul class="see"><li><a href="https://simplywatertn.com/" target="_blank" rel="noopener">https://simplywatertn.com/</a></li></ul>
+      <p class="label">Steps</p>
+      <ol class="steps"><li>Open the home page on a narrow phone and scroll to “Do you know what’s in your water?”.</li><li>In that section, set the photo and the text column so neither is wider than the screen.</li><li>Reload the page at 320px wide and confirm it no longer moves left and right.</li></ol>
+      </div>
+    </details></li>
+    <li class="task" data-id="T-04"><details>
+      <summary class="task-head">
+        <h2>Your site loads at two addresses instead of one</h2>
+        <label class="tick"><input type="checkbox" aria-label="Mark task done"><span>Done</span></label>
+        <span class="chev" aria-hidden="true"></span>
+      </summary>
+      <div class="task-body">
+      <p class="label">Found</p>
+      <p>I found that your whole site loads at both simplywatertn.com and www.simplywatertn.com. Neither address redirects to the other, and each one’s canonical tag names itself as the main address.</p>
+      <p class="label">See it</p>
+      <ul class="see"><li><a href="https://simplywatertn.com/" target="_blank" rel="noopener">https://simplywatertn.com/</a></li><li><a href="https://www.simplywatertn.com/" target="_blank" rel="noopener">https://www.simplywatertn.com/</a></li></ul>
+      <p class="label">Steps</p>
+      <ol class="steps"><li>Decide which address is the main one. Your sitemap lists the one without “www”.</li><li>Set a permanent redirect from the other address to the main one, for every page.</li><li>Open both addresses again and confirm they end up at the same one.</li></ol>
+      </div>
+    </details></li>
+    <li class="task" data-id="C-12"><details>
+      <summary class="task-head">
+        <h2>Your process has five steps on one page and four on another</h2>
+        <label class="tick"><input type="checkbox" aria-label="Mark task done"><span>Done</span></label>
+        <span class="chev" aria-hidden="true"></span>
+      </summary>
+      <div class="task-body">
+      <p class="label">Found</p>
+      <div class="table-scroll"><table>
+        <thead><tr><th>Where</th><th>See it</th><th>Step 1</th><th>Step 2</th><th>Step 3</th><th>Step 4</th><th>Step 5</th><th>How it’s described</th></tr></thead>
+        <tbody>
+          <tr><td>Home page, “Our process”</td><td><a href="https://simplywatertn.com/" target="_blank" rel="noopener">https://simplywatertn.com/</a></td><td>Test</td><td class="flag">Design</td><td class="flag">Build</td><td>Install</td><td class="flag">Support</td><td class="flag">“The same path for every home we work in”</td></tr>
+          <tr><td>Products page, “How we choose a system”</td><td><a href="https://simplywatertn.com/products" target="_blank" rel="noopener">https://simplywatertn.com/products</a></td><td>Test</td><td class="flag">Understand</td><td class="flag">Design</td><td>Install</td><td class="missing">not shown</td><td class="flag">“The same four steps every time”</td></tr>
+        </tbody>
+      </table></div>
+      <p>Test and Install match. Steps 2, 3 and 5 differ, and the products page says there are four steps where the home page lists five.</p>
+      <p class="label">See it</p>
+      <ul class="see"><li><a href="https://simplywatertn.com/" target="_blank" rel="noopener">https://simplywatertn.com/</a></li><li><a href="https://simplywatertn.com/products" target="_blank" rel="noopener">https://simplywatertn.com/products</a></li></ul>
+      <p class="label">Steps</p>
+      <ol class="steps"><li>Decide which list of steps is correct.</li><li>Update the “Our process” section on the home page to match it.</li><li>Update the “How we choose a system” section on the products page to match it, including the line “The same four steps every time”.</li></ol>
+      </div>
+    </details></li>
+  </ol>
+
+  <p class="saved" id="saved" hidden>Saved on this device.</p>
+
+  <footer>
+    Prepared by Lee Pettijohn · Forward Solutions ·
+    <a href="https://calendar.app.google/yNqfN1wVizEdPQqdA" target="_blank" rel="noopener">Book a call</a>
+  </footer>
+</main>
+<script>
+  (function () {
+    var key = 'audit-ticks:icd1so';
+    var state = {};
+    try { state = JSON.parse(localStorage.getItem(key) || '{}') || {}; } catch (e) { state = {}; }
+    var saved = document.getElementById('saved');
+    document.querySelectorAll('.task').forEach(function (task) {
+      var id = task.getAttribute('data-id');
+      var box = task.querySelector('.tick input');
+      if (!box) return;
+      if (state[id]) { box.checked = true; task.classList.add('done'); }
+      box.addEventListener('change', function () {
+        task.classList.toggle('done', box.checked);
+        state[id] = box.checked;
+        try { localStorage.setItem(key, JSON.stringify(state)); saved.hidden = false; } catch (e) {}
+      });
+    });
+  })();
+</script>
+</body>
+</html>
