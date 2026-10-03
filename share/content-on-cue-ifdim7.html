@@ -1,0 +1,551 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="date" content="2026-10-03">
+<meta name="client" content="Brandi Herrman Communications">
+<title>Content on Cue</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&display=swap">
+<style>
+:root{
+  --forward-blue:#1E5BBA;--sky-blue:#3FA9F5;--signal-amber:#F5A524;--ink:#1A1D24;--slate:#5B6470;
+  --paper:#F7F6F2;--paper-warm:#EFEEE8;--white:#FFFFFF;--hairline:rgba(26,29,36,.08);--line:rgba(26,29,36,.14);
+  --blue-soft:#E8EFF9;--radius:12px;
+  --font-display:'Fraunces',Georgia,serif;--font-body:'Inter',system-ui,-apple-system,sans-serif;
+  color-scheme:light;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--font-body);font-size:16px;
+  line-height:1.6;-webkit-font-smoothing:antialiased;padding:0 16px env(safe-area-inset-bottom,0px)}
+a{color:var(--forward-blue)}
+[hidden]{display:none!important}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.hp{position:absolute;left:-9999px}
+.wrap{max-width:860px;margin:0 auto;padding-block:calc(28px + env(safe-area-inset-top,0px)) 56px}
+.brand{display:inline-flex;align-items:center;gap:10px;text-decoration:none;margin-bottom:40px}
+.brand img{height:30px;width:auto;display:block}
+.brand span{font-family:var(--font-display);font-weight:600;font-size:17px;color:var(--ink);letter-spacing:-.01em}
+.eyebrow{font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--forward-blue);margin:0 0 12px}
+h1{font-family:var(--font-display);font-weight:500;font-size:clamp(34px,8vw,48px);line-height:1.05;
+  letter-spacing:-.02em;margin:0 0 20px;text-wrap:balance}
+.intro{font-size:17px;margin:0 0 12px;max-width:64ch}
+.intro.soft{color:var(--slate)}
+.meta-note{font-size:14.5px;color:var(--slate);border-left:2px solid var(--sky-blue);padding-left:12px;margin:22px 0 0;max-width:64ch}
+.toc{display:flex;flex-wrap:wrap;gap:8px;margin:28px 0 0;padding:0;list-style:none}
+.toc a{display:inline-block;padding:7px 14px;background:var(--white);border:1px solid var(--hairline);border-radius:999px;
+  font-size:14.5px;font-weight:500;text-decoration:none}
+.toc a:hover{border-color:var(--forward-blue)}
+.section{margin-top:44px;padding-top:28px;border-top:1px solid var(--hairline)}
+.section-num{font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--forward-blue);display:block;margin-bottom:6px}
+h2{font-family:var(--font-display);font-weight:500;font-size:26px;line-height:1.15;letter-spacing:-.02em;margin:0 0 8px;text-wrap:balance}
+h3{font-size:16px;font-weight:600;margin:26px 0 6px}
+.section p{max-width:68ch;margin:0 0 12px}
+.section-sub{font-size:15px;color:var(--slate)}
+.section ul{max-width:68ch;margin:0 0 12px;padding-left:20px}
+.section li{margin:0 0 6px}
+.card{background:var(--white);border:1px solid var(--hairline);border-radius:var(--radius);padding:16px 18px;margin:16px 0}
+.scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+table{border-collapse:collapse;width:100%;font-size:14.5px}
+th{text-align:left;font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--slate);
+  padding:8px 12px;border-bottom:1px solid var(--line);white-space:nowrap}
+td{padding:10px 12px;border-bottom:1px solid var(--hairline);vertical-align:top}
+tr:last-child td{border-bottom:0}
+td.k{font-weight:500}
+.muted{color:var(--slate)}
+.tag{display:inline-block;font-size:12.5px;padding:1px 9px;border:1px solid var(--line);border-radius:999px;white-space:nowrap}
+.tag.fill{background:var(--blue-soft);border-color:transparent;color:var(--forward-blue);font-weight:500}
+code,.path{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:13.5px;background:var(--paper-warm);padding:1px 6px;border-radius:5px}
+.tree{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:13.5px;line-height:1.7;background:var(--white);
+  border:1px solid var(--hairline);border-radius:var(--radius);padding:14px 16px;margin:14px 0;white-space:pre;overflow-x:auto}
+.tree b{color:var(--forward-blue);font-weight:600}
+.tabs{display:flex;flex-wrap:wrap;gap:6px;margin:18px 0 0}
+.tabs button{font:inherit;font-size:14.5px;font-weight:500;color:var(--ink);background:var(--white);border:1px solid var(--hairline);
+  border-radius:999px;padding:8px 14px;cursor:pointer;min-height:40px}
+.tabs button[aria-selected="true"]{background:var(--forward-blue);border-color:var(--forward-blue);color:var(--white)}
+.tabs button:focus-visible{outline:2px solid var(--forward-blue);outline-offset:2px}
+.screen{margin-top:14px}
+.screen-head{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:8px;margin-bottom:4px}
+.screen-head h3{margin:0;font-family:var(--font-display);font-weight:500;font-size:21px}
+.fake-btn{font-size:13px;color:var(--slate);border:1px dashed var(--line);border-radius:8px;padding:3px 10px}
+.wf{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);margin:12px 0}
+.wf-flag{font-size:11.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--slate)}
+.notes{background:var(--paper-warm);border-radius:var(--radius);padding:14px 18px 6px;margin:12px 0}
+.notes h4{margin:0 0 8px;font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--slate)}
+.notes ul{padding-left:18px;margin:0 0 8px;font-size:15px}
+.flow{list-style:none;margin:16px 0;padding:0;max-width:560px;counter-reset:f}
+.flow li{position:relative;background:var(--white);border:1px solid var(--hairline);border-radius:var(--radius);
+  padding:12px 16px 12px 52px;margin:0 0 22px;counter-increment:f}
+.flow li::before{content:counter(f);position:absolute;left:14px;top:12px;width:26px;height:26px;border-radius:50%;
+  background:var(--blue-soft);color:var(--forward-blue);font-weight:600;font-size:13.5px;display:grid;place-items:center}
+.flow li:not(:last-child)::after{content:"";position:absolute;left:26px;bottom:-23px;height:22px;border-left:2px solid var(--line)}
+.flow b{display:block;font-weight:600}
+.flow span{display:block;font-size:14.5px;color:var(--slate)}
+.flow .side{display:block;margin-top:6px;font-size:14px;color:var(--ink);border-left:2px solid var(--sky-blue);padding-left:10px}
+.items{display:flex;flex-direction:column;gap:8px;margin-top:16px;max-width:680px}
+.item{background:var(--white);border:1px solid var(--hairline);border-radius:var(--radius);padding:4px}
+.item.on{border-color:var(--forward-blue)}
+.check{display:flex;align-items:flex-start;gap:12px;padding:12px;border-radius:9px;cursor:pointer;min-height:44px}
+.check:hover{background:var(--paper)}
+.check input{width:20px;height:20px;accent-color:var(--forward-blue);flex:0 0 auto;margin:2px 0 0}
+.check input:focus-visible{outline:2px solid var(--forward-blue);outline-offset:2px}
+.qtext{font-size:15.5px;font-weight:500;display:block}
+.check small{display:block;font-size:14px;color:var(--slate);margin-top:3px;font-weight:400}
+.answer{padding:0 12px 12px 44px}
+textarea,input[type=text]{width:100%;font:inherit;font-size:16px;color:var(--ink);background:var(--paper);
+  border:1px solid var(--line);border-radius:9px;padding:10px 12px;line-height:1.5}
+textarea{resize:vertical;min-height:68px}
+textarea::placeholder,input[type=text]::placeholder{color:var(--slate);opacity:.8}
+textarea:focus-visible,input[type=text]:focus-visible{outline:2px solid var(--forward-blue);outline-offset:1px;border-color:transparent}
+.send{margin-top:28px;padding:22px 18px;background:var(--white);border:1px solid var(--hairline);border-radius:var(--radius);max-width:680px}
+.send h3{font-family:var(--font-display);font-weight:500;font-size:22px;margin:0 0 6px}
+.send label.q{display:block;font-weight:600;font-size:15px;margin:18px 0 6px}
+.btn{display:inline-flex;align-items:center;justify-content:center;margin-top:18px;min-height:48px;padding:12px 26px;
+  font:inherit;font-weight:600;font-size:16px;color:var(--ink);background:var(--signal-amber);border:0;border-radius:999px;cursor:pointer}
+.btn:hover{filter:brightness(.96)}
+.btn:focus-visible{outline:2px solid var(--forward-blue);outline-offset:3px}
+.btn:disabled{opacity:.6;cursor:default}
+.saved-note{font-size:14px;color:var(--slate);margin:12px 0 0;min-height:1.4em}
+.sent{margin-top:16px;padding:12px 14px;background:var(--blue-soft);border-radius:9px;font-size:15px}
+.foot{margin-top:56px;padding-top:24px;border-top:1px solid var(--hairline);font-size:15px;color:var(--slate)}
+.foot .fs{font-family:var(--font-display);font-weight:600;font-size:17px;color:var(--ink);text-decoration:none}
+.foot .fs:hover{color:var(--forward-blue)}
+.foot p{margin:6px 0}
+.foot a{text-decoration:none;font-weight:500}
+.foot a:hover{text-decoration:underline}
+.foot .sep{margin:0 6px;color:var(--line)}
+@media print{.tabs,.send .btn,.saved-note,.toc{display:none} .screen[hidden]{display:block!important}}
+</style>
+</head>
+<body>
+<main class="wrap">
+
+  <a class="brand" href="https://gottamoveforward.com/">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFkAAABICAYAAACdgVmRAAATVElEQVR42u2ce3RdVZ3Hv7+99zk3NzdpHuTRZ5I2BWuKKEyxQluTLmEhrDqgQ8LDsai1FMGlsxhQ1hI5uaPDGobnGqCsQYUZRcVkZmRcLgcFp4mu8Vnro7QlLW3TR9ImadPkvs89Z+/f/HFu2rRN2qTNq+D+5yZZN7lnf853f3+PvU8IfxlnHcxM1AxqXArqLQe1t7UB2/sYrU16pPcTAEsArubCu9t3zqe/IAy4MDOaAdreCmotbyO0AVjawGgiPSJEAFIAKX0o8uAbYvYfBkVVfza7aNAVCzIJd6GKH1vEsXTtu5Dc+g6CzAQGnOEg0QD0YVSQBEAR8Jt+Ln5012Dpkf5k7aDJLvZIXpzyxKKUpxfFtCmDRoWBlJR1YcWSUMk4fE+jortz390V+R+gt9m6JmA4SBDOsrQlAJ+ZXo/FSlt3UfnBvsHao76pSgu+JJ6V1ZmMXmRg5mZYFruWbXnKhmYBGB8ymYQdG0De4DFY6YSxslkjlGCXpCk9PKCvyfeufuaZdX+iCxlkW3ObaG9oANraADQYRMmMpEiRA/n8nmOzXu8y8/pTZlG/l6np09YcdlNLWeKSjEeVHqPE2PnkQcCHAGsNNgbQPsAapLWx3IzJS8YRTsTJSqeIjAETE5MkKAnf115BV791VZF/90tPr3+u3tmkaCaDbGxtFb3l5dQOAH0NjG3NjGjUjPQrCoDHrJ7viBf/4WhmwYGEW9vj6ZoBn6uzvrkk66EqA1nqG6rQdj60AJgEPF8DngdoDzA+wKQhwCABgEgZn6xMgkLxJOxUgizXDYAzgYUAiABmQAgY3/fVrj5VExrc+Kvv33/PipUPqfb2qE/TCdJpBm1f2koByCFFtpmRQMqcIrPM9sO74kW/6D46P54QFw8aa37K50Xayy7xiKsyGmVZFiW+nQ+PBAwDrHWgRu3nQLJGgAnETBBEDCIhBJiIKOvDSicQTsQRSqUhsykQM5hEsDQghiYBYoaxFDjjamw/JBcX0e9//tJnryJq1uBmBhGryU99mqlxaTP1lredUGQTDIg4CvCpS1sFIEOPdqJky96D1T1ZUduXNVWQoi6ezNZUvrxnfhqiVJMo0ioMTQLMgGEJ9nyAvQBmNpYDCRCYiEDMQ/GMJBEDJAM1GgPpuwjFU8iLx2Clk5CeFwAUOcUip9gc3KEXoyxQMmn0GwdFRT4dvf3m995MRJ7jOCJKxEPzOv+I3QzavhTUuq0t+HtB6mNwCsQhDSgALnP4sY6B2f+7LzW3X2cWDnr2gpRxF8PDxSkt52WBcpAq9K08eCzhsQZOViQDMMFFUDCXIaagU+bFx2/j0BIXhmG7GdipJOz4IOx0GqQ9UO7XmeiEFYysILClwLEE09ZOk2db4v3LZl/38ldvf62xsUW2Dgu0NG6QAFDeRoEiR059RC6PPMI8x+kYyNvflVh40KMaH2JxLI2FGd+9OOmbch+yMivtkCesnCIZ7PuBP2p9HKQAmIlAHIDkEUGeDiG4egIJAQKBjYadySCUSiAUj8HOpEFa56CK3CuD+GxIALYUqP8YePt+T+YVWEvmh7742vN3Plpf76j29qh/KhMATMw4ORkHgLbTI7bIyUcA0My0C0cLn9qiK/b2+QsHjFk4wHphPCMWal8v8kgsSPu6GCovz5MWGALaAMYLggd8D2BjwGAiMM6qyLNVFEBwC0SgWAaE9mFl0gjHB2GnkrBcF2T0SaoOqI3VAgGyJdBzFGbnQV/ZBWrhnPArv/z39R/1VzkKpwDOQWbCKPfOCvyR/u8ICl7a687dF+tfFPf9xYfTqPS97BIW8t1JjYt8wxf5KqyyZMEjgA0HAAOIgNEGIAMwcuYocpMjHifIkWedW96CQAZQxoedSsGKxxBKxSG9LKTO3ckhfz3JRsb6WQBbEtTVB+ztNgxbVFbYHa88cuNV1dUvDDoOEB0haJMAYBPwX4Nc/vKO/opYf2LxIa2rY0ZUuVlakvJNVZq5XBtRoUN5IssASMEYA/Y8wBjA5BRJZCg3aQIIzCJIxmiCsxgOQAkZSMQYKM+DnUohlBxEKJWCyrrgnF2AZMCV+fw+Vilg3yHQvsPskzTlZQX6lmtqr3pww/VbTvXhkyDf+JN9L/xykFZ72i82hgp9O1/6QkEDML4fpD/GD1QJaAomyBgesScF5KlLzoAhjwckYobturBTMYQScViZNKTn5cxPBPKZCLAc2A8kgfd0Q3T1wZfCj+RH1PIlRWu/++gd3x7Jh0+6N5dehH/sZXK3J0J3xTwBJOJZEkQAB8kjIUgnA4byxFILcIMmLf87AUwQBCyQ8SHTadjJOMLJGKyMC+H7ADFYSLCUw1yAx+0GIy8YAgsCdh0EHToKo4QfsotU3Xz72e8/dnbAxxFZAD752+4rf3pQP34Y+avc2AAEjGYScooLlEClRIAQYBCk58HKpGAn4wglE7DcDMgYgAhGBLkM8Tn461iuRYggVevYDxwdBEmpDdmydnbo57/49t3XEjVp5hZDdOZ8RIGZvFaIr7+ffsfMq9f87OB9f0TIOeRbYU7GtCASTJNpBXw8keDcPVWeh1A6BjsRh5WKQ7keBBvoXDbAUgEMEPPEwx3KgaUEfB/o2Ac6lgApZbQRsqJYHV53a/UtRJR1HEecDfBJi91hFlECCxC/uLP38qd3m6/tSNINybQL0q7GJKiac4oVhiG8LEKpJEI5xUovG/ATAoZE7kJ5KpZTANj1wDs6IWIpkK3Y81kXRcJYs7JqzRMPfPQn9Y6j2qNntonRi5EWlmginQdg5c96m944ln20l+0qk4wZQQyGEBMTyQjSzyIUjyEcj8PKpCD8oDfDJM5ecU2SXbGlQKkMsK0TSGdASsHX2osUFlvLagu/+P0nP/FovbNJtUdX+2Oe6kg/dJhFtBlAlMzO7lj5uq3Jx7bFeW2/B8BN+YKg+HwiHjNYKRT09aDk0AGwtHJBdKhVzpjywQyyFHQ8BdrRCXI9QEpAaw27QL6nelbrphfXNblXPzhiwTFuyEOjftMm1b56tW8DuOd3B274wUGKdpvwsmxskImMAZE8L8hH+1Dc3QVWcmoVe3ojC8aWEP1J0I7OoKSXEsRG+8KS88pCf371X25dWV5enmRmHosPn1oljzraV6/2wUxZh8WTVy748d6bDl99Q2nq8dmFtuG8AsnGaOLzoCPkxKRa5xt2bQXqjQHb9wLmOGD2DVFpgYo1rVrQVF5eHnccxngBD/W6z+adDIAbW1gSkSeA+x7546HW73bhn3bapQ3JRBykPQ1xDoEx15CZLocAMzikwF39kG/tD0puEawqw9CFBWF15SVln/7S3Td1NDa2yGiU9LkVUuNtbbZAoIk0M9ONP+va8JsBbj5C4UodO6ZF0PwWY5qclIjEBlGyv3Na7IIBwJLAgR7QnsMgmet/MMDMvsrLV0urZz3y6nOfeuCKO//V+v3zG7xzr1bPYQylewDxf+zpr358Z/afd6RE00AqC/IzPojUWCCHEzFc1Ll3aiFzLnVUBOztAe0/DCg5/No0rLCsmR366W9fuuc672Mvy9E2YSfEk0cbUSIDENc7m9TNi0r3bfnw7FturszcviCMXVZhqWLDTGAz6j3M/ViTgJGYUsAggCXAb3WB9h8GW2p4q9RoUrKsWO2P3rViracNOXXbzvvizivnbY+u9h3HEW4Ly2+sqPre1g8VLP+r/MSTxRGLjZUvmLU/MkE6XmhMXvNjpDJZBmV7xz6g6whgqVzVGLzBZ+aiWcr70OWVt11z1WU9jY0tIjrKxu2k28VIo7GFZWsTaQHgni0Hr247SM/s1pHLU7F+CKM1hJQ8LLoxCdiZFMo63xpq402ugiUF2/tv7gf6YyClTtx/AoxhPxSJqBV1RZ//ziN3PD2Wxs+UQ87lm0TNbRLR1T4z59/Y1nPvr3uzXzwqQoUmEdM0rA/CRFBZF2Wdb0EaM3mKZg48N+sBOzphYikIJU/KZhjsS6tALVlgv7jpmxs+vWLVxAGevEZlsPNhAODxPx1+z0sHsg/vythrEmkXpD0fBMUkIL0syvfugtIGPBk9qFzRg0wG2NEJSmQCizDD1hSzNtKWVRX273/90udWETVlwS0G55APT4onnyH/NWAmOJvU37939taONVUfubbMu6MmIrtVQYliAxZgA5Fra06aghWQSAFb94ASbvD9MMAEGA1JFbPs/tuvrb2FiNKOU8cTCXjyIA8VMdHVvsMsUi0t8gcNC7710yt5+fKw+0JhWBGssGDD+njzf8IbPRZ4MAHathfC9QAlTorBBMA3zLMKbXF1XfHaL3zyht2NLS1yIgLd1NjFCOPOzZut55ct8wSA9b/Yfe2mY/ZTe127rnjrFg5lXeIJau6BAVgKfHQw6AWbE8334cMwe6FwgXVZje388NkN/zCRgW7aIB8PjK1DFeP+8PWvm6++uXn3F7KJlCBmMSEWYVkwvf2gXQeCHRNBp5fsbDSpfLmwUr7yq+9+/qP+yofG3VmbGXYxooMQo4n0nZs3W0RV6f+5pvrLszv2JLzeAcGKmMV59I9zB064uxeiY3/uyBqN1BMxmmxZWaL2PHz/X3/a1yycBpjJnLfCNIznly3zwEzbAD7SM9BluVyM/hijppI4Egb5+vh+33j6ELSvB7yvO+gD43TABLCviUtKrPR1y+c0rrqs+ljQ+Dm/snlGKfnUGV9KlPW1jgnLAh0dYPrzbnBXb2Bicgz9DA6O5kAKYE93cCZCqlFd0Gj4hQV58j01RXc9fO/fbKl3HNXaOrmApxcyCJKAgogtjMkVDIYh3uoGv9EJk0jBWPKE144A2MigXYqdB0EHek9u9Jxu174Kh62qitAzrU9+8lv19WPfo7uAIQd8wnlWAHGIo6VAsQRo626I3YfBzEG2cFKJxqAhv92xHzh8JGhb8qiENUtbVRbRpte/ueHvGPWqvb1ZT9U8pxWyEMCsSH5wsmt4hiCDU5imqwf48+4gHZMyOGdhGKwkNDPktn2gIwMgyzpT099oCFE6iw41ffBdtxKRdpwGAxC//SE3NgpPA909/bukkidvQuW+EkoBaRe0rRPoOABks+CwBbguaOse8EAsp2AezfZZG+aiwhAarph3x/13X9cbBLqomcqpqmmD3FtHzIDv6ThRaGQhcnBODJJAvf1ALA7MKwd6joES6aBMHi04EqCN8cPhQuvKS0q+8uyXm16rr3dUa2uTP+UrFtM8SksLxJg2+JSCyGrQW92glHtmwLn2sLQjVnWF1dL61Ce+hkms6GY85MJI/tj7EUSApc5+6IXZGLbU3FLRsemxm9e7HtNkFxwz0y6GIOeHDBAfX+l8ljcYligqsgdXXjHnJiorizkOi+gIz/i9Y5T85t6eNyewvmHNpPMjtrh8cf66J+67+c36ekdNJ+BphVyfe5VEGaKJaXdqNjqUF1FL5kee+N5jn/nPemf6fHhG2UVZST4Svdlx9SpGKzhIhtWCUnr9R8995n7acVC1R6MaM2BMn100BC/zyvOkFOenZAKMR0JWlqpDD6xr+AQRmVyg43c25BxlkmrQBGU1nSNg9jTzRYVh8+GrF3x8zepLD09HwXGmIafrg/dVpAjbt3OPWpYP0GcoyLBonIDhs9EFkUJ1WU3B574eva213nHUjzd+TmMGjWlTciMaAQC1C0qFUoRzORxqmH3LiqiaSuvf/nvjuo08hZ21CyqFm1dZCinF+CEza4iQml1KW17/xoa7PP8hwW3NGjNwTHt2saSqTGzb3YcEB97FY7IJZg9EFbNU/0c+eNmtROQ6Dgsi4pkIedqUXFfXyAAglDfo+1mfxkHIM6xLCgvEyvfNWf/QZxt2zYSC42yxY5pG8Ex31coHSvxQ8R4iURw8lH3ma2Jm3w4XqvfWFH7tRxvv+MrKh8b3kMw70pM/csO7RTgkKPiPOGfb02PNVr6qqbRefeWZtQ9pbpTt0dUaM3xMG+ShOLdkyVzYljWGwMfGkJJzS2XnM/eu+DgRwXHqJulpybeZkq9dXkd5eZYwrEc9QhvscAgUFYTcVe+b33jppZf2T9TZ4bc15CGc75o7N+W53rEzPfCqmXU4Eha1cyN3PvWlmzbndjg0LpAxjecuKHgGnygVi7t9Uiown770mdm38wpV7ey8jT9+bt236utnRmftQrILtiRhVsSWPNIjJsyaRJ6aU0K/ee3r6+/lxkbZNkMLjpkMmQBGKGSbU88bEmB8VqK8VB25Y82ioOCoq+OZWnDM6IpPCEJBxJLcnxn+zCT7BqagwJYrLiv/28/edn3nVJxZe5squVH4mhFLul2STpy90Mw6EpmlrqgtdjY+eOtPpurM2tsTcn0daQMcO5Y4JJTIxTn2pZWv5pfplh8++6mvcr2j2pubL1jAMyJPBoCS4ojKJRbakKXml8qdbY80rXM9Q9zWrHEB+vCMg1xYGGLBBM8YUTpLpT7WUHsbVVYmGhtbBF3ggGcM5NKiiPC0McUFBdYHFpfe+aUN12+50H14RmUXANC5v2dHKFwklsyXj3/7ibXfqZ+hOxwXtJJTLqzKWe7mV7+x/j5PX5gFx4yF3FixnQHgmuXVHdcuq1mb9TQc58IsOM40/h/b5x2RNzsUmgAAAABJRU5ErkJggg==" alt="" width="37" height="30">
+    <span>Forward Solutions</span>
+  </a>
+
+  <p class="eyebrow">For Brandi Herrman Communications</p>
+  <h1>Content on Cue</h1>
+
+  <p class="intro">Content on Cue texts people at an organization on a schedule, asking for a photo, a video, or a thought about their work. They reply to the text. The reply is captured, tied to the right person and organization, stored for good, and waiting in a portal the agency works from. Their effort ends at hitting send.</p>
+  <p class="intro soft">Brandi, this page pulls together what we walked through on September 24, plus one piece I&rsquo;ve worked out since: where the photos and videos live. It replaces the earlier wireframe site. There are two things near the bottom I need you to agree to, and three questions for you.</p>
+  <p class="meta-note">This is a picture of how it would work, not a finished design. Nothing gets built until our agreement is signed. Updated October 3, 2026.</p>
+
+  <ul class="toc" aria-label="On this page">
+    <li><a href="#built">How it&rsquo;s built</a></li>
+    <li><a href="#files">Where files live</a></li>
+    <li><a href="#portal">The portal</a></li>
+    <li><a href="#flows">How it runs</a></li>
+    <li><a href="#brandi">For you to decide</a></li>
+    <li><a href="#later">Not in the first version</a></li>
+  </ul>
+
+  <section class="section" id="first">
+    <span class="section-num">The first version</span>
+    <h2>Prove it with organizations first</h2>
+    <p>As you decided on our call, the first version goes direct to organizations and runs through your own agency. That gives you a working example to point to before it&rsquo;s offered to other agencies under their own name.</p>
+    <p>It runs with a small number of organizations, each set up by hand after your intake meeting. Nobody gets in without going through you.</p>
+  </section>
+
+  <section class="section" id="built">
+    <span class="section-num">One</span>
+    <h2>How it&rsquo;s built</h2>
+    <p>A handful of online services working together, with no server to maintain.</p>
+    <div class="card scroll">
+      <table>
+        <thead><tr><th>Job</th><th>Service</th><th>Whose account</th></tr></thead>
+        <tbody>
+          <tr><td class="k">Records: who, what, when</td><td>Airtable</td><td class="muted">Settled in our agreement</td></tr>
+          <tr><td class="k">Photos and videos</td><td>Google Drive</td><td><strong>Yours</strong></td></tr>
+          <tr><td class="k">Sending and receiving texts</td><td>ClickSend</td><td>Yours (the one you have)</td></tr>
+          <tr><td class="k">Catching each reply, filing it, and moving the file into Drive</td><td>Make</td><td><strong>Yours</strong>, with me invited</td></tr>
+          <tr><td class="k">Deciding when a prompt is due</td><td>Airtable&rsquo;s built-in scheduler</td><td class="muted">Same as Airtable</td></tr>
+          <tr><td class="k">The portal</td><td>Softr or Noloco, chosen when the build starts</td><td class="muted">Settled in our agreement</td></tr>
+          <tr><td class="k">Signup and payment</td><td>Squarespace and Stripe</td><td>Yours. Not connected at first.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>The send scheduler lives in Airtable on purpose. It fixes the limit you&rsquo;re hitting now, where only one message goes out per hour.</p>
+
+    <h3>What the records are organized into</h3>
+    <p>Agencies, companies, users, a shared prompt library, each company&rsquo;s own prompts, prompt slots (the schedule), and sends. Agencies is new: each agency has a record that holds the email its Drive folder is shared with. To start, there is one agency, yours.</p>
+    <p class="section-sub">Prospects who never sign up stay in your CRM, not here. The text-by-text delivery log stays in ClickSend, which already does that job well.</p>
+  </section>
+
+  <section class="section" id="files">
+    <span class="section-num">Two</span>
+    <h2>Where the photos and videos live</h2>
+    <p>Every file lives in one place: your Google Drive. You already pay for it, and it means the content is yours.</p>
+    <div class="tree"><b>content-on-cue/</b>
+  <b>herrman-communications/</b>          one folder per agency
+    <b>acme-bakery/</b>                   one folder per company
+      <b>2026-10/</b>                     one folder per month
+        2026-10-06_acme-bakery_sarah-m_1042.jpg
+        2026-10-06_acme-bakery_jim-t_1043.jpg</div>
+    <ul>
+      <li><strong>The person&rsquo;s name is in the file name,</strong> not a folder. People come and go; the folders don&rsquo;t have to change when they do.</li>
+      <li><strong>Each agency&rsquo;s folder is shared with one email address</strong> (or one Google Group) for that agency. Opening a file means signing in. There are no &ldquo;anyone with the link&rdquo; files.</li>
+      <li><strong>An agency gets access, not ownership.</strong> It can open its files and copy them out. It can&rsquo;t move them or take the originals with it.</li>
+      <li><strong>Airtable keeps the record and a link to the file,</strong> not the file itself. The portal&rsquo;s Open link takes you straight to the file in Drive.</li>
+      <li><strong>Files are copied to Drive as soon as a reply arrives.</strong> ClickSend only holds a texted photo for 7 days, so nothing is left sitting there.</li>
+      <li><strong>If storage runs past what your Drive plan covers,</strong> that&rsquo;s yours to bill on to the client, as you described on our call.</li>
+    </ul>
+    <h3>About video</h3>
+    <p>Phone carriers shrink any video sent by text, usually to about 1&nbsp;MB, so texted video arrives small and soft. A separate upload link for full-quality video is possible, but it isn&rsquo;t in the first version until we know how much video you expect. That&rsquo;s one of my questions below.</p>
+  </section>
+
+  <section class="section" id="portal">
+    <span class="section-num">Three</span>
+    <h2>The portal, screen by screen</h2>
+    <p>Six screens, in the order the system uses them. These show layout and behavior only: no branding, no real data. What you see is the agency&rsquo;s view. A company admin sees only their own company&rsquo;s content.</p>
+
+    <div class="tabs" role="tablist" aria-label="Portal screens">
+      <button role="tab" aria-selected="true" aria-controls="s-companies" id="t-companies">1 &middot; Companies</button>
+      <button role="tab" aria-selected="false" aria-controls="s-users" id="t-users">2 &middot; Users</button>
+      <button role="tab" aria-selected="false" aria-controls="s-library" id="t-library">3 &middot; Prompt library</button>
+      <button role="tab" aria-selected="false" aria-controls="s-cprompts" id="t-cprompts">4 &middot; Company prompts</button>
+      <button role="tab" aria-selected="false" aria-controls="s-slots" id="t-slots">5 &middot; Prompt slots</button>
+      <button role="tab" aria-selected="false" aria-controls="s-sends" id="t-sends">6 &middot; Sends</button>
+    </div>
+
+    <div class="screen" role="tabpanel" id="s-companies" aria-labelledby="t-companies">
+      <div class="screen-head"><h3>Companies</h3><span class="fake-btn">Add company</span></div>
+      <p class="section-sub">Everything hangs off a company record: its name, its status, its time zone, and how many prompt slots it has. The agency creates these by hand after the intake meeting.</p>
+      <div class="wf scroll"><table>
+        <thead><tr><th>Business</th><th>Status</th><th>Time zone</th><th>Slots used</th><th>Users</th><th>Joined</th></tr></thead>
+        <tbody>
+          <tr><td class="k">Acme Bakery</td><td><span class="tag fill">active</span></td><td>Central</td><td>7 of 7</td><td>3</td><td>Mar 2026</td></tr>
+          <tr><td class="k">Northside Law</td><td><span class="tag fill">active</span></td><td>Central</td><td>3 of 7</td><td>2</td><td>Aug 2026</td></tr>
+          <tr><td class="k">Ridge Landscaping</td><td><span class="tag">paused</span></td><td>Central</td><td>7 of 7</td><td>1</td><td>Jul 2026</td></tr>
+          <tr><td class="k">Cole &amp; Sons HVAC</td><td><span class="tag">setup incomplete</span></td><td>Central</td><td>0 of 7</td><td>1</td><td>Aug 2026</td></tr>
+        </tbody></table></div>
+      <div class="notes"><h4>How this screen behaves</h4><ul>
+        <li>Status carries the whole lifecycle, so a company changing state is a status change, not a move to another list.</li>
+        <li><em>Setup incomplete</em> flags a company with no users or no slots. Nothing will ever send for it.</li>
+        <li>Every send uses Central time in the first version. The time zone field is there for later.</li>
+        <li>Each company gets its own folder in Drive, inside its agency&rsquo;s folder.</li>
+      </ul></div>
+    </div>
+
+    <div class="screen" role="tabpanel" id="s-users" aria-labelledby="t-users" hidden>
+      <div class="screen-head"><h3>Users</h3><span class="fake-btn">Add user</span></div>
+      <p class="section-sub">Everyone who receives prompts or reads the portal. Several users per company is the point: three cake decorators answering the same prompt give you three pieces of content, each tied to the right person.</p>
+      <div class="wf scroll"><table>
+        <thead><tr><th>Name</th><th>Company</th><th>Phone</th><th>Role at business</th><th>Portal role</th><th>Notify</th><th>Active</th></tr></thead>
+        <tbody>
+          <tr><td class="k">Sarah M.</td><td>Acme Bakery</td><td>+1 615 &bull;&bull;&bull; 4412</td><td>Owner</td><td><span class="tag fill">admin</span></td><td class="muted">&mdash;</td><td><span class="tag fill">yes</span></td></tr>
+          <tr><td class="k">Jim T.</td><td>Acme Bakery</td><td>+1 615 &bull;&bull;&bull; 7788</td><td>Decorator</td><td><span class="tag">contributor</span></td><td class="muted">&mdash;</td><td><span class="tag fill">yes</span></td></tr>
+          <tr><td class="k">Dana K.</td><td>Acme Bakery</td><td>+1 615 &bull;&bull;&bull; 2019</td><td>Social lead</td><td><span class="tag">agency</span></td><td><span class="tag fill">email</span></td><td><span class="tag fill">yes</span></td></tr>
+          <tr><td class="k">Ray P.</td><td>Northside Law</td><td>+1 917 &bull;&bull;&bull; 3355</td><td>Paralegal</td><td><span class="tag">contributor</span></td><td class="muted">&mdash;</td><td><span class="tag">no</span></td></tr>
+        </tbody></table></div>
+      <div class="notes"><h4>How this screen behaves</h4><ul>
+        <li>A company needs at least one user before anything can send.</li>
+        <li>Replies are matched to a person by phone number. A number that doesn&rsquo;t match is the most common reason a reply can&rsquo;t be filed, so those are flagged.</li>
+        <li><em>Admin</em> sees all of their company&rsquo;s content. <em>Agency</em> is whoever gets the new-content notice for that company.</li>
+        <li><em>Contributor</em> is recorded, but contributors don&rsquo;t get their own portal view in the first version. They only answer texts.</li>
+      </ul></div>
+    </div>
+
+    <div class="screen" role="tabpanel" id="s-library" aria-labelledby="t-library" hidden>
+      <div class="screen-head"><h3>Prompt library</h3><span class="fake-btn">New prompt</span></div>
+      <p class="section-sub">Your master set of questions, written once and reusable across every client. Think of it like Canva&rsquo;s library: you browse it, pull what fits, and it&rsquo;s visible to the agency only.</p>
+      <div class="wf scroll"><table>
+        <thead><tr><th>Prompt</th><th>Category</th><th>Type</th><th>Companies using</th><th>Reply rate</th></tr></thead>
+        <tbody>
+          <tr><td class="k">Show us your workspace today</td><td>Any business</td><td><span class="tag">photo</span></td><td>12</td><td>74%</td></tr>
+          <tr><td class="k">Behind the counter right now</td><td>Food service</td><td><span class="tag">photo</span></td><td>5</td><td>61%</td></tr>
+          <tr><td class="k">A myth about your industry</td><td>Professional</td><td><span class="tag">written</span></td><td>3</td><td>38%</td></tr>
+          <tr><td class="k">Show the finished job</td><td>Trades</td><td><span class="tag">video</span></td><td>4</td><td>52%</td></tr>
+        </tbody></table></div>
+      <div class="notes"><h4>How this screen behaves</h4><ul>
+        <li>Nothing here sends on its own. A library prompt has to be copied into a company first.</li>
+        <li>Reply rate adds up across every company using the prompt. That&rsquo;s how you learn which questions people actually answer.</li>
+        <li>Editing a prompt here never changes what a company already has.</li>
+      </ul></div>
+    </div>
+
+    <div class="screen" role="tabpanel" id="s-cprompts" aria-labelledby="t-cprompts" hidden>
+      <div class="screen-head"><h3>Company prompts</h3><span class="fake-btn">Add from library</span></div>
+      <p class="section-sub">One company&rsquo;s own working set: prompts pulled off the library shelf, plus anything written just for them.</p>
+      <div class="wf scroll"><table>
+        <thead><tr><th>Prompt</th><th>Type</th><th>Origin</th><th>Times sent</th><th>Replies</th><th>Last sent</th></tr></thead>
+        <tbody>
+          <tr><td class="k">Show us your workspace today</td><td><span class="tag">photo</span></td><td>Library</td><td>4</td><td>3</td><td>Aug 4</td></tr>
+          <tr><td class="k">Introduce a team member</td><td><span class="tag">photo</span></td><td>Library</td><td>2</td><td>2</td><td>Jul 31</td></tr>
+          <tr><td class="k">What surprised you this week?</td><td><span class="tag">written</span></td><td>Custom</td><td>1</td><td>0</td><td>Jul 24</td></tr>
+          <tr><td class="k">Behind the counter right now</td><td><span class="tag">photo</span></td><td>Library</td><td>3</td><td>2</td><td>Jul 21</td></tr>
+        </tbody></table></div>
+      <div class="notes"><h4>How this screen behaves</h4><ul>
+        <li>The text is copied, so editing a company&rsquo;s prompt is safe. It can&rsquo;t affect any other client.</li>
+        <li>The link back to the library is kept. That&rsquo;s how the library learns which prompts earn replies.</li>
+        <li>Reply counts add up from sends, so this doubles as the &ldquo;which prompts work for this client&rdquo; view.</li>
+      </ul></div>
+    </div>
+
+    <div class="screen" role="tabpanel" id="s-slots" aria-labelledby="t-slots" hidden>
+      <div class="screen-head"><h3>Prompt slots</h3><span class="fake-btn">Add slot</span></div>
+      <p class="section-sub">The schedule itself: a day, a time, a prompt, and who receives it. Recurring slots repeat every week. One-time slots cover a single event, like a fundraiser.</p>
+      <div class="wf scroll"><table>
+        <thead><tr><th>Day</th><th>Time</th><th>Type</th><th>Prompt source</th><th>Prompt</th><th>Recipients</th><th>Last fired</th><th>Active</th></tr></thead>
+        <tbody>
+          <tr><td class="k">Tuesday</td><td>9:00 am</td><td><span class="tag">recurring</span></td><td>Specific</td><td>Show us your workspace today</td><td>Sarah, Jim</td><td>Aug 4</td><td><span class="tag fill">yes</span></td></tr>
+          <tr><td class="k">Thursday</td><td>2:00 pm</td><td><span class="tag">recurring</span></td><td>Randomize</td><td class="muted">picked at send time</td><td>Sarah</td><td>Aug 6</td><td><span class="tag fill">yes</span></td></tr>
+          <tr><td class="k">Saturday</td><td>10:00 am</td><td><span class="tag">one-time</span></td><td>Custom</td><td>Any festival photos today?</td><td>Sarah, Jim, Dana</td><td class="muted">&mdash;</td><td><span class="tag fill">yes</span></td></tr>
+          <tr><td class="k">Friday</td><td>8:00 am</td><td><span class="tag">recurring</span></td><td>Specific</td><td>Introduce a team member</td><td>Jim</td><td>Jul 31</td><td><span class="tag">no</span></td></tr>
+        </tbody></table></div>
+      <div class="notes"><h4>How this screen behaves</h4><ul>
+        <li>A slot is a standing setting, not a one-off message. A Tuesday slot fires every Tuesday until you turn it off.</li>
+        <li><em>Randomize</em> picks from the company&rsquo;s prompts and skips anything sent recently, so a slot never needs restocking.</li>
+        <li>One-time slots switch off after firing, and the history stays.</li>
+        <li>A slot that would go out more than six hours late is marked missed, not sent. A prompt at midnight is worse than no prompt.</li>
+        <li>The system records that a slot fired before the text goes out, so the same prompt can&rsquo;t send twice.</li>
+      </ul></div>
+    </div>
+
+    <div class="screen" role="tabpanel" id="s-sends" aria-labelledby="t-sends" hidden>
+      <div class="screen-head"><h3>Sends</h3><span class="fake-btn">Export selection</span></div>
+      <p class="section-sub">The screen the agency lives in. A row appears the moment a prompt goes out and fills in when the reply lands.</p>
+      <div class="wf scroll"><table>
+        <thead><tr><th>Media</th><th>User</th><th>Subject line</th><th>Company</th><th>Prompt</th><th>Reply</th><th>Agency status</th></tr></thead>
+        <tbody>
+          <tr><td><a href="#files">Open photo</a></td><td class="k">Sarah M.</td><td>Fall festival booth</td><td>Acme Bakery</td><td>Show us your workspace</td><td><span class="tag fill">replied</span></td><td><span class="tag">in progress</span></td></tr>
+          <tr><td><a href="#files">Open photo</a></td><td class="k">Jim T.</td><td>New display case</td><td>Acme Bakery</td><td>Show us your workspace</td><td><span class="tag fill">replied</span></td><td><span class="tag">received</span></td></tr>
+          <tr><td><a href="#files">Open video</a></td><td class="k">Dana K.</td><td>Walkthrough clip</td><td>Northside Law</td><td class="muted">&mdash;</td><td><span class="tag fill">unprompted</span></td><td><span class="tag">received</span></td></tr>
+          <tr><td class="muted">&mdash;</td><td class="k">Ray P.</td><td class="muted">&mdash;</td><td>Northside Law</td><td>A myth about your industry</td><td><span class="tag">no reply</span></td><td class="muted">&mdash;</td></tr>
+          <tr><td class="muted">&mdash;</td><td class="k">Tom R.</td><td class="muted">&mdash;</td><td>Ridge Landscaping</td><td>Behind the counter</td><td><span class="tag">missed</span></td><td class="muted">&mdash;</td></tr>
+        </tbody></table></div>
+      <div class="notes"><h4>How this screen behaves</h4><ul>
+        <li><strong>Open</strong> takes you to the file in your Google Drive. You need to be signed in to an account the folder is shared with.</li>
+        <li>The subject line the person texts in tells you what each item is at a glance. Whether you also want small preview pictures here is one of my questions below.</li>
+        <li><em>Unprompted</em> means someone texted content in without being asked. It&rsquo;s kept and labeled, not thrown away.</li>
+        <li>One row per person per prompt, so three people answering the same prompt give three rows, and a prompt nobody answered still shows up.</li>
+        <li>Agency status is the one field the agency edits. Filter by it and you have your to-do list: everything received and not yet used, oldest first.</li>
+      </ul></div>
+    </div>
+  </section>
+
+  <section class="section" id="flows">
+    <span class="section-num">Four</span>
+    <h2>How it runs</h2>
+    <p>Three things happen behind the screens.</p>
+
+    <h3>Setting up an organization</h3>
+    <ol class="flow">
+      <li><b>Intake meeting</b><span>You meet with the organization and decide what to ask and who to ask.</span></li>
+      <li><b>Add the company and its people</b><span>Name, phone numbers, roles.</span></li>
+      <li><b>Give it prompts and slots</b><span>Pulled from the library or written for them, then scheduled.</span></li>
+      <li><b>Its Drive folder is created</b><span>Inside its agency&rsquo;s folder, which is shared with the agency&rsquo;s email.</span></li>
+      <li><b>The first prompt goes out</b><span>On the first scheduled slot.</span></li>
+    </ol>
+
+    <h3>Sending a prompt</h3>
+    <ol class="flow">
+      <li><b>The scheduler checks what&rsquo;s due</b><span>Airtable looks at every active slot.</span>
+        <span class="side">More than six hours late? Marked missed, and not sent.</span></li>
+      <li><b>The slot is stamped as fired</b><span>Before anything is sent, so it can&rsquo;t fire twice.</span></li>
+      <li><b>The prompt is chosen</b><span>The specific one, a custom one, or a random pick from the company&rsquo;s set.</span></li>
+      <li><b>One send is created per person</b><span>Each recipient gets their own row on the Sends screen.</span></li>
+      <li><b>ClickSend delivers the text</b></li>
+    </ol>
+
+    <h3>Capturing a reply</h3>
+    <ol class="flow">
+      <li><b>Someone replies by text</b><span>Words, a photo, or a video.</span></li>
+      <li><b>ClickSend passes it along</b><span>The reply goes to Make the moment it arrives.</span></li>
+      <li><b>The person is found by phone number</b>
+        <span class="side">Unknown number? It&rsquo;s flagged for the agency.</span></li>
+      <li><b>The reply is matched to its prompt</b><span>The open send for that person is filled in.</span>
+        <span class="side">No open send? A new row is created and labeled unprompted.</span></li>
+      <li><b>The file is copied into your Drive</b><span>Make puts it in the right agency, company and month folder, and names it.</span></li>
+      <li><b>The link is saved on the record</b><span>So the portal&rsquo;s Open link goes straight to the file.</span></li>
+      <li><b>The agency is told new content arrived</b><span>By email, to whoever holds the agency role for that company.</span></li>
+    </ol>
+  </section>
+
+  <form id="prepForm" name="content-on-cue-for-brandi" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" netlify-honeypot="bot-field">
+    <input type="hidden" name="form-name" value="content-on-cue-for-brandi">
+    <p class="hp"><label>Leave this blank: <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+    <textarea name="prompt" id="promptField" class="hp" tabindex="-1" aria-hidden="true"></textarea>
+
+    <section class="section" id="brandi" data-title="Two things to agree to">
+      <span class="section-num">Five</span>
+      <h2>For you to decide</h2>
+      <p>Two things I need you to agree to, since they shape the agreement you&rsquo;re drafting. Then three questions. You can simply read these and we&rsquo;ll talk them through when we meet. Or tick each one, add a note, and send it to me. What you write stays on this phone or computer either way.</p>
+      <h3>Two things to agree to</h3>
+      <div class="items">
+        <div class="item" data-k="a1">
+          <label class="check"><input type="checkbox" id="a1_c" aria-controls="a1_w"><span><span class="qtext">You own every file</span><small>All photos and videos live in your Google Drive. An agency gets access to its folder, not ownership. I&rsquo;d like the agreement to say so, and to say what an agency gets when it leaves.</small></span></label>
+          <div class="answer" id="a1_w" hidden><label class="sr" for="a1_a">Your notes</label><textarea id="a1_a" rows="2" placeholder="Agreed? Anything you'd change?"></textarea></div>
+        </div>
+        <div class="item" data-k="a2">
+          <label class="check"><input type="checkbox" id="a2_c" aria-controls="a2_w"><span><span class="qtext">The automation runs on a Make account you own</span><small>Make is the service that catches each reply, files it, and copies the photo or video into Drive. You&rsquo;d open the account and invite me to it. That way your content never passes through an account of mine, and it keeps running whether or not I&rsquo;m involved.</small></span></label>
+          <div class="answer" id="a2_w" hidden><label class="sr" for="a2_a">Your notes</label><textarea id="a2_a" rows="2" placeholder="Agreed? Any concerns?"></textarea></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" data-title="Three questions" style="border-top:0;margin-top:8px;padding-top:0">
+      <h3>Three questions</h3>
+      <div class="items">
+        <div class="item" data-k="q1">
+          <label class="check"><input type="checkbox" id="q1_c" aria-controls="q1_w"><span><span class="qtext">How much video do you expect, and how long are the clips?</span><small>Texted video arrives small and soft. If video matters from day one, a full-quality upload link moves into the first version.</small></span></label>
+          <div class="answer" id="q1_w" hidden><label class="sr" for="q1_a">Your notes</label><textarea id="q1_a" rows="2" placeholder="A rough guess is fine"></textarea></div>
+        </div>
+        <div class="item" data-k="q2">
+          <label class="check"><input type="checkbox" id="q2_c" aria-controls="q2_w"><span><span class="qtext">When a client or an agency leaves, what do they get?</span><small>For example: a copy of their files, the folder handed over, or nothing beyond what they&rsquo;ve already downloaded.</small></span></label>
+          <div class="answer" id="q2_w" hidden><label class="sr" for="q2_a">Your notes</label><textarea id="q2_a" rows="2" placeholder="What feels right to you?"></textarea></div>
+        </div>
+        <div class="item" data-k="q3">
+          <label class="check"><input type="checkbox" id="q3_c" aria-controls="q3_w"><span><span class="qtext">Do you need small preview pictures in the portal, or is a list with an Open link enough?</span><small>Previews mean keeping a second copy of every file in Airtable, which uses up its storage.</small></span></label>
+          <div class="answer" id="q3_w" hidden><label class="sr" for="q3_a">Your notes</label><textarea id="q3_a" rows="2" placeholder="Previews, or Open link?"></textarea></div>
+        </div>
+      </div>
+
+      <div class="send">
+        <h3>Send it over, if you&rsquo;d like</h3>
+        <p class="section-sub">Optional. Your notes stay on this device after you send, and you can send again if you add more.</p>
+        <label class="q" for="who">Who&rsquo;s sending?</label>
+        <input type="text" id="who" name="who" placeholder="Brandi" autocomplete="off">
+        <button class="btn" type="submit" id="submitBtn">Send to Lee</button>
+        <p class="saved-note" id="savedNote" role="status"></p>
+        <div class="sent" id="sentNote" hidden></div>
+      </div>
+    </section>
+  </form>
+
+  <section class="section" id="later">
+    <span class="section-num">Six</span>
+    <h2>Not in the first version</h2>
+    <p>Left out on purpose, so the first version stays small enough to prove the idea.</p>
+    <ul>
+      <li>Checkout that sets up a company automatically. Squarespace keeps taking signups and payment; setup stays in your hands after intake.</li>
+      <li>A self-serve free trial.</li>
+      <li>Clients editing their own prompts and schedule. Their view is read-only.</li>
+      <li>A full-quality video upload link, until we know how much video to plan for.</li>
+      <li>Each agency keeping files in its own storage. That belongs with the white-label version for agencies.</li>
+      <li>Automatic alerts when something fails, more than one time zone, follow-up nudges, and visual branding.</li>
+    </ul>
+    <h3>Raised on our call, not yet scoped</h3>
+    <ul>
+      <li>Texts that go beyond prompts: tips on taking a good photo, and &ldquo;someone on your team sent this, send something like it.&rdquo;</li>
+      <li>A monthly batch of questions, ready to go.</li>
+      <li>Uploading a whole set of prompts at once when a client changes direction.</li>
+      <li>Drafting and posting from inside the system, later on.</li>
+      <li>A guided walkthrough for agency users.</li>
+    </ul>
+  </section>
+
+  <footer class="foot">
+    <p><a class="fs" href="https://gottamoveforward.com/">Forward Solutions</a></p>
+    <p>Lee Pettijohn</p>
+    <p>(970) 712-6933 <span class="sep">&middot;</span> <a href="tel:+19707126933">Call</a> <span class="sep">&middot;</span> <a href="sms:+19707126933">Text</a></p>
+    <p><a href="mailto:leepettijohn@gottamoveforward.com">leepettijohn@gottamoveforward.com</a></p>
+  </footer>
+
+</main>
+<script>
+(function(){
+  "use strict";
+  // Portal screen tabs
+  var tabs=document.querySelectorAll('.tabs [role=tab]');
+  for(var t=0;t<tabs.length;t++){
+    tabs[t].addEventListener("click",function(){
+      for(var u=0;u<tabs.length;u++){
+        var on=tabs[u]===this;
+        tabs[u].setAttribute("aria-selected",on?"true":"false");
+        document.getElementById(tabs[u].getAttribute("aria-controls")).hidden=!on;
+      }
+    });
+  }
+
+  // Notes and optional send
+  var KEY="content-on-cue-for-brandi";
+  var form=document.getElementById("prepForm");
+  var items=form.querySelectorAll(".item");
+  var who=document.getElementById("who");
+  var note=document.getElementById("savedNote");
+  var sent=document.getElementById("sentNote");
+  var btn=document.getElementById("submitBtn");
+  var state={items:{},who:"",sentAt:""};
+  try{ var raw=localStorage.getItem(KEY); if(raw){ var p=JSON.parse(raw); if(p&&p.items) state=p; } }catch(e){}
+
+  function save(){
+    try{ localStorage.setItem(KEY,JSON.stringify(state)); note.textContent="Saved on this device."; }
+    catch(e){ note.textContent=""; }
+  }
+  function showSent(){
+    if(!state.sentAt) return;
+    sent.hidden=false;
+    sent.textContent="Sent to Lee on "+state.sentAt+". Your notes are still here on this device.";
+    btn.textContent="Send an update";
+  }
+  var timer=null;
+  function later(){ clearTimeout(timer); timer=setTimeout(save,500); }
+
+  for(var i=0;i<items.length;i++){
+    (function(it){
+      var k=it.getAttribute("data-k");
+      var cb=it.querySelector("input[type=checkbox]");
+      var wrap=it.querySelector(".answer");
+      var ta=it.querySelector("textarea");
+      var s=state.items[k]||{};
+      if(s.c){ cb.checked=true; wrap.hidden=false; it.classList.add("on"); }
+      if(s.a) ta.value=s.a;
+      cb.addEventListener("change",function(){
+        wrap.hidden=!cb.checked;
+        it.classList.toggle("on",cb.checked);
+        state.items[k]={c:cb.checked,a:ta.value};
+        save();
+        if(cb.checked) ta.focus();
+      });
+      ta.addEventListener("input",function(){ state.items[k]={c:cb.checked,a:ta.value}; later(); });
+    })(items[i]);
+  }
+  if(state.who) who.value=state.who;
+  who.addEventListener("input",function(){ state.who=who.value; later(); });
+  showSent();
+
+  function buildPrompt(){
+    var L=[];
+    L.push("Brandi Herrman's answers from the Content on Cue share page (storage design and open questions).");
+    L.push("Sent by: "+(who.value.trim()||"not given")+" on "+new Date().toLocaleString());
+    L.push("");
+    L.push("These came in through the share page. File them as received in the content-on-cue project's source/ folder (going-forward-solutions/clients/brandi-herrman-communications/projects/content-on-cue/), update state.md (Open 3 and the Stack table), and tell me what they change about the storage design or the agreement.");
+    var secs=form.querySelectorAll(".section");
+    for(var s=0;s<secs.length;s++){
+      L.push(""); L.push("## "+secs[s].getAttribute("data-title"));
+      var its=secs[s].querySelectorAll(".item");
+      for(var j=0;j<its.length;j++){
+        var c=its[j].querySelector("input[type=checkbox]").checked;
+        var a=its[j].querySelector("textarea").value.trim();
+        L.push("- ["+(c?"x":" ")+"] "+its[j].querySelector(".qtext").textContent);
+        if(c&&a) L.push("  Notes: "+a.replace(/\n+/g," / "));
+      }
+    }
+    return L.join("\n");
+  }
+
+  form.addEventListener("submit",function(e){
+    e.preventDefault();
+    btn.disabled=true; var old=btn.textContent; btn.textContent="Sending…";
+    document.getElementById("promptField").value=buildPrompt();
+    var body=new URLSearchParams(new FormData(form)).toString();
+    fetch("/",{method:"POST",headers:{"Content-Type":"application/x-www-form-urlencoded"},body:body})
+    .then(function(res){
+      if(!res.ok) throw new Error("bad");
+      state.sentAt=new Date().toLocaleString([],{weekday:"long",hour:"numeric",minute:"2-digit"});
+      save(); btn.disabled=false; showSent(); note.textContent="";
+    }).catch(function(){
+      btn.disabled=false; btn.textContent=old;
+      note.textContent="That didn’t send. Check your connection and try again. Your notes are saved.";
+    });
+  });
+})();
+</script>
+</body>
+</html>
