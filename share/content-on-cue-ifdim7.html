@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex, nofollow">
-<meta name="date" content="2026-10-03">
+<meta name="date" content="2026-10-05">
 <meta name="client" content="Brandi Herrman Communications">
 <title>Content on Cue</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -57,6 +57,10 @@ td{padding:10px 12px;border-bottom:1px solid var(--hairline);vertical-align:top}
 tr:last-child td{border-bottom:0}
 td.k{font-weight:500}
 .muted{color:var(--slate)}
+.thumb{display:inline-block;width:44px;height:44px;border-radius:7px;background:linear-gradient(135deg,var(--blue-soft),var(--paper-warm));border:1px solid var(--line);vertical-align:middle}
+.dl{display:block;font-size:13px;margin-top:3px}
+.changed{background:var(--blue-soft);border-radius:var(--radius);padding:16px 18px 6px;margin:16px 0;max-width:680px}
+.changed h3{margin:0 0 8px}
 .tag{display:inline-block;font-size:12.5px;padding:1px 9px;border:1px solid var(--line);border-radius:999px;white-space:nowrap}
 .tag.fill{background:var(--blue-soft);border-color:transparent;color:var(--forward-blue);font-weight:500}
 code,.path{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:13.5px;background:var(--paper-warm);padding:1px 6px;border-radius:5px}
@@ -133,15 +137,15 @@ textarea:focus-visible,input[type=text]:focus-visible{outline:2px solid var(--fo
   <h1>Content on Cue</h1>
 
   <p class="intro">Content on Cue texts people at an organization on a schedule, asking for a photo, a video, or a thought about their work. They reply to the text. The reply is captured, tied to the right person and organization, stored for good, and waiting in a portal the agency works from. Their effort ends at hitting send.</p>
-  <p class="intro soft">Brandi, this page pulls together what we walked through on September 24, plus one piece I&rsquo;ve worked out since: where the photos and videos live. It replaces the earlier wireframe site. There are two things near the bottom I need you to agree to, and three questions for you.</p>
-  <p class="meta-note">This is a picture of how it would work, not a finished design. Nothing gets built until our agreement is signed. Updated October 3, 2026.</p>
+  <p class="intro soft">Brandi, this page pulls together what we walked through on September 24, plus where the photos and videos live. I&rsquo;ve updated it with your reply from October 5: files are reached through the portal, your upload link is in, and previews are in. There are four new questions for you near the bottom.</p>
+  <p class="meta-note">This is a picture of how it would work, not a finished design. Nothing gets built until our agreement is signed. Updated October 5, 2026.</p>
 
   <ul class="toc" aria-label="On this page">
     <li><a href="#built">How it&rsquo;s built</a></li>
     <li><a href="#files">Where files live</a></li>
     <li><a href="#portal">The portal</a></li>
     <li><a href="#flows">How it runs</a></li>
-    <li><a href="#brandi">For you to decide</a></li>
+    <li><a href="#brandi">Questions for you</a></li>
     <li><a href="#later">Not in the first version</a></li>
   </ul>
 
@@ -161,9 +165,11 @@ textarea:focus-visible,input[type=text]:focus-visible{outline:2px solid var(--fo
         <thead><tr><th>Job</th><th>Service</th><th>Whose account</th></tr></thead>
         <tbody>
           <tr><td class="k">Records: who, what, when</td><td>Airtable</td><td class="muted">Settled in our agreement</td></tr>
-          <tr><td class="k">Photos and videos</td><td>Google Drive</td><td><strong>Yours</strong></td></tr>
+          <tr><td class="k">Photos people see in the portal</td><td>Airtable</td><td class="muted">Same as Airtable</td></tr>
+          <tr><td class="k">Your own copy of every file</td><td>Google Drive</td><td><strong>Yours</strong></td></tr>
+          <tr><td class="k">Video</td><td>Your upload link</td><td><strong>Yours</strong></td></tr>
           <tr><td class="k">Sending and receiving texts</td><td>ClickSend</td><td>Yours (the one you have)</td></tr>
-          <tr><td class="k">Catching each reply, filing it, and moving the file into Drive</td><td>Make</td><td><strong>Yours</strong>, with me invited</td></tr>
+          <tr><td class="k">Catching each reply, filing it, and copying the file into Drive</td><td>Make</td><td><strong>Yours</strong>, with me invited</td></tr>
           <tr><td class="k">Deciding when a prompt is due</td><td>Airtable&rsquo;s built-in scheduler</td><td class="muted">Same as Airtable</td></tr>
           <tr><td class="k">The portal</td><td>Softr or Noloco, chosen when the build starts</td><td class="muted">Settled in our agreement</td></tr>
           <tr><td class="k">Signup and payment</td><td>Squarespace and Stripe</td><td>Yours. Not connected at first.</td></tr>
@@ -173,30 +179,33 @@ textarea:focus-visible,input[type=text]:focus-visible{outline:2px solid var(--fo
     <p>The send scheduler lives in Airtable on purpose. It fixes the limit you&rsquo;re hitting now, where only one message goes out per hour.</p>
 
     <h3>What the records are organized into</h3>
-    <p>Agencies, companies, users, a shared prompt library, each company&rsquo;s own prompts, prompt slots (the schedule), and sends. Agencies is new: each agency has a record that holds the email its Drive folder is shared with. To start, there is one agency, yours.</p>
+    <p>Agencies, companies, users, a shared prompt library, each company&rsquo;s own prompts, prompt slots (the schedule), and sends. Agencies is new, ready for the day other agencies use this. To start, there is one agency, yours.</p>
     <p class="section-sub">Prospects who never sign up stay in your CRM, not here. The text-by-text delivery log stays in ClickSend, which already does that job well.</p>
   </section>
 
   <section class="section" id="files">
     <span class="section-num">Two</span>
     <h2>Where the photos and videos live</h2>
-    <p>Every file lives in one place: your Google Drive. You already pay for it, and it means the content is yours.</p>
+    <p>People get their files through the portal, and only through the portal. Nobody needs a Google account, and nobody is given access to where the files are stored.</p>
+    <ul>
+      <li><strong>Each texted photo is saved with its record in Airtable.</strong> That&rsquo;s what lets the portal show a small preview and a Download button to whoever is logged in.</li>
+      <li><strong>A copy of every file also goes to your Google Drive.</strong> That copy is yours, as your own archive. It stays private to you.</li>
+      <li><strong>Who sees what is decided by the portal login.</strong> A company sees its own files and nobody else&rsquo;s.</li>
+      <li><strong>Files are copied the moment a reply arrives.</strong> ClickSend only holds a texted photo for 7 days, so nothing is left sitting there.</li>
+      <li><strong>When a client leaves,</strong> they download their files from the portal before their last month of service ends, as you described.</li>
+      <li><strong>If storage runs past what your Drive plan covers,</strong> that&rsquo;s yours to bill on to the client.</li>
+    </ul>
+    <h3>How your Drive copy is organized</h3>
     <div class="tree"><b>content-on-cue/</b>
   <b>herrman-communications/</b>          one folder per agency
     <b>acme-bakery/</b>                   one folder per company
       <b>2026-10/</b>                     one folder per month
         2026-10-06_acme-bakery_sarah-m_1042.jpg
         2026-10-06_acme-bakery_jim-t_1043.jpg</div>
-    <ul>
-      <li><strong>The person&rsquo;s name is in the file name,</strong> not a folder. People come and go; the folders don&rsquo;t have to change when they do.</li>
-      <li><strong>Each agency&rsquo;s folder is shared with one email address</strong> (or one Google Group) for that agency. Opening a file means signing in. There are no &ldquo;anyone with the link&rdquo; files.</li>
-      <li><strong>An agency gets access, not ownership.</strong> It can open its files and copy them out. It can&rsquo;t move them or take the originals with it.</li>
-      <li><strong>Airtable keeps the record and a link to the file,</strong> not the file itself. The portal&rsquo;s Open link takes you straight to the file in Drive.</li>
-      <li><strong>Files are copied to Drive as soon as a reply arrives.</strong> ClickSend only holds a texted photo for 7 days, so nothing is left sitting there.</li>
-      <li><strong>If storage runs past what your Drive plan covers,</strong> that&rsquo;s yours to bill on to the client, as you described on our call.</li>
-    </ul>
-    <h3>About video</h3>
-    <p>Phone carriers shrink any video sent by text, usually to about 1&nbsp;MB, so texted video arrives small and soft. A separate upload link for full-quality video is possible, but it isn&rsquo;t in the first version until we know how much video you expect. That&rsquo;s one of my questions below.</p>
+    <p class="section-sub">The person&rsquo;s name is in the file name, not a folder. People come and go; the folders don&rsquo;t have to change when they do.</p>
+    <h3>Video</h3>
+    <p>Video comes in through your upload link, the way it does today, with its own code for each company. Each prompt keeps pointing people to it. Nobody is asked to text a video, because phone carriers shrink texted video to about 1&nbsp;MB, which is unusable online.</p>
+    <p>I want to build on what you already have working, not replace it. To do that I need to know a bit more about how it works now. Those are my questions below.</p>
   </section>
 
   <section class="section" id="portal">
@@ -228,7 +237,7 @@ textarea:focus-visible,input[type=text]:focus-visible{outline:2px solid var(--fo
         <li>Status carries the whole lifecycle, so a company changing state is a status change, not a move to another list.</li>
         <li><em>Setup incomplete</em> flags a company with no users or no slots. Nothing will ever send for it.</li>
         <li>Every send uses Central time in the first version. The time zone field is there for later.</li>
-        <li>Each company gets its own folder in Drive, inside its agency&rsquo;s folder.</li>
+        <li>Each company gets its own upload link for video, and its own folder in your Drive copy.</li>
       </ul></div>
     </div>
 
@@ -313,16 +322,16 @@ textarea:focus-visible,input[type=text]:focus-visible{outline:2px solid var(--fo
       <div class="wf scroll"><table>
         <thead><tr><th>Media</th><th>User</th><th>Subject line</th><th>Company</th><th>Prompt</th><th>Reply</th><th>Agency status</th></tr></thead>
         <tbody>
-          <tr><td><a href="#files">Open photo</a></td><td class="k">Sarah M.</td><td>Fall festival booth</td><td>Acme Bakery</td><td>Show us your workspace</td><td><span class="tag fill">replied</span></td><td><span class="tag">in progress</span></td></tr>
-          <tr><td><a href="#files">Open photo</a></td><td class="k">Jim T.</td><td>New display case</td><td>Acme Bakery</td><td>Show us your workspace</td><td><span class="tag fill">replied</span></td><td><span class="tag">received</span></td></tr>
-          <tr><td><a href="#files">Open video</a></td><td class="k">Dana K.</td><td>Walkthrough clip</td><td>Northside Law</td><td class="muted">&mdash;</td><td><span class="tag fill">unprompted</span></td><td><span class="tag">received</span></td></tr>
+          <tr><td><span class="thumb" role="img" aria-label="Photo preview"></span><a class="dl" href="#files">Download</a></td><td class="k">Sarah M.</td><td>Fall festival booth</td><td>Acme Bakery</td><td>Show us your workspace</td><td><span class="tag fill">replied</span></td><td><span class="tag">in progress</span></td></tr>
+          <tr><td><span class="thumb" role="img" aria-label="Photo preview"></span><a class="dl" href="#files">Download</a></td><td class="k">Jim T.</td><td>New display case</td><td>Acme Bakery</td><td>Show us your workspace</td><td><span class="tag fill">replied</span></td><td><span class="tag">received</span></td></tr>
+          <tr><td><span class="thumb" role="img" aria-label="Video preview"></span><a class="dl" href="#files">Download</a></td><td class="k">Dana K.</td><td>Walkthrough clip</td><td>Northside Law</td><td class="muted">&mdash;</td><td><span class="tag fill">unprompted</span></td><td><span class="tag">received</span></td></tr>
           <tr><td class="muted">&mdash;</td><td class="k">Ray P.</td><td class="muted">&mdash;</td><td>Northside Law</td><td>A myth about your industry</td><td><span class="tag">no reply</span></td><td class="muted">&mdash;</td></tr>
           <tr><td class="muted">&mdash;</td><td class="k">Tom R.</td><td class="muted">&mdash;</td><td>Ridge Landscaping</td><td>Behind the counter</td><td><span class="tag">missed</span></td><td class="muted">&mdash;</td></tr>
         </tbody></table></div>
       <div class="notes"><h4>How this screen behaves</h4><ul>
-        <li><strong>Open</strong> takes you to the file in your Google Drive. You need to be signed in to an account the folder is shared with.</li>
-        <li>The subject line the person texts in tells you what each item is at a glance. Whether you also want small preview pictures here is one of my questions below.</li>
-        <li><em>Unprompted</em> means someone texted content in without being asked. It&rsquo;s kept and labeled, not thrown away.</li>
+        <li>Each photo shows a small preview, with a Download link. You only need to be logged in to the portal.</li>
+        <li>The subject line the person texts in tells you what each item is at a glance.</li>
+        <li><em>Unprompted</em> means content arrived without being asked for: a text out of the blue, or a video sent through the upload link. It&rsquo;s kept and labeled, not thrown away.</li>
         <li>One row per person per prompt, so three people answering the same prompt give three rows, and a prompt nobody answered still shows up.</li>
         <li>Agency status is the one field the agency edits. Filter by it and you have your to-do list: everything received and not yet used, oldest first.</li>
       </ul></div>
@@ -332,14 +341,14 @@ textarea:focus-visible,input[type=text]:focus-visible{outline:2px solid var(--fo
   <section class="section" id="flows">
     <span class="section-num">Four</span>
     <h2>How it runs</h2>
-    <p>Three things happen behind the screens.</p>
+    <p>Four things happen behind the screens.</p>
 
     <h3>Setting up an organization</h3>
     <ol class="flow">
       <li><b>Intake meeting</b><span>You meet with the organization and decide what to ask and who to ask.</span></li>
       <li><b>Add the company and its people</b><span>Name, phone numbers, roles.</span></li>
       <li><b>Give it prompts and slots</b><span>Pulled from the library or written for them, then scheduled.</span></li>
-      <li><b>Its Drive folder is created</b><span>Inside its agency&rsquo;s folder, which is shared with the agency&rsquo;s email.</span></li>
+      <li><b>Its upload link and Drive folder are created</b><span>The upload link carries the company&rsquo;s own code.</span></li>
       <li><b>The first prompt goes out</b><span>On the first scheduled slot.</span></li>
     </ol>
 
@@ -355,15 +364,24 @@ textarea:focus-visible,input[type=text]:focus-visible{outline:2px solid var(--fo
 
     <h3>Capturing a reply</h3>
     <ol class="flow">
-      <li><b>Someone replies by text</b><span>Words, a photo, or a video.</span></li>
+      <li><b>Someone replies by text</b><span>Words or a photo.</span></li>
       <li><b>ClickSend passes it along</b><span>The reply goes to Make the moment it arrives.</span></li>
       <li><b>The person is found by phone number</b>
         <span class="side">Unknown number? It&rsquo;s flagged for the agency.</span></li>
       <li><b>The reply is matched to its prompt</b><span>The open send for that person is filled in.</span>
         <span class="side">No open send? A new row is created and labeled unprompted.</span></li>
-      <li><b>The file is copied into your Drive</b><span>Make puts it in the right agency, company and month folder, and names it.</span></li>
-      <li><b>The link is saved on the record</b><span>So the portal&rsquo;s Open link goes straight to the file.</span></li>
+      <li><b>The photo is saved with the record</b><span>So it shows up in the portal with a preview and a Download link.</span></li>
+      <li><b>A copy goes to your Drive</b><span>Make puts it in the right agency, company and month folder, and names it.</span></li>
       <li><b>The agency is told new content arrived</b><span>By email, to whoever holds the agency role for that company.</span></li>
+    </ol>
+
+    <h3>Uploading a video</h3>
+    <p class="section-sub">How I understand it today. Your answers below will sharpen this.</p>
+    <ol class="flow">
+      <li><b>Someone opens their company&rsquo;s upload link</b><span>The link is in every prompt, and its code says which company it belongs to.</span></li>
+      <li><b>They upload the video</b><span>Full quality, straight from their phone.</span></li>
+      <li><b>A record is created for it</b><span>Tied to the company, labeled unprompted, with a copy in your Drive.</span></li>
+      <li><b>It appears in the portal</b><span>Where the company and the agency can download it.</span></li>
     </ol>
   </section>
 
@@ -372,37 +390,36 @@ textarea:focus-visible,input[type=text]:focus-visible{outline:2px solid var(--fo
     <p class="hp"><label>Leave this blank: <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
     <textarea name="prompt" id="promptField" class="hp" tabindex="-1" aria-hidden="true"></textarea>
 
-    <section class="section" id="brandi" data-title="Two things to agree to">
+    <section class="section" id="brandi" data-title="Four questions (asked 2026-10-05)">
       <span class="section-num">Five</span>
-      <h2>For you to decide</h2>
-      <p>Two things I need you to agree to, since they shape the agreement you&rsquo;re drafting. Then three questions. You can simply read these and we&rsquo;ll talk them through when we meet. Or tick each one, add a note, and send it to me. What you write stays on this phone or computer either way.</p>
-      <h3>Two things to agree to</h3>
-      <div class="items">
-        <div class="item" data-k="a1">
-          <label class="check"><input type="checkbox" id="a1_c" aria-controls="a1_w"><span><span class="qtext">You own every file</span><small>All photos and videos live in your Google Drive. An agency gets access to its folder, not ownership. I&rsquo;d like the agreement to say so, and to say what an agency gets when it leaves.</small></span></label>
-          <div class="answer" id="a1_w" hidden><label class="sr" for="a1_a">Your notes</label><textarea id="a1_a" rows="2" placeholder="Agreed? Anything you'd change?"></textarea></div>
-        </div>
-        <div class="item" data-k="a2">
-          <label class="check"><input type="checkbox" id="a2_c" aria-controls="a2_w"><span><span class="qtext">The automation runs on a Make account you own</span><small>Make is the service that catches each reply, files it, and copies the photo or video into Drive. You&rsquo;d open the account and invite me to it. That way your content never passes through an account of mine, and it keeps running whether or not I&rsquo;m involved.</small></span></label>
-          <div class="answer" id="a2_w" hidden><label class="sr" for="a2_a">Your notes</label><textarea id="a2_a" rows="2" placeholder="Agreed? Any concerns?"></textarea></div>
-        </div>
+      <h2>Questions for you</h2>
+      <div class="changed">
+        <h3>What I changed after your reply</h3>
+        <ul>
+          <li><strong>Settled:</strong> you own every file, and the automation runs on a Make account you own.</li>
+          <li><strong>Files are reached through the portal,</strong> not by giving anyone access to Google Drive.</li>
+          <li><strong>Your video upload link is in the first version.</strong></li>
+          <li><strong>Small previews are in.</strong></li>
+          <li><strong>Leaving:</strong> clients download their files before their last month ends.</li>
+        </ul>
       </div>
-    </section>
-
-    <section class="section" data-title="Three questions" style="border-top:0;margin-top:8px;padding-top:0">
-      <h3>Three questions</h3>
+      <p>Four questions, mostly so I build on what you already have working. Tick each one, add a note, and send it to me, or we can talk them through. What you write stays on this phone or computer either way.</p>
       <div class="items">
-        <div class="item" data-k="q1">
-          <label class="check"><input type="checkbox" id="q1_c" aria-controls="q1_w"><span><span class="qtext">How much video do you expect, and how long are the clips?</span><small>Texted video arrives small and soft. If video matters from day one, a full-quality upload link moves into the first version.</small></span></label>
-          <div class="answer" id="q1_w" hidden><label class="sr" for="q1_a">Your notes</label><textarea id="q1_a" rows="2" placeholder="A rough guess is fine"></textarea></div>
+        <div class="item" data-k="b1">
+          <label class="check"><input type="checkbox" id="b1_c" aria-controls="b1_w"><span><span class="qtext">How does your upload link work today?</span><small>What is the upload page built with, where do the uploaded videos end up, and is there a size limit?</small></span></label>
+          <div class="answer" id="b1_w" hidden><label class="sr" for="b1_a">Your notes</label><textarea id="b1_a" rows="2" placeholder="The tool, where files land, any size limit"></textarea></div>
         </div>
-        <div class="item" data-k="q2">
-          <label class="check"><input type="checkbox" id="q2_c" aria-controls="q2_w"><span><span class="qtext">When a client or an agency leaves, what do they get?</span><small>For example: a copy of their files, the folder handed over, or nothing beyond what they&rsquo;ve already downloaded.</small></span></label>
-          <div class="answer" id="q2_w" hidden><label class="sr" for="q2_a">Your notes</label><textarea id="q2_a" rows="2" placeholder="What feels right to you?"></textarea></div>
+        <div class="item" data-k="b2">
+          <label class="check"><input type="checkbox" id="b2_c" aria-controls="b2_w"><span><span class="qtext">How does your current portal let a company download its files?</span><small>You&rsquo;ve already solved &ldquo;download without touching the storage.&rdquo; What is the portal built with, and where does it pull the files from?</small></span></label>
+          <div class="answer" id="b2_w" hidden><label class="sr" for="b2_a">Your notes</label><textarea id="b2_a" rows="2" placeholder="The tool, and where it gets the files"></textarea></div>
         </div>
-        <div class="item" data-k="q3">
-          <label class="check"><input type="checkbox" id="q3_c" aria-controls="q3_w"><span><span class="qtext">Do you need small preview pictures in the portal, or is a list with an Open link enough?</span><small>Previews mean keeping a second copy of every file in Airtable, which uses up its storage.</small></span></label>
-          <div class="answer" id="q3_w" hidden><label class="sr" for="q3_a">Your notes</label><textarea id="q3_a" rows="2" placeholder="Previews, or Open link?"></textarea></div>
+        <div class="item" data-k="b3">
+          <label class="check"><input type="checkbox" id="b3_c" aria-controls="b3_w"><span><span class="qtext">How big are the videos, and about how many come in each month?</span><small>A rough guess is fine. It tells me how much storage to plan for and whether video can sit beside the photos.</small></span></label>
+          <div class="answer" id="b3_w" hidden><label class="sr" for="b3_a">Your notes</label><textarea id="b3_a" rows="2" placeholder="Typical length or size, and a monthly count"></textarea></div>
+        </div>
+        <div class="item" data-k="b4">
+          <label class="check"><input type="checkbox" id="b4_c" aria-controls="b4_w"><span><span class="qtext">Who logs in to the portal at each company?</span><small>One person per company, or everyone who receives the texts?</small></span></label>
+          <div class="answer" id="b4_w" hidden><label class="sr" for="b4_a">Your notes</label><textarea id="b4_a" rows="2" placeholder="One admin, or the whole team?"></textarea></div>
         </div>
       </div>
 
@@ -426,7 +443,6 @@ textarea:focus-visible,input[type=text]:focus-visible{outline:2px solid var(--fo
       <li>Checkout that sets up a company automatically. Squarespace keeps taking signups and payment; setup stays in your hands after intake.</li>
       <li>A self-serve free trial.</li>
       <li>Clients editing their own prompts and schedule. Their view is read-only.</li>
-      <li>A full-quality video upload link, until we know how much video to plan for.</li>
       <li>Each agency keeping files in its own storage. That belongs with the white-label version for agencies.</li>
       <li>Automatic alerts when something fails, more than one time zone, follow-up nudges, and visual branding.</li>
     </ul>
@@ -464,7 +480,7 @@ textarea:focus-visible,input[type=text]:focus-visible{outline:2px solid var(--fo
   }
 
   // Notes and optional send
-  var KEY="content-on-cue-for-brandi";
+  var KEY="content-on-cue-for-brandi-2";
   var form=document.getElementById("prepForm");
   var items=form.querySelectorAll(".item");
   var who=document.getElementById("who");
@@ -512,10 +528,10 @@ textarea:focus-visible,input[type=text]:focus-visible{outline:2px solid var(--fo
 
   function buildPrompt(){
     var L=[];
-    L.push("Brandi Herrman's answers from the Content on Cue share page (storage design and open questions).");
+    L.push("Brandi Herrman's answers to the second round of questions on the Content on Cue share page (upload link, current portal, video volume, who logs in).");
     L.push("Sent by: "+(who.value.trim()||"not given")+" on "+new Date().toLocaleString());
     L.push("");
-    L.push("These came in through the share page. File them as received in the content-on-cue project's source/ folder (going-forward-solutions/clients/brandi-herrman-communications/projects/content-on-cue/), update state.md (Open 3 and the Stack table), and tell me what they change about the storage design or the agreement.");
+    L.push("These came in through the share page. File them as received in the content-on-cue project's source/ folder (going-forward-solutions/clients/brandi-herrman-communications/projects/content-on-cue/), update state.md (Open 3 and the Stack table), and tell me what they change about how video is stored and shown in the portal.");
     var secs=form.querySelectorAll(".section");
     for(var s=0;s<secs.length;s++){
       L.push(""); L.push("## "+secs[s].getAttribute("data-title"));
