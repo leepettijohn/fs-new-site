@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex, nofollow">
-<meta name="date" content="2026-10-05">
+<meta name="date" content="2026-10-06">
 <meta name="client" content="Brandi Herrman Communications">
 <title>Content on Cue</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -105,6 +105,8 @@ textarea,input[type=text]{width:100%;font:inherit;font-size:16px;color:var(--ink
 textarea{resize:vertical;min-height:68px}
 textarea::placeholder,input[type=text]::placeholder{color:var(--slate);opacity:.8}
 textarea:focus-visible,input[type=text]:focus-visible{outline:2px solid var(--forward-blue);outline-offset:1px;border-color:transparent}
+.secnotes{margin:22px 0 0;max-width:680px}
+.secnotes label{display:block;font-size:14px;font-weight:600;color:var(--slate);margin:0 0 6px}
 .send{margin-top:28px;padding:22px 18px;background:var(--white);border:1px solid var(--hairline);border-radius:var(--radius);max-width:680px}
 .send h3{font-family:var(--font-display);font-weight:500;font-size:22px;margin:0 0 6px}
 .send label.q{display:block;font-weight:600;font-size:15px;margin:18px 0 6px}
@@ -137,8 +139,8 @@ textarea:focus-visible,input[type=text]:focus-visible{outline:2px solid var(--fo
   <h1>Content on Cue</h1>
 
   <p class="intro">Content on Cue texts people at an organization on a schedule, asking for a photo, a video, or a thought about their work. They reply to the text. The reply is captured, tied to the right person and organization, stored for good, and waiting in a portal the agency works from. Their effort ends at hitting send.</p>
-  <p class="intro soft">Brandi, this page pulls together what we walked through on September 24, plus where the photos and videos live. I&rsquo;ve updated it with your reply from October 5: files are reached through the portal, your upload link is in, and previews are in. There are four new questions for you near the bottom.</p>
-  <p class="meta-note">This is a picture of how it would work, not a finished design. Nothing gets built until our agreement is signed. Updated October 5, 2026.</p>
+  <p class="intro soft">Brandi, this page pulls together what we walked through on September 24, plus where the photos and videos live. I&rsquo;ve updated it with your reply from October 5: files are reached through the portal, your upload link is in, and previews are in. There are four new questions for you near the bottom. Every section also ends with a box for your comments or questions, and there&rsquo;s one for anything else at the very end.</p>
+  <p class="meta-note">This is a picture of how it would work, not a finished design. Nothing gets built until our agreement is signed. Updated October 6, 2026.</p>
 
   <ul class="toc" aria-label="On this page">
     <li><a href="#built">How it&rsquo;s built</a></li>
@@ -149,14 +151,20 @@ textarea:focus-visible,input[type=text]:focus-visible{outline:2px solid var(--fo
     <li><a href="#later">Not in the first version</a></li>
   </ul>
 
-  <section class="section" id="first">
+  <form id="prepForm" name="content-on-cue-for-brandi" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" netlify-honeypot="bot-field">
+    <input type="hidden" name="form-name" value="content-on-cue-for-brandi">
+    <p class="hp"><label>Leave this blank: <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+    <textarea name="prompt" id="promptField" class="hp" tabindex="-1" aria-hidden="true"></textarea>
+
+  <section class="section" id="first" data-title="The first version">
     <span class="section-num">The first version</span>
     <h2>Prove it with organizations first</h2>
     <p>As you decided on our call, the first version goes direct to organizations and runs through your own agency. That gives you a working example to point to before it&rsquo;s offered to other agencies under their own name.</p>
     <p>It runs with a small number of organizations, each set up by hand after your intake meeting. Nobody gets in without going through you.</p>
+    <div class="secnotes"><label for="n_first">Your comments or questions on this section</label><textarea id="n_first" class="secnote" data-n="first" rows="2" placeholder="Anything unclear, off, or worth talking through"></textarea></div>
   </section>
 
-  <section class="section" id="built">
+  <section class="section" id="built" data-title="How it's built">
     <span class="section-num">One</span>
     <h2>How it&rsquo;s built</h2>
     <p>A handful of online services working together, with no server to maintain.</p>
@@ -181,9 +189,10 @@ textarea:focus-visible,input[type=text]:focus-visible{outline:2px solid var(--fo
     <h3>What the records are organized into</h3>
     <p>Agencies, companies, users, a shared prompt library, each company&rsquo;s own prompts, prompt slots (the schedule), and sends. Agencies is new, ready for the day other agencies use this. To start, there is one agency, yours.</p>
     <p class="section-sub">Prospects who never sign up stay in your CRM, not here. The text-by-text delivery log stays in ClickSend, which already does that job well.</p>
+    <div class="secnotes"><label for="n_built">Your comments or questions on this section</label><textarea id="n_built" class="secnote" data-n="built" rows="2" placeholder="Anything unclear, off, or worth talking through"></textarea></div>
   </section>
 
-  <section class="section" id="files">
+  <section class="section" id="files" data-title="Where the photos and videos live">
     <span class="section-num">Two</span>
     <h2>Where the photos and videos live</h2>
     <p>People get their files through the portal, and only through the portal. Nobody needs a Google account, and nobody is given access to where the files are stored.</p>
@@ -206,20 +215,21 @@ textarea:focus-visible,input[type=text]:focus-visible{outline:2px solid var(--fo
     <h3>Video</h3>
     <p>Video comes in through your upload link, the way it does today, with its own code for each company. Each prompt keeps pointing people to it. Nobody is asked to text a video, because phone carriers shrink texted video to about 1&nbsp;MB, which is unusable online.</p>
     <p>I want to build on what you already have working, not replace it. To do that I need to know a bit more about how it works now. Those are my questions below.</p>
+    <div class="secnotes"><label for="n_files">Your comments or questions on this section</label><textarea id="n_files" class="secnote" data-n="files" rows="2" placeholder="Anything unclear, off, or worth talking through"></textarea></div>
   </section>
 
-  <section class="section" id="portal">
+  <section class="section" id="portal" data-title="The portal, screen by screen">
     <span class="section-num">Three</span>
     <h2>The portal, screen by screen</h2>
     <p>Six screens, in the order the system uses them. These show layout and behavior only: no branding, no real data. What you see is the agency&rsquo;s view. A company admin sees only their own company&rsquo;s content.</p>
 
     <div class="tabs" role="tablist" aria-label="Portal screens">
-      <button role="tab" aria-selected="true" aria-controls="s-companies" id="t-companies">1 &middot; Companies</button>
-      <button role="tab" aria-selected="false" aria-controls="s-users" id="t-users">2 &middot; Users</button>
-      <button role="tab" aria-selected="false" aria-controls="s-library" id="t-library">3 &middot; Prompt library</button>
-      <button role="tab" aria-selected="false" aria-controls="s-cprompts" id="t-cprompts">4 &middot; Company prompts</button>
-      <button role="tab" aria-selected="false" aria-controls="s-slots" id="t-slots">5 &middot; Prompt slots</button>
-      <button role="tab" aria-selected="false" aria-controls="s-sends" id="t-sends">6 &middot; Sends</button>
+      <button type="button" role="tab" aria-selected="true" aria-controls="s-companies" id="t-companies">1 &middot; Companies</button>
+      <button type="button" role="tab" aria-selected="false" aria-controls="s-users" id="t-users">2 &middot; Users</button>
+      <button type="button" role="tab" aria-selected="false" aria-controls="s-library" id="t-library">3 &middot; Prompt library</button>
+      <button type="button" role="tab" aria-selected="false" aria-controls="s-cprompts" id="t-cprompts">4 &middot; Company prompts</button>
+      <button type="button" role="tab" aria-selected="false" aria-controls="s-slots" id="t-slots">5 &middot; Prompt slots</button>
+      <button type="button" role="tab" aria-selected="false" aria-controls="s-sends" id="t-sends">6 &middot; Sends</button>
     </div>
 
     <div class="screen" role="tabpanel" id="s-companies" aria-labelledby="t-companies">
@@ -336,9 +346,10 @@ textarea:focus-visible,input[type=text]:focus-visible{outline:2px solid var(--fo
         <li>Agency status is the one field the agency edits. Filter by it and you have your to-do list: everything received and not yet used, oldest first.</li>
       </ul></div>
     </div>
+    <div class="secnotes"><label for="n_portal">Your comments or questions on this section</label><textarea id="n_portal" class="secnote" data-n="portal" rows="2" placeholder="Anything unclear, off, or worth talking through"></textarea></div>
   </section>
 
-  <section class="section" id="flows">
+  <section class="section" id="flows" data-title="How it runs">
     <span class="section-num">Four</span>
     <h2>How it runs</h2>
     <p>Four things happen behind the screens.</p>
@@ -383,14 +394,10 @@ textarea:focus-visible,input[type=text]:focus-visible{outline:2px solid var(--fo
       <li><b>A record is created for it</b><span>Tied to the company, labeled unprompted, with a copy in your Drive.</span></li>
       <li><b>It appears in the portal</b><span>Where the company and the agency can download it.</span></li>
     </ol>
+    <div class="secnotes"><label for="n_flows">Your comments or questions on this section</label><textarea id="n_flows" class="secnote" data-n="flows" rows="2" placeholder="Anything unclear, off, or worth talking through"></textarea></div>
   </section>
 
-  <form id="prepForm" name="content-on-cue-for-brandi" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" netlify-honeypot="bot-field">
-    <input type="hidden" name="form-name" value="content-on-cue-for-brandi">
-    <p class="hp"><label>Leave this blank: <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
-    <textarea name="prompt" id="promptField" class="hp" tabindex="-1" aria-hidden="true"></textarea>
-
-    <section class="section" id="brandi" data-title="Four questions (asked 2026-10-05)">
+    <section class="section" id="brandi" data-title="Questions for you (asked 2026-10-05)">
       <span class="section-num">Five</span>
       <h2>Questions for you</h2>
       <div class="changed">
@@ -422,20 +429,10 @@ textarea:focus-visible,input[type=text]:focus-visible{outline:2px solid var(--fo
           <div class="answer" id="b4_w" hidden><label class="sr" for="b4_a">Your notes</label><textarea id="b4_a" rows="2" placeholder="One admin, or the whole team?"></textarea></div>
         </div>
       </div>
+    <div class="secnotes"><label for="n_brandi">Your comments or questions on this section</label><textarea id="n_brandi" class="secnote" data-n="brandi" rows="2" placeholder="Anything unclear, off, or worth talking through"></textarea></div>
+  </section>
 
-      <div class="send">
-        <h3>Send it over, if you&rsquo;d like</h3>
-        <p class="section-sub">Optional. Your notes stay on this device after you send, and you can send again if you add more.</p>
-        <label class="q" for="who">Who&rsquo;s sending?</label>
-        <input type="text" id="who" name="who" placeholder="Brandi" autocomplete="off">
-        <button class="btn" type="submit" id="submitBtn">Send to Lee</button>
-        <p class="saved-note" id="savedNote" role="status"></p>
-        <div class="sent" id="sentNote" hidden></div>
-      </div>
-    </section>
-  </form>
-
-  <section class="section" id="later">
+  <section class="section" id="later" data-title="Not in the first version">
     <span class="section-num">Six</span>
     <h2>Not in the first version</h2>
     <p>Left out on purpose, so the first version stays small enough to prove the idea.</p>
@@ -454,7 +451,25 @@ textarea:focus-visible,input[type=text]:focus-visible{outline:2px solid var(--fo
       <li>Drafting and posting from inside the system, later on.</li>
       <li>A guided walkthrough for agency users.</li>
     </ul>
+    <div class="secnotes"><label for="n_later">Your comments or questions on this section</label><textarea id="n_later" class="secnote" data-n="later" rows="2" placeholder="Anything unclear, off, or worth talking through"></textarea></div>
   </section>
+
+  <section class="section" id="overall" data-title="Anything else">
+    <span class="section-num">Seven</span>
+    <h2>Anything else</h2>
+    <p>For anything that didn&rsquo;t fit a section above: a concern, an idea, or a question you want me to answer.</p>
+    <div class="secnotes" style="margin-top:8px"><label for="n_overall">Your overall comments or questions</label><textarea id="n_overall" class="secnote" data-n="overall" rows="3" placeholder="Whatever is on your mind"></textarea></div>
+    <div class="send">
+        <h3>Send it over, if you&rsquo;d like</h3>
+        <p class="section-sub">Optional. This sends your answers and every comment box on the page. Your notes stay on this device after you send, and you can send again if you add more.</p>
+        <label class="q" for="who">Who&rsquo;s sending?</label>
+        <input type="text" id="who" name="who" placeholder="Brandi" autocomplete="off">
+        <button class="btn" type="submit" id="submitBtn">Send to Lee</button>
+        <p class="saved-note" id="savedNote" role="status"></p>
+        <div class="sent" id="sentNote" hidden></div>
+      </div>
+  </section>
+  </form>
 
   <footer class="foot">
     <p><a class="fs" href="https://gottamoveforward.com/">Forward Solutions</a></p>
@@ -487,8 +502,8 @@ textarea:focus-visible,input[type=text]:focus-visible{outline:2px solid var(--fo
   var note=document.getElementById("savedNote");
   var sent=document.getElementById("sentNote");
   var btn=document.getElementById("submitBtn");
-  var state={items:{},who:"",sentAt:""};
-  try{ var raw=localStorage.getItem(KEY); if(raw){ var p=JSON.parse(raw); if(p&&p.items) state=p; } }catch(e){}
+  var state={items:{},notes:{},who:"",sentAt:""};
+  try{ var raw=localStorage.getItem(KEY); if(raw){ var p=JSON.parse(raw); if(p&&p.items){ state=p; if(!state.notes) state.notes={}; } } }catch(e){}
 
   function save(){
     try{ localStorage.setItem(KEY,JSON.stringify(state)); note.textContent="Saved on this device."; }
@@ -522,26 +537,38 @@ textarea:focus-visible,input[type=text]:focus-visible{outline:2px solid var(--fo
       ta.addEventListener("input",function(){ state.items[k]={c:cb.checked,a:ta.value}; later(); });
     })(items[i]);
   }
+  var sn=form.querySelectorAll(".secnote");
+  for(var n=0;n<sn.length;n++){
+    (function(ta){
+      var k=ta.getAttribute("data-n");
+      if(state.notes[k]) ta.value=state.notes[k];
+      ta.addEventListener("input",function(){ state.notes[k]=ta.value; later(); });
+    })(sn[n]);
+  }
   if(state.who) who.value=state.who;
   who.addEventListener("input",function(){ state.who=who.value; later(); });
   showSent();
 
   function buildPrompt(){
     var L=[];
-    L.push("Brandi Herrman's answers to the second round of questions on the Content on Cue share page (upload link, current portal, video volume, who logs in).");
+    L.push("Brandi Herrman's answers and section comments from the Content on Cue share page (second round: upload link, current portal, video volume, who logs in).");
     L.push("Sent by: "+(who.value.trim()||"not given")+" on "+new Date().toLocaleString());
     L.push("");
-    L.push("These came in through the share page. File them as received in the content-on-cue project's source/ folder (going-forward-solutions/clients/brandi-herrman-communications/projects/content-on-cue/), update state.md (Open 3 and the Stack table), and tell me what they change about how video is stored and shown in the portal.");
+    L.push("These came in through the share page. File them as received in the content-on-cue project's source/ folder (going-forward-solutions/clients/brandi-herrman-communications/projects/content-on-cue/), update state.md (Open 3 and the Stack table), and tell me what they change about how video is stored and shown in the portal. Section comments may hold questions she wants Lee to answer: list those separately.");
     var secs=form.querySelectorAll(".section");
     for(var s=0;s<secs.length;s++){
-      L.push(""); L.push("## "+secs[s].getAttribute("data-title"));
       var its=secs[s].querySelectorAll(".item");
+      var cm=secs[s].querySelector(".secnote");
+      var cv=cm?cm.value.trim():"";
+      if(!its.length&&!cv) continue;
+      L.push(""); L.push("## "+secs[s].getAttribute("data-title"));
       for(var j=0;j<its.length;j++){
         var c=its[j].querySelector("input[type=checkbox]").checked;
         var a=its[j].querySelector("textarea").value.trim();
         L.push("- ["+(c?"x":" ")+"] "+its[j].querySelector(".qtext").textContent);
         if(c&&a) L.push("  Notes: "+a.replace(/\n+/g," / "));
       }
+      if(cv) L.push("Comments or questions on this section: "+cv.replace(/\n+/g," / "));
     }
     return L.join("\n");
   }
