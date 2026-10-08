@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex, nofollow">
-<meta name="date" content="2026-10-03">
+<meta name="date" content="2026-10-07">
 <meta name="client" content="Rolfson Agency (Country Financial)">
-<title>Before Wednesday</title>
+<title>What I Heard, and What I Need</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&display=swap">
@@ -77,6 +77,14 @@ textarea:focus-visible,input[type=text]:focus-visible{outline:2px solid var(--fo
 .foot a:hover{text-decoration:underline}
 .foot .sep{margin:0 6px;color:var(--line)}
 @media print{.send .btn,.saved-note{display:none} .answer[hidden]{display:none!important}}
+.heard{margin:16px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:8px}
+.heard li{background:var(--white);border:1px solid var(--hairline);border-radius:var(--radius);padding:12px 14px;font-size:15.5px}
+.heard b{font-weight:600}
+.steps{margin:16px 0 0;padding:0;list-style:none;counter-reset:s;display:flex;flex-direction:column;gap:8px}
+.steps li{counter-increment:s;position:relative;background:var(--white);border:1px solid var(--hairline);border-radius:var(--radius);padding:14px 14px 14px 56px;font-size:15.5px}
+.steps li::before{content:counter(s);position:absolute;left:14px;top:13px;width:28px;height:28px;border-radius:50%;background:var(--blue-soft);color:var(--forward-blue);font-weight:600;font-size:14px;display:flex;align-items:center;justify-content:center}
+.steps b{display:block;font-weight:600}
+.steps span{color:var(--slate);font-size:14.5px}
 </style>
 </head>
 <body>
@@ -87,198 +95,108 @@ textarea:focus-visible,input[type=text]:focus-visible{outline:2px solid var(--fo
     <span>Forward Solutions</span>
   </a>
 
-  <p class="eyebrow">Before we meet</p>
-  <h1>Before Wednesday</h1>
+  <p class="eyebrow">After our meeting</p>
+  <h1>What I heard, and what I need</h1>
 
-  <p class="intro">Dan and Abby, thanks for making the time. On the phone, Dan described three systems carrying one process, and a wish for one clean path a new client&rsquo;s information can travel.</p>
-  <p class="intro">This page is a guide for our conversation, so nothing on Wednesday is a surprise.</p>
-  <p class="intro soft">You can use it two ways. Skim it and let the questions sit in the back of your mind. Or tick a question, jot a few words underneath, and send it to me before we meet. Whichever is more helpful to you. Either way, what you write stays on this phone or computer, so it&rsquo;s here to look at when I arrive.</p>
+  <p class="intro">Dan and Abby, thank you for Wednesday, and for the bread. Seeing Navigator, Planner and the seven-touch sheet side by side made the job clear.</p>
+  <p class="intro soft">This page has three parts: what I heard, the simple idea I&rsquo;d like to build, and a short list of things I need from you. Tick an item and jot a note if that&rsquo;s easier than an email, then send it over. Your notes stay on this phone or computer either way.</p>
 
-  <div class="when">
-    <span><b>When</b> Wednesday, October 7, 3:00&ndash;4:30 pm</span>
-    <span><b>Where</b> 106 N. Main St., Mount Pleasant</span>
-  </div>
+  <p class="meta-note">Please keep client names and policy details out of your notes, and out of anything you send me.</p>
 
-  <p class="meta-note">Please keep client names and policy details out of your notes. With your OK, I&rsquo;ll record our conversation on Wednesday so I can listen instead of writing.</p>
+  <section class="section">
+    <span class="section-num">One</span>
+    <h2>What I heard</h2>
+    <p class="section-sub">Tell me if any of this is off.</p>
+    <ul class="heard">
+      <li><b>The goal is seven touches a year with every client,</b> spread through the year by last name.</li>
+      <li><b>The emails should sound like you,</b> so they go out from Outlook in your own words, not from Navigator&rsquo;s templates.</li>
+      <li><b>Navigator stays the source of truth.</b> Nothing connects to it or pushes into it. Abby exports a client list, and that&rsquo;s the only contact.</li>
+      <li><b>Reaching the client matters more than logging it.</b> A simple list of what went out, and when, is enough.</li>
+      <li><b>This is a bridge until Salesforce arrives,</b> so it should be small, quick to set up, and easy to walk away from.</li>
+    </ul>
+  </section>
+
+  <section class="section">
+    <span class="section-num">Two</span>
+    <h2>The simple idea</h2>
+    <p class="section-sub">Nothing new to buy or install. It uses Excel, Word and Outlook, which you already have.</p>
+    <ol class="steps">
+      <li><b>Abby exports the client list from Navigator</b><span>Once a month, into one Excel workbook.</span></li>
+      <li><b>The workbook builds this month&rsquo;s list</b><span>Who is due, which of the seven touches they get, and who to skip because they already have that coverage.</span></li>
+      <li><b>One push sends the emails from Outlook</b><span>Each client gets their own email, by name, in your words. Replies come back to your inbox like any other.</span></li>
+      <li><b>The workbook keeps the record</b><span>Who was sent what, and on which date.</span></li>
+    </ol>
+  </section>
 
   <form id="prepForm" name="rolfson-before-wednesday" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" netlify-honeypot="bot-field">
     <input type="hidden" name="form-name" value="rolfson-before-wednesday">
     <p class="hp"><label>Leave this blank: <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
     <textarea name="prompt" id="promptField" class="hp" tabindex="-1" aria-hidden="true"></textarea>
 
-<section class="section" data-title="Five small things to have ready">
-<span class="section-num">One</span>
-<h2>Five small things to have ready</h2>
-<p class="section-sub">About ten minutes in total. Tick each one off, and add a note if it helps.</p>
+<section class="section" data-title="From Abby">
+<span class="section-num">Three</span>
+<h2>From Abby</h2>
+<p class="section-sub">The design depends on these, so they come first.</p>
 <div class="items">
-<div class="item" data-k="q1">
-<label class="check"><input type="checkbox" id="q1_c" aria-controls="q1_w"><span><span class="qtext">Pick one recent new client to walk through</span><small>Someone who went from first contact to a bound policy. A typical one, not the tidiest one. No names needed here.</small></span></label>
-<div class="answer" id="q1_w" hidden><label class="sr" for="q1_a">Your notes</label><textarea id="q1_a" rows="2" placeholder="Which kind of client did you pick?"></textarea></div>
-</div>
 <div class="item" data-k="q2">
-<label class="check"><input type="checkbox" id="q2_c" aria-controls="q2_w"><span><span class="qtext">Have your written ideal client process handy</span><small>The “happy path” you’ve already written out, in whatever form it’s in.</small></span></label>
-<div class="answer" id="q2_w" hidden><label class="sr" for="q2_a">Your notes</label><textarea id="q2_a" rows="2" placeholder="Where does it live?"></textarea></div>
+<label class="check"><input type="checkbox" id="q2_c" aria-controls="q2_w"><span><span class="qtext">A sample of the client list you can export from Navigator</span><small>Just the column headings and two or three made-up rows. Please don’t send real client information. Email it to me as a file.</small></span></label>
+<div class="answer" id="q2_w" hidden><label class="sr" for="q2_a">Your notes</label><textarea id="q2_a" rows="2" placeholder="Sent? Anything to know about it?"></textarea></div>
 </div>
 <div class="item" data-k="q3">
-<label class="check"><input type="checkbox" id="q3_c" aria-controls="q3_w"><span><span class="qtext">Have one Canopy Connect result ready to open</span><small>So I can see exactly what it hands you.</small></span></label>
-<div class="answer" id="q3_w" hidden><label class="sr" for="q3_a">Your notes</label><textarea id="q3_a" rows="2" placeholder="Anything to know about it?"></textarea></div>
+<label class="check"><input type="checkbox" id="q3_c" aria-controls="q3_w"><span><span class="qtext">Does that export show which products each client has?</span><small>Auto, home, life, umbrella. That’s what lets an umbrella email skip the people who already have one.</small></span></label>
+<div class="answer" id="q3_w" hidden><label class="sr" for="q3_a">Your notes</label><textarea id="q3_a" rows="2" placeholder="What it shows"></textarea></div>
 </div>
 <div class="item" data-k="q4">
-<label class="check"><input type="checkbox" id="q4_c" aria-controls="q4_w"><span><span class="qtext">Abby: note anything you type twice between now and then</span><small>Which piece of information, and which two places.</small></span></label>
-<div class="answer" id="q4_w" hidden><label class="sr" for="q4_a">Your notes</label><textarea id="q4_a" rows="2" placeholder="What did you type twice?"></textarea></div>
+<label class="check"><input type="checkbox" id="q4_c" aria-controls="q4_w"><span><span class="qtext">A copy of your seven-touch tab</span><small>With client names blanked out. I’m after the layout: which touch, which month, which letters of the alphabet.</small></span></label>
+<div class="answer" id="q4_w" hidden><label class="sr" for="q4_a">Your notes</label><textarea id="q4_a" rows="2" placeholder="Sent? Anything to know about it?"></textarea></div>
 </div>
 <div class="item" data-k="q5">
-<label class="check"><input type="checkbox" id="q5_c" aria-controls="q5_w"><span><span class="qtext">Dan: find out who manages your Microsoft account</span><small>Is it your own, or issued by Country Financial? Can you add apps to it?</small></span></label>
-<div class="answer" id="q5_w" hidden><label class="sr" for="q5_a">Your notes</label><textarea id="q5_a" rows="2" placeholder="What did you find out?"></textarea></div>
+<label class="check"><input type="checkbox" id="q5_c" aria-controls="q5_w"><span><span class="qtext">Roughly how many clients, and how many have an email address on file?</span></span></label>
+<div class="answer" id="q5_w" hidden><label class="sr" for="q5_a">Your notes</label><textarea id="q5_a" rows="2" placeholder="Your best count"></textarea></div>
 </div>
 </div>
 </section>
-<section class="section" data-title="The walk-through">
-<span class="section-num">Two</span>
-<h2>The walk-through</h2>
-<p class="section-sub">This is most of our time on Wednesday. Abby drives, with that one real client on screen, start to finish.</p>
+<section class="section" data-title="About your computers">
+<span class="section-num">Four</span>
+<h2>About your computers</h2>
+<p class="section-sub">Two quick looks. These decide which of two ways the sending works.</p>
 <div class="items">
 <div class="item" data-k="q6">
-<label class="check"><input type="checkbox" id="q6_c" aria-controls="q6_w"><span><span class="qtext">What happens at each step, and which system does it happen in?</span></span></label>
-<div class="answer" id="q6_w" hidden><label class="sr" for="q6_a">Your notes</label><textarea id="q6_a" rows="2" placeholder="Your notes"></textarea></div>
+<label class="check"><input type="checkbox" id="q6_c" aria-controls="q6_w"><span><span class="qtext">Which Outlook do you each use?</span><small>Look at the top right corner of Outlook. Is there a “New Outlook” switch, and is it on or off? Or do you use Outlook in a web browser?</small></span></label>
+<div class="answer" id="q6_w" hidden><label class="sr" for="q6_a">Your notes</label><textarea id="q6_a" rows="2" placeholder="Dan’s, Abby’s"></textarea></div>
 </div>
 <div class="item" data-k="q7">
-<label class="check"><input type="checkbox" id="q7_c" aria-controls="q7_w"><span><span class="qtext">Who does each step?</span></span></label>
-<div class="answer" id="q7_w" hidden><label class="sr" for="q7_a">Your notes</label><textarea id="q7_a" rows="2" placeholder="Your notes"></textarea></div>
+<label class="check"><input type="checkbox" id="q7_c" aria-controls="q7_w"><span><span class="qtext">Who manages your Microsoft account?</span><small>Is it your own, or issued by Country Financial? Can you add apps to it?</small></span></label>
+<div class="answer" id="q7_w" hidden><label class="sr" for="q7_a">Your notes</label><textarea id="q7_a" rows="2" placeholder="What you found"></textarea></div>
 </div>
+</div>
+</section>
+<section class="section" data-title="A few decisions">
+<span class="section-num">Five</span>
+<h2>A few decisions</h2>
+<div class="items">
 <div class="item" data-k="q8">
-<label class="check"><input type="checkbox" id="q8_c" aria-controls="q8_w"><span><span class="qtext">Where does the same information get typed more than once?</span></span></label>
-<div class="answer" id="q8_w" hidden><label class="sr" for="q8_a">Your notes</label><textarea id="q8_a" rows="2" placeholder="Your notes"></textarea></div>
+<label class="check"><input type="checkbox" id="q8_c" aria-controls="q8_w"><span><span class="qtext">Is there a Country Financial rule about sending the same email to many clients from your own Outlook?</span><small>For example an unsubscribe line, or wording that has to be approved. If you’re not sure, who would know?</small></span></label>
+<div class="answer" id="q8_w" hidden><label class="sr" for="q8_a">Your notes</label><textarea id="q8_a" rows="2" placeholder="What you know"></textarea></div>
 </div>
 <div class="item" data-k="q9">
-<label class="check"><input type="checkbox" id="q9_c" aria-controls="q9_w"><span><span class="qtext">Where do things get missed, and how do you find out when they have?</span></span></label>
-<div class="answer" id="q9_w" hidden><label class="sr" for="q9_a">Your notes</label><textarea id="q9_a" rows="2" placeholder="Your notes"></textarea></div>
+<label class="check"><input type="checkbox" id="q9_c" aria-controls="q9_w"><span><span class="qtext">Who writes the seven emails?</span><small>You, Abby, or me drafting them in your voice for you to edit.</small></span></label>
+<div class="answer" id="q9_w" hidden><label class="sr" for="q9_a">Your notes</label><textarea id="q9_a" rows="2" placeholder="Your pick"></textarea></div>
 </div>
 <div class="item" data-k="q10">
-<label class="check"><input type="checkbox" id="q10_c" aria-controls="q10_w"><span><span class="qtext">Which step do you dread?</span></span></label>
-<div class="answer" id="q10_w" hidden><label class="sr" for="q10_a">Your notes</label><textarea id="q10_a" rows="2" placeholder="Your notes"></textarea></div>
+<label class="check"><input type="checkbox" id="q10_c" aria-controls="q10_w"><span><span class="qtext">Who pushes send each month, and who answers the replies?</span></span></label>
+<div class="answer" id="q10_w" hidden><label class="sr" for="q10_a">Your notes</label><textarea id="q10_a" rows="2" placeholder="Your pick"></textarea></div>
 </div>
-</div>
-</section>
-<section class="section" data-title="Canopy Connect">
-<span class="section-num">Three</span>
-<h2>Canopy Connect</h2>
-<div class="items">
 <div class="item" data-k="q11">
-<label class="check"><input type="checkbox" id="q11_c" aria-controls="q11_w"><span><span class="qtext">What do you get back from it: a PDF, an email, a file, a screen to read from?</span></span></label>
-<div class="answer" id="q11_w" hidden><label class="sr" for="q11_a">Your notes</label><textarea id="q11_a" rows="2" placeholder="Your notes"></textarea></div>
-</div>
-<div class="item" data-k="q12">
-<label class="check"><input type="checkbox" id="q12_c" aria-controls="q12_w"><span><span class="qtext">Where does that land, and who picks it up?</span></span></label>
-<div class="answer" id="q12_w" hidden><label class="sr" for="q12_a">Your notes</label><textarea id="q12_a" rows="2" placeholder="Your notes"></textarea></div>
-</div>
-<div class="item" data-k="q13">
-<label class="check"><input type="checkbox" id="q13_c" aria-controls="q13_w"><span><span class="qtext">What does it miss that you still have to ask the client for?</span></span></label>
-<div class="answer" id="q13_w" hidden><label class="sr" for="q13_a">Your notes</label><textarea id="q13_a" rows="2" placeholder="Your notes"></textarea></div>
-</div>
-</div>
-</section>
-<section class="section" data-title="Your Planner board">
-<span class="section-num">Four</span>
-<h2>Your Planner board</h2>
-<div class="items">
-<div class="item" data-k="q14">
-<label class="check"><input type="checkbox" id="q14_c" aria-controls="q14_w"><span><span class="qtext">What are the buckets, and what moves a card from one to the next?</span></span></label>
-<div class="answer" id="q14_w" hidden><label class="sr" for="q14_a">Your notes</label><textarea id="q14_a" rows="2" placeholder="Your notes"></textarea></div>
-</div>
-<div class="item" data-k="q15">
-<label class="check"><input type="checkbox" id="q15_c" aria-controls="q15_w"><span><span class="qtext">Which part of your ideal process does the board not cover?</span></span></label>
-<div class="answer" id="q15_w" hidden><label class="sr" for="q15_a">Your notes</label><textarea id="q15_a" rows="2" placeholder="Your notes"></textarea></div>
-</div>
-<div class="item" data-k="q16">
-<label class="check"><input type="checkbox" id="q16_c" aria-controls="q16_w"><span><span class="qtext">When a card ends up in the wrong place, or never gets made, what usually caused it?</span></span></label>
-<div class="answer" id="q16_w" hidden><label class="sr" for="q16_a">Your notes</label><textarea id="q16_a" rows="2" placeholder="Your notes"></textarea></div>
-</div>
-</div>
-</section>
-<section class="section" data-title="Navigator and the CRM">
-<span class="section-num">Five</span>
-<h2>Navigator and the CRM</h2>
-<div class="items">
-<div class="item" data-k="q17">
-<label class="check"><input type="checkbox" id="q17_c" aria-controls="q17_w"><span><span class="qtext">What has to be typed into Navigator by a person, no matter what?</span></span></label>
-<div class="answer" id="q17_w" hidden><label class="sr" for="q17_a">Your notes</label><textarea id="q17_a" rows="2" placeholder="Your notes"></textarea></div>
-</div>
-<div class="item" data-k="q18">
-<label class="check"><input type="checkbox" id="q18_c" aria-controls="q18_w"><span><span class="qtext">What do you use the CRM for today?</span></span></label>
-<div class="answer" id="q18_w" hidden><label class="sr" for="q18_a">Your notes</label><textarea id="q18_a" rows="2" placeholder="Your notes"></textarea></div>
-</div>
-<div class="item" data-k="q19">
-<label class="check"><input type="checkbox" id="q19_c" aria-controls="q19_w"><span><span class="qtext">What have you given up on doing in it?</span></span></label>
-<div class="answer" id="q19_w" hidden><label class="sr" for="q19_a">Your notes</label><textarea id="q19_a" rows="2" placeholder="Your notes"></textarea></div>
-</div>
-</div>
-</section>
-<section class="section" data-title="The rules you work under">
-<span class="section-num">Six</span>
-<h2>The rules you work under</h2>
-<div class="items">
-<div class="item" data-k="q20">
-<label class="check"><input type="checkbox" id="q20_c" aria-controls="q20_w"><span><span class="qtext">Which tools are you allowed to keep client information in?</span></span></label>
-<div class="answer" id="q20_w" hidden><label class="sr" for="q20_a">Your notes</label><textarea id="q20_a" rows="2" placeholder="Your notes"></textarea></div>
-</div>
-<div class="item" data-k="q21">
-<label class="check"><input type="checkbox" id="q21_c" aria-controls="q21_w"><span><span class="qtext">Is there someone at Country Financial who says yes or no to a new tool, or is it your call?</span></span></label>
-<div class="answer" id="q21_w" hidden><label class="sr" for="q21_a">Your notes</label><textarea id="q21_a" rows="2" placeholder="Your notes"></textarea></div>
-</div>
-</div>
-</section>
-<section class="section" data-title="Salesforce">
-<span class="section-num">Seven</span>
-<h2>Salesforce</h2>
-<div class="items">
-<div class="item" data-k="q22">
-<label class="check"><input type="checkbox" id="q22_c" aria-controls="q22_w"><span><span class="qtext">What has the company said it will handle?</span></span></label>
-<div class="answer" id="q22_w" hidden><label class="sr" for="q22_a">Your notes</label><textarea id="q22_a" rows="2" placeholder="Your notes"></textarea></div>
-</div>
-<div class="item" data-k="q23">
-<label class="check"><input type="checkbox" id="q23_c" aria-controls="q23_w"><span><span class="qtext">Will agents be able to adjust it to fit their own office?</span></span></label>
-<div class="answer" id="q23_w" hidden><label class="sr" for="q23_a">Your notes</label><textarea id="q23_a" rows="2" placeholder="Your notes"></textarea></div>
-</div>
-<div class="item" data-k="q24">
-<label class="check"><input type="checkbox" id="q24_c" aria-controls="q24_w"><span><span class="qtext">What from today’s setup would you hate to lose?</span></span></label>
-<div class="answer" id="q24_w" hidden><label class="sr" for="q24_a">Your notes</label><textarea id="q24_a" rows="2" placeholder="Your notes"></textarea></div>
-</div>
-</div>
-</section>
-<section class="section" data-title="Size">
-<span class="section-num">Eight</span>
-<h2>Size</h2>
-<div class="items">
-<div class="item" data-k="q25">
-<label class="check"><input type="checkbox" id="q25_c" aria-controls="q25_w"><span><span class="qtext">Roughly how many new prospects come in each week?</span></span></label>
-<div class="answer" id="q25_w" hidden><label class="sr" for="q25_a">Your notes</label><textarea id="q25_a" rows="2" placeholder="Your notes"></textarea></div>
-</div>
-<div class="item" data-k="q26">
-<label class="check"><input type="checkbox" id="q26_c" aria-controls="q26_w"><span><span class="qtext">How many people touch each one before it’s done?</span></span></label>
-<div class="answer" id="q26_w" hidden><label class="sr" for="q26_a">Your notes</label><textarea id="q26_a" rows="2" placeholder="Your notes"></textarea></div>
-</div>
-</div>
-</section>
-<section class="section" data-title="One sentence each">
-<span class="section-num">Nine</span>
-<h2>One sentence each</h2>
-<p class="section-sub">The most useful thing you can bring.</p>
-<div class="items">
-<div class="item" data-k="q27">
-<label class="check"><input type="checkbox" id="q27_c" aria-controls="q27_w"><span><span class="qtext">Dan: “If it did ______, I’d be thrilled.”</span></span></label>
-<div class="answer" id="q27_w" hidden><label class="sr" for="q27_a">Your notes</label><textarea id="q27_a" rows="2" placeholder="If it did…"></textarea></div>
-</div>
-<div class="item" data-k="q28">
-<label class="check"><input type="checkbox" id="q28_c" aria-controls="q28_w"><span><span class="qtext">Abby: “If I never had to ______ again, my week would be better.”</span></span></label>
-<div class="answer" id="q28_w" hidden><label class="sr" for="q28_a">Your notes</label><textarea id="q28_a" rows="2" placeholder="If I never had to…"></textarea></div>
+<label class="check"><input type="checkbox" id="q11_c" aria-controls="q11_w"><span><span class="qtext">Is there a touch you’d want running first?</span><small>If one of the seven would matter most this quarter, we start there.</small></span></label>
+<div class="answer" id="q11_w" hidden><label class="sr" for="q11_a">Your notes</label><textarea id="q11_a" rows="2" placeholder="Which one"></textarea></div>
 </div>
 </div>
 </section>
 
     <div class="send">
-      <h2>Send it over, if you&rsquo;d like</h2>
-      <p class="section-sub">Optional. Your notes stay on this device after you send, and you can send again if you add more.</p>
+      <h2>Send it over</h2>
+      <p class="section-sub">Send what you have; it doesn&rsquo;t need to be complete. Your notes stay on this device, and you can send again as you add more.</p>
       <label class="q" for="who">Who&rsquo;s sending?</label>
       <input type="text" id="who" name="who" placeholder="Dan, Abby, or both" autocomplete="off">
       <button class="btn" type="submit" id="submitBtn">Send to Lee</button>
@@ -298,7 +216,7 @@ textarea:focus-visible,input[type=text]:focus-visible{outline:2px solid var(--fo
 <script>
 (function(){
   "use strict";
-  var KEY="rolfson-before-wednesday";
+  var KEY="rolfson-next-steps";
   var form=document.getElementById("prepForm");
   var items=form.querySelectorAll(".item");
   var who=document.getElementById("who");
@@ -346,10 +264,10 @@ textarea:focus-visible,input[type=text]:focus-visible{outline:2px solid var(--fo
 
   function buildPrompt(){
     var L=[];
-    L.push("Pre-meeting notes from the Rolfson Agency (Country Financial) \"Before Wednesday\" page.");
+    L.push("Answers from the Rolfson Agency (Country Financial) \"What I heard, and what I need\" page.");
     L.push("Sent by: "+(who.value.trim()||"not given")+" on "+new Date().toLocaleString());
     L.push("");
-    L.push("These came in through the share page ahead of the Wednesday 2026-10-07 meeting. File them as received in the intake-flow project's source/ folder (going-forward-solutions/clients/rolfson-agency-country-financial/projects/intake-flow/), update state.md, and tell me what they change about the listen-for sheet.");
+    L.push("These came in through the share page after the 2026-10-07 meeting, about the seven-point touch. File them as received in the project's source/ folder (going-forward-solutions/clients/rolfson-agency-country-financial/projects/intake-flow/), update state.md and the Open list, and tell me what they change about the design and the hour estimate.");
     var secs=form.querySelectorAll(".section");
     for(var s=0;s<secs.length;s++){
       L.push(""); L.push("## "+secs[s].getAttribute("data-title"));

@@ -1,0 +1,436 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="date" content="2026-10-07">
+<meta name="client" content="Healthy Home Network">
+<title>Growth Partner model: decision list</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&display=swap">
+<style>
+:root{
+  --forward-blue:#1E5BBA;--sky-blue:#3FA9F5;--signal-amber:#F5A524;--ink:#1A1D24;--slate:#5B6470;
+  --paper:#F7F6F2;--paper-warm:#EFEEE8;--white:#FFFFFF;--hairline:rgba(26,29,36,.08);--line:rgba(26,29,36,.14);
+  --blue-soft:#E8EFF9;--radius:12px;
+  --font-display:'Fraunces',Georgia,serif;--font-body:'Inter',system-ui,-apple-system,sans-serif;
+  color-scheme:light;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--font-body);font-size:16px;
+  line-height:1.6;-webkit-font-smoothing:antialiased;padding:0 20px env(safe-area-inset-bottom,0px)}
+a{color:var(--forward-blue)}
+[hidden]{display:none!important}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.hp{position:absolute;left:-9999px}
+.wrap{max-width:640px;margin:0 auto;padding-block:calc(28px + env(safe-area-inset-top,0px)) 56px}
+.brand{display:inline-flex;align-items:center;gap:10px;text-decoration:none;margin-bottom:40px}
+.brand img{height:30px;width:auto;display:block}
+.brand span{font-family:var(--font-display);font-weight:600;font-size:17px;color:var(--ink);letter-spacing:-.01em}
+.eyebrow{font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--forward-blue);margin:0 0 12px}
+h1{font-family:var(--font-display);font-weight:500;font-size:clamp(34px,8vw,48px);line-height:1.05;
+  letter-spacing:-.02em;margin:0 0 20px;text-wrap:balance}
+.intro{font-size:17px;color:var(--ink);margin:0 0 12px;max-width:60ch}
+.intro.soft{color:var(--slate)}
+.when{display:flex;flex-wrap:wrap;gap:6px 24px;margin:24px 0 0;padding:14px 16px;background:var(--white);
+  border:1px solid var(--hairline);border-radius:var(--radius);font-size:15px}
+.when b{font-weight:600;color:var(--forward-blue);margin-right:4px}
+.meta-note{font-size:14.5px;color:var(--slate);border-left:2px solid var(--sky-blue);padding-left:12px;margin:22px 0 0}
+.section{margin-top:44px;padding-top:28px;border-top:1px solid var(--hairline)}
+.section-num{font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--forward-blue);
+  display:block;margin-bottom:6px}
+h2{font-family:var(--font-display);font-weight:500;font-size:26px;line-height:1.15;letter-spacing:-.02em;margin:0 0 6px;text-wrap:balance}
+.section-sub{font-size:15px;color:var(--slate);margin:0}
+.items{display:flex;flex-direction:column;gap:8px;margin-top:16px}
+.item{background:var(--white);border:1px solid var(--hairline);border-radius:var(--radius);padding:4px}
+.item.on{border-color:var(--forward-blue)}
+.check{display:flex;align-items:flex-start;gap:12px;padding:12px;border-radius:9px;cursor:pointer;min-height:44px}
+.check:hover{background:var(--paper)}
+.check input{width:20px;height:20px;accent-color:var(--forward-blue);flex:0 0 auto;margin:2px 0 0}
+.check input:focus-visible{outline:2px solid var(--forward-blue);outline-offset:2px}
+.qtext{font-size:15.5px;font-weight:500;display:block}
+.check small{display:block;font-size:14px;color:var(--slate);margin-top:3px;font-weight:400}
+.answer{padding:0 12px 12px 44px}
+textarea,input[type=text]{width:100%;font:inherit;font-size:16px;color:var(--ink);background:var(--paper);
+  border:1px solid var(--line);border-radius:9px;padding:10px 12px;line-height:1.5}
+textarea{resize:vertical;min-height:68px}
+textarea::placeholder,input[type=text]::placeholder{color:var(--slate);opacity:.8}
+textarea:focus-visible,input[type=text]:focus-visible{outline:2px solid var(--forward-blue);outline-offset:1px;border-color:transparent}
+.send{margin-top:44px;padding:22px 18px;background:var(--white);border:1px solid var(--hairline);border-radius:var(--radius)}
+.send h2{font-size:22px}
+.send label.q{display:block;font-weight:600;font-size:15px;margin:18px 0 6px}
+.btn{display:inline-flex;align-items:center;justify-content:center;margin-top:18px;min-height:48px;padding:12px 26px;
+  font:inherit;font-weight:600;font-size:16px;color:var(--ink);background:var(--signal-amber);border:0;border-radius:999px;cursor:pointer}
+.btn:hover{filter:brightness(.96)}
+.btn:focus-visible{outline:2px solid var(--forward-blue);outline-offset:3px}
+.btn:disabled{opacity:.6;cursor:default}
+.saved-note{font-size:14px;color:var(--slate);margin:12px 0 0;min-height:1.4em}
+.sent{margin-top:16px;padding:12px 14px;background:var(--blue-soft);border-radius:9px;font-size:15px}
+.foot{margin-top:56px;padding-top:24px;border-top:1px solid var(--hairline);font-size:15px;color:var(--slate)}
+.foot .fs{font-family:var(--font-display);font-weight:600;font-size:17px;color:var(--ink);text-decoration:none}
+.foot .fs:hover{color:var(--forward-blue)}
+.foot p{margin:6px 0}
+.foot a{text-decoration:none;font-weight:500}
+.foot a:hover{text-decoration:underline}
+.foot .sep{margin:0 6px;color:var(--line)}
+@media print{.send .btn,.saved-note{display:none} .answer[hidden]{display:none!important}}
+
+.steps{list-style:none;counter-reset:s;margin:16px 0 0;padding:0;display:flex;flex-direction:column;gap:8px}
+.steps li{counter-increment:s;background:var(--white);border:1px solid var(--hairline);border-radius:var(--radius);
+  padding:14px 16px 14px 52px;position:relative;font-size:15px;color:var(--slate)}
+.steps li::before{content:counter(s);position:absolute;left:16px;top:14px;width:24px;height:24px;border-radius:50%;
+  background:var(--blue-soft);color:var(--forward-blue);font-weight:600;font-size:13px;display:flex;align-items:center;justify-content:center}
+.steps b{display:block;color:var(--ink);font-weight:600;font-size:15.5px}
+.plain{margin:14px 0 0;padding-left:20px;font-size:15.5px}
+.plain li{margin:6px 0}
+.pair{display:grid;grid-template-columns:1fr;gap:8px;margin-top:16px}
+@media(min-width:560px){.pair{grid-template-columns:1fr 1fr}}
+.card{background:var(--white);border:1px solid var(--hairline);border-radius:var(--radius);padding:14px 16px;font-size:15px;color:var(--slate)}
+.card b{display:block;color:var(--ink);font-weight:600;font-size:15.5px;margin-bottom:2px}
+h3{font-family:var(--font-body);font-weight:600;font-size:16px;margin:26px 0 0}
+.files{display:flex;flex-direction:column;gap:10px;margin-top:8px}
+.files input[type=file]{font:inherit;font-size:15px;width:100%;padding:10px;background:var(--paper);border:1px dashed var(--line);border-radius:9px}
+.files input[type=file]:focus-visible{outline:2px solid var(--forward-blue);outline-offset:1px}
+.hint{font-size:14px;color:var(--slate);margin:8px 0 0}
+
+.ai{background:var(--white);border:1px solid var(--hairline);border-radius:var(--radius);padding:16px;margin-top:16px}
+.ai b.t{display:block;font-weight:600;font-size:15.5px}
+.ai p{font-size:14.5px;color:var(--slate);margin:4px 0 0}
+.ai pre{margin:12px 0 0;padding:12px;background:var(--paper);border:1px solid var(--line);border-radius:9px;
+  font-family:var(--font-body);font-size:14px;line-height:1.5;white-space:pre-wrap;overflow-wrap:anywhere;max-height:220px;overflow:auto}
+.btn2{display:inline-flex;align-items:center;justify-content:center;margin-top:10px;min-height:44px;padding:8px 18px;font:inherit;
+  font-weight:600;font-size:15px;color:var(--forward-blue);background:var(--blue-soft);border:0;border-radius:999px;cursor:pointer}
+.btn2:focus-visible{outline:2px solid var(--forward-blue);outline-offset:3px}
+.ai label.q{display:block;font-weight:600;font-size:15px;margin:16px 0 6px}
+.ai textarea{min-height:120px}
+
+.item.dec{padding:16px}
+.ihead{display:flex;gap:12px;align-items:flex-start}
+.num{flex:0 0 auto;min-width:28px;height:28px;padding:0 6px;border-radius:14px;background:var(--blue-soft);color:var(--forward-blue);font-weight:600;font-size:13px;display:flex;align-items:center;justify-content:center;font-variant-numeric:tabular-nums}
+.item.dec h3{margin:2px 0 0;font-size:17px;line-height:1.3}
+.ask{font-size:15.5px;margin:10px 0 0}
+.lab{display:block;font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--slate);margin:16px 0 4px}
+.ref ul{margin:4px 0 0;padding-left:20px;font-size:14.5px;color:var(--slate)}
+.ref li{margin:4px 0}
+.ref b{color:var(--ink)}
+.small{font-size:14px;color:var(--slate);margin:8px 0 0}
+.opts{list-style:lower-alpha;margin:4px 0 0;padding-left:22px;font-size:15px}
+.opts li{margin:4px 0}
+.prop{margin:14px 0 0;padding:2px 0 2px 12px;border-left:2px solid var(--sky-blue);font-size:15px}
+.prop .lab{margin-top:0;color:var(--forward-blue)}
+.item.dec .check{margin:12px -8px 0;padding:10px 8px}
+.item.dec .answer{padding:0 0 4px 32px}
+.dtext{font-weight:600;font-size:15.5px}
+.lock{font-size:14.5px;color:var(--slate);margin:8px 0 0 40px}
+.item.locked{background:var(--paper-warm)}
+.item.locked .body{display:none}
+.item:not(.locked) .lock{display:none}
+summary{list-style:none;cursor:pointer}
+summary::-webkit-details-marker{display:none}
+summary.ihead{align-items:center;min-height:44px;border-radius:9px}
+summary.ihead::after,.sub>summary::after{content:"";flex:0 0 auto;width:8px;height:8px;margin:0 6px 4px 4px;border-right:2px solid var(--slate);border-bottom:2px solid var(--slate);transform:rotate(45deg);transition:transform .15s}
+details[open]>summary.ihead::after,details.sub[open]>summary::after{transform:rotate(-135deg);margin-bottom:-4px}
+summary:focus-visible{outline:2px solid var(--forward-blue);outline-offset:2px}
+.item.dec h3{flex:1 1 auto}
+.tag{flex:0 0 auto;font-size:12px;font-weight:600;padding:2px 9px;border-radius:999px;display:none}
+.item.on .tag.done{display:inline-block;background:var(--forward-blue);color:#fff}
+.item.locked .tag.held{display:inline-block;background:var(--white);color:var(--slate);border:1px solid var(--line)}
+.sub{margin-top:14px;border:1px solid var(--hairline);border-radius:9px;padding:0 12px;background:var(--paper)}
+.sub[open]{padding-bottom:12px}
+.sub>summary{display:flex;align-items:center;justify-content:space-between;min-height:44px;font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--slate)}
+.sub .scroll{background:var(--white);margin-top:0}
+.reful{margin:10px 0 0;padding-left:20px;font-size:14.5px;color:var(--slate)}
+.ref td:nth-child(5){min-width:230px}
+.wrap{max-width:1000px}
+.ask,.opts,.prop,.reful,.ref ul,.section-sub{max-width:75ch}
+.reful li{margin:4px 0}
+.reful b{color:var(--ink)}
+@media(prefers-reduced-motion:reduce){summary::after{transition:none!important}}
+.scroll{overflow-x:auto;margin:8px 0 0;border:1px solid var(--hairline);border-radius:9px}
+table{border-collapse:collapse;width:100%;font-size:14px;font-variant-numeric:tabular-nums}
+th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--hairline);vertical-align:top}
+th{font-size:12.5px;font-weight:600;color:var(--slate);background:var(--paper);white-space:nowrap}
+tbody tr:last-child td{border-bottom:0}
+td:first-child{font-weight:500}
+.notes{margin-top:16px}
+.notes label{display:block;font-weight:600;font-size:15px;margin-bottom:6px}
+.tally{margin:24px 0 0;padding:12px 16px;background:var(--white);border:1px solid var(--hairline);border-radius:var(--radius);font-size:15px}
+.tally b{color:var(--forward-blue);font-variant-numeric:tabular-nums}
+
+</style>
+</head>
+<body>
+<main class="wrap">
+  <a class="brand" href="https://gottamoveforward.com/">
+    <img src="data:image/png;base64,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" alt="" width="37" height="30">
+    <span>Forward Solutions</span>
+  </a>
+  <p class="eyebrow">Healthy Home Network &middot; Lee and Dusty</p>
+  <h1>Growth Partner model: decision list</h1>
+  <p class="intro">Dusty, this is the list for our morning meetings. It follows the Growth Partner Service Model draft, with the draft&rsquo;s numbers beside each question so we don&rsquo;t have to flip between documents.</p>
+  <p class="intro soft">We work down it in order. Tap a question to open it. When we settle one, tick <b>Decided</b> and type what we agreed. Some questions stay held until the one before them is decided. Whatever is still open carries to the next morning.</p>
+  <div class="when"><span><b>Next meeting</b>Thursday, October 8</span><span><b>Goal</b>The model locked as v1.0</span></div>
+  <p class="meta-note">Where it says &ldquo;Lee&rsquo;s proposal&rdquo;, that is my starting point, not a decision. This page carries prices and percentages, so please don&rsquo;t forward the link.</p>
+  <p class="tally" role="status"><b id="tallyN">0</b> of <span id="tallyT">0</span> decided on this device.</p>
+
+  <form id="prepForm" name="hhn-decision-list" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" netlify-honeypot="bot-field">
+    <input type="hidden" name="form-name" value="hhn-decision-list">
+    <p class="hp"><label>Leave this blank: <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+    <textarea name="prompt" id="promptField" class="hp" tabindex="-1" aria-hidden="true"></textarea>
+
+    <section class="section" data-title="To decide, in order">
+      <span class="section-num">One</span>
+      <h2>To decide, in order</h2>
+      <p class="section-sub">Five questions about the service model.</p>
+      <div class="items"><details class="item dec" data-k="i1">
+<summary class="ihead"><span class="num">1</span><h3 class="qtext">Take Shared-Risk out of v1.0</h3><span class="tag held">Held</span><span class="tag done">Decided</span></summary>
+<div class="body">
+<p class="ask">Do we both agree that the Shared-Risk Growth Partner option is removed from the services for now?</p>
+<div class="ref"><b class="lab">From the draft</b><ul><li>It is the fifth offer on the ladder: a lower monthly base plus a defined growth share (page 2).</li><li>The draft says it needs its own financial and legal model before it can be sold (page 14).</li><li>It is also named in the Quick Win roadmap as &ldquo;Growth Share&rdquo; (page 3) and in the operating questions (page 13).</li></ul></div>
+<b class="lab">Options</b><ol class="opts"><li>Remove it from v1.0 and take it out of all four places in the draft.</li><li>Keep it on the ladder, marked &ldquo;not yet available&rdquo;.</li></ol>
+<p class="prop"><b class="lab">Lee&rsquo;s proposal</b>Option a. v1.0 sells Membership, Quick Win, Core and Pro. Shared-Risk comes back only when both of us choose to build its model.</p>
+<label class="check"><input type="checkbox" id="i1_c" aria-controls="i1_w"><span><span class="dtext">Decided</span></span></label>
+<div class="answer" id="i1_w" hidden><label class="sr" for="i1_a">What we decided</label><textarea id="i1_a" rows="2" placeholder="What we decided"></textarea></div>
+</div></details><details class="item dec" data-k="i2">
+<summary class="ihead"><span class="num">2</span><h3 class="qtext">The allocation, and which positions each category pays</h3><span class="tag held">Held</span><span class="tag done">Decided</span></summary>
+<div class="body">
+<p class="ask">Each line of the allocation should pay named positions, so every position knows where its money comes from. Do we agree on this allocation and this map, for the Quick Win, Core and Pro?</p>
+<div class="ref"><b class="lab">Proposed</b><div class="scroll"><table><thead><tr><th>Category</th><th>Quick Win $1,500</th><th>Core $4,000</th><th>Pro $6,000</th><th>Positions it pays</th></tr></thead><tbody><tr><td>Direct Implementation / Specialists</td><td>30%&nbsp;&middot;&nbsp;$450</td><td>32.5%&nbsp;&middot;&nbsp;$1,300</td><td>35%&nbsp;&middot;&nbsp;$2,100</td><td>Funnel &amp; Conversion, SEO / AEO, Authority Content, Local Search &amp; Reputation, Paid Media, CRM / Automation, PR / Authority, Creative / Media</td></tr><tr><td>Strategy + Account Management</td><td>15%&nbsp;&middot;&nbsp;$225</td><td>12.5%&nbsp;&middot;&nbsp;$500</td><td>12.5%&nbsp;&middot;&nbsp;$750</td><td>Growth Strategist / Account Director, Client Success / Project Manager</td></tr><tr><td>Sales Commission</td><td>10%&nbsp;&middot;&nbsp;$150</td><td>7.5%&nbsp;&middot;&nbsp;$300</td><td>7.5%&nbsp;&middot;&nbsp;$450</td><td>Business Development / Sales</td></tr><tr><td>General Administration / Operations</td><td>6%&nbsp;&middot;&nbsp;$90</td><td>7.5%&nbsp;&middot;&nbsp;$300</td><td>6%&nbsp;&middot;&nbsp;$360</td><td>Operations / Administration, <b>Growth Partner Director</b></td></tr><tr><td><b>R&amp;D / Systems Development</b></td><td><b>19%&nbsp;&middot;&nbsp;$285</b></td><td><b>21.5%&nbsp;&middot;&nbsp;$860</b></td><td><b>21%&nbsp;&middot;&nbsp;$1,260</b></td><td><b>R&amp;D</b> (new position)</td></tr><tr><td>HHN Marketing / Acquisition</td><td>5%&nbsp;&middot;&nbsp;$75</td><td>5%&nbsp;&middot;&nbsp;$200</td><td>4%&nbsp;&middot;&nbsp;$240</td><td>A budget, managed by Business Development / Sales</td></tr><tr><td>Technology / Software / Tools</td><td>7%&nbsp;&middot;&nbsp;$105</td><td>5%&nbsp;&middot;&nbsp;$200</td><td>5%&nbsp;&middot;&nbsp;$300</td><td>A budget, managed by Operations / Administration</td></tr><tr><td>Performance Bonus Pool</td><td>2%&nbsp;&middot;&nbsp;$30</td><td>2.5%&nbsp;&middot;&nbsp;$100</td><td>3%&nbsp;&middot;&nbsp;$180</td><td>No position</td></tr><tr><td>Operating / Tax Reserve</td><td><b>5%&nbsp;&middot;&nbsp;$75</b></td><td>5%&nbsp;&middot;&nbsp;$200</td><td>5%&nbsp;&middot;&nbsp;$300</td><td>No position</td></tr><tr><td><b>Operating Profit</b></td><td><b>1%&nbsp;&middot;&nbsp;$15</b></td><td><b>1%&nbsp;&middot;&nbsp;$40</b></td><td><b>1%&nbsp;&middot;&nbsp;$60</b></td><td>No position</td></tr></tbody></table></div><ul class="reful"><li>Profit drops to 1% for now and the difference goes to R&amp;D, because the system is still being built. This is also how the initial build is paid.</li><li>How long it lasts: two months, counted from the first month a partner pays. Then we both look at the system. If it is still in beta, add a month and look again. If it is clear what a good running system needs, the increase stays until those improvements are made, and then we re-evaluate.</li><li>The Growth Partner Director is paid out of the Operations budget.</li><li>The R&amp;D line pays a new fourteenth position, R&amp;D, which builds and improves what the services run on.</li><li>The Quick Win gets its own 5% reserve line, the same as Core and Pro.</li><li>Lines in bold differ from the draft.</li></ul></div>
+
+
+<label class="check"><input type="checkbox" id="i2_c" aria-controls="i2_w"><span><span class="dtext">Decided</span></span></label>
+<div class="answer" id="i2_w" hidden><label class="sr" for="i2_a">What we decided</label><textarea id="i2_a" rows="2" placeholder="What we decided"></textarea></div>
+</div></details><details class="item dec" data-k="i4">
+<summary class="ihead"><span class="num">3</span><h3 class="qtext">When the work costs more than the line pays</h3><span class="tag held">Held</span><span class="tag done">Decided</span></summary>
+<div class="body">
+<p class="ask">A task pays its value. If two people share it, they split it by who did what. What happens when the task takes more time than its value covers?</p>
+<div class="ref"><b class="lab">From the draft</b><ul><li>Core sets aside $1,800 a month for labor: $1,300 direct implementation plus $500 strategy and account management (page 6). Pro sets aside $2,850 (page 8).</li><li>The guardrail: &ldquo;If the account routinely requires materially more human labor, the scope or pricing must change.&rdquo;</li><li>It does not say what &ldquo;routinely&rdquo; means or who makes the call.</li></ul></div>
+<b class="lab">Options</b><ol class="opts"><li>Task values are fixed. A slow task pays the same, and the person doing it absorbs the extra time.</li><li>Profit covers it. The person is paid for the real time and the margin shrinks.</li><li>The scope or the price changes as soon as it happens.</li></ol>
+<p class="prop"><b class="lab">Lee&rsquo;s proposal</b>Option a, with a trigger. If the work log shows a partner running over the time its task values were set for three months in a row, either of us can raise it at the monthly review, and we both agree on a change to the scope or the price.</p>
+<label class="check"><input type="checkbox" id="i4_c" aria-controls="i4_w"><span><span class="dtext">Decided</span></span></label>
+<div class="answer" id="i4_w" hidden><label class="sr" for="i4_a">What we decided</label><textarea id="i4_a" rows="2" placeholder="What we decided"></textarea></div>
+</div></details><details class="item dec" data-k="i5">
+<summary class="ihead"><span class="num">4</span><h3 class="qtext">Onboarding: is there a fee?</h3><span class="tag held">Held</span><span class="tag done">Decided</span></summary>
+<div class="body">
+<p class="ask">Setting a partner up (access, tracking, the first funnel, the CRM connection) is front-loaded work. Is it charged separately or covered by the monthly price?</p>
+<div class="ref"><b class="lab">From the draft</b><ul><li>The draft leaves this open: a separate implementation / onboarding fee, or the initial build absorbed into the monthly price and a term commitment (page 14).</li><li>The Quick Win, $1,500 one-time, already covers discovery, a baseline scorecard and a 90-day roadmap (page 3).</li></ul></div>
+<b class="lab">Options</b><ol class="opts"><li>A separate one-time onboarding fee on Core and Pro.</li><li>No fee. It is absorbed into the monthly price, paid from Strategy + Account Management, with a minimum term.</li><li>No fee, but every partner does the Quick Win first, and that is the onboarding.</li></ol>
+
+<label class="check"><input type="checkbox" id="i5_c" aria-controls="i5_w"><span><span class="dtext">Decided</span></span></label>
+<div class="answer" id="i5_w" hidden><label class="sr" for="i5_a">What we decided</label><textarea id="i5_a" rows="2" placeholder="What we decided"></textarea></div>
+</div></details><details class="item dec locked" data-k="i5b" data-after="i5">
+<summary class="ihead"><span class="num">4b</span><h3 class="qtext">Onboarding: how much for each package</h3><span class="tag held">Held</span><span class="tag done">Decided</span></summary>
+<p class="lock">Held until item 4 is decided.</p><div class="body">
+<p class="ask">The amount for Core and for Pro, how it is split across the categories, and whether a partner who did the Quick Win gets credit toward it.</p>
+
+
+
+<label class="check"><input type="checkbox" id="i5b_c" aria-controls="i5b_w"><span><span class="dtext">Decided</span></span></label>
+<div class="answer" id="i5b_w" hidden><label class="sr" for="i5b_a">What we decided</label><textarea id="i5b_a" rows="2" placeholder="Core, Pro, and any Quick Win credit"></textarea></div>
+</div></details><details class="item dec" data-k="i6">
+<summary class="ihead"><span class="num">5</span><h3 class="qtext">Health partners: ads and analytics</h3><span class="tag held">Held</span><span class="tag done">Decided</span></summary>
+<div class="body">
+<p class="ask">Health and wellness partners have tighter rules on tracking and on what can be advertised. Are ads and analytics part of their package, an add-on, or left out?</p>
+<div class="ref"><b class="lab">From the draft</b><ul><li>Core includes one primary ad channel and conversion tracking (page 5). The draft does not separate health partners from home services.</li><li>Its only health note: have counsel review any revenue-share or referral-linked pay for healthcare partners before it is used (page 14). That touches the sales commission.</li></ul></div>
+<b class="lab">Options</b><ol class="opts"><li>Included at the same price, limited to what the rules allow.</li><li>Available as an add-on for an additional fee, after a check of what that partner can advertise and track.</li><li>Left out of health packages in v1.0.</li></ol>
+<p class="prop"><b class="lab">Lee&rsquo;s proposal</b>Option b. The compliance setup is extra work that home-services partners don&rsquo;t need, so it is priced on its own.</p>
+<label class="check"><input type="checkbox" id="i6_c" aria-controls="i6_w"><span><span class="dtext">Decided</span></span></label>
+<div class="answer" id="i6_w" hidden><label class="sr" for="i6_a">What we decided</label><textarea id="i6_a" rows="2" placeholder="What we decided"></textarea></div>
+</div></details></div>
+      <div class="notes"><label for="n1">Comments or questions on these</label><textarea id="n1" data-n="Comments or questions on these" rows="2" placeholder="Comments or questions"></textarea></div>
+    </section>
+
+    <section class="section" data-title="Next in line">
+      <span class="section-num">Two</span>
+      <h2>Next in line</h2>
+      <p class="section-sub">For when we get through the five. Not yet in a fixed order.</p>
+      <div class="items"><details class="item dec locked" data-k="q1" data-after="i2">
+<summary class="ihead"><span class="num">A</span><h3 class="qtext">Who fills each position</h3><span class="tag held">Held</span><span class="tag done">Decided</span></summary>
+<p class="lock">Held until item 2 is decided.</p><div class="body">
+<p class="ask">A name against every position, for most partners, and how a position changes hands.</p>
+
+
+
+<label class="check"><input type="checkbox" id="q1_c" aria-controls="q1_w"><span><span class="dtext">Decided</span></span></label>
+<div class="answer" id="q1_w" hidden><label class="sr" for="q1_a">What we decided</label><textarea id="q1_a" rows="2" placeholder="Position by position"></textarea></div>
+</div></details><details class="item dec locked" data-k="q2" data-after="q1">
+<summary class="ihead"><span class="num">B</span><h3 class="qtext">Hours per deliverable</h3><span class="tag held">Held</span><span class="tag done">Decided</span></summary>
+<p class="lock">Held until A is decided.</p><div class="body">
+<p class="ask">How many hours each deliverable takes by position, and what each position costs per hour. The draft asks for both (page 13).</p>
+
+
+
+<label class="check"><input type="checkbox" id="q2_c" aria-controls="q2_w"><span><span class="dtext">Decided</span></span></label>
+<div class="answer" id="q2_w" hidden><label class="sr" for="q2_a">What we decided</label><textarea id="q2_a" rows="2" placeholder="Hours and rates"></textarea></div>
+</div></details><details class="item dec" data-k="q3">
+<summary class="ihead"><span class="num">C</span><h3 class="qtext">Scope limits</h3><span class="tag held">Held</span><span class="tag done">Decided</span></summary>
+<div class="body">
+<p class="ask">Exact monthly quantities, turnaround times and revision limits for Core and Pro (page 14). The draft says &ldquo;approximately 2&rdquo; authority resources a month on Core and &ldquo;approximately 4&rdquo; on Pro.</p>
+
+
+
+<label class="check"><input type="checkbox" id="q3_c" aria-controls="q3_w"><span><span class="dtext">Decided</span></span></label>
+<div class="answer" id="q3_w" hidden><label class="sr" for="q3_a">What we decided</label><textarea id="q3_a" rows="2" placeholder="What we decided"></textarea></div>
+</div></details><details class="item dec" data-k="q4">
+<summary class="ihead"><span class="num">D</span><h3 class="qtext">The partner&rsquo;s contract</h3><span class="tag held">Held</span><span class="tag done">Decided</span></summary>
+<div class="body">
+<p class="ask">Minimum term, cancellation wording, and what happens to funnels and assets when a partner leaves (page 14).</p>
+
+
+
+<label class="check"><input type="checkbox" id="q4_c" aria-controls="q4_w"><span><span class="dtext">Decided</span></span></label>
+<div class="answer" id="q4_w" hidden><label class="sr" for="q4_a">What we decided</label><textarea id="q4_a" rows="2" placeholder="What we decided"></textarea></div>
+</div></details><details class="item dec" data-k="q5">
+<summary class="ihead"><span class="num">E</span><h3 class="qtext">Sales rules</h3><span class="tag held">Held</span><span class="tag done">Decided</span></summary>
+<div class="body">
+<p class="ask">Commission timing, accelerator milestones, clawbacks and refunds, and whether Quick Win commission differs by lead source (page 14).</p>
+<div class="ref"><b class="lab">From the draft</b><ul><li>Months 1&ndash;3: 10% of collected revenue. Months 4&ndash;12: 5%. After year one: none, unless the role still carries account-growth or retention duties.</li><li>Accelerators: 3 partners in a month +$250, 4 +$500, 5 or more +$1,000.</li></ul></div>
+
+
+<label class="check"><input type="checkbox" id="q5_c" aria-controls="q5_w"><span><span class="dtext">Decided</span></span></label>
+<div class="answer" id="q5_w" hidden><label class="sr" for="q5_a">What we decided</label><textarea id="q5_a" rows="2" placeholder="What we decided"></textarea></div>
+</div></details><details class="item dec" data-k="q6">
+<summary class="ihead"><span class="num">F</span><h3 class="qtext">Profit sharing</h3><span class="tag held">Held</span><span class="tag done">Decided</span></summary>
+<div class="body">
+<p class="ask">Who receives Operating Profit and on what basis. The draft says to define it separately from salary, commission and bonuses, ideally on verified quarterly profit (page 14).</p>
+
+
+
+<label class="check"><input type="checkbox" id="q6_c" aria-controls="q6_w"><span><span class="dtext">Decided</span></span></label>
+<div class="answer" id="q6_w" hidden><label class="sr" for="q6_a">What we decided</label><textarea id="q6_a" rows="2" placeholder="What we decided"></textarea></div>
+</div></details></div>
+      <div class="notes"><label for="n2">Comments or questions on these</label><textarea id="n2" data-n="Comments or questions on these" rows="2" placeholder="Comments or questions"></textarea></div>
+    </section>
+
+    <section class="section" data-title="The agreement terms">
+      <span class="section-num">Three</span>
+      <h2>The agreement terms</h2>
+      <p class="section-sub">The terms between the two of us that the service model doesn&rsquo;t cover. One line each, with where each stands after the term sheet and the redline.</p>
+      <div class="items"><div class="item" data-k="t1"><label class="check"><input type="checkbox" id="t1_c" aria-controls="t1_w"><span><span class="qtext">Ownership</span><small>Who owns what is built for HHN, and what stays Lee&rsquo;s. Dusty&rsquo;s redline: HHN owns work created for HHN; Lee&rsquo;s existing tools and know-how stay his, with a permanent licence to HHN.</small></span></label>
+<div class="answer" id="t1_w" hidden><label class="sr" for="t1_a">What we decided</label><textarea id="t1_a" rows="2" placeholder="What we decided"></textarea></div></div><div class="item" data-k="t2"><label class="check"><input type="checkbox" id="t2_c" aria-controls="t2_w"><span><span class="qtext">Accounts</span><small>Whose accounts the base, the site code, the data and the documentation sit in. Redline: HHN-controlled, full admin from day one. Term sheet: Lee&rsquo;s accounts, read-only for Dusty.</small></span></label>
+<div class="answer" id="t2_w" hidden><label class="sr" for="t2_a">What we decided</label><textarea id="t2_a" rows="2" placeholder="What we decided"></textarea></div></div><div class="item" data-k="t3"><label class="check"><input type="checkbox" id="t3_c" aria-controls="t3_w"><span><span class="qtext">Non-solicitation</span><small>Lee does not sell marketing services directly to HHN partners or members. Open: how long that lasts after the agreement ends.</small></span></label>
+<div class="answer" id="t3_w" hidden><label class="sr" for="t3_a">What we decided</label><textarea id="t3_a" rows="2" placeholder="What we decided"></textarea></div></div><div class="item" data-k="t4"><label class="check"><input type="checkbox" id="t4_c" aria-controls="t4_w"><span><span class="qtext">Notice</span><small>60 days from either side, with partners in progress finished or handed over. Unchanged by the redline.</small></span></label>
+<div class="answer" id="t4_w" hidden><label class="sr" for="t4_a">What we decided</label><textarea id="t4_a" rows="2" placeholder="What we decided"></textarea></div></div><div class="item" data-k="t5"><label class="check"><input type="checkbox" id="t5_c" aria-controls="t5_w"><span><span class="qtext">Liability</span><small>Redline: each side is responsible for its own work. Term sheet: HHN covers Lee for content that was approved. The wording goes to an attorney.</small></span></label>
+<div class="answer" id="t5_w" hidden><label class="sr" for="t5_a">What we decided</label><textarea id="t5_a" rows="2" placeholder="What we decided"></textarea></div></div><div class="item" data-k="t6"><label class="check"><input type="checkbox" id="t6_c" aria-controls="t6_w"><span><span class="qtext">Confidentiality</span><small>Mutual. Unchanged by the redline.</small></span></label>
+<div class="answer" id="t6_w" hidden><label class="sr" for="t6_a">What we decided</label><textarea id="t6_a" rows="2" placeholder="What we decided"></textarea></div></div><div class="item" data-k="t7"><label class="check"><input type="checkbox" id="t7_c" aria-controls="t7_w"><span><span class="qtext">Reviews</span><small>First review at 90 days, then yearly. Percentages can be reopened at a review.</small></span></label>
+<div class="answer" id="t7_w" hidden><label class="sr" for="t7_a">What we decided</label><textarea id="t7_a" rows="2" placeholder="What we decided"></textarea></div></div><div class="item" data-k="t8"><label class="check"><input type="checkbox" id="t8_c" aria-controls="t8_w"><span><span class="qtext">Handover</span><small>Redline: documentation kept current so another operator can step in. Term sheet: a working copy handed to HHN within the notice period.</small></span></label>
+<div class="answer" id="t8_w" hidden><label class="sr" for="t8_a">What we decided</label><textarea id="t8_a" rows="2" placeholder="What we decided"></textarea></div></div></div>
+      <div class="notes"><label for="n3">Comments or questions on these</label><textarea id="n3" data-n="Comments or questions on these" rows="2" placeholder="Comments or questions"></textarea></div>
+    </section>
+
+    <section class="section">
+      <span class="section-num">Reference</span>
+      <h2>The draft&rsquo;s numbers</h2>
+      <p class="section-sub">As written in the review draft, October 2026. Nothing here has been changed.</p>
+      <h3>Allocation by package</h3>
+      <div class="scroll"><table><thead><tr><th>Category</th><th>Quick Win $1,500</th><th>Core $4,000</th><th>Pro $6,000</th></tr></thead><tbody><tr><td>Direct implementation</td><td>30%&nbsp;&middot;&nbsp;$450</td><td>32.5%&nbsp;&middot;&nbsp;$1,300</td><td>35%&nbsp;&middot;&nbsp;$2,100</td></tr><tr><td>Strategy + account management</td><td>15%&nbsp;&middot;&nbsp;$225</td><td>12.5%&nbsp;&middot;&nbsp;$500</td><td>12.5%&nbsp;&middot;&nbsp;$750</td></tr><tr><td>Sales</td><td>10%&nbsp;&middot;&nbsp;$150</td><td>7.5%&nbsp;&middot;&nbsp;$300</td><td>7.5%&nbsp;&middot;&nbsp;$450</td></tr><tr><td>HHN marketing / acquisition</td><td>5%&nbsp;&middot;&nbsp;$75</td><td>5%&nbsp;&middot;&nbsp;$200</td><td>4%&nbsp;&middot;&nbsp;$240</td></tr><tr><td>Technology / tools</td><td>7%&nbsp;&middot;&nbsp;$105</td><td>5%&nbsp;&middot;&nbsp;$200</td><td>5%&nbsp;&middot;&nbsp;$300</td></tr><tr><td>General admin / operations</td><td>6%&nbsp;&middot;&nbsp;$90</td><td>7.5%&nbsp;&middot;&nbsp;$300</td><td>6%&nbsp;&middot;&nbsp;$360</td></tr><tr><td>Performance bonus pool</td><td>2%&nbsp;&middot;&nbsp;$30</td><td>2.5%&nbsp;&middot;&nbsp;$100</td><td>3%&nbsp;&middot;&nbsp;$180</td></tr><tr><td>R&amp;D / systems development</td><td>5%&nbsp;&middot;&nbsp;$75</td><td>5%&nbsp;&middot;&nbsp;$200</td><td>5%&nbsp;&middot;&nbsp;$300</td></tr><tr><td>Operating / tax reserve</td><td>in profit</td><td>5%&nbsp;&middot;&nbsp;$200</td><td>5%&nbsp;&middot;&nbsp;$300</td></tr><tr><td>Operating profit</td><td>20%&nbsp;&middot;&nbsp;$300</td><td>17.5%&nbsp;&middot;&nbsp;$700</td><td>17%&nbsp;&middot;&nbsp;$1,020</td></tr></tbody></table></div>
+      <p class="small">HHN Membership is $895 a year. Ad spend is always separate from these fees.</p>
+      <h3>The thirteen positions</h3>
+      <ol class="plain"><li>Growth Strategist / Account Director</li><li>Client Success / Project Manager</li><li>Funnel &amp; Conversion Specialist</li><li>SEO / AEO Strategist</li><li>Authority Content Specialist</li><li>Local Search &amp; Reputation Specialist</li><li>Paid Media Specialist</li><li>CRM / Automation Specialist</li><li>PR / Authority Specialist</li><li>Creative / Media Specialist</li><li>Business Development / Sales</li><li>Operations / Administration</li><li>Growth Partner Director</li></ol>
+      <h3>Sales commission</h3>
+      <div class="scroll"><table><thead><tr><th>Period</th><th>Commission</th><th>Core</th><th>Pro</th></tr></thead><tbody><tr><td>Months 1&ndash;3</td><td>10% of collected</td><td>$400 a month</td><td>$600 a month</td></tr><tr><td>Months 4&ndash;12</td><td>5% of collected</td><td>$200 a month</td><td>$300 a month</td></tr><tr><td>After year one</td><td>None by default</td><td>$0</td><td>$0</td></tr><tr><td>First year total</td><td>6.25%</td><td>$3,000</td><td>$4,500</td></tr></tbody></table></div>
+    </section>
+
+    <div class="send">
+      <h2>Send what we decided</h2>
+      <p class="section-sub">Sending is optional and can be done more than once. Everything typed here stays on this device either way.</p>
+      <div class="notes"><label for="n9">Anything else</label><textarea id="n9" data-n="Anything else" rows="2" placeholder="Comments or questions"></textarea></div>
+      <button class="btn" type="submit" id="submitBtn">Send to Lee</button>
+      <p class="saved-note" id="savedNote" role="status"></p>
+      <div class="sent" id="sentNote" hidden></div>
+    </div>
+  </form>
+
+  <footer class="foot">
+    <p><a class="fs" href="https://gottamoveforward.com/">Forward Solutions</a></p>
+    <p>Lee Pettijohn</p>
+    <p>(970) 712-6933 <span class="sep">&middot;</span> <a href="tel:+19707126933">Call</a> <span class="sep">&middot;</span> <a href="sms:+19707126933">Text</a></p>
+    <p><a href="mailto:leepettijohn@gottamoveforward.com">leepettijohn@gottamoveforward.com</a></p>
+  </footer>
+</main>
+<script>
+(function(){
+  "use strict";
+  var KEY="hhn-decision-list-2026-10-08";
+  var form=document.getElementById("prepForm");
+  var items=form.querySelectorAll(".item");
+  var nts=form.querySelectorAll("textarea[data-n]");
+  var note=document.getElementById("savedNote"), sent=document.getElementById("sentNote"), btn=document.getElementById("submitBtn");
+  var state={items:{},notes:{},sentAt:""};
+  try{ var raw=localStorage.getItem(KEY); if(raw){ var p=JSON.parse(raw); if(p&&p.items){ state=p; if(!state.notes) state.notes={}; } } }catch(e){}
+  function save(){ try{ localStorage.setItem(KEY,JSON.stringify(state)); note.textContent="Saved on this device."; }catch(e){ note.textContent=""; } }
+  var timer=null; function later(){ clearTimeout(timer); timer=setTimeout(save,500); }
+  function showSent(){ if(!state.sentAt) return; sent.hidden=false; sent.textContent="Sent to Lee on "+state.sentAt+". Your notes are still here on this device."; btn.textContent="Send an update"; }
+  function refresh(){
+    var n=0;
+    for(var i=0;i<items.length;i++){
+      var a=items[i].getAttribute("data-after");
+      if(a) items[i].classList.toggle("locked",!(state.items[a]&&state.items[a].c));
+      if(items[i].querySelector("input[type=checkbox]").checked) n++;
+    }
+    document.getElementById("tallyN").textContent=n;
+    document.getElementById("tallyT").textContent=items.length;
+  }
+  for(var i=0;i<items.length;i++){
+    (function(it){
+      var k=it.getAttribute("data-k"), cb=it.querySelector("input[type=checkbox]"), wrap=it.querySelector(".answer"), ta=wrap.querySelector("textarea");
+      var s=state.items[k]||{};
+      if(s.c){ cb.checked=true; wrap.hidden=false; it.classList.add("on"); }
+      if(s.a) ta.value=s.a;
+      cb.addEventListener("change",function(){
+        wrap.hidden=!cb.checked; it.classList.toggle("on",cb.checked);
+        state.items[k]={c:cb.checked,a:ta.value}; save(); refresh();
+        if(cb.checked) ta.focus();
+      });
+      ta.addEventListener("input",function(){ state.items[k]={c:cb.checked,a:ta.value}; later(); });
+    })(items[i]);
+  }
+  for(var j=0;j<nts.length;j++){
+    (function(t){ if(state.notes[t.id]) t.value=state.notes[t.id]; t.addEventListener("input",function(){ state.notes[t.id]=t.value; later(); }); })(nts[j]);
+  }
+  refresh(); showSent();
+  function buildPrompt(){
+    var L=[];
+    L.push("Decisions from Lee and Dusty's morning meeting, sent from the Growth Partner decision list page.");
+    L.push("Sent on "+new Date().toLocaleString());
+    L.push("");
+    L.push("Record what was decided in healthy-home-network/projects/2026-lee-dusty-agreement/state.md. Then rebuild the decision list page in fs-new-site/share/ for the next meeting: decided items move to a Decided section with what was agreed, open items carry forward in order, and a held item opens once the item it waits on is decided.");
+    var secs=form.querySelectorAll(".section[data-title]");
+    for(var s=0;s<secs.length;s++){
+      L.push(""); L.push("## "+secs[s].getAttribute("data-title"));
+      var its=secs[s].querySelectorAll(".item");
+      for(var x=0;x<its.length;x++){
+        var c=its[x].querySelector("input[type=checkbox]").checked;
+        var a=its[x].querySelector(".answer textarea").value.trim();
+        var nm=its[x].querySelector(".num");
+        L.push("- ["+(c?"x":" ")+"] "+(nm?nm.textContent+". ":"")+its[x].querySelector(".qtext").textContent+(its[x].classList.contains("locked")?" (held)":""));
+        if(a) L.push("  Decided: "+a.replace(/\n+/g," / "));
+      }
+      var nt=secs[s].querySelector("textarea[data-n]");
+      if(nt&&nt.value.trim()) L.push("  Notes on this section: "+nt.value.trim().replace(/\n+/g," / "));
+    }
+    var last=document.getElementById("n9").value.trim();
+    if(last){ L.push(""); L.push("## Anything else"); L.push(last); }
+    return L.join("\n");
+  }
+  form.addEventListener("submit",function(e){
+    e.preventDefault();
+    btn.disabled=true; var old=btn.textContent; btn.textContent="Sending\u2026";
+    document.getElementById("promptField").value=buildPrompt();
+    fetch("/",{method:"POST",headers:{"Content-Type":"application/x-www-form-urlencoded"},body:new URLSearchParams(new FormData(form)).toString()})
+    .then(function(res){
+      if(!res.ok) throw new Error("bad");
+      state.sentAt=new Date().toLocaleString([],{weekday:"long",hour:"numeric",minute:"2-digit"});
+      save(); btn.disabled=false; showSent(); note.textContent="";
+    }).catch(function(){
+      btn.disabled=false; btn.textContent=old;
+      note.textContent="That didn\u2019t send. Check your connection and try again. Your notes are saved.";
+    });
+  });
+})();
+</script>
+</body>
+</html>
