@@ -1,0 +1,297 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="date" content="2026-10-09">
+<meta name="client" content="IEP">
+<title>IEP - Non-ference: last year&rsquo;s numbers</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&display=swap">
+<style>
+:root{
+  --forward-blue:#1E5BBA;--sky-blue:#3FA9F5;--signal-amber:#F5A524;--ink:#1A1D24;--slate:#5B6470;
+  --paper:#F7F6F2;--paper-warm:#EFEEE8;--white:#FFFFFF;--hairline:rgba(26,29,36,.08);--line:rgba(26,29,36,.14);
+  --blue-soft:#E8EFF9;--radius:12px;
+  --font-display:'Fraunces',Georgia,serif;--font-body:'Inter',system-ui,-apple-system,sans-serif;
+  color-scheme:light;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--font-body);font-size:16px;
+  line-height:1.6;-webkit-font-smoothing:antialiased;padding:0 20px env(safe-area-inset-bottom,0px)}
+a{color:var(--forward-blue)}
+[hidden]{display:none!important}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.hp{position:absolute;left:-9999px}
+.wrap{max-width:640px;margin:0 auto;padding-block:calc(28px + env(safe-area-inset-top,0px)) 56px}
+.brand{display:inline-flex;align-items:center;gap:10px;text-decoration:none;margin-bottom:40px}
+.brand img{height:30px;width:auto;display:block}
+.brand span{font-family:var(--font-display);font-weight:600;font-size:17px;color:var(--ink);letter-spacing:-.01em}
+.eyebrow{font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--forward-blue);margin:0 0 12px}
+h1{font-family:var(--font-display);font-weight:500;font-size:clamp(34px,8vw,48px);line-height:1.05;
+  letter-spacing:-.02em;margin:0 0 20px;text-wrap:balance}
+.intro{font-size:17px;color:var(--ink);margin:0 0 12px;max-width:60ch}
+.intro.soft{color:var(--slate)}
+.when{display:flex;flex-wrap:wrap;gap:6px 24px;margin:24px 0 0;padding:14px 16px;background:var(--white);
+  border:1px solid var(--hairline);border-radius:var(--radius);font-size:15px}
+.when b{font-weight:600;color:var(--forward-blue);margin-right:4px}
+.meta-note{font-size:14.5px;color:var(--slate);border-left:2px solid var(--sky-blue);padding-left:12px;margin:22px 0 0}
+.section{margin-top:44px;padding-top:28px;border-top:1px solid var(--hairline)}
+.section-num{font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--forward-blue);
+  display:block;margin-bottom:6px}
+h2{font-family:var(--font-display);font-weight:500;font-size:26px;line-height:1.15;letter-spacing:-.02em;margin:0 0 6px;text-wrap:balance}
+.section-sub{font-size:15px;color:var(--slate);margin:0}
+.items{display:flex;flex-direction:column;gap:8px;margin-top:16px}
+.item{background:var(--white);border:1px solid var(--hairline);border-radius:var(--radius);padding:4px}
+.item.on{border-color:var(--forward-blue)}
+.check{display:flex;align-items:flex-start;gap:12px;padding:12px;border-radius:9px;cursor:pointer;min-height:44px}
+.check:hover{background:var(--paper)}
+.check input{width:20px;height:20px;accent-color:var(--forward-blue);flex:0 0 auto;margin:2px 0 0}
+.check input:focus-visible{outline:2px solid var(--forward-blue);outline-offset:2px}
+.qtext{font-size:15.5px;font-weight:500;display:block}
+.check small{display:block;font-size:14px;color:var(--slate);margin-top:3px;font-weight:400}
+.answer{padding:0 12px 12px 44px}
+textarea,input[type=text]{width:100%;font:inherit;font-size:16px;color:var(--ink);background:var(--paper);
+  border:1px solid var(--line);border-radius:9px;padding:10px 12px;line-height:1.5}
+textarea{resize:vertical;min-height:68px}
+textarea::placeholder,input[type=text]::placeholder{color:var(--slate);opacity:.8}
+textarea:focus-visible,input[type=text]:focus-visible{outline:2px solid var(--forward-blue);outline-offset:1px;border-color:transparent}
+.send{margin-top:44px;padding:22px 18px;background:var(--white);border:1px solid var(--hairline);border-radius:var(--radius)}
+.send h2{font-size:22px}
+.send label.q{display:block;font-weight:600;font-size:15px;margin:18px 0 6px}
+.btn{display:inline-flex;align-items:center;justify-content:center;margin-top:18px;min-height:48px;padding:12px 26px;
+  font:inherit;font-weight:600;font-size:16px;color:var(--ink);background:var(--signal-amber);border:0;border-radius:999px;cursor:pointer}
+.btn:hover{filter:brightness(.96)}
+.btn:focus-visible{outline:2px solid var(--forward-blue);outline-offset:3px}
+.btn:disabled{opacity:.6;cursor:default}
+.saved-note{font-size:14px;color:var(--slate);margin:12px 0 0;min-height:1.4em}
+.sent{margin-top:16px;padding:12px 14px;background:var(--blue-soft);border-radius:9px;font-size:15px}
+.foot{margin-top:56px;padding-top:24px;border-top:1px solid var(--hairline);font-size:15px;color:var(--slate)}
+.foot .fs{font-family:var(--font-display);font-weight:600;font-size:17px;color:var(--ink);text-decoration:none}
+.foot .fs:hover{color:var(--forward-blue)}
+.foot p{margin:6px 0}
+.foot a{text-decoration:none;font-weight:500}
+.foot a:hover{text-decoration:underline}
+.foot .sep{margin:0 6px;color:var(--line)}
+@media print{.send .btn,.saved-note{display:none} .answer[hidden]{display:none!important}}
+.heard{margin:16px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:8px}
+.heard li{background:var(--white);border:1px solid var(--hairline);border-radius:var(--radius);padding:12px 14px;font-size:15.5px}
+.heard b{font-weight:600}
+.steps{margin:16px 0 0;padding:0;list-style:none;counter-reset:s;display:flex;flex-direction:column;gap:8px}
+.steps li{counter-increment:s;position:relative;background:var(--white);border:1px solid var(--hairline);border-radius:var(--radius);padding:14px 14px 14px 56px;font-size:15.5px}
+.steps li::before{content:counter(s);position:absolute;left:14px;top:13px;width:28px;height:28px;border-radius:50%;background:var(--blue-soft);color:var(--forward-blue);font-weight:600;font-size:14px;display:flex;align-items:center;justify-content:center}
+.steps b{display:block;font-weight:600}
+.steps span{color:var(--slate);font-size:14.5px}
+.box{margin-top:16px}
+.box label{display:block;font-weight:600;font-size:15px;margin:0 0 6px}
+.box small{display:block;font-size:14px;color:var(--slate);font-weight:400;margin-top:2px}
+.hints{margin:14px 0 0;padding-left:20px;font-size:15.5px}
+.hints li{margin:3px 0}
+.files{margin-top:16px;background:var(--white);border:1px solid var(--hairline);border-radius:var(--radius);padding:14px}
+.files b{display:block;font-size:15px;font-weight:600}
+.files small{display:block;font-size:14px;color:var(--slate);margin:2px 0 10px}
+.files input[type=file]{display:block;width:100%;font:inherit;font-size:15px;margin-top:8px;padding:8px;background:var(--paper);border:1px dashed var(--line);border-radius:9px}
+textarea.big{min-height:220px}
+</style>
+</head>
+<body>
+<main class="wrap">
+
+  <a class="brand" href="https://gottamoveforward.com/">
+    <img src="data:image/png;base64,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" alt="" width="37" height="30">
+    <span>Forward Solutions</span>
+  </a>
+
+  <p class="eyebrow">April Non-ference</p>
+  <h1>Last year&rsquo;s numbers</h1>
+
+  <p class="intro">Hrishue, on Monday we said the next step is working out the money, so the Non-ference is affordable for the foundations and worth the time you and I put into it.</p>
+  <p class="intro soft">I&rsquo;d like to start from what last year really cost instead of guessing. This page is the one thing I need from you for that: a list of expenses, plus a few quick numbers. Rough is fine. Your notes stay on this phone or computer, and sending is optional if you&rsquo;d rather just email me.</p>
+
+  <form id="prepForm" name="iep-non-ference-numbers" method="POST" enctype="multipart/form-data" data-netlify="true" data-netlify-honeypot="bot-field" netlify-honeypot="bot-field">
+    <input type="hidden" name="form-name" value="iep-non-ference-numbers">
+    <p class="hp"><label>Leave this blank: <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+    <textarea name="prompt" id="promptField" class="hp" tabindex="-1" aria-hidden="true"></textarea>
+
+<section class="section" data-title="What last year cost">
+<span class="section-num">One</span>
+<h2>What last year cost</h2>
+<p class="section-sub">Type a bulleted list, one expense per line with a rough amount, or attach whatever you already have. Best guesses are welcome; just mark them as guesses.</p>
+<ul class="hints">
+<li>Meeting space or venue</li>
+<li>Meals, snacks and coffee</li>
+<li>The group dinner</li>
+<li>Any lodging or travel we covered for guests</li>
+<li>Your travel and mine</li>
+<li>Printing, materials, equipment</li>
+<li>Anything else that came out of IEP&rsquo;s pocket</li>
+</ul>
+<div class="box"><label for="expenses">Last year&rsquo;s expenses</label><textarea id="expenses" data-box="expenses" data-label="Last year&rsquo;s expenses" class="big" rows="3" placeholder="- Venue: \n- Meals: \n- Group dinner: \n- "></textarea></div>
+<div class="files">
+<b>Or attach what you already have</b>
+<small>A spreadsheet, a PDF, receipts, a photo of a napkin. Up to three files, 8 MB in total. Files go when you press Send; they aren&rsquo;t saved on this device, so choose them last.</small>
+<label class="sr" for="file1">File 1</label><input type="file" id="file1" name="file1">
+<label class="sr" for="file2">File 2</label><input type="file" id="file2" name="file2">
+<label class="sr" for="file3">File 3</label><input type="file" id="file3" name="file3">
+</div>
+<div class="box"><label for="n1">Comments or questions on this section</label><textarea id="n1" data-box="n1" data-label="Comments or questions on this section" class="" rows="3" placeholder=""></textarea></div>
+</section>
+
+<section class="section" data-title="A few quick numbers">
+<span class="section-num">Two</span>
+<h2>A few quick numbers</h2>
+<p class="section-sub">Tick one and a notes box opens.</p>
+<div class="items">
+<div class="item" data-k="q1">
+<label class="check"><input type="checkbox" id="q1_c" aria-controls="q1_w"><span><span class="qtext">What did each foundation pay to attend?</span><small>If it varied, or some came free, say so.</small></span></label>
+<div class="answer" id="q1_w" hidden><label class="sr" for="q1_a">Your notes</label><textarea id="q1_a" rows="2" placeholder="What they paid"></textarea></div>
+</div>
+<div class="item" data-k="q2">
+<label class="check"><input type="checkbox" id="q2_c" aria-controls="q2_w"><span><span class="qtext">How many people came, from how many foundations?</span></span></label>
+<div class="answer" id="q2_w" hidden><label class="sr" for="q2_a">Your notes</label><textarea id="q2_a" rows="2" placeholder="Your best count"></textarea></div>
+</div>
+<div class="item" data-k="q3">
+<label class="check"><input type="checkbox" id="q3_c" aria-controls="q3_w"><span><span class="qtext">Roughly how much of your time went into planning it and being there?</span><small>Days or hours, whichever is easier. I&rsquo;ll add mine.</small></span></label>
+<div class="answer" id="q3_w" hidden><label class="sr" for="q3_a">Your notes</label><textarea id="q3_a" rows="2" placeholder="Your best guess"></textarea></div>
+</div>
+<div class="item" data-k="q4">
+<label class="check"><input type="checkbox" id="q4_c" aria-controls="q4_w"><span><span class="qtext">Was there a cost that surprised you, or one you wouldn&rsquo;t pay again?</span></span></label>
+<div class="answer" id="q4_w" hidden><label class="sr" for="q4_a">Your notes</label><textarea id="q4_a" rows="2" placeholder="What it was"></textarea></div>
+</div>
+</div>
+<div class="box"><label for="n2">Comments or questions on this section</label><textarea id="n2" data-box="n2" data-label="Comments or questions on this section" class="" rows="3" placeholder=""></textarea></div>
+</section>
+
+<section class="section" data-title="Anything else">
+<span class="section-num">Three</span>
+<h2>Anything else</h2>
+<div class="box"><label for="n3">Whatever didn&rsquo;t fit above</label><textarea id="n3" data-box="n3" data-label="Whatever didn&rsquo;t fit above" class="" rows="3" placeholder=""></textarea></div>
+</section>
+
+    <div class="send">
+      <h2>Send it over</h2>
+      <p class="section-sub">Send what you have; it doesn&rsquo;t need to be complete. Your notes stay on this device, and you can send again as you add more.</p>
+      <button class="btn" type="submit" id="submitBtn">Send to Lee</button>
+      <p class="saved-note" id="savedNote" role="status"></p>
+      <div class="sent" id="sentNote" hidden></div>
+    </div>
+  </form>
+
+  <footer class="foot">
+    <p><a class="fs" href="https://gottamoveforward.com/">Forward Solutions</a></p>
+    <p>Lee Pettijohn</p>
+    <p>(970) 712-6933 <span class="sep">&middot;</span> <a href="tel:+19707126933">Call</a> <span class="sep">&middot;</span> <a href="sms:+19707126933">Text</a></p>
+    <p><a href="mailto:leepettijohn@gottamoveforward.com">leepettijohn@gottamoveforward.com</a></p>
+  </footer>
+
+</main>
+<script>
+(function(){
+  "use strict";
+  var KEY="iep-non-ference-numbers";
+  var form=document.getElementById("prepForm");
+  var items=form.querySelectorAll(".item");
+  var boxes=form.querySelectorAll("textarea[data-box]");
+  var note=document.getElementById("savedNote");
+  var sent=document.getElementById("sentNote");
+  var btn=document.getElementById("submitBtn");
+  var state={items:{},boxes:{},sentAt:""};
+  try{ var raw=localStorage.getItem(KEY); if(raw){ var p=JSON.parse(raw); if(p&&p.items){ state=p; if(!state.boxes) state.boxes={}; } } }catch(e){}
+
+  function save(){
+    try{ localStorage.setItem(KEY,JSON.stringify(state)); note.textContent="Saved on this device."; }
+    catch(e){ note.textContent=""; }
+  }
+  function showSent(){
+    if(!state.sentAt) return;
+    sent.hidden=false;
+    sent.textContent="Sent to Lee on "+state.sentAt+". Your notes are still here on this device.";
+    btn.textContent="Send an update";
+  }
+  var timer=null;
+  function later(){ clearTimeout(timer); timer=setTimeout(save,500); }
+
+  for(var i=0;i<items.length;i++){
+    (function(it){
+      var k=it.getAttribute("data-k");
+      var cb=it.querySelector("input[type=checkbox]");
+      var wrap=it.querySelector(".answer");
+      var ta=it.querySelector("textarea");
+      var s=state.items[k]||{};
+      if(s.c){ cb.checked=true; wrap.hidden=false; it.classList.add("on"); }
+      if(s.a) ta.value=s.a;
+      cb.addEventListener("change",function(){
+        wrap.hidden=!cb.checked;
+        it.classList.toggle("on",cb.checked);
+        state.items[k]={c:cb.checked,a:ta.value};
+        save();
+        if(cb.checked) ta.focus();
+      });
+      ta.addEventListener("input",function(){ state.items[k]={c:cb.checked,a:ta.value}; later(); });
+    })(items[i]);
+  }
+  for(var b=0;b<boxes.length;b++){
+    (function(ta){
+      var k=ta.getAttribute("data-box");
+      if(state.boxes[k]) ta.value=state.boxes[k];
+      ta.addEventListener("input",function(){ state.boxes[k]=ta.value; later(); });
+    })(boxes[b]);
+  }
+  showSent();
+
+  var files=form.querySelectorAll("input[type=file]");
+  function fileNames(){ var n=[]; for(var i=0;i<files.length;i++){ if(files[i].files[0]) n.push(files[i].files[0].name); } return n; }
+  function fileBytes(){ var t=0; for(var i=0;i<files.length;i++){ if(files[i].files[0]) t+=files[i].files[0].size; } return t; }
+  function buildPrompt(){
+    var L=[];
+    L.push("Answers from Hrishue on the IEP \"Non-ference: last year's numbers\" page.");
+    L.push("Sent on "+new Date().toLocaleString());
+    L.push("");
+    L.push("These came in through the share page after the 2026-10-05 planning call. File them as received in the project's source/ folder (iep/projects/2027-conference/), update state.md, and use them to build the Non-ference package price.");
+    var names=fileNames();
+    if(names.length){ L.push(""); L.push("Files attached to this submission (download them from the Netlify form entry): "+names.join(", ")); }
+    var secs=form.querySelectorAll(".section");
+    for(var s=0;s<secs.length;s++){
+      var out=[];
+      var bx=secs[s].querySelectorAll("textarea[data-box]");
+      for(var x=0;x<bx.length;x++){
+        var v=bx[x].value.trim();
+        if(v){ out.push(bx[x].getAttribute("data-label")+":"); out.push(v); }
+      }
+      var its=secs[s].querySelectorAll(".item");
+      for(var j=0;j<its.length;j++){
+        var c=its[j].querySelector("input[type=checkbox]").checked;
+        var a=its[j].querySelector("textarea").value.trim();
+        if(c||a){
+          out.push("- ["+(c?"x":" ")+"] "+its[j].querySelector(".qtext").textContent);
+          if(a) out.push("  Notes: "+a.replace(/\n+/g," / "));
+        }
+      }
+      if(out.length){ L.push(""); L.push("## "+secs[s].getAttribute("data-title")); L=L.concat(out); }
+    }
+    return L.join("\n");
+  }
+
+  form.addEventListener("submit",function(e){
+    e.preventDefault();
+    if(fileBytes()>8*1024*1024){ note.textContent="Those files are over 8 MB together. Send fewer here and email me the rest."; return; }
+    btn.disabled=true; var old=btn.textContent; btn.textContent="Sending\u2026";
+    document.getElementById("promptField").value=buildPrompt();
+    fetch("/",{method:"POST",body:new FormData(form)})
+    .then(function(res){
+      if(!res.ok) throw new Error("bad");
+      state.sentAt=new Date().toLocaleString([],{weekday:"long",hour:"numeric",minute:"2-digit"});
+      save(); btn.disabled=false; showSent(); note.textContent="";
+      for(var i=0;i<files.length;i++) files[i].value="";
+    }).catch(function(){
+      btn.disabled=false; btn.textContent=old;
+      note.textContent="That didn\u2019t send. Check your connection and try again. Your notes are saved.";
+    });
+  });
+})();
+</script>
+</body>
+</html>
