@@ -1,5 +1,9 @@
-// Rebuilds share/index.html from whatever is sitting in the share/ folder.
-// Netlify runs this on every deploy. Nothing to install.
+// Rebuilds share/index.html and foundations/index.html from whatever is sitting
+// in those folders. Netlify runs this on every deploy. Nothing to install.
+//
+// share/index.html        lists share/ and foundations/ (every page sent to anyone)
+// foundations/index.html  lists foundations/ only (Foundation Method pages)
+// Both sit behind the same PIN. The same rules apply in each folder:
 //
 // Counts as a page:
 //   share/solar-map.html            ->  /share/solar-map.html
@@ -18,8 +22,12 @@ const crypto = require("crypto");
 const { execSync } = require("child_process");
 
 const ROOT = path.resolve(__dirname, "..");
-const SHARE_DIR = path.join(ROOT, "share");
-const OUT = path.join(SHARE_DIR, "index.html");
+
+// One entry per index page. "from" is the folders it lists.
+const INDEXES = [
+  { dir: "share", heading: "Shared Pages", tag: "Shared pages", from: ["share", "foundations"] },
+  { dir: "foundations", heading: "Foundation Pages", tag: "Foundation pages", from: ["foundations"] },
+];
 
 const tidy = (n) =>
   n.replace(/\.html?$/i, "").replace(/[-_]+/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
@@ -58,28 +66,35 @@ function dateOf(html, file) {
   return new Date();
 }
 
-function collect() {
+// Pages in one folder. "prefix" is how the index page reaches that folder:
+// "" for its own folder, "../foundations/" for a neighbour.
+function collectDir(dirName, prefix) {
+  const SHARE_DIR = path.join(ROOT, dirName);
   if (!fs.existsSync(SHARE_DIR)) return [];
   const found = [];
   for (const e of fs.readdirSync(SHARE_DIR, { withFileTypes: true })) {
     const n = e.name;
     if (n.startsWith("_") || n.startsWith(".")) continue;
     if (e.isFile() && /\.html?$/i.test(n) && n.toLowerCase() !== "index.html") {
-      found.push({ href: n, file: path.join(SHARE_DIR, n), fallback: tidy(n) });
+      found.push({ href: prefix + n, file: path.join(SHARE_DIR, n), fallback: tidy(n) });
     } else if (e.isDirectory()) {
       const f = path.join(SHARE_DIR, n, "index.html");
-      if (fs.existsSync(f)) found.push({ href: n + "/", file: f, fallback: tidy(n) });
+      if (fs.existsSync(f)) found.push({ href: prefix + n + "/", file: f, fallback: tidy(n) });
     }
   }
-  return found
-    .map((p) => {
-      const html = readHtml(p.file);
-      return { href: p.href, title: titleOf(html, p.fallback), date: dateOf(html, p.file) };
-    })
-    .sort((a, b) => b.date - a.date);
+  return found.map((p) => {
+    const html = readHtml(p.file);
+    return { href: p.href, title: titleOf(html, p.fallback), date: dateOf(html, p.file) };
+  });
 }
 
-function render(pages, pinHash) {
+function collect(ix) {
+  let all = [];
+  for (const d of ix.from) all = all.concat(collectDir(d, d === ix.dir ? "" : "../" + d + "/"));
+  return all.sort((a, b) => b.date - a.date);
+}
+
+function render(pages, pinHash, ix) {
   const fmt = (d) =>
     d.toLocaleDateString("en-US", { year: "numeric", month: "short", day: "numeric", timeZone: "America/Chicago" });
 
@@ -97,7 +112,7 @@ function render(pages, pinHash) {
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
-<title>Shared Pages · Forward Solutions</title>
+<title>${esc(ix.heading)} · Forward Solutions</title>
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -160,7 +175,7 @@ function render(pages, pinHash) {
 <body>
 <div id="gate">
   <a class="brand" href="/"><img src="/images/logo-mark.png" alt="">Forward Solutions</a>
-  <h1>Shared Pages</h1>
+  <h1>${esc(ix.heading)}</h1>
   <form id="pinForm">
     <input id="pin" type="password" inputmode="numeric" autocomplete="off" placeholder="PIN" autofocus>
     <button type="submit" class="primary">Open</button>
@@ -171,12 +186,12 @@ function render(pages, pinHash) {
 <div id="list" class="hidden">
 <header class="bar"><div class="inner">
   <a class="brand" href="/"><img src="/images/logo-mark.png" alt="">Forward Solutions</a>
-  <span class="tag">Shared pages</span>
+  <span class="tag">${esc(ix.tag)}</span>
 </div></header>
 <main>
-  <h1>Shared Pages</h1>
+  <h1>${esc(ix.heading)}</h1>
   <p class="sub">${pages.length} page${pages.length === 1 ? "" : "s"} &middot; newest first &middot; Copy puts the link on your clipboard</p>
-  ${pages.length ? `<ul>\n${rows}\n  </ul>` : `<p class="empty">Nothing in share/ yet.</p>`}
+  ${pages.length ? `<ul>\n${rows}\n  </ul>` : `<p class="empty">Nothing in ${esc(ix.dir)}/ yet.</p>`}
 </main>
 <footer>Forward Solutions &middot; gottamoveforward.com</footer>
 </div>
@@ -223,7 +238,10 @@ function render(pages, pinHash) {
 
 const pin = (process.env.SHARE_PIN || "").trim();
 const pinHash = pin ? crypto.createHash("sha256").update(pin).digest("hex") : "";
-if (!fs.existsSync(SHARE_DIR)) fs.mkdirSync(SHARE_DIR, { recursive: true });
-const pages = collect();
-fs.writeFileSync(OUT, render(pages, pinHash));
-console.log("share/index.html built with " + pages.length + " page(s)" + (pinHash ? "" : " -- WARNING: SHARE_PIN not set"));
+for (const ix of INDEXES) {
+  const dir = path.join(ROOT, ix.dir);
+  if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
+  const pages = collect(ix);
+  fs.writeFileSync(path.join(dir, "index.html"), render(pages, pinHash, ix));
+  console.log(ix.dir + "/index.html built with " + pages.length + " page(s)" + (pinHash ? "" : " -- WARNING: SHARE_PIN not set"));
+}

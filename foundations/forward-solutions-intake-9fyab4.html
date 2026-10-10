@@ -1,0 +1,469 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="date" content="2026-10-09">
+<meta name="client" content="Forward Solutions">
+<title>Forward Solutions - Foundation intake</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&display=swap">
+<style>
+:root{
+  --forward-blue:#1E5BBA;--sky-blue:#3FA9F5;--signal-amber:#F5A524;--ink:#1A1D24;--slate:#5B6470;
+  --paper:#F7F6F2;--paper-warm:#EFEEE8;--white:#FFFFFF;--hairline:rgba(26,29,36,.08);--line:rgba(26,29,36,.14);
+  --blue-soft:#E8EFF9;--radius:12px;
+  --font-display:'Fraunces',Georgia,serif;--font-body:'Inter',system-ui,-apple-system,sans-serif;
+  color-scheme:light;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--font-body);font-size:16px;
+  line-height:1.6;-webkit-font-smoothing:antialiased;padding:0 20px env(safe-area-inset-bottom,0px)}
+a{color:var(--forward-blue)}
+[hidden]{display:none!important}
+.hp{position:absolute;left:-9999px}
+.wrap{max-width:680px;margin:0 auto;padding-block:calc(28px + env(safe-area-inset-top,0px)) 56px}
+.brand{display:inline-flex;align-items:center;gap:10px;text-decoration:none;margin-bottom:40px}
+.brand img{height:30px;width:auto;display:block}
+.brand span{font-family:var(--font-display);font-weight:600;font-size:17px;color:var(--ink);letter-spacing:-.01em}
+.eyebrow{font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--forward-blue);margin:0 0 12px}
+h1{font-family:var(--font-display);font-weight:500;font-size:clamp(32px,7.5vw,46px);line-height:1.06;
+  letter-spacing:-.02em;margin:0 0 20px;text-wrap:balance}
+.intro{font-size:17px;margin:0 0 12px;max-width:62ch}
+.intro.soft{color:var(--slate)}
+.meta-note{font-size:14.5px;color:var(--slate);border-left:2px solid var(--sky-blue);padding-left:12px;margin:22px 0 0}
+.toc{list-style:none;margin:26px 0 0;padding:0;display:grid;gap:8px}
+.toc a{display:flex;gap:10px;align-items:baseline;background:var(--white);border:1px solid var(--hairline);
+  border-radius:var(--radius);padding:12px 14px;text-decoration:none;color:var(--ink);font-weight:500;font-size:15px}
+.toc a:hover{border-color:var(--forward-blue)}
+.toc span{font-size:13px;color:var(--forward-blue);font-weight:600;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap}
+.section{margin-top:48px;padding-top:28px;border-top:1px solid var(--hairline);scroll-margin-top:12px}
+.section-num{font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--forward-blue);display:block;margin-bottom:6px}
+h2{font-family:var(--font-display);font-weight:500;font-size:27px;line-height:1.15;letter-spacing:-.02em;margin:0 0 8px;text-wrap:balance}
+h3{font-family:var(--font-body);font-weight:600;font-size:16px;margin:30px 0 0}
+.section-sub{font-size:15.5px;color:var(--slate);margin:0;max-width:62ch}
+.section-sub+.section-sub{margin-top:8px}
+.items{display:flex;flex-direction:column;gap:10px;margin-top:16px}
+.item{background:var(--white);border:1px solid var(--hairline);border-radius:var(--radius);padding:16px}
+.item.on{border-color:var(--forward-blue)}
+details.item{padding:0}
+details.item>summary{list-style:none;cursor:pointer;display:flex;gap:12px;align-items:flex-start;padding:14px 16px;min-height:48px;border-radius:var(--radius)}
+details.item>summary::-webkit-details-marker{display:none}
+details.item>summary:hover{background:var(--paper)}
+details.item>summary:focus-visible{outline:2px solid var(--forward-blue);outline-offset:2px}
+details.item>summary .st{flex:1 1 auto;font-weight:600;font-size:15.5px;line-height:1.4}
+details.item>summary .st small{display:block;font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--slate);margin-bottom:2px}
+details.item>summary .done{flex:0 0 auto;font-size:12.5px;font-weight:600;color:var(--forward-blue);background:var(--blue-soft);border-radius:999px;padding:2px 10px;margin-top:1px;visibility:hidden}
+details.item.on>summary .done{visibility:visible}
+details.item>summary::after{content:"";flex:0 0 auto;width:9px;height:9px;margin:6px 4px 0 0;border-right:2px solid var(--slate);border-bottom:2px solid var(--slate);transform:rotate(45deg);transition:transform .15s}
+details.item[open]>summary::after{transform:rotate(-135deg);margin-top:10px}
+details.item>.body{padding:0 16px 16px}
+.cp{display:inline-flex;align-items:center;flex:0 0 auto;min-height:32px;padding:4px 12px;font:inherit;font-size:13px;font-weight:600;color:var(--forward-blue);background:var(--blue-soft);border:0;border-radius:999px;cursor:pointer;white-space:nowrap}
+.cp:hover{filter:brightness(.97)}
+.cp:focus-visible{outline:2px solid var(--forward-blue);outline-offset:2px}
+.row{display:flex;gap:8px;align-items:flex-start}
+.row>.opt{flex:1 1 auto}
+.row>.opt+.cp{margin-top:8px}
+.sug{display:flex;flex-direction:column;gap:6px;margin:0 0 8px}
+.sug div>span{white-space:pre-line}
+.sug div{display:flex;gap:10px;align-items:flex-start;justify-content:space-between;font-size:14.5px;padding:8px 10px 8px 12px;border:1px solid var(--hairline);border-radius:9px;background:var(--paper)}
+.part{margin-top:16px;padding-top:14px;border-top:1px solid var(--hairline)}
+.part:first-of-type{border-top:0;padding-top:0}
+.part>.plab{font-size:15px;font-weight:600;margin:0}
+.tools{display:flex;gap:8px;margin-top:14px}
+.rm{display:flex;align-items:center;gap:6px;font-size:12.5px;color:var(--slate);cursor:pointer;margin-top:3px}
+.rm input{accent-color:var(--forward-blue);margin:0;width:16px;height:16px}
+.chip:has(.rm input:checked) i{opacity:.25}
+.chip:has(.rm input:checked) code{text-decoration:line-through}
+.ty{margin-top:12px;border-top:1px solid var(--hairline)}
+.ty>div{padding:12px 0;border-bottom:1px solid var(--hairline)}
+.ty .nm{font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--slate)}
+.ty .sp{font-size:13.5px;color:var(--slate);margin:2px 0 0}
+.ty .sm{color:var(--ink);overflow-wrap:anywhere;margin:4px 0 0}
+.lab{display:block;font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--slate);margin:0 0 6px}
+.ilabel{font-weight:600;font-size:16px;margin:0 0 6px;line-height:1.35}
+.guess{font-size:15.5px;margin:0;padding:2px 0 2px 12px;border-left:2px solid var(--sky-blue)}
+.page{font-size:13.5px;color:var(--slate);margin:6px 0 0}
+.hint{font-size:14.5px;color:var(--slate);margin:4px 0 0}
+.check{display:flex;align-items:flex-start;gap:10px;padding:10px 0 0;cursor:pointer;min-height:40px;font-size:15px;font-weight:500}
+.check input{width:20px;height:20px;accent-color:var(--forward-blue);flex:0 0 auto;margin:2px 0 0}
+.check input:focus-visible{outline:2px solid var(--forward-blue);outline-offset:2px}
+.field{margin-top:10px}
+.field label{display:block;font-size:14px;font-weight:600;margin:0 0 4px}
+textarea,input[type=text]{width:100%;font:inherit;font-size:16px;color:var(--ink);background:var(--paper);
+  border:1px solid var(--line);border-radius:9px;padding:10px 12px;line-height:1.5}
+textarea{resize:vertical;min-height:64px}
+textarea.big{min-height:120px}
+textarea::placeholder{color:var(--slate);opacity:.8}
+textarea:focus-visible{outline:2px solid var(--forward-blue);outline-offset:1px;border-color:transparent}
+.opts{display:flex;flex-direction:column;gap:6px;margin-top:10px}
+.opt{display:flex;gap:10px;align-items:flex-start;padding:10px 12px;border:1px solid var(--line);border-radius:9px;cursor:pointer;font-size:15px}
+.opt:hover{background:var(--paper)}
+.opt:has(input:checked){border-color:var(--forward-blue);background:var(--blue-soft)}
+.opt input{width:18px;height:18px;accent-color:var(--forward-blue);flex:0 0 auto;margin:3px 0 0}
+.opt small{display:block;font-size:13px;color:var(--slate)}
+.inline{display:flex;flex-wrap:wrap;gap:6px 8px;align-items:center;margin-top:10px;font-size:14.5px}
+.inline b{font-weight:600;margin-right:4px}
+.pill{display:inline-flex;align-items:center;gap:6px;padding:6px 12px;border:1px solid var(--line);border-radius:999px;cursor:pointer;min-height:36px}
+.pill:has(input:checked){border-color:var(--forward-blue);background:var(--blue-soft)}
+.pill input{accent-color:var(--forward-blue);margin:0}
+.notes{margin-top:18px}
+.notes label{display:block;font-size:14px;font-weight:600;margin:0 0 4px}
+.sw{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:8px;margin-top:12px}
+.chip{display:flex;align-items:flex-start;gap:10px;font-size:13.5px;line-height:1.3}
+.chip i{flex:0 0 auto;width:34px;height:34px;border-radius:8px;border:1px solid var(--line)}
+.chip code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12.5px;color:var(--slate);display:block}
+.grp{margin-top:14px;padding-top:12px;border-top:1px solid var(--hairline)}
+.grp:first-of-type{border-top:0;padding-top:0}
+.grp p{margin:0;font-size:14.5px;font-weight:500}
+.steps{margin:10px 0 0;padding-left:22px;font-size:15.5px}
+.steps li{margin:6px 0}
+input[type=file]{font:inherit;font-size:15px;width:100%;padding:12px;background:var(--paper);border:1px dashed var(--line);border-radius:9px;margin-top:12px}
+input[type=file]:focus-visible{outline:2px solid var(--forward-blue);outline-offset:1px}
+.send{margin-top:48px;padding:22px 18px;background:var(--white);border:1px solid var(--hairline);border-radius:var(--radius)}
+.send h2{font-size:22px}
+.btn{display:inline-flex;align-items:center;justify-content:center;margin-top:18px;min-height:48px;padding:12px 26px;
+  font:inherit;font-weight:600;font-size:16px;color:var(--ink);background:var(--signal-amber);border:0;border-radius:999px;cursor:pointer}
+.btn:hover{filter:brightness(.96)}
+.btn:focus-visible{outline:2px solid var(--forward-blue);outline-offset:3px}
+.btn:disabled{opacity:.6;cursor:default}
+.saved-note{font-size:14px;color:var(--slate);margin:12px 0 0;min-height:1.4em}
+.sent{margin-top:16px;padding:12px 14px;background:var(--blue-soft);border-radius:9px;font-size:15px}
+.foot{margin-top:56px;padding-top:24px;border-top:1px solid var(--hairline);font-size:15px;color:var(--slate)}
+.foot .fs{font-family:var(--font-display);font-weight:600;font-size:17px;color:var(--ink);text-decoration:none}
+.foot p{margin:6px 0}
+.foot a{text-decoration:none;font-weight:500}
+.foot a:hover{text-decoration:underline}
+.foot .sep{margin:0 6px;color:var(--line)}
+.sw{grid-template-columns:repeat(auto-fill,minmax(150px,1fr))}
+@media print{.cp,.tools,.btn,.saved-note,.toc,input[type=file]{display:none}}
+</style>
+</head>
+<body>
+<main class="wrap">
+  <a class="brand" href="https://gottamoveforward.com/">
+    <img src="data:image/png;base64,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" alt="">
+    <span>Forward Solutions</span>
+  </a>
+
+  <p class="eyebrow">Foundation intake</p>
+  <h1>Here is what your website says about you. Tell me where it&rsquo;s wrong.</h1>
+  <p class="intro">I read every page of <b id="siteName"></b> on <span id="scanDate"></span> and wrote down my best guess at what the business is, who it serves and how it works. A guess is all it is. Nothing here goes into your documents until you&rsquo;ve confirmed it.</p>
+  <p class="intro soft">There are four parts. Allow about an hour, and it doesn&rsquo;t need to be one sitting. Rough answers in your own words are worth more than tidy ones.</p>
+  <ul class="toc" id="toc"></ul>
+  <div class="tools"><button class="cp" type="button" id="openAll">Open every card</button><button class="cp" type="button" id="closeAll">Close every card</button></div>
+  <p class="meta-note">Everything you type is saved on this device as you go and stays here after you send. Sending is optional and can be done more than once, so send what you have and come back for the rest.</p>
+
+  <form id="intakeForm" name="foundation-intake-forward-solutions" method="POST" enctype="multipart/form-data" data-netlify="true" data-netlify-honeypot="bot-field" netlify-honeypot="bot-field">
+    <input type="hidden" name="form-name" value="foundation-intake-forward-solutions">
+    <p class="hp"><label>Leave this blank: <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+    <textarea name="prompt" id="promptField" class="hp" tabindex="-1" aria-hidden="true"></textarea>
+
+    <section class="section" id="s1">
+      <span class="section-num">Part one</span>
+      <h2>What the site says</h2>
+      <p class="section-sub">Each card is a guess, with the page it came from. Open a card. If the guess is right, tick it. If it&rsquo;s wrong, out of date or only half the story, press Copy to box and change the words until they&rsquo;re true.</p>
+      <div class="items" id="guesses"></div>
+
+      <h3>The rules you seem to work by</h3>
+      <p class="section-sub">A rule only counts if it has cost you something: a job you turned down, hours you didn&rsquo;t bill, a client you sent elsewhere. For each one, say whether it&rsquo;s really a rule, and what it has cost you.</p>
+      <div class="items" id="rules"></div>
+
+      <h3>What you won&rsquo;t do</h3>
+      <p class="section-sub">For each one: is it a line you really hold?</p>
+      <div class="items" id="refusals"></div>
+
+      <div class="notes"><label for="note1">Anything the site leaves out that belongs in this part</label><textarea id="note1" data-k="note1" data-note="Left out of part one" rows="2" placeholder="Something you sell, a rule, a line you won&rsquo;t cross"></textarea></div>
+    </section>
+
+    <section class="section" id="s2">
+      <span class="section-num">Part two</span>
+      <h2>Where the site disagrees with itself</h2>
+      <p class="section-sub">In each of these, the site says two or more things that can&rsquo;t all be true. Pick the one that&rsquo;s true today. If none is quite right, copy the closest one into the box and fix it. Only you can settle these, so I haven&rsquo;t guessed.</p>
+      <div class="items" id="conflicts"></div>
+      <div class="notes"><label for="note2">Comments or questions on this part</label><textarea id="note2" data-k="note2" data-note="Notes on part two" rows="2" placeholder="Comments or questions"></textarea></div>
+    </section>
+
+    <section class="section" id="s3">
+      <span class="section-num">Part three</span>
+      <h2>What the site couldn&rsquo;t tell me</h2>
+      <p class="section-sub">No website answers these. Each box comes with a few starting points, written the way a business like yours might answer. They are examples, not facts about you. Copy the closest one into the box, then change the details until it&rsquo;s true. Or ignore them and write your own.</p>
+      <div class="items" id="questions"></div>
+      <div class="notes"><label for="note3">Comments or questions on this part</label><textarea id="note3" data-k="note3" data-note="Notes on part three" rows="2" placeholder="Comments or questions"></textarea></div>
+    </section>
+
+    <section class="section" id="s4">
+      <span class="section-num">Part four</span>
+      <h2>Your logo, colours and files</h2>
+      <p class="section-sub">This is what I could see of how the business looks. Confirm it, then send me the files.</p>
+
+      <h3>Colours</h3>
+      <p class="section-sub">Tick Remove on any colour that isn&rsquo;t yours or shouldn&rsquo;t be there. <b>Every colour you don&rsquo;t tick stays.</b></p>
+      <div class="items">
+        <details class="item" data-item="col1">
+          <summary><span class="st">Eight colours named in the site&rsquo;s code</span><span class="done">Done</span></summary>
+          <div class="body">
+            <p class="hint">These look like the brand&rsquo;s palette.</p>
+            <div class="sw" id="swNamed"></div>
+            <label class="check"><input type="checkbox" data-k="col1.ok"><span>I&rsquo;ve looked. The ones I haven&rsquo;t ticked stay</span></label>
+            <div class="field"><label for="col1t">Anything to add</label><textarea id="col1t" data-k="col1.t" rows="2" placeholder="A name that&rsquo;s wrong, a brand colour that&rsquo;s missing"></textarea></div>
+          </div>
+        </details>
+        <details class="item" data-item="col2">
+          <summary><span class="st"><span id="unnamedCount"></span> more colours used without a name</span><span class="done">Done</span></summary>
+          <div class="body">
+            <p class="hint">Some will be deliberate and some will be leftovers.</p>
+            <div id="swGroups"></div>
+            <label class="check"><input type="checkbox" data-k="col2.ok"><span>I&rsquo;ve looked. The ones I haven&rsquo;t ticked stay</span></label>
+            <div class="field"><label for="col2t">Anything to add</label><textarea id="col2t" data-k="col2.t" rows="2" placeholder="What a colour is for, or a name it should have"></textarea></div>
+          </div>
+        </details>
+      </div>
+
+      <h3>Type and logo</h3>
+      <div class="items">
+        <details class="item" data-item="typ">
+          <summary><span class="st">Type: the fonts and sizes the site uses</span><span class="done">Done</span></summary>
+          <div class="body">
+            <p class="guess" id="typeGuess"></p>
+            <p class="hint" id="typeNote"></p>
+            <div class="ty" id="typeList"></div>
+            <label class="check"><input type="checkbox" data-k="typ.ok"><span>That&rsquo;s right</span></label>
+            <div class="field"><label for="typt">Or correct it</label><textarea id="typt" data-k="typ.t" rows="2" placeholder="A size that should change, a style you want that the site doesn&rsquo;t have, other fonts you use in print"></textarea></div>
+          </div>
+        </details>
+        <details class="item" data-item="mrk">
+          <summary><span class="st">Logo</span><span class="done">Done</span></summary>
+          <div class="body">
+            <p class="guess" id="markGuess"></p>
+            <label class="check"><input type="checkbox" data-k="mrk.ok"><span>That&rsquo;s right</span></label>
+            <div class="field"><label for="mrkt">Who made the logo, and do they still have the original files?</label><textarea id="mrkt" data-k="mrk.t" rows="2"></textarea></div>
+          </div>
+        </details>
+      </div>
+
+      <h3>Send me the files</h3>
+      <div class="items">
+        <details class="item" id="filesCard">
+          <summary><span class="st">One zipped folder, with everything in it</span><span class="done">Done</span></summary>
+          <div class="body">
+          <p class="hint">Don&rsquo;t sort it, rename it or decide what matters. I&rsquo;ll go through all of it. Too much is better than too little.</p>
+          <ol class="steps">
+            <li>Make a new folder on your computer.</li>
+            <li>Copy in every version of the logo you can find. A vector file matters most: SVG, AI, EPS or the designer&rsquo;s PDF. If none exists, the largest PNG you have.</li>
+            <li>Add anything else that has been designed: a brand guide, business card, letterhead, signs, vehicle wrap, social graphics, the photos you use, and any fonts you bought.</li>
+            <li>Zip the folder. On a Mac, right-click it and choose Compress. On Windows, right-click it and choose Send to, then Compressed (zipped) folder.</li>
+            <li>Choose the zip below. It is sent when you press Send.</li>
+          </ol>
+          <input type="file" name="files" id="fileField" accept=".zip,application/zip" aria-label="Zipped folder of logo and brand files">
+          <p class="hint" id="fileNote">The zip can be up to 8 MB. If yours is bigger, leave this empty and email it to <a href="mailto:leepettijohn@gottamoveforward.com">leepettijohn@gottamoveforward.com</a>, or send a link to it. A file can&rsquo;t be saved on this device like your typing is, so choose it just before you send.</p>
+          </div>
+        </details>
+      </div>
+      <div class="notes"><label for="note4">Comments or questions on this part</label><textarea id="note4" data-k="note4" data-note="Notes on part four" rows="2" placeholder="Comments or questions"></textarea></div>
+    </section>
+
+    <div class="send">
+      <h2>Send what you have</h2>
+      <p class="section-sub">Sending is optional and can be done more than once. Everything typed here stays on this device either way.</p>
+      <div class="notes"><label for="note9">Anything else</label><textarea id="note9" data-k="note9" data-note="Anything else" rows="2" placeholder="Comments or questions"></textarea></div>
+      <button class="btn" type="submit" id="submitBtn">Send to Lee</button>
+      <p class="saved-note" id="savedNote" role="status"></p>
+      <div class="sent" id="sentNote" hidden></div>
+    </div>
+  </form>
+
+  <footer class="foot">
+    <p><a class="fs" href="https://gottamoveforward.com/">Forward Solutions</a></p>
+    <p>Lee Pettijohn</p>
+    <p>(970) 712-6933 <span class="sep">&middot;</span> <a href="tel:+19707126933">Call</a> <span class="sep">&middot;</span> <a href="sms:+19707126933">Text</a></p>
+    <p><a href="mailto:leepettijohn@gottamoveforward.com">leepettijohn@gottamoveforward.com</a></p>
+  </footer>
+</main>
+<script id="intakeData" type="application/json">{"business": "Forward Solutions", "site": "gottamoveforward.com", "scanned": "October 9, 2026", "key": "foundation-intake-forward-solutions-2026-10-09", "handoff": "Save this as the raw intake record in foundations/forward-solutions/source/, as sent and untidied. Then continue the Foundation Method from stage 3 in foundations/forward-solutions/state.md. Every answer here is the client's own; anything not answered stays a guess.", "guesses": [{"k": "g1", "label": "What you sell", "text": "Websites, spreadsheets and systems, built, fixed and kept running by one person. Three offers: Forward Support (monthly membership, $79 or $179), Forward Sprint ($225 an hour, usually one to four hours) and Forward Expedition (two days, $2,500, or $2,000 for the first ten clients). Also quoted builds, training, and advice on which tool to buy.", "page": "Home, Services, FAQ"}, {"k": "g2", "label": "Who it is for", "text": "Small businesses with 1 to about 20 people and no IT person: trade contractors, service businesses, innkeepers, shop owners, one-person operations. “Small business owners who’d rather run their business than learn another app.”", "page": "Home, Forward Support"}, {"k": "g3", "label": "Why the business exists, and what it is against", "text": "Owners can see what better tools would do, “but nobody had time to figure out which tools, in what order, wired up how.” Against: agencies, offshore teams, ticket queues, and AI that answers but does not build.", "page": "Home"}, {"k": "g4", "label": "How you charge, and what is free", "text": "Monthly memberships, hourly work, one fixed-price two-day engagement, and quoted builds. $99 onboarding, struck from $250. $500 of the Expedition fee credits toward a build of $2,500 or more within 60 days. Build ranges: inventory system $1,000 to $2,500; Airtable CRM $1,500 to $3,000. Unused tickets roll over one month, then expire. Up to two named people per account. Cancel anytime. Free: the first call.", "page": "Forward Support, Forward Expedition, FAQ"}, {"k": "g5", "label": "Where the business is headed", "text": "The site says only this: “building toward a home base in the Spring Hill and greater Nashville area.”", "page": "About"}, {"k": "g6", "label": "The line that introduces you", "text": "“I’m Lee Pettijohn. I build the thing, fix it when it breaks, and pick up the phone.”", "page": "Home"}], "rules": [{"k": "r1", "text": "One person, start to finish. No handoffs.", "page": "About"}, {"k": "r2", "text": "Fixed prices when you can give them.", "page": "About, FAQ"}, {"k": "r3", "text": "Documentation written for the client reading it 18 months from now.", "page": "About, Services"}, {"k": "r4", "text": "If someone doesn’t need to hire you, you say so and point them somewhere else.", "page": "FAQ"}, {"k": "r5", "text": "Recommend the tool they already own before a new purchase.", "page": "FAQ"}, {"k": "r6", "text": "If you misjudge the size of a ticket, that is your cost, not the client’s.", "page": "Forward Support"}], "refusals": [{"k": "n1", "text": "No agencies, offshore teams or handoffs.", "page": "Home, About"}, {"k": "n2", "text": "No same-day or after-hours emergency response.", "page": "Forward Support"}, {"k": "n3", "text": "No managing a WordPress site with 30 or more plugins.", "page": "Forward Support, FAQ"}, {"k": "n4", "text": "No deep custom plugin development.", "page": "FAQ"}, {"k": "n5", "text": "No pressure, follow-up sequence or uninvited sales call.", "page": "Start here"}, {"k": "n6", "text": "No Sprint on a problem that isn’t clearly defined.", "page": "Forward Sprint"}, {"k": "n7", "text": "No banking unused tickets past one month.", "page": "Forward Support"}, {"k": "n8", "text": "Nobody has to be a member to hire you.", "page": "FAQ"}], "conflicts": [{"k": "c1", "label": "How the work is priced", "opts": [["“I quote a fixed price before any work starts.”", "FAQ"], ["“Fixed prices when I can give them.”", "About"], ["Hourly, with “an invoice for the actual hours spent.”", "Forward Sprint"]], "more": "The home page’s search description also says “Fixed-price builds from $750.” No page offers a $750 build. If one exists, say so below."}, {"k": "c2", "label": "What the business is, in one line", "opts": [["“Data organization and process automation for small business.”", "footer of every page"], ["“Websites, spreadsheets, and systems.”", "Home headline"], ["“Small business websites, Airtable systems, and automations.”", "Home page title"]], "more": "Tools calls data and automation “the heart of what I do.” FAQ says “Integration work is half of what I do.” Websites come first everywhere else."}, {"k": "c3", "label": "How long the first call is", "opts": [["15 minutes", "Home (twice), About, FAQ"], ["30 minutes", "Home booking link, FAQ"]]}, {"k": "c4", "label": "Where the business is", "opts": [["“I’m relocating to Spring Hill in July 2026.”", "Home, About"], ["“I’m based in Middle Tennessee.”", "FAQ, footer"]], "more": "July 2026 has passed, and the line is still written as a future event. The FAQ also asks about “clients outside Missouri or Tennessee.”"}, {"k": "c5", "label": "Tickets", "opts": [["“No tickets to nowhere.” “No tickets, no runaround.”", "Home, My Work"], ["Forward Support is sold and counted in tickets.", "Forward Support, FAQ"]]}, {"k": "c6", "label": "WordPress", "opts": [["Something you’re good at: “I specialize in Airtable, Stacker, Zapier, WordPress, and WooCommerce.”", "About, Forward Support"], ["“Not my strong suit.”", "Forward Support"], ["“I do updates and tune-ups, not deep custom plugin development.”", "FAQ"]], "more": "The third line may already be your answer. If so, pick it."}, {"k": "c7", "label": "Where a new client starts", "opts": [["A Forward Expedition: book one if “you’re a new client and I need to understand your business.”", "Forward Expedition"], ["A Forward Sprint: “No discovery needed.”", "Forward Sprint"], ["“Most of my clients start with a one-off build.”", "FAQ"], ["A free 15-minute call.", "FAQ"]]}, {"k": "c8", "label": "What the Stay INN build is", "opts": [["“An inn-onboarding system” for “small inns.”", "Home"], ["“A membership system” for “a 501(c)(3) community of independently owned lodging properties.”", "My Work"], ["A system for “onboarding, client messages, and inspections.”", "FAQ"]]}, {"k": "c9", "label": "After-hours emergencies", "opts": [["Not offered: “This isn’t a fit if you need same-day or after-hours emergency response.”", "Forward Support"], ["Offered: “For after-hours emergencies, ask about a custom plan.”", "Forward Support, lower on the same page"]]}], "questions": [{"k": "q1", "label": "Walk through three customers, start to finish.", "hint": "For each one: how they found you, what they had tried before, what they bought, what they paid, what went wrong, and what you did that you didn’t charge for. Rough notes are better than polished ones.", "parts": [{"label": "Customer 1", "opts": ["How they found me: another business owner sent them.\nWhat they had tried: a spreadsheet that three people edited, and a relative who “knows computers.”\nWhat they bought: one Airtable base to replace the spreadsheets, built in a Forward Sprint.\nWhat they paid: about $900.\nWhat went wrong: their data was messier than either of us expected.\nWhat I didn’t charge for: an extra hour showing the office manager how to use it.", "How they found me: they searched for help with a broken Zap.\nWhat they had tried: the tool’s own support, and waiting.\nWhat they bought: Forward Support, after I fixed the first problem.\nWhat they pay: $79 a month.\nWhat went wrong: the first fix uncovered two more things that were broken.\nWhat I didn’t charge for: writing down how the whole thing fits together.", "How they found me: they saw a site or system I built for someone they know.\nWhat they had tried: an agency quote they couldn’t afford, or a builder who disappeared.\nWhat they bought: a Forward Expedition, then the build it scoped.\nWhat they paid: $2,500 for the Expedition and a quoted price for the build.\nWhat went wrong: the build grew once they saw what was possible.\nWhat I didn’t charge for: answering texts for a month after launch.", "How they found me: ___.\nWhat they had tried: ___.\nWhat they bought: ___.\nWhat they paid: ___.\nWhat went wrong: ___.\nWhat I didn’t charge for: ___."]}, {"label": "Customer 2", "opts": ["How they found me: another business owner sent them.\nWhat they had tried: a spreadsheet that three people edited, and a relative who “knows computers.”\nWhat they bought: one Airtable base to replace the spreadsheets, built in a Forward Sprint.\nWhat they paid: about $900.\nWhat went wrong: their data was messier than either of us expected.\nWhat I didn’t charge for: an extra hour showing the office manager how to use it.", "How they found me: they searched for help with a broken Zap.\nWhat they had tried: the tool’s own support, and waiting.\nWhat they bought: Forward Support, after I fixed the first problem.\nWhat they pay: $79 a month.\nWhat went wrong: the first fix uncovered two more things that were broken.\nWhat I didn’t charge for: writing down how the whole thing fits together.", "How they found me: they saw a site or system I built for someone they know.\nWhat they had tried: an agency quote they couldn’t afford, or a builder who disappeared.\nWhat they bought: a Forward Expedition, then the build it scoped.\nWhat they paid: $2,500 for the Expedition and a quoted price for the build.\nWhat went wrong: the build grew once they saw what was possible.\nWhat I didn’t charge for: answering texts for a month after launch.", "How they found me: ___.\nWhat they had tried: ___.\nWhat they bought: ___.\nWhat they paid: ___.\nWhat went wrong: ___.\nWhat I didn’t charge for: ___."]}, {"label": "Customer 3", "opts": ["How they found me: another business owner sent them.\nWhat they had tried: a spreadsheet that three people edited, and a relative who “knows computers.”\nWhat they bought: one Airtable base to replace the spreadsheets, built in a Forward Sprint.\nWhat they paid: about $900.\nWhat went wrong: their data was messier than either of us expected.\nWhat I didn’t charge for: an extra hour showing the office manager how to use it.", "How they found me: they searched for help with a broken Zap.\nWhat they had tried: the tool’s own support, and waiting.\nWhat they bought: Forward Support, after I fixed the first problem.\nWhat they pay: $79 a month.\nWhat went wrong: the first fix uncovered two more things that were broken.\nWhat I didn’t charge for: writing down how the whole thing fits together.", "How they found me: they saw a site or system I built for someone they know.\nWhat they had tried: an agency quote they couldn’t afford, or a builder who disappeared.\nWhat they bought: a Forward Expedition, then the build it scoped.\nWhat they paid: $2,500 for the Expedition and a quoted price for the build.\nWhat went wrong: the build grew once they saw what was possible.\nWhat I didn’t charge for: answering texts for a month after launch.", "How they found me: ___.\nWhat they had tried: ___.\nWhat they bought: ___.\nWhat they paid: ___.\nWhat went wrong: ___.\nWhat I didn’t charge for: ___."]}], "big": true}, {"k": "q2", "label": "Which of those do you want more of, and which would you not take again?", "hint": "For the one you wouldn’t take again: was it the person, the work or the money? How early could you have known?", "parts": [{"label": "More of", "opts": ["Owners of a 1-to-20-person business who know what’s broken and want it fixed, not explained.", "Trades and service businesses running on spreadsheets they’ve outgrown.", "Clients who come back with the next thing once the first automation works.", "People sent by someone I’ve already built for."]}, {"label": "Not again, and why", "opts": ["A client who wanted a custom system but kept changing what it should do after we’d agreed. I could have known when they couldn’t describe the problem on the first call.", "A WordPress site with dozens of plugins, where every fix broke something else.", "Someone who wanted agency-size work at one-ticket prices.", "Someone who needed same-day emergency response, which I don’t offer."]}]}, {"k": "q3", "label": "Think of the next thing you might add: an offer, a hire, a location. What has to be true before you would do it?", "hint": "Not what you will add. What would make you say no to something that looked profitable? What is the last thing you decided not to do?", "parts": [{"label": "", "opts": ["It has to be something I can build and support myself, without subcontracting.", "A paying client has to have asked for it more than once.", "It has to work with the tools I already know well: Airtable, Zapier, WordPress.", "It can’t slow down my response time for Support members.", "The last thing I decided not to do was after-hours emergency support, because it would mean being on call.", "The last thing I decided not to do was ___, because ___."]}]}, {"k": "q4", "label": "Name two good things about this business that can’t both be had in full. Which one wins?", "hint": "Speed or craft. Growth or staying one person. Price or availability. When did you last have to choose?", "parts": [{"label": "The two things", "opts": ["Fast turnaround, and documentation good enough to read 18 months from now.", "Taking on more clients, and staying one person who picks up the phone.", "A low monthly price, and a quick response.", "Building exactly what was asked for, and telling people when they don’t need it.", "___, and ___."]}, {"label": "Which wins, and why", "opts": ["Documentation wins. I’d rather deliver a day later than leave a system nobody can maintain.", "Staying one person wins. I’ve turned down projects that would have needed a team.", "A quick response wins, and the Priority plan costs more because of it.", "Telling them wins. I’ve talked clients out of a build and lost the fee.", "___ wins. ___."]}]}, {"k": "q5", "label": "When a customer describes you to someone who has never met you, what do they say?", "hint": "", "parts": [{"label": "What you want them to say", "opts": ["“He fixed it that week and explained it in plain English.”", "“He told me I didn’t need the $400-a-month software.”", "“He’s my tech person. I text him and it gets handled.”", "“He built it, and a year later he’s still the one who answers.”", "“He ___.”"]}, {"label": "What they actually say now", "opts": ["“He’s my computer guy,” or “my IT person.”", "“He built our website,” or “our Airtable.” One project, not the whole of what I do.", "“He’s who I call when a Zap breaks.”", "I don’t know. I’ve never asked."]}, {"label": "What you would hate to hear, even as a compliment", "opts": ["“He’s cheap.”", "“He’s a web designer.”", "“He’s my IT guy,” when I don’t do networks or hardware.", "“He can do anything.”", "“He ___.”"]}]}, {"k": "q6", "label": "What legal structure holds the business, and is that settled?", "hint": "The site gives no legal name, entity type or state. Also: is there anything you are not licensed, certified or registered to do or to call yourself? Those become words the business never uses.", "parts": [{"label": "Legal name, entity type and state", "opts": ["___ LLC, a single-member LLC registered in ___.", "Sole proprietor, doing business as ___, in ___.", "___ Inc., an S corporation in ___."]}, {"label": "Settled or open? If open, what would decide it?", "opts": ["Settled.", "Settled for now. I’d revisit it if I hired someone.", "Open. I’m deciding whether to ___, and ___ would settle it."]}, {"label": "Things you can’t claim", "opts": ["I’m one person, so never “our team,” “our developers” or “our staff.”", "I’m not an official partner or certified consultant for Airtable, Zapier or WordPress, so never “certified” or “authorized.”", "I’m not a managed IT provider: no networks, hardware, security monitoring or compliance work.", "I don’t guarantee uptime or results, so never “guaranteed.”", "I’m not an accountant or an attorney, so no tax or legal advice, even when I build financial tools.", "I’m not ___, so never “___.”"]}]}, {"k": "q7", "label": "A year from now, what would have to be true for you to say this is working?", "hint": "Things someone outside the business could check. “More visibility” can’t be checked. “Twelve Support members” can.", "parts": [{"label": "", "opts": ["Twelve Forward Support members paying monthly.", "One Forward Expedition booked every month.", "Half of new clients arriving by referral.", "Six finished builds I can name and show on the My Work page.", "No single client is more than a quarter of the work.", "___ (how many) ___ (of what)."]}]}, {"k": "q8", "label": "What are you currently guessing at?", "hint": "The open questions. Writing them down keeps the finished documents from sounding more settled than the business is. For each, what would settle it?", "parts": [{"label": "", "opts": ["Whether $79 and $179 are the right prices for Support. What would settle it: ten members, and how many tickets they actually use.", "Whether websites or data and automation should come first. What would settle it: what the next ten enquiries ask for.", "Whether to stay one person. What would settle it: turning work away two months running.", "Whether the Expedition is the right first step for a new client. What would settle it: how many of them lead to a build.", "Whether to focus on one kind of business, like trades or lodging. What would settle it: where the next five referrals come from.", "Whether ___. What would settle it: ___."]}]}, {"k": "q9", "label": "What should this page have asked that it didn’t?", "hint": "", "parts": [{"label": "", "opts": ["Nothing. This covered it.", "How I got into this work, and why I started the business.", "The tools I use, and why I chose them.", "Who I send people to when the work isn’t a fit."]}]}, {"k": "q10", "label": "What would you not want written down, even if it is true?", "hint": "This stays between us. It keeps sensitive material out of a document other people will read.", "parts": [{"label": "", "opts": ["Nothing comes to mind.", "Anything that names a client or shows their data.", "What a particular client paid.", "Personal or family details.", "Where I plan to take the business."]}]}], "colors": {"named": [["Forward Blue", "#1E5BBA"], ["Sky Blue", "#3FA9F5"], ["Signal Amber", "#F5A524"], ["Ink", "#1A1D24"], ["Slate", "#5B6470"], ["Paper", "#F7F6F2"], ["Paper Warm", "#EFEEE8"], ["White", "#FFFFFF"]], "groups": [["A red", "Forward Expedition", ["#D7261E"]], ["Darker blues and ambers, likely for buttons when hovered", "stylesheet, Tools, Pre-discovery", ["#17498F", "#174A9A", "#E0961A", "#E89818"]], ["Pale blues", "Home, Services, Tools, Pre-discovery", ["#F0F5FC", "#E1ECF9", "#CFE0F5", "#FBFCFE"]], ["More off-whites and a grey", "stylesheet, Home", ["#FAFAF7", "#F0EFE9", "#D4D2CA"]], ["A coral, a gold and a green used together", "stylesheet", ["#E8856C", "#E8C36C", "#8FC58F"]], ["Greens and amber tints found on one page only", "Pre-discovery, Tools", ["#3F9F6E", "#245A44", "#E8F3ED", "#FDF1DC", "#FDF6EA", "#8A5A0F"]]]}, "type": "Fraunces for headlines, Inter for body text.", "mark": "A PNG file, logo-mark.png, in the header beside “Forward Solutions” set in type. No vector (SVG) version of the logo is on the site.", "typeNote": "Sizes are as they appear on a desktop screen; they shrink on a phone.", "typeStyles": [["Heading 1", "Heading 1", "Fraunces, 68px, medium", "var(--font-display)", 68, 500, ""], ["Heading 2", "Heading 2", "Fraunces, 44px, medium", "var(--font-display)", 44, 500, ""], ["Heading 3", "Heading 3", "Fraunces, semibold, at four sizes across the site: 20, 21, 22 and 24px", "var(--font-display)", 22, 600, ""], ["Heading 4, 5 and 6", null, "Not used on the site.", "var(--font-body)", 0, 0, ""], ["Lead paragraph", "The larger paragraph that opens a page.", "Inter, 20px, regular", "var(--font-body)", 20, 400, ""], ["Body text", "The ordinary paragraph that most of the site is written in.", "Inter, 17px, regular", "var(--font-body)", 17, 400, ""], ["Small text and lists", "List items and the footer.", "Inter, 15px, regular", "var(--font-body)", 15, 400, ""], ["Bold", "A phrase picked out in bold.", "Inter, bold (700)", "var(--font-body)", 17, 700, ""], ["Italic", "A phrase picked out in italic.", "Inter, italic", "var(--font-body)", 17, 400, "font-style:italic"], ["Label above a heading", "Label above a heading", "Inter, 13px, semibold, capitals, spaced out", "var(--font-body)", 13, 600, "text-transform:uppercase;letter-spacing:.08em"], ["Menu link", "Menu link", "Inter, 15px, medium", "var(--font-body)", 15, 500, ""], ["Button", "Button", "Inter, 16px, medium. Also seen at 15 and 17px", "var(--font-body)", 16, 500, ""], ["Link in a paragraph", "A link inside a sentence", "Same as body text: Inter, 17px, regular", "var(--font-body)", 17, 400, "text-decoration:underline"], ["Quote", "A quoted line looks like this.", "Fraunces, 21px, regular", "var(--font-display)", 21, 400, ""], ["Caption, and text on a form", null, "Not measured.", "var(--font-body)", 0, 0, ""]]}</script>
+<script>
+(function(){
+  "use strict";
+  var D=JSON.parse(document.getElementById("intakeData").textContent);
+  var form=document.getElementById("intakeForm");
+  var note=document.getElementById("savedNote"), sent=document.getElementById("sentNote"), btn=document.getElementById("submitBtn");
+  var $=function(id){return document.getElementById(id);};
+  function esc(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");}
+  $("siteName").textContent=D.site; $("scanDate").textContent=D.scanned;
+
+  // ---- build the cards
+  function cp(target,text){return '<button class="cp" type="button" data-copy="'+target+'" data-text="'+esc(text)+'">Copy to box</button>';}
+  function card(k,title,over,body){
+    return '<details class="item" data-item="'+k+'"><summary><span class="st">'+(over?'<small>'+esc(over)+'</small>':'')+esc(title)+'</span><span class="done">Done</span></summary><div class="body">'+body+'</div></details>';
+  }
+  function guessCard(g,extra){
+    var body='<p class="guess">'+esc(g.text)+'</p><p class="page">From: '+esc(g.page)+'</p>'+
+      '<label class="check"><input type="checkbox" data-k="'+g.k+'.ok"><span>'+(extra&&extra.tick||"That’s right")+'</span></label>'+
+      '<div class="field"><div class="row" style="justify-content:space-between;align-items:center;margin-bottom:4px"><label for="'+g.k+'t" style="margin:0">'+(extra&&extra.box||"Or correct it")+'</label>'+cp(g.k+"t",g.text)+'</div>'+
+      '<textarea id="'+g.k+'t" data-k="'+g.k+'.t" rows="3"></textarea></div>';
+    return card(g.k,g.label||g.text,"",body);
+  }
+  $("guesses").innerHTML=D.guesses.map(function(g){return guessCard(g);}).join("");
+  $("rules").innerHTML=D.rules.map(function(g){return guessCard(g,{tick:"Yes, this is a rule",box:"What has it cost you? Or correct it"});}).join("");
+  $("refusals").innerHTML=D.refusals.map(function(g){return guessCard(g,{tick:"Yes, I won’t do this"});}).join("");
+  $("conflicts").innerHTML=D.conflicts.map(function(c,i){
+    var o=c.opts.map(function(p){return '<div class="row"><label class="opt"><input type="radio" name="'+c.k+'.pick" data-k="'+c.k+'.pick" value="'+esc(p[0])+'"><span>'+esc(p[0])+'<small>'+esc(p[1])+'</small></span></label>'+cp(c.k+"t",p[0])+'</div>';}).join("")+
+      '<div class="row"><label class="opt"><input type="radio" name="'+c.k+'.pick" data-k="'+c.k+'.pick" value="None of these"><span>None of these. What’s true is in the box below.</span></label></div>';
+    var body=(c.more?'<p class="hint">'+esc(c.more)+'</p>':'')+'<div class="opts" role="group" aria-label="'+esc(c.label)+'">'+o+'</div>'+
+      '<div class="field"><label for="'+c.k+'t">In your words</label><textarea id="'+c.k+'t" data-k="'+c.k+'.t" rows="2" placeholder="What’s true today, or anything to add"></textarea></div>';
+    return card(c.k,c.label,'',body);
+  }).join("");
+  $("questions").innerHTML=D.questions.map(function(q,i){
+    var f=q.parts.map(function(p,j){var id=q.k+"p"+j;
+      return '<div class="part">'+(p.label?'<p class="plab">'+esc(p.label)+'</p>':'')+
+        '<span class="lab" style="margin-top:8px">Starting points</span><div class="sug">'+p.opts.map(function(o){return '<div><span>'+esc(o)+'</span>'+cp(id,o)+'</div>';}).join("")+'</div>'+
+        '<div class="field"><label for="'+id+'">In your own words</label><textarea id="'+id+'" data-k="'+q.k+'.'+j+'" rows="3"'+(q.big?' class="big"':'')+'></textarea></div></div>';}).join("");
+    return card(q.k,q.label,'',(q.hint?'<p class="hint">'+esc(q.hint)+'</p>':'')+f);
+  }).join("");
+  function chip(name,hex){return '<span class="chip"><i style="background:'+hex+'"></i><span>'+(name?esc(name):'')+'<code>'+hex+'</code><label class="rm"><input type="checkbox" data-k="rm.'+hex+'">Remove</label></span></span>';}
+  $("swNamed").innerHTML=D.colors.named.map(function(c){return chip(c[0],c[1]);}).join("");
+  var un=0;
+  $("swGroups").innerHTML=D.colors.groups.map(function(g){un+=g[2].length;
+    return '<div class="grp"><p>'+esc(g[0])+'</p><p class="page" style="margin-top:2px">From: '+esc(g[1])+'</p><div class="sw">'+g[2].map(function(h){return chip("",h);}).join("")+'</div></div>';}).join("");
+  $("unnamedCount").textContent=un;
+  $("typeGuess").textContent=D.type; $("typeNote").textContent=D.typeNote; $("markGuess").textContent=D.mark;
+  $("typeList").innerHTML=D.typeStyles.map(function(s){
+    return '<div><span class="nm">'+esc(s[0])+'</span>'+(s[1]?'<p class="sm" style="font-family:'+s[3]+';font-size:min('+s[4]+'px,11vw);font-weight:'+s[5]+';line-height:1.15;'+s[6]+'">'+esc(s[1])+'</p>':'')+'<p class="sp">'+esc(s[2])+'</p></div>';
+  }).join("");
+
+  // ---- save on this device
+  var state={v:{},sentAt:""};
+  try{var raw=localStorage.getItem(D.key); if(raw){var p=JSON.parse(raw); if(p&&p.v) state=p;}}catch(e){}
+  function save(){try{localStorage.setItem(D.key,JSON.stringify(state)); note.textContent="Saved on this device.";}catch(e){note.textContent="";}}
+  var timer=null; function later(){clearTimeout(timer); timer=setTimeout(save,500);}
+  var fields=form.querySelectorAll("[data-k]");
+  function val(k){return state.v[k];}
+  for(var i=0;i<fields.length;i++){(function(el){
+    var k=el.getAttribute("data-k");
+    if(el.type==="checkbox"){ if(val(k)) el.checked=true; }
+    else if(el.type==="radio"){ if(val(k)===el.value) el.checked=true; }
+    else if(val(k)) el.value=val(k);
+    el.addEventListener(el.tagName==="TEXTAREA"?"input":"change",function(){
+      state.v[k]=el.type==="checkbox"?el.checked:el.value;
+      if(el.tagName==="TEXTAREA") later(); else save();
+      tally();
+    });
+  })(fields[i]);}
+
+  // ---- progress
+  var parts=[["s1","What the site says"],["s2","Where it disagrees with itself"],["s3","What it couldn’t tell me"],["s4","Logo, colours and files"]];
+  function touched(item){
+    var els=item.querySelectorAll("[data-k]");
+    for(var i=0;i<els.length;i++){var e=els[i]; if((e.type==="checkbox"||e.type==="radio")?e.checked:e.value.trim()) return true;}
+    return false;
+  }
+  function tally(){
+    $("toc").innerHTML=parts.map(function(p,pi){
+      var its=$(p[0]).querySelectorAll("[data-item]"), n=0;
+      for(var i=0;i<its.length;i++){var t=touched(its[i]); its[i].classList.toggle("on",t); if(t) n++;}
+      return '<li><a href="#'+p[0]+'"><span>Part '+(pi+1)+'</span>'+p[1]+'</a></li>';
+    }).join("");
+  }
+  tally();
+  form.addEventListener("click",function(e){
+    var b=e.target.closest("[data-copy]"); if(!b) return;
+    var ta=$(b.getAttribute("data-copy")), txt=b.getAttribute("data-text");
+    ta.value=ta.value.trim()?ta.value.replace(/\s+$/,"")+"\n"+txt:txt;
+    ta.dispatchEvent(new Event("input",{bubbles:true})); ta.focus();
+    var old=b.textContent; b.textContent="Copied"; setTimeout(function(){b.textContent=old;},1200);
+  });
+  function setAll(o){var d=form.querySelectorAll("details.item"); for(var i=0;i<d.length;i++) d[i].open=o;}
+  $("openAll").addEventListener("click",function(){setAll(true);});
+  $("closeAll").addEventListener("click",function(){setAll(false);});
+  function showSent(){ if(!state.sentAt) return; sent.hidden=false; sent.textContent="Sent to Lee on "+state.sentAt+". Your answers are still here on this device."; btn.textContent="Send an update"; }
+  showSent();
+
+  // ---- what gets sent
+  function one(s){return String(s||"").trim().replace(/\n+/g," / ");}
+  function buildPrompt(){
+    var L=[], v=function(k){return state.v[k];};
+    L.push("Foundation intake answers for "+D.business+", sent from the intake page.");
+    L.push("Sent on "+new Date().toLocaleString());
+    L.push(""); L.push(D.handoff);
+    function guessLines(list,okWord,askKey){
+      list.forEach(function(g){
+        var ok=v(g.k+".ok"), t=one(v(g.k+".t")), a=askKey?v(g.k+".asked"):"";
+        L.push("- "+(g.label?g.label+": ":"")+g.text+" ["+g.page+"]");
+        L.push("  "+(ok?okWord:(t||a?"Not confirmed as written":"NOT ANSWERED")));
+        if(a) L.push("  Has anyone asked: "+a);
+        if(t) L.push("  Client: "+t);
+      });
+    }
+    L.push(""); L.push("## Part one: guesses from the site");
+    guessLines(D.guesses,"CONFIRMED as written");
+    L.push(""); L.push("### Rules (each needs its cost)");
+    guessLines(D.rules,"CONFIRMED as a rule");
+    L.push(""); L.push("### Refusals");
+    guessLines(D.refusals,"CONFIRMED as a refusal");
+    if(one(v("note1"))){L.push(""); L.push("Left out of part one: "+one(v("note1")));}
+    L.push(""); L.push("## Part two: conflicts, locked by the client");
+    D.conflicts.forEach(function(c,i){
+      var pk=v(c.k+".pick"), t=one(v(c.k+".t"));
+      L.push("- "+(i+1)+". "+c.label);
+      L.push("  "+(pk?"LOCKED: "+pk:(t?"No option picked":"NOT ANSWERED")));
+      if(t) L.push("  Client: "+t);
+    });
+    if(one(v("note2"))){L.push(""); L.push("Notes on part two: "+one(v("note2")));}
+    L.push(""); L.push("## Part three: what the site could not answer");
+    D.questions.forEach(function(q,i){
+      L.push("- "+(i+1)+". "+q.label);
+      var any=false;
+      q.parts.forEach(function(p,j){var raw=String(v(q.k+"."+j)||"").trim(), a=one(raw); if(a){any=true;
+        L.push("  "+(p.label?p.label+": ":"")+a+(p.opts.indexOf(raw)>-1?"  [a suggested starting point, sent unedited]":""));}});
+      if(!any) L.push("  NOT ANSWERED");
+    });
+    if(one(v("note3"))){L.push(""); L.push("Notes on part three: "+one(v("note3")));}
+    L.push(""); L.push("## Part four: look and files");
+    var all=D.colors.named.map(function(c){return [c[0]+" "+c[1],c[1]];});
+    D.colors.groups.forEach(function(g){g[2].forEach(function(h){all.push([h+" ("+g[0]+")",h]);});});
+    var rm=all.filter(function(c){return v("rm."+c[1]);}).map(function(c){return c[0];});
+    var keep=all.filter(function(c){return !v("rm."+c[1]);}).map(function(c){return c[0];});
+    var looked=v("col1.ok")||v("col2.ok")||rm.length;
+    L.push("- Colours to REMOVE: "+(rm.length?rm.join("; "):"none ticked"));
+    L.push("- Colours that stay: "+keep.join("; ")+(looked?"":"  [the client has not confirmed looking at these]"));
+    L.push("  Named palette looked at: "+(v("col1.ok")?"yes":"not ticked")+". Unnamed colours looked at: "+(v("col2.ok")?"yes":"not ticked")+".");
+    if(one(v("col1.t"))) L.push("  Client, on the named colours: "+one(v("col1.t")));
+    if(one(v("col2.t"))) L.push("  Client, on the unnamed colours: "+one(v("col2.t")));
+    L.push("- Type ("+D.type+" "+D.typeStyles.map(function(s){return s[0]+": "+s[2];}).join("; ")+"): "+(v("typ.ok")?"CONFIRMED":(one(v("typ.t"))?"Not confirmed as listed":"NOT ANSWERED")));
+    if(one(v("typ.t"))) L.push("  Client: "+one(v("typ.t")));
+    L.push("- Logo ("+D.mark+"): "+(v("mrk.ok")?"CONFIRMED":"not ticked"));
+    if(one(v("mrk.t"))) L.push("  Who made it and where the originals are: "+one(v("mrk.t")));
+    var f=$("fileField").files[0];
+    L.push("- Files: "+(f?"zip attached to this submission ("+f.name+", "+Math.round(f.size/1024)+" KB)":"no zip attached to this submission"));
+    if(one(v("note4"))){L.push(""); L.push("Notes on part four: "+one(v("note4")));}
+    if(one(v("note9"))){L.push(""); L.push("## Anything else"); L.push(one(v("note9")));}
+    return L.join("\n");
+  }
+  window.__buildPrompt=buildPrompt;
+
+  var MAX=8*1024*1024;
+  $("fileField").addEventListener("change",function(){
+    var f=this.files[0];
+    if(f&&f.size>MAX){ this.value=""; note.textContent="That zip is over 8 MB, so it can’t go through this page. Email it, or send a link to it."; }
+  });
+  form.addEventListener("submit",function(e){
+    e.preventDefault();
+    btn.disabled=true; var old=btn.textContent; btn.textContent="Sending…";
+    $("promptField").value=buildPrompt();
+    fetch("/",{method:"POST",body:new FormData(form)})
+    .then(function(res){
+      if(!res.ok) throw new Error("bad");
+      state.sentAt=new Date().toLocaleString([],{weekday:"long",hour:"numeric",minute:"2-digit"});
+      save(); btn.disabled=false; showSent(); note.textContent="";
+    }).catch(function(){
+      btn.disabled=false; btn.textContent=old;
+      note.textContent="That didn’t send. Check your connection and try again. Your answers are saved.";
+    });
+  });
+})();
+</script>
+</body>
+</html>

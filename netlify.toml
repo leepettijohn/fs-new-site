@@ -1,4 +1,4 @@
-# Tells Netlify to rebuild share/index.html before publishing.
+# Tells Netlify to rebuild share/index.html and foundations/index.html before publishing.
 
 [build]
   command = "node scripts/build-share-index.js"
@@ -14,5 +14,11 @@
 
 [[headers]]
   for = "/clients/*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+
+# Foundation Method pages (client intake and the like). Same rule as share/.
+[[headers]]
+  for = "/foundations/*"
   [headers.values]
     X-Robots-Tag = "noindex, nofollow"
