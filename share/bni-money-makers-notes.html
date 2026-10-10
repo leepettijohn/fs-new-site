@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex, nofollow">
-<meta name="date" content="2026-09-29">
+<meta name="date" content="2026-10-10">
 <title>BNI - Meeting Notes</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -56,7 +56,7 @@ details[open] > summary .chev{transform:rotate(180deg)}
 .sec-body{padding:0 16px 16px}
 
 label.lbl{display:block;font-size:13px;font-weight:600;color:var(--ink-soft);margin:0 0 6px}
-textarea,input[type=text],input[type=email],input[type=date]{
+textarea,input[type=text],input[type=email],input[type=tel],input[type=date]{
   width:100%;font:inherit;font-size:16px;color:var(--ink);background:var(--bg);
   border:1px solid var(--line);border-radius:8px;padding:10px 12px}
 textarea{min-height:96px;resize:vertical}
@@ -81,9 +81,8 @@ textarea:focus,input:focus{outline:2px solid var(--blue);outline-offset:1px;bord
   border-radius:999px;font-size:14px;font-weight:500;background:var(--surface);cursor:pointer;user-select:none}
 .chip span::before{content:"";width:14px;height:14px;border-radius:4px;border:1.5px solid var(--ink-soft);flex:none}
 .chip input:checked + span{background:var(--blue);border-color:var(--blue);color:#fff}
-.chip input:checked + span::before{border-color:#fff;background:#fff;
-  -webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 14'%3E%3Cpath d='M0 0h14v14H0z' fill='%23000'/%3E%3Cpath d='M3 7.2l2.6 2.6L11 4.4' stroke='%23fff' stroke-width='2' fill='none'/%3E%3C/svg%3E") center/contain;
-          mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 14'%3E%3Cpath d='M0 0h14v14H0z' fill='%23000'/%3E%3Cpath d='M3 7.2l2.6 2.6L11 4.4' stroke='%23fff' stroke-width='2' fill='none'/%3E%3C/svg%3E") center/contain}
+.chip span::before{display:inline-flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;line-height:1}
+.chip input:checked + span::before{content:"\2713";border-color:#fff;background:#fff;color:var(--blue)}
 .chip input:focus-visible + span{outline:2px solid var(--blue);outline-offset:2px}
 .next{margin-top:14px;width:100%;min-height:48px;font:inherit;font-weight:600;font-size:15px;border-radius:8px;
   border:1px solid var(--blue);background:transparent;color:var(--blue);cursor:pointer}
@@ -108,6 +107,33 @@ textarea:focus,input:focus{outline:2px solid var(--blue);outline-offset:1px;bord
 .preview h3{margin:0 0 8px;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft)}
 .preview iframe{width:100%;height:560px;border:1px solid var(--line);border-radius:8px;background:#fff}
 
+/* visitors */
+.vis{border:1px solid var(--line);border-radius:10px;padding:12px;margin-top:12px;background:var(--bg)}
+.vis-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.vis-grid .full{grid-column:1/-1}
+.vis input,.vis textarea{background:var(--surface)}
+.vis textarea{min-height:72px;margin-top:10px}
+.vis-foot{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:10px}
+.vis-remove{background:none;border:none;font:inherit;font-size:13px;color:var(--ink-soft);text-decoration:underline;cursor:pointer;padding:8px}
+.vis-remove.armed{color:#C0392B;font-weight:600}
+.add-vis{margin-top:12px}
+.empty{font-size:14px;color:var(--ink-soft);margin:0}
+
+/* sticky general notes */
+body{padding-bottom:calc(88px + env(safe-area-inset-bottom,0px))}
+.gn-tab{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:40;
+  display:flex;align-items:center;gap:8px;min-height:48px;padding:0 18px;border:none;border-radius:999px;
+  background:var(--blue);color:#fff;font:inherit;font-weight:600;font-size:15px;cursor:pointer;
+  box-shadow:0 6px 18px rgba(0,0,0,.18)}
+.gn-dot{width:8px;height:8px;border-radius:50%;background:var(--amber)}
+.gn-panel{position:fixed;left:0;right:0;bottom:0;z-index:39;background:var(--surface);border-top:1px solid var(--line);
+  border-radius:16px 16px 0 0;box-shadow:0 -8px 24px rgba(0,0,0,.15);
+  padding:16px 16px calc(80px + env(safe-area-inset-bottom,0px));transform:translateY(105%);transition:transform .2s ease}
+.gn-panel.open{transform:none}
+.gn-panel .inner{max-width:620px;margin:0 auto}
+.gn-panel h2{font-family:var(--serif);font-weight:500;font-size:20px;margin:0 0 8px}
+.gn-panel textarea{min-height:160px}
+
 footer{text-align:center;font-size:13px;color:var(--ink-soft);margin-top:32px}
 footer a{color:var(--blue);text-decoration:none;font-weight:500}
 </style>
@@ -129,6 +155,14 @@ footer a{color:var(--blue);text-decoration:none;font-weight:500}
   <details class="sec" data-sec="minute" id="minuteSec">
     <summary><h2>Member minute</h2><span class="count" id="memCount"></span><svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 8l5 5 5-5"/></svg></summary>
     <div class="sec-body" id="members"></div>
+  </details>
+
+  <details class="sec" data-sec="visitors" id="visitorsSec">
+    <summary><h2>Visitors</h2><span class="count" id="visCount"></span><svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 8l5 5 5-5"/></svg></summary>
+    <div class="sec-body">
+      <div id="visitors"></div>
+      <button type="button" class="next add-vis" id="addVis">Add visitor</button>
+    </div>
   </details>
 
   <details class="sec" data-sec="speaker" id="speakerSec">
@@ -182,6 +216,14 @@ footer a{color:var(--blue);text-decoration:none;font-weight:500}
     <iframe id="previewFrame" title="Email preview"></iframe>
   </div>
 
+  <div class="gn-panel" id="gnPanel" aria-hidden="true">
+    <div class="inner">
+      <h2>General notes</h2>
+      <textarea id="general" data-key="general" placeholder="Anything that doesn't fit a section"></textarea>
+    </div>
+  </div>
+  <button type="button" class="gn-tab" id="gnTab" aria-expanded="false" aria-controls="gnPanel"><span id="gnLabel">Notes</span><span class="gn-dot" id="gnDot" hidden></span></button>
+
   <footer>Built by <a href="https://gottamoveforward.com" target="_blank" rel="noopener">Forward Solutions</a></footer>
 </div>
 
@@ -190,6 +232,7 @@ const MEMBERS = [
   {id:"crespo",    first:"Benjamin", last:"Crespo",    biz:"MW Pros",                   cls:"HVAC",                      phone:"6155241948", email:"Ben@mwprostn.com"},
   {id:"delaney",   first:"Alan",     last:"Delaney",   biz:"Carlyle Restoration",       cls:"Water and fire restoration",phone:"6152944402", email:"alan@carlylerestoration.com"},
   {id:"graham",    first:"Ezra",     last:"Graham",    biz:"MidSouth Barndominiums",    cls:"Barndominium builder",      phone:"9312037003", email:"Ezra@midsouthb.com"},
+  {id:"hummelgard",first:"Cody",    last:"Hummelgard",biz:"Drain Doctor",              cls:"Plumbing",                  phone:"9313694936", email:""},
   {id:"jordan",    first:"Thomas",   last:"Jordan",    biz:"HealthMarkets",             cls:"Health insurance",          phone:"6153473145", email:"Tjordan@healthmarkets.com"},
   {id:"lamberth",  first:"Richard",  last:"Lamberth",  biz:"Darrell Waltrip Honda",     cls:"Auto sales",                phone:"9316297154", email:"rlamberth12@gmail.com"},
   {id:"lindberg",  first:"Byron",    last:"Lindberg",  biz:"Garden Street Law",         cls:"Attorney",                  phone:"6153808820", email:"byron@gardenstreetlaw.com"},
@@ -215,8 +258,8 @@ const STORE = "fs-bni-notes-v1", ME = "fs-bni-me-v1";
 function load(k){try{return JSON.parse(localStorage.getItem(k))||null}catch(e){return null}}
 function save(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}
 function today(){const d=new Date();return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0")}
-function blank(){return {date:today(),edu:"",speakerName:"",speakerNotes:"",visitor:"",members:{}}}
-let state = load(STORE) || blank();
+function blank(){return {date:today(),edu:"",general:"",speakerName:"",speakerNotes:"",visitor:"",members:{},visitors:[]}}
+let state = Object.assign(blank(), load(STORE) || {});
 
 /* ---------- render members ---------- */
 const box = document.getElementById("members");
@@ -235,7 +278,7 @@ MEMBERS.forEach((m,i)=>{
       <label class="lbl" for="n-${m.id}">Notes</label>
       <textarea id="n-${m.id}" data-mem="${m.id}" data-f="notes" placeholder="What they're looking for"></textarea>
       <div class="chips">${FLAGS.map(f=>`<label class="chip"><input type="checkbox" data-mem="${m.id}" data-f="${f.key}"><span>${f.label}</span></label>`).join("")}</div>
-      <button type="button" class="next">${i<MEMBERS.length-1?"Next member":"Done, go to speaker"}</button>
+      <button type="button" class="next">${i<MEMBERS.length-1?"Next member":"Done, go to visitors"}</button>
     </div>`;
   box.appendChild(d);
   const o=document.createElement("option");o.value=m.first+" "+m.last;dl.appendChild(o);
@@ -255,8 +298,52 @@ box.addEventListener("click",e=>{
   const nxt = cur.nextElementSibling;
   cur.open=false;
   if(nxt){ nxt.open=true; requestAnimationFrame(()=>nxt.scrollIntoView({behavior:"smooth",block:"start"})); }
-  else { const sp=document.getElementById("speakerSec"); sp.open=true;
+  else { document.getElementById("minuteSec").open=false; const sp=document.getElementById("visitorsSec"); sp.open=true;
     requestAnimationFrame(()=>sp.scrollIntoView({behavior:"smooth",block:"start"})); }
+});
+
+/* ---------- visitors ---------- */
+const visBox=document.getElementById("visitors");
+function newVis(){return {name:"",biz:"",phone:"",email:"",notes:"",follow:false}}
+function renderVisitors(){
+  if(!state.visitors.length){visBox.innerHTML='<p class="empty">No visitors added yet.</p>';visCount();return}
+  visBox.innerHTML=state.visitors.map((v,i)=>`
+    <div class="vis" data-i="${i}">
+      <div class="vis-grid">
+        <input type="text" class="full" data-v="name" placeholder="Name" value="${esc(v.name)}" autocomplete="off">
+        <input type="text" class="full" data-v="biz" placeholder="Business" value="${esc(v.biz)}" autocomplete="off">
+        <input type="tel" data-v="phone" placeholder="Phone" value="${esc(v.phone)}" autocomplete="off">
+        <input type="email" data-v="email" placeholder="Email" value="${esc(v.email)}" autocomplete="off">
+      </div>
+      <textarea data-v="notes" placeholder="Notes">${esc(v.notes)}</textarea>
+      <div class="vis-foot">
+        <label class="chip"><input type="checkbox" data-v="follow" ${v.follow?"checked":""}><span>Invite back / follow up</span></label>
+        <button type="button" class="vis-remove">Remove</button>
+      </div>
+    </div>`).join("");
+  visCount();
+}
+function visCount(){const n=state.visitors.filter(v=>v.name.trim()).length;document.getElementById("visCount").textContent=n?String(n):""}
+document.getElementById("addVis").addEventListener("click",()=>{
+  state.visitors.push(newVis()); save(STORE,state); renderVisitors();
+  const last=visBox.querySelector(".vis:last-child input"); if(last) last.focus();
+});
+visBox.addEventListener("click",e=>{
+  if(!e.target.classList.contains("vis-remove")) return;
+  const b=e.target;
+  if(!b.classList.contains("armed")){b.classList.add("armed");b.textContent="Tap again to remove";
+    setTimeout(()=>{if(b.isConnected){b.classList.remove("armed");b.textContent="Remove"}},4000);return}
+  state.visitors.splice(+b.closest(".vis").dataset.i,1); save(STORE,state); renderVisitors();
+});
+
+/* ---------- sticky general notes ---------- */
+const gnTab=document.getElementById("gnTab"), gnPanel=document.getElementById("gnPanel");
+function gnDot(){document.getElementById("gnDot").hidden=!(state.general||"").trim()}
+gnTab.addEventListener("click",()=>{
+  const open=!gnPanel.classList.contains("open");
+  gnPanel.classList.toggle("open",open); gnPanel.setAttribute("aria-hidden",String(!open));
+  gnTab.setAttribute("aria-expanded",String(open)); document.getElementById("gnLabel").textContent=open?"Close":"Notes";
+  if(open) setTimeout(()=>document.getElementById("general").focus(),200);
 });
 
 /* ---------- bind inputs ---------- */
@@ -271,6 +358,7 @@ function fill(){
   const me=load(ME)||{};
   document.getElementById("yourName").value=me.name||"";
   document.getElementById("yourEmail").value=me.email||"";
+  renderVisitors(); gnDot();
   marks();
 }
 function marks(){
@@ -286,8 +374,10 @@ function marks(){
 }
 document.addEventListener("input",e=>{
   const el=e.target;
-  if(el.id==="meetingDate"){state.date=el.value}
-  else if(el.dataset.key){state[el.dataset.key]=el.value}
+  if(el.dataset.v!==undefined){const v=state.visitors[+el.closest(".vis").dataset.i];
+    v[el.dataset.v]= el.type==="checkbox"?el.checked:el.value; if(el.dataset.v==="name")visCount()}
+  else if(el.id==="meetingDate"){state.date=el.value}
+  else if(el.dataset.key){state[el.dataset.key]=el.value; if(el.dataset.key==="general")gnDot()}
   else if(el.dataset.mem){mem(el.dataset.mem)[el.dataset.f]= el.type==="checkbox"?el.checked:el.value; marks()}
   else if(el.id==="yourName"||el.id==="yourEmail"){save(ME,{name:document.getElementById("yourName").value,email:document.getElementById("yourEmail").value});return}
   else return;
@@ -317,16 +407,38 @@ function buildEmail(){
     <div style="color:${S};margin:0 0 6px">Meeting notes · ${esc(date)}</div>`;
   let text=`BNI Money Makers - meeting notes - ${date}\n`;
 
-  FLAGS.forEach(f=>{
-    const list=MEMBERS.filter(m=>(state.members[m.id]||{})[f.key]);
-    if(!list.length) return;
-    html+=h2(f.group)+list.map(card).join("");
-    text+=`\n${f.group.toUpperCase()}\n`+list.map(m=>`- ${m.first} ${m.last}, ${m.biz} | ${fmtPhone(m.phone)} | ${m.email}${(state.members[m.id].notes||"").trim()?"\n  "+state.members[m.id].notes.trim():""}`).join("\n")+"\n";
-  });
-  const others=MEMBERS.filter(m=>{const s=state.members[m.id]||{};return (s.notes||"").trim() && !FLAGS.some(f=>s[f.key])});
+  const contactHtml=(phone,email)=>{const p=[];const d=(phone||"").replace(/\D/g,"").replace(/^1(?=\d{10}$)/,"");
+    if(d){p.push(`<a href="tel:+1${d}" style="color:${B}">${fmtPhone(d)}</a>`,`<a href="sms:+1${d}" style="color:${B}">Text</a>`)}
+    if(email)p.push(`<a href="mailto:${esc(email)}" style="color:${B}">${esc(email)}</a>`);
+    return p.length?`<div style="font-size:14px">${p.join(" &nbsp;·&nbsp; ")}</div>`:""};
+  const contactText=(phone,email)=>{const d=(phone||"").replace(/\D/g,"").replace(/^1(?=\d{10}$)/,"");return [d?fmtPhone(d):"",email||""].filter(Boolean).join(" | ")};
+  const tagHtml=t=>t.length?` <span style="font-size:13px;font-weight:600;color:${B}">· ${t.join(" · ")}</span>`:"";
+  const entry=(name,biz,tags,notes,phone,email)=>`
+    <div style="margin:0 0 16px">
+      <div style="font-weight:600;color:${INK}">${esc(name)}${biz?` <span style="font-weight:400;color:${S}">· ${esc(biz)}</span>`:""}${tagHtml(tags)}</div>
+      ${notes?`<div style="color:${INK};margin:2px 0 4px">${nl(notes)}</div>`:""}
+      ${contactHtml(phone,email)}
+    </div>`;
+  const entryText=(name,biz,tags,notes,phone,email)=>`- ${name}${biz?", "+biz:""}${tags.length?" ["+tags.join(", ")+"]":""}${contactText(phone,email)?" | "+contactText(phone,email):""}${notes?"\n  "+notes.replace(/\n/g,"\n  "):""}`;
+  const SHORT={oneToOne:"1:1",referral:"Referral",question:"Question"};
+
+  if((state.general||"").trim()){html+=h2("General notes")+para(state.general.trim());text+=`\nGENERAL NOTES\n${state.general.trim()}\n`}
+
+  const tagsOf=m=>{const s=state.members[m.id]||{};return FLAGS.filter(f=>s[f.key]).map(f=>SHORT[f.key])};
+  const act=MEMBERS.filter(m=>tagsOf(m).length);
+  if(act.length){
+    html+=h2("Member follow-ups")+act.map(m=>entry(m.first+" "+m.last,m.biz,tagsOf(m),(state.members[m.id].notes||"").trim(),m.phone,m.email)).join("");
+    text+=`\nMEMBER FOLLOW-UPS\n`+act.map(m=>entryText(m.first+" "+m.last,m.biz,tagsOf(m),(state.members[m.id].notes||"").trim(),m.phone,m.email)).join("\n")+"\n";
+  }
+  const others=MEMBERS.filter(m=>!tagsOf(m).length && ((state.members[m.id]||{}).notes||"").trim());
   if(others.length){
-    html+=h2("Other member notes")+others.map(card).join("");
+    html+=h2("Other member notes")+others.map(m=>entry(m.first+" "+m.last,m.biz,[],state.members[m.id].notes.trim(),"","")).join("");
     text+=`\nOTHER MEMBER NOTES\n`+others.map(m=>`- ${m.first} ${m.last}, ${m.biz}: ${state.members[m.id].notes.trim()}`).join("\n")+"\n";
+  }
+  const vis=state.visitors.filter(v=>v.name.trim()||v.notes.trim());
+  if(vis.length){
+    html+=h2("Visitors")+vis.map(v=>entry(v.name.trim()||"Visitor",v.biz.trim(),v.follow?["Follow up"]:[],v.notes.trim(),v.phone,v.email.trim())).join("");
+    text+=`\nVISITORS\n`+vis.map(v=>entryText(v.name.trim()||"Visitor",v.biz.trim(),v.follow?["Follow up"]:[],v.notes.trim(),v.phone,v.email.trim())).join("\n")+"\n";
   }
   if(state.edu.trim()){html+=h2("Networking education")+para(state.edu.trim());text+=`\nNETWORKING EDUCATION\n${state.edu.trim()}\n`}
   if(state.speakerName.trim()||state.speakerNotes.trim()){
@@ -374,6 +486,7 @@ resetBtn.addEventListener("click",()=>{
     armT=setTimeout(()=>{resetBtn.classList.remove("armed");resetBtn.textContent="Start a new meeting"},4000); return;
   }
   clearTimeout(armT); state=blank(); save(STORE,state); fill();
+  if(gnPanel.classList.contains("open")) gnTab.click();
   document.querySelectorAll("details").forEach(d=>d.open=false);
   document.getElementById("preview").hidden=true; statusEl.textContent="";
   resetBtn.classList.remove("armed"); resetBtn.textContent="Start a new meeting";

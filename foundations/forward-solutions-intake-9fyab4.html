@@ -160,7 +160,13 @@ input[type=file]:focus-visible{outline:2px solid var(--forward-blue);outline-off
   <form id="intakeForm" name="foundation-intake-forward-solutions" method="POST" enctype="multipart/form-data" data-netlify="true" data-netlify-honeypot="bot-field" netlify-honeypot="bot-field">
     <input type="hidden" name="form-name" value="foundation-intake-forward-solutions">
     <p class="hp"><label>Leave this blank: <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
-    <textarea name="prompt" id="promptField" class="hp" tabindex="-1" aria-hidden="true"></textarea>
+    <!-- Sent as six short fields, not one long one: a single long block was filed as spam by Netlify (10 Oct 2026). -->
+    <textarea name="about" class="hp" tabindex="-1" aria-hidden="true"></textarea>
+    <textarea name="part_one" class="hp" tabindex="-1" aria-hidden="true"></textarea>
+    <textarea name="part_two" class="hp" tabindex="-1" aria-hidden="true"></textarea>
+    <textarea name="part_three" class="hp" tabindex="-1" aria-hidden="true"></textarea>
+    <textarea name="part_four" class="hp" tabindex="-1" aria-hidden="true"></textarea>
+    <textarea name="anything_else" class="hp" tabindex="-1" aria-hidden="true"></textarea>
 
     <section class="section" id="s1">
       <span class="section-num">Part one</span>
@@ -462,7 +468,13 @@ input[type=file]:focus-visible{outline:2px solid var(--forward-blue);outline-off
   form.addEventListener("submit",function(e){
     e.preventDefault();
     btn.disabled=true; var old=btn.textContent; btn.textContent="Sending…";
-    $("promptField").value=buildPrompt();
+    var chunks=buildPrompt().split(/\n(?=## )/), names=["part_one","part_two","part_three","part_four"];
+    form.elements["about"].value=chunks[0];
+    names.concat(["anything_else"]).forEach(function(n){ form.elements[n].value=""; });
+    chunks.slice(1).forEach(function(c){
+      var m=/^## Part (one|two|three|four)/.exec(c);
+      form.elements[m?"part_"+m[1]:"anything_else"].value=c;
+    });
     fetch("/",{method:"POST",body:new FormData(form)})
     .then(function(res){
       if(!res.ok) throw new Error("bad");
