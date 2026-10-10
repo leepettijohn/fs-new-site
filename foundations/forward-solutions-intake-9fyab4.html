@@ -277,9 +277,6 @@ input[type=file]:focus-visible{outline:2px solid var(--forward-blue);outline-off
       <p class="section-sub">Sending is optional and can be done more than once. Everything typed here stays on this device either way.</p>
       <div class="notes"><label for="note9">Anything else</label><textarea id="note9" data-k="note9" data-note="Anything else" rows="2" placeholder="Comments or questions"></textarea></div>
       <button class="btn" type="submit" id="submitBtn">Send to Lee</button>
-      <p class="hint" style="margin-top:16px">Or copy everything you&rsquo;ve answered and paste it into an email or a message to Lee.</p>
-      <button class="cp" type="button" id="copyAll" style="margin-top:8px;min-height:40px;padding:8px 16px;font-size:14px">Copy my answers</button>
-      <textarea id="copyOut" rows="8" readonly hidden style="margin-top:10px" aria-label="Your answers, to copy"></textarea>
       <p class="saved-note" id="savedNote" role="status"></p>
       <div class="sent" id="sentNote" hidden></div>
     </div>
@@ -453,13 +450,6 @@ input[type=file]:focus-visible{outline:2px solid var(--forward-blue);outline-off
   }
   window.__buildPrompt=buildPrompt;
 
-  $("copyAll").addEventListener("click",function(){
-    var b=this, txt=buildPrompt(), out=$("copyOut");
-    function shown(){ out.hidden=false; out.value=txt; out.focus(); out.select(); b.textContent="Select all of it and copy"; }
-    if(navigator.clipboard&&navigator.clipboard.writeText){
-      navigator.clipboard.writeText(txt).then(function(){ b.textContent="Copied. Paste it to Lee"; setTimeout(function(){b.textContent="Copy my answers";},2500); },shown);
-    } else shown();
-  });
   var MAX=8*1024*1024;
   $("fileField").addEventListener("change",function(){
     var f=this.files[0];
