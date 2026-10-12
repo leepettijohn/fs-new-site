@@ -3,7 +3,7 @@
 <head>
 <!--
   FORWARD SOLUTIONS — gottamoveforward.com
-  walk-one-job.html · v1.0 · 2026-08-20
+  walk-one-job.html · v1.1 · 2026-10-12
 -->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -758,7 +758,7 @@
    handled below.
    ============================================================ */
 const CONFIG = {
-  // Where the "Book a free 30-minute call" button sends people (main outcome)
+  // Where the "Book a free 45-minute call" button sends people (main outcome)
   discoveryBookingURL: "https://calendar.app.google/ZsoW1iZoVs3fdzvaA",
 
   // Where the "let's keep it small" outcome's booking button sends people (low-volume with leaks)
@@ -1244,17 +1244,17 @@ function renderMap(analysis) {
     primary.href = CONFIG.sprintBookingURL;
     primary.target = "_blank";
     primary.rel = "noopener";
-    primary.textContent = "Book a free 30-minute call";
+    primary.textContent = "Book a free 45-minute call";
     askActionsEl.appendChild(primary);
   } else {
     $("#wojAskHeadline").textContent = "This is fixable. Most of it is ordinary.";
-    $("#wojAskBody").textContent = "If you want, we spend thirty minutes on the phone and I'll tell you which of these is worth fixing first, what it'd take, and whether it's me or somebody else who should do it. Free, and I'm not going to pitch you on the call.";
+    $("#wojAskBody").textContent = "If you want, we spend forty-five minutes on the phone and I'll tell you which of these is worth fixing first, what it'd take, and whether it's me or somebody else who should do it. Free, and I'm not going to pitch you on the call.";
     const primary = document.createElement("a");
     primary.className = "woj-btn-primary";
     primary.href = CONFIG.discoveryBookingURL;
     primary.target = "_blank";
     primary.rel = "noopener";
-    primary.textContent = "Book a free 30-minute call";
+    primary.textContent = "Book a free 45-minute call";
     askActionsEl.appendChild(primary);
   }
 
