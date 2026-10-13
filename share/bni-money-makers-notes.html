@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex, nofollow">
-<meta name="date" content="2026-10-10">
+<meta name="date" content="2026-10-13">
 <title>BNI - Meeting Notes</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -132,7 +132,8 @@ body{padding-bottom:calc(88px + env(safe-area-inset-bottom,0px))}
 .gn-panel.open{transform:none}
 .gn-panel .inner{max-width:620px;margin:0 auto}
 .gn-panel h2{font-family:var(--serif);font-weight:500;font-size:20px;margin:0 0 8px}
-.gn-panel textarea{min-height:160px}
+.gn-panel textarea{min-height:110px}
+.gn-panel .inner{max-height:70vh;overflow-y:auto}
 
 footer{text-align:center;font-size:13px;color:var(--ink-soft);margin-top:32px}
 footer a{color:var(--blue);text-decoration:none;font-weight:500}
@@ -218,7 +219,9 @@ footer a{color:var(--blue);text-decoration:none;font-weight:500}
 
   <div class="gn-panel" id="gnPanel" aria-hidden="true">
     <div class="inner">
-      <h2>General notes</h2>
+      <h2>My to-dos</h2>
+      <textarea id="todos" data-key="todos" placeholder="One per line: calls, emails, things to change"></textarea>
+      <h2 style="margin-top:14px">General notes</h2>
       <textarea id="general" data-key="general" placeholder="Anything that doesn't fit a section"></textarea>
     </div>
   </div>
@@ -239,7 +242,7 @@ const MEMBERS = [
   {id:"marcone",   first:"Danielle", last:"Marcone",   biz:"Compass Real Estate",       cls:"Real estate agent",         phone:"9014845458", email:"danielle.marcone@compass.com"},
   {id:"mathews",   first:"Cole",     last:"Mathews",   biz:"Arnion Group",              cls:"Life insurance",            phone:"5105847240", email:"colemathews21@gmail.com"},
   {id:"nellesen",  first:"Jake",     last:"Nellesen",  biz:"Redefined Pest Solutions",  cls:"Pest control",              phone:"6159443964", email:"jake@redefinedpestsolutions.com"},
-  {id:"pettijohn", first:"Lee",      last:"Pettijohn", biz:"Forward Solutions",         cls:"Systems consultant",        phone:"9707126933", email:"leepettijohn@gottamoveforward.com"},
+  {id:"pettijohn", first:"Lee",      last:"Pettijohn", biz:"Forward Solutions",         cls:"Data management and process automation",phone:"9707126933", email:"leepettijohn@gottamoveforward.com"},
   {id:"pratt",     first:"Paul",     last:"Pratt III", biz:"FS Mortgage Group",         cls:"Mortgage lender",           phone:"6154172449", email:"paul.pratt@fsmortgagegroup.com"},
   {id:"rolfson",   first:"Dan",      last:"Rolfson",   biz:"Rolfson Agency (Country Financial)",cls:"Insurance and financial",   phone:"6158521656", email:"dan.rolfson@countryfinancial.com"},
   {id:"shoup",     first:"Aaron",    last:"Shoup",     biz:"Gopherbusters",             cls:"Gopher and mole removal",   phone:"3602250223", email:"Gopherbustersas@gmail.com"},
@@ -258,7 +261,7 @@ const STORE = "fs-bni-notes-v1", ME = "fs-bni-me-v1";
 function load(k){try{return JSON.parse(localStorage.getItem(k))||null}catch(e){return null}}
 function save(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}
 function today(){const d=new Date();return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0")}
-function blank(){return {date:today(),edu:"",general:"",speakerName:"",speakerNotes:"",visitor:"",members:{},visitors:[]}}
+function blank(){return {date:today(),edu:"",todos:"",general:"",speakerName:"",speakerNotes:"",visitor:"",members:{},visitors:[]}}
 let state = Object.assign(blank(), load(STORE) || {});
 
 /* ---------- render members ---------- */
@@ -297,7 +300,8 @@ box.addEventListener("click",e=>{
   const cur = e.target.closest("details.mem");
   const nxt = cur.nextElementSibling;
   cur.open=false;
-  if(nxt){ nxt.open=true; requestAnimationFrame(()=>nxt.scrollIntoView({behavior:"smooth",block:"start"})); }
+  if(nxt){ nxt.open=true; const ta=nxt.querySelector("textarea"); if(ta) ta.focus({preventScroll:true});
+    requestAnimationFrame(()=>nxt.scrollIntoView({behavior:"smooth",block:"start"})); }
   else { document.getElementById("minuteSec").open=false; const sp=document.getElementById("visitorsSec"); sp.open=true;
     requestAnimationFrame(()=>sp.scrollIntoView({behavior:"smooth",block:"start"})); }
 });
@@ -338,12 +342,12 @@ visBox.addEventListener("click",e=>{
 
 /* ---------- sticky general notes ---------- */
 const gnTab=document.getElementById("gnTab"), gnPanel=document.getElementById("gnPanel");
-function gnDot(){document.getElementById("gnDot").hidden=!(state.general||"").trim()}
+function gnDot(){document.getElementById("gnDot").hidden=!((state.general||"").trim()||(state.todos||"").trim())}
 gnTab.addEventListener("click",()=>{
   const open=!gnPanel.classList.contains("open");
   gnPanel.classList.toggle("open",open); gnPanel.setAttribute("aria-hidden",String(!open));
   gnTab.setAttribute("aria-expanded",String(open)); document.getElementById("gnLabel").textContent=open?"Close":"Notes";
-  if(open) setTimeout(()=>document.getElementById("general").focus(),200);
+  if(open) setTimeout(()=>document.getElementById("todos").focus(),200);
 });
 
 /* ---------- bind inputs ---------- */
@@ -377,7 +381,7 @@ document.addEventListener("input",e=>{
   if(el.dataset.v!==undefined){const v=state.visitors[+el.closest(".vis").dataset.i];
     v[el.dataset.v]= el.type==="checkbox"?el.checked:el.value; if(el.dataset.v==="name")visCount()}
   else if(el.id==="meetingDate"){state.date=el.value}
-  else if(el.dataset.key){state[el.dataset.key]=el.value; if(el.dataset.key==="general")gnDot()}
+  else if(el.dataset.key){state[el.dataset.key]=el.value; if(el.dataset.key==="general"||el.dataset.key==="todos")gnDot()}
   else if(el.dataset.mem){mem(el.dataset.mem)[el.dataset.f]= el.type==="checkbox"?el.checked:el.value; marks()}
   else if(el.id==="yourName"||el.id==="yourEmail"){save(ME,{name:document.getElementById("yourName").value,email:document.getElementById("yourEmail").value});return}
   else return;
@@ -422,30 +426,56 @@ function buildEmail(){
   const entryText=(name,biz,tags,notes,phone,email)=>`- ${name}${biz?", "+biz:""}${tags.length?" ["+tags.join(", ")+"]":""}${contactText(phone,email)?" | "+contactText(phone,email):""}${notes?"\n  "+notes.replace(/\n/g,"\n  "):""}`;
   const SHORT={oneToOne:"1:1",referral:"Referral",question:"Question"};
 
-  if((state.general||"").trim()){html+=h2("General notes")+para(state.general.trim());text+=`\nGENERAL NOTES\n${state.general.trim()}\n`}
-
-  const tagsOf=m=>{const s=state.members[m.id]||{};return FLAGS.filter(f=>s[f.key]).map(f=>SHORT[f.key])};
-  const act=MEMBERS.filter(m=>tagsOf(m).length);
-  if(act.length){
-    html+=h2("Member follow-ups")+act.map(m=>entry(m.first+" "+m.last,m.biz,tagsOf(m),(state.members[m.id].notes||"").trim(),m.phone,m.email)).join("");
-    text+=`\nMEMBER FOLLOW-UPS\n`+act.map(m=>entryText(m.first+" "+m.last,m.biz,tagsOf(m),(state.members[m.id].notes||"").trim(),m.phone,m.email)).join("\n")+"\n";
+  const T=k=>(state[k]||"").trim();
+  const ind=t=>t.replace(/\n/g,"\n  ");
+  const h3=t=>`<h3 style="font:600 13px/1.3 -apple-system,Segoe UI,Helvetica,Arial,sans-serif;letter-spacing:.06em;text-transform:uppercase;color:${S};margin:18px 0 8px">${t}</h3>`;
+  const memNotes=m=>((state.members[m.id]||{}).notes||"").trim();
+  const flagged=k=>MEMBERS.filter(m=>(state.members[m.id]||{})[k]);
+  const todos=T("todos").split("\n").map(x=>x.trim()).filter(Boolean);
+  const visAll=state.visitors.filter(v=>v.name.trim()||v.notes.trim());
+  const visBack=visAll.filter(v=>v.follow), visRest=visAll.filter(v=>!v.follow);
+  const groups=[
+    ["1:1s to book", flagged("oneToOne")],
+    ["Referrals to pass", flagged("referral")],
+    ["Questions to ask", flagged("question")]
+  ];
+  const anyFollow=todos.length||groups.some(g=>g[1].length)||visBack.length||T("visitor");
+  if(anyFollow){
+    html+=h2("Your follow-ups"); text+=`\nYOUR FOLLOW-UPS\n`;
+    if(todos.length){
+      html+=h3("To-dos")+`<ul style="margin:0 0 10px;padding-left:20px;color:${INK}">${todos.map(t=>`<li style="margin:0 0 4px">${esc(t)}</li>`).join("")}</ul>`;
+      text+=`\nTo-dos\n`+todos.map(t=>`- ${t}`).join("\n")+"\n";
+    }
+    groups.forEach(([title,list])=>{
+      if(!list.length) return;
+      html+=h3(title)+list.map(m=>entry(m.first+" "+m.last,m.biz,[],memNotes(m),m.phone,m.email)).join("");
+      text+=`\n${title}\n`+list.map(m=>entryText(m.first+" "+m.last,m.biz,[],memNotes(m),m.phone,m.email)).join("\n")+"\n";
+    });
+    if(visBack.length){
+      html+=h3("Visitors to invite back")+visBack.map(v=>entry(v.name.trim()||"Visitor",v.biz.trim(),[],v.notes.trim(),v.phone,v.email.trim())).join("");
+      text+=`\nVisitors to invite back\n`+visBack.map(v=>entryText(v.name.trim()||"Visitor",v.biz.trim(),[],v.notes.trim(),v.phone,v.email.trim())).join("\n")+"\n";
+    }
+    if(T("visitor")){
+      html+=h3("Invite to visit")+para(T("visitor"));
+      text+=`\nInvite to visit\n- ${ind(T("visitor"))}\n`;
+    }
   }
-  const others=MEMBERS.filter(m=>!tagsOf(m).length && ((state.members[m.id]||{}).notes||"").trim());
-  if(others.length){
-    html+=h2("Other member notes")+others.map(m=>entry(m.first+" "+m.last,m.biz,[],state.members[m.id].notes.trim(),"","")).join("");
-    text+=`\nOTHER MEMBER NOTES\n`+others.map(m=>`- ${m.first} ${m.last}, ${m.biz}: ${state.members[m.id].notes.trim()}`).join("\n")+"\n";
-  }
-  const vis=state.visitors.filter(v=>v.name.trim()||v.notes.trim());
-  if(vis.length){
-    html+=h2("Visitors")+vis.map(v=>entry(v.name.trim()||"Visitor",v.biz.trim(),v.follow?["Follow up"]:[],v.notes.trim(),v.phone,v.email.trim())).join("");
-    text+=`\nVISITORS\n`+vis.map(v=>entryText(v.name.trim()||"Visitor",v.biz.trim(),v.follow?["Follow up"]:[],v.notes.trim(),v.phone,v.email.trim())).join("\n")+"\n";
-  }
-  if(state.edu.trim()){html+=h2("Networking education")+para(state.edu.trim());text+=`\nNETWORKING EDUCATION\n${state.edu.trim()}\n`}
   if(state.speakerName.trim()||state.speakerNotes.trim()){
     html+=h2("Speaker presentation"+(state.speakerName.trim()?": "+esc(state.speakerName.trim()):""))+(state.speakerNotes.trim()?para(state.speakerNotes.trim()):"");
     text+=`\nSPEAKER PRESENTATION${state.speakerName.trim()?": "+state.speakerName.trim():""}\n${state.speakerNotes.trim()}\n`;
   }
-  if(state.visitor.trim()){html+=h2("Visitor to invite")+para(state.visitor.trim());text+=`\nVISITOR TO INVITE\n${state.visitor.trim()}\n`}
+  if(T("edu")){html+=h2("Networking education")+para(T("edu"));text+=`\nNETWORKING EDUCATION\n${T("edu")}\n`}
+  const tagged=m=>{const s=state.members[m.id]||{};return FLAGS.some(f=>s[f.key])};
+  const others=MEMBERS.filter(m=>!tagged(m)&&memNotes(m));
+  if(others.length){
+    html+=h2("Member notes")+others.map(m=>entry(m.first+" "+m.last,m.biz,[],memNotes(m),"","")).join("");
+    text+=`\nMEMBER NOTES\n`+others.map(m=>entryText(m.first+" "+m.last,m.biz,[],memNotes(m),"","")).join("\n")+"\n";
+  }
+  if(visRest.length){
+    html+=h2("Visitors")+visRest.map(v=>entry(v.name.trim()||"Visitor",v.biz.trim(),[],v.notes.trim(),v.phone,v.email.trim())).join("");
+    text+=`\nVISITORS\n`+visRest.map(v=>entryText(v.name.trim()||"Visitor",v.biz.trim(),[],v.notes.trim(),v.phone,v.email.trim())).join("\n")+"\n";
+  }
+  if(T("general")){html+=h2("General notes")+para(T("general"));text+=`\nGENERAL NOTES\n${T("general")}\n`}
 
   html+=`<p style="margin:32px 0 0;padding-top:14px;border-top:1px solid #E0DED7;font-size:13px;color:${S}">Notes page built by <a href="https://gottamoveforward.com" style="color:${B}">Forward Solutions</a></p></div>`;
   text+=`\n--\nNotes page built by Forward Solutions - https://gottamoveforward.com\n`;
