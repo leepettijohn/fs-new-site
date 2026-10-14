@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex, nofollow">
-<meta name="date" content="2026-10-07">
+<meta name="date" content="2026-10-13">
 <meta name="client" content="Rolfson Agency (Country Financial)">
-<title>Rolfson Agency - What I Heard, and What I Need</title>
+<title>Rolfson Agency - Where We Are</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&display=swap">
@@ -85,6 +85,9 @@ textarea:focus-visible,input[type=text]:focus-visible{outline:2px solid var(--fo
 .steps li::before{content:counter(s);position:absolute;left:14px;top:13px;width:28px;height:28px;border-radius:50%;background:var(--blue-soft);color:var(--forward-blue);font-weight:600;font-size:14px;display:flex;align-items:center;justify-content:center}
 .steps b{display:block;font-weight:600}
 .steps span{color:var(--slate);font-size:14.5px}
+.note{margin-top:14px}
+.note label{display:block;font-size:14px;font-weight:600;color:var(--slate);margin-bottom:6px}
+.note textarea{background:var(--white)}
 </style>
 </head>
 <body>
@@ -95,108 +98,65 @@ textarea:focus-visible,input[type=text]:focus-visible{outline:2px solid var(--fo
     <span>Forward Solutions</span>
   </a>
 
-  <p class="eyebrow">After our meeting</p>
-  <h1>What I heard, and what I need</h1>
+  <p class="eyebrow">Seven-point touch</p>
+  <h1>Where we are</h1>
 
-  <p class="intro">Dan and Abby, thank you for Wednesday, and for the bread. Seeing Navigator, Planner and the seven-touch sheet side by side made the job clear.</p>
-  <p class="intro soft">This page has three parts: what I heard, the simple idea I&rsquo;d like to build, and a short list of things I need from you. Tick an item and jot a note if that&rsquo;s easier than an email, then send it over. Your notes stay on this phone or computer either way.</p>
+  <p class="intro">Dan and Abby, thank you for the answers and the files. They settled most of the open questions. A few still need answering before I can put a price on this, and they&rsquo;re below.</p>
+  <p class="intro soft">Tick an item and jot a note, or use the boxes under each section for comments and questions of your own. Send it when you&rsquo;re ready; your notes stay on this phone or computer either way.</p>
 
   <p class="meta-note">Please keep client names and policy details out of your notes, and out of anything you send me.</p>
-
-  <section class="section">
-    <span class="section-num">One</span>
-    <h2>What I heard</h2>
-    <p class="section-sub">Tell me if any of this is off.</p>
-    <ul class="heard">
-      <li><b>The goal is seven touches a year with every client,</b> spread through the year by last name.</li>
-      <li><b>The emails should sound like you,</b> so they go out from Outlook in your own words, not from Navigator&rsquo;s templates.</li>
-      <li><b>Navigator stays the source of truth.</b> Nothing connects to it or pushes into it. Abby exports a client list, and that&rsquo;s the only contact.</li>
-      <li><b>Reaching the client matters more than logging it.</b> A simple list of what went out, and when, is enough.</li>
-      <li><b>This is a bridge until Salesforce arrives,</b> so it should be small, quick to set up, and easy to walk away from.</li>
-    </ul>
-  </section>
-
-  <section class="section">
-    <span class="section-num">Two</span>
-    <h2>The simple idea</h2>
-    <p class="section-sub">Nothing new to buy or install. It uses Excel, Word and Outlook, which you already have.</p>
-    <ol class="steps">
-      <li><b>Abby exports the client list from Navigator</b><span>Once a month, into one Excel workbook.</span></li>
-      <li><b>The workbook builds this month&rsquo;s list</b><span>Who is due, which of the seven touches they get, and who to skip because they already have that coverage.</span></li>
-      <li><b>One push sends the emails from Outlook</b><span>Each client gets their own email, by name, in your words. Replies come back to your inbox like any other.</span></li>
-      <li><b>The workbook keeps the record</b><span>Who was sent what, and on which date.</span></li>
-    </ol>
-  </section>
 
   <form id="prepForm" name="rolfson-before-wednesday" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" netlify-honeypot="bot-field">
     <input type="hidden" name="form-name" value="rolfson-before-wednesday">
     <p class="hp"><label>Leave this blank: <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
     <textarea name="prompt" id="promptField" class="hp" tabindex="-1" aria-hidden="true"></textarea>
 
-<section class="section" data-title="From Abby">
-<span class="section-num">Three</span>
-<h2>From Abby</h2>
-<p class="section-sub">The design depends on these, so they come first.</p>
+<section class="section" data-title="What I still need from Dan">
+<span class="section-num">One</span>
+<h2>What I still need from Dan</h2>
+<p class="section-sub">Three answers, and the plan is ready to price.</p>
 <div class="items">
+<div class="item" data-k="q1">
+<label class="check"><input type="checkbox" id="q1_c" aria-controls="q1_w"><span><span class="qtext">Is it OK under your Country Financial agreement to export the client list from Navigator and use it in Excel and Outlook?</span><small>This is the one the whole plan rests on. If you’re not sure, who at Country Financial would know?</small></span></label>
+<div class="answer" id="q1_w" hidden><label class="sr" for="q1_a">Your notes</label><textarea id="q1_a" rows="2" placeholder="What you know, or who to ask"></textarea></div>
+</div>
 <div class="item" data-k="q2">
-<label class="check"><input type="checkbox" id="q2_c" aria-controls="q2_w"><span><span class="qtext">A sample of the client list you can export from Navigator</span><small>Just the column headings and two or three made-up rows. Please don’t send real client information. Email it to me as a file.</small></span></label>
-<div class="answer" id="q2_w" hidden><label class="sr" for="q2_a">Your notes</label><textarea id="q2_a" rows="2" placeholder="Sent? Anything to know about it?"></textarea></div>
+<label class="check"><input type="checkbox" id="q2_c" aria-controls="q2_w"><span><span class="qtext">The disclaimer wording for the bottom of each email</span><small>Copying the footer from one of Navigator’s emails is fine. Also: is a line like “reply STOP and we’ll take you off this list” acceptable in place of an unsubscribe link, and is a plain email without the Country Financial logo or photo fine?</small></span></label>
+<div class="answer" id="q2_w" hidden><label class="sr" for="q2_a">Your notes</label><textarea id="q2_a" rows="2" placeholder="Paste it here, or email it to me"></textarea></div>
 </div>
 <div class="item" data-k="q3">
-<label class="check"><input type="checkbox" id="q3_c" aria-controls="q3_w"><span><span class="qtext">Does that export show which products each client has?</span><small>Auto, home, life, umbrella. That’s what lets an umbrella email skip the people who already have one.</small></span></label>
-<div class="answer" id="q3_w" hidden><label class="sr" for="q3_a">Your notes</label><textarea id="q3_a" rows="2" placeholder="What it shows"></textarea></div>
+<label class="check"><input type="checkbox" id="q3_c" aria-controls="q3_w"><span><span class="qtext">Are Abby’s answers right?</span><small>Abby writes the emails, sends them from the agency mailbox and handles replies. Life goes first, and these emails replace the Navigator tasks for the seven touches.</small></span></label>
+<div class="answer" id="q3_w" hidden><label class="sr" for="q3_a">Your notes</label><textarea id="q3_a" rows="2" placeholder="Anything to change"></textarea></div>
 </div>
+</div>
+<div class="note"><label for="note_dan">Comments or questions on this section</label><textarea id="note_dan" class="notebox" data-k="note_dan" rows="3" placeholder="Optional"></textarea></div>
+</section>
+
+<section class="section" data-title="Two quick checks for Abby">
+<span class="section-num">Two</span>
+<h2>Two quick checks for Abby</h2>
+<div class="items">
 <div class="item" data-k="q4">
-<label class="check"><input type="checkbox" id="q4_c" aria-controls="q4_w"><span><span class="qtext">A copy of your seven-touch tab</span><small>With client names blanked out. I’m after the layout: which touch, which month, which letters of the alphabet.</small></span></label>
-<div class="answer" id="q4_w" hidden><label class="sr" for="q4_a">Your notes</label><textarea id="q4_a" rows="2" placeholder="Sent? Anything to know about it?"></textarea></div>
+<label class="check"><input type="checkbox" id="q4_c" aria-controls="q4_w"><span><span class="qtext">Can you switch Outlook to the classic version?</span><small>Look for the “New Outlook” switch in the top right corner and turn it off. The sending only works through classic Outlook, sent from the agency mailbox. If the switch isn’t there or IT has locked it, tell me and we’ll send from Dan’s computer instead. I’m happy to do this with you in about 20 minutes.</small></span></label>
+<div class="answer" id="q4_w" hidden><label class="sr" for="q4_a">Your notes</label><textarea id="q4_a" rows="2" placeholder="What happened"></textarea></div>
 </div>
 <div class="item" data-k="q5">
-<label class="check"><input type="checkbox" id="q5_c" aria-controls="q5_w"><span><span class="qtext">Roughly how many clients, and how many have an email address on file?</span></span></label>
-<div class="answer" id="q5_w" hidden><label class="sr" for="q5_a">Your notes</label><textarea id="q5_a" rows="2" placeholder="Your best count"></textarea></div>
+<label class="check"><input type="checkbox" id="q5_c" aria-controls="q5_w"><span><span class="qtext">How do joint and business policyholders look in the name column?</span><small>Made-up examples are perfect, like “John &amp; Jane Smith” or “Smith Farms LLC.” It tells me how to pull a first name for the greeting.</small></span></label>
+<div class="answer" id="q5_w" hidden><label class="sr" for="q5_a">Your notes</label><textarea id="q5_a" rows="2" placeholder="A few made-up examples"></textarea></div>
 </div>
 </div>
+<div class="note"><label for="note_abby">Comments or questions on this section</label><textarea id="note_abby" class="notebox" data-k="note_abby" rows="3" placeholder="Optional"></textarea></div>
 </section>
-<section class="section" data-title="About your computers">
-<span class="section-num">Four</span>
-<h2>About your computers</h2>
-<p class="section-sub">Two quick looks. These decide which of two ways the sending works.</p>
-<div class="items">
-<div class="item" data-k="q6">
-<label class="check"><input type="checkbox" id="q6_c" aria-controls="q6_w"><span><span class="qtext">Which Outlook do you each use?</span><small>Look at the top right corner of Outlook. Is there a “New Outlook” switch, and is it on or off? Or do you use Outlook in a web browser?</small></span></label>
-<div class="answer" id="q6_w" hidden><label class="sr" for="q6_a">Your notes</label><textarea id="q6_a" rows="2" placeholder="Dan’s, Abby’s"></textarea></div>
-</div>
-<div class="item" data-k="q7">
-<label class="check"><input type="checkbox" id="q7_c" aria-controls="q7_w"><span><span class="qtext">Who manages your Microsoft account?</span><small>Is it your own, or issued by Country Financial? Can you add apps to it?</small></span></label>
-<div class="answer" id="q7_w" hidden><label class="sr" for="q7_a">Your notes</label><textarea id="q7_a" rows="2" placeholder="What you found"></textarea></div>
-</div>
-</div>
-</section>
-<section class="section" data-title="A few decisions">
-<span class="section-num">Five</span>
-<h2>A few decisions</h2>
-<div class="items">
-<div class="item" data-k="q8">
-<label class="check"><input type="checkbox" id="q8_c" aria-controls="q8_w"><span><span class="qtext">Is there a Country Financial rule about sending the same email to many clients from your own Outlook?</span><small>For example an unsubscribe line, or wording that has to be approved. If you’re not sure, who would know?</small></span></label>
-<div class="answer" id="q8_w" hidden><label class="sr" for="q8_a">Your notes</label><textarea id="q8_a" rows="2" placeholder="What you know"></textarea></div>
-</div>
-<div class="item" data-k="q9">
-<label class="check"><input type="checkbox" id="q9_c" aria-controls="q9_w"><span><span class="qtext">Who writes the seven emails?</span><small>You, Abby, or me drafting them in your voice for you to edit.</small></span></label>
-<div class="answer" id="q9_w" hidden><label class="sr" for="q9_a">Your notes</label><textarea id="q9_a" rows="2" placeholder="Your pick"></textarea></div>
-</div>
-<div class="item" data-k="q10">
-<label class="check"><input type="checkbox" id="q10_c" aria-controls="q10_w"><span><span class="qtext">Who pushes send each month, and who answers the replies?</span></span></label>
-<div class="answer" id="q10_w" hidden><label class="sr" for="q10_a">Your notes</label><textarea id="q10_a" rows="2" placeholder="Your pick"></textarea></div>
-</div>
-<div class="item" data-k="q11">
-<label class="check"><input type="checkbox" id="q11_c" aria-controls="q11_w"><span><span class="qtext">Is there a touch you’d want running first?</span><small>If one of the seven would matter most this quarter, we start there.</small></span></label>
-<div class="answer" id="q11_w" hidden><label class="sr" for="q11_a">Your notes</label><textarea id="q11_a" rows="2" placeholder="Which one"></textarea></div>
-</div>
-</div>
-</section>
+
+    <section class="section">
+      <span class="section-num">Last</span>
+      <h2>Anything else</h2>
+      <div class="note"><label for="note_else">Anything that didn&rsquo;t fit above</label><textarea id="note_else" class="notebox" data-k="note_else" rows="4" placeholder="Optional"></textarea></div>
+    </section>
 
     <div class="send">
       <h2>Send it over</h2>
-      <p class="section-sub">Send what you have; it doesn&rsquo;t need to be complete. Your notes stay on this device, and you can send again as you add more.</p>
+      <p class="section-sub">Send what you have; it doesn&rsquo;t need to be complete. You can send again as you add more.</p>
       <label class="q" for="who">Who&rsquo;s sending?</label>
       <input type="text" id="who" name="who" placeholder="Dan, Abby, or both" autocomplete="off">
       <button class="btn" type="submit" id="submitBtn">Send to Lee</button>
@@ -216,86 +176,65 @@ textarea:focus-visible,input[type=text]:focus-visible{outline:2px solid var(--fo
 <script>
 (function(){
   "use strict";
-  var KEY="rolfson-next-steps";
+  var KEY="rolfson-where-we-are";
   var form=document.getElementById("prepForm");
   var items=form.querySelectorAll(".item");
+  var notes=form.querySelectorAll(".notebox");
   var who=document.getElementById("who");
   var note=document.getElementById("savedNote");
   var sent=document.getElementById("sentNote");
   var btn=document.getElementById("submitBtn");
-  var state={items:{},who:"",sentAt:""};
-  try{ var raw=localStorage.getItem(KEY); if(raw){ var p=JSON.parse(raw); if(p&&p.items) state=p; } }catch(e){}
-
-  function save(){
-    try{ localStorage.setItem(KEY,JSON.stringify(state)); note.textContent="Saved on this device."; }
-    catch(e){ note.textContent=""; }
-  }
-  function showSent(){
-    if(!state.sentAt) return;
-    sent.hidden=false;
-    sent.textContent="Sent to Lee on "+state.sentAt+". Your notes are still here on this device.";
-    btn.textContent="Send an update";
-  }
-  var timer=null;
-  function later(){ clearTimeout(timer); timer=setTimeout(save,500); }
-
-  for(var i=0;i<items.length;i++){
-    (function(it){
-      var k=it.getAttribute("data-k");
-      var cb=it.querySelector("input[type=checkbox]");
-      var wrap=it.querySelector(".answer");
-      var ta=it.querySelector("textarea");
-      var s=state.items[k]||{};
-      if(s.c){ cb.checked=true; wrap.hidden=false; it.classList.add("on"); }
-      if(s.a) ta.value=s.a;
-      cb.addEventListener("change",function(){
-        wrap.hidden=!cb.checked;
-        it.classList.toggle("on",cb.checked);
-        state.items[k]={c:cb.checked,a:ta.value};
-        save();
-        if(cb.checked) ta.focus();
-      });
-      ta.addEventListener("input",function(){ state.items[k]={c:cb.checked,a:ta.value}; later(); });
-    })(items[i]);
-  }
+  var state={items:{},notes:{},who:"",sentAt:""};
+  try{ var raw=localStorage.getItem(KEY); if(raw){ var p=JSON.parse(raw); if(p&&p.items){ state=p; state.notes=state.notes||{}; } } }catch(e){}
+  function save(){ try{ localStorage.setItem(KEY,JSON.stringify(state)); note.textContent="Saved on this device."; }catch(e){ note.textContent=""; } }
+  var timer=null; function later(){ clearTimeout(timer); timer=setTimeout(save,500); }
+  function showSent(){ if(!state.sentAt) return; sent.hidden=false; sent.textContent="Sent to Lee on "+state.sentAt+". Your notes are still here on this device."; btn.textContent="Send an update"; }
+  for(var i=0;i<items.length;i++){(function(it){
+    var k=it.getAttribute("data-k"), cb=it.querySelector("input[type=checkbox]"), wrap=it.querySelector(".answer"), ta=it.querySelector("textarea");
+    var s=state.items[k]||{};
+    if(s.c){ cb.checked=true; wrap.hidden=false; it.classList.add("on"); }
+    if(s.a) ta.value=s.a;
+    cb.addEventListener("change",function(){ wrap.hidden=!cb.checked; it.classList.toggle("on",cb.checked); state.items[k]={c:cb.checked,a:ta.value}; save(); if(cb.checked) ta.focus(); });
+    ta.addEventListener("input",function(){ state.items[k]={c:cb.checked,a:ta.value}; later(); });
+  })(items[i]);}
+  for(var j=0;j<notes.length;j++){(function(nb){
+    var k=nb.getAttribute("data-k"); if(state.notes[k]) nb.value=state.notes[k];
+    nb.addEventListener("input",function(){ state.notes[k]=nb.value; later(); });
+  })(notes[j]);}
   if(state.who) who.value=state.who;
   who.addEventListener("input",function(){ state.who=who.value; later(); });
   showSent();
-
   function buildPrompt(){
     var L=[];
-    L.push("Answers from the Rolfson Agency (Country Financial) \"What I heard, and what I need\" page.");
+    L.push("Answers from the Rolfson Agency (Country Financial) \"Where we are\" page.");
     L.push("Sent by: "+(who.value.trim()||"not given")+" on "+new Date().toLocaleString());
     L.push("");
-    L.push("These came in through the share page after the 2026-10-07 meeting, about the seven-point touch. File them as received in the project's source/ folder (going-forward-solutions/clients/rolfson-agency-country-financial/projects/intake-flow/), update state.md and the Open list, and tell me what they change about the design and the hour estimate.");
-    var secs=form.querySelectorAll(".section");
+    L.push("These came in through the share page after Abby's 2026-10-13 answers, about the seven-point touch. File them as received in the project's source/ folder (going-forward-solutions/clients/rolfson-agency-country-financial/projects/intake-flow/), update state.md and the Open list, and tell me whether anything still blocks the proposal.");
+    var secs=form.querySelectorAll(".section[data-title]");
     for(var s=0;s<secs.length;s++){
-      L.push(""); L.push("## "+secs[s].getAttribute("data-title"));
+      var lines=[];
       var its=secs[s].querySelectorAll(".item");
       for(var j=0;j<its.length;j++){
-        var c=its[j].querySelector("input[type=checkbox]").checked;
-        var a=its[j].querySelector("textarea").value.trim();
-        L.push("- ["+(c?"x":" ")+"] "+its[j].querySelector(".qtext").textContent);
-        if(c&&a) L.push("  Notes: "+a.replace(/\n+/g," / "));
+        var c=its[j].querySelector("input[type=checkbox]").checked, a=its[j].querySelector("textarea").value.trim();
+        lines.push("- ["+(c?"x":" ")+"] "+its[j].querySelector(".qtext").textContent);
+        if(c&&a) lines.push("  Notes: "+a.replace(/\n+/g," / "));
       }
+      var nb=secs[s].querySelector(".notebox"), nv=nb?nb.value.trim():"";
+      if(nv) lines.push("Section notes: "+nv.replace(/\n+/g," / "));
+      if(its.length||nv){ L.push(""); L.push("## "+secs[s].getAttribute("data-title")); L=L.concat(lines); }
     }
+    var ae=document.getElementById("note_else").value.trim();
+    if(ae){ L.push(""); L.push("## Anything else"); L.push(ae.replace(/\n+/g," / ")); }
     return L.join("\n");
   }
-
   form.addEventListener("submit",function(e){
     e.preventDefault();
-    btn.disabled=true; var old=btn.textContent; btn.textContent="Sending\u2026";
+    btn.disabled=true; var old=btn.textContent; btn.textContent="Sending…";
     document.getElementById("promptField").value=buildPrompt();
     var body=new URLSearchParams(new FormData(form)).toString();
     fetch("/",{method:"POST",headers:{"Content-Type":"application/x-www-form-urlencoded"},body:body})
-    .then(function(res){
-      if(!res.ok) throw new Error("bad");
-      state.sentAt=new Date().toLocaleString([],{weekday:"long",hour:"numeric",minute:"2-digit"});
-      save(); btn.disabled=false; showSent(); note.textContent="";
-    }).catch(function(){
-      btn.disabled=false; btn.textContent=old;
-      note.textContent="That didn\u2019t send. Check your connection and try again. Your notes are saved.";
-    });
+    .then(function(res){ if(!res.ok) throw new Error("bad"); state.sentAt=new Date().toLocaleString([],{weekday:"long",hour:"numeric",minute:"2-digit"}); save(); btn.disabled=false; showSent(); note.textContent=""; })
+    .catch(function(){ btn.disabled=false; btn.textContent=old; note.textContent="That didn’t send. Check your connection and try again. Your notes are saved."; });
   });
 })();
 </script>

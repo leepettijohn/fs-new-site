@@ -1,0 +1,406 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="date" content="2026-10-13">
+<meta name="client" content="Arnion Group">
+<title>Arnion Group - Team activity tracker proposal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&display=swap">
+<style>
+:root{
+  --forward-blue:#1E5BBA;--sky-blue:#3FA9F5;--signal-amber:#F5A524;--ink:#1A1D24;--slate:#5B6470;
+  --paper:#F7F6F2;--paper-warm:#EFEEE8;--white:#FFFFFF;--hairline:rgba(26,29,36,.08);--line:rgba(26,29,36,.14);
+  --blue-soft:#E8EFF9;--radius:12px;
+  --font-display:'Fraunces',Georgia,serif;--font-body:'Inter',system-ui,-apple-system,sans-serif;
+  color-scheme:light;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--font-body);font-size:16px;
+  line-height:1.6;-webkit-font-smoothing:antialiased;padding:0 20px env(safe-area-inset-bottom,0px)}
+a{color:var(--forward-blue)}
+[hidden]{display:none!important}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.hp{position:absolute;left:-9999px}
+.wrap{max-width:640px;margin:0 auto;padding-block:calc(28px + env(safe-area-inset-top,0px)) 56px}
+.brand{display:inline-flex;align-items:center;gap:10px;text-decoration:none;margin-bottom:40px}
+.brand img{height:30px;width:auto;display:block}
+.brand span{font-family:var(--font-display);font-weight:600;font-size:17px;color:var(--ink);letter-spacing:-.01em}
+.eyebrow{font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--forward-blue);margin:0 0 12px}
+h1{font-family:var(--font-display);font-weight:500;font-size:clamp(34px,8vw,48px);line-height:1.05;
+  letter-spacing:-.02em;margin:0 0 20px;text-wrap:balance}
+.intro{font-size:17px;color:var(--ink);margin:0 0 12px;max-width:60ch}
+.intro.soft{color:var(--slate)}
+.when{display:flex;flex-wrap:wrap;gap:6px 24px;margin:24px 0 0;padding:14px 16px;background:var(--white);
+  border:1px solid var(--hairline);border-radius:var(--radius);font-size:15px}
+.when b{font-weight:600;color:var(--forward-blue);margin-right:4px}
+.section{margin-top:44px;padding-top:28px;border-top:1px solid var(--hairline)}
+.section-num{font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--forward-blue);
+  display:block;margin-bottom:6px}
+h2{font-family:var(--font-display);font-weight:500;font-size:26px;line-height:1.15;letter-spacing:-.02em;margin:0 0 6px;text-wrap:balance}
+h3{font-size:16px;font-weight:600;margin:24px 0 8px}
+.section-sub{font-size:15px;color:var(--slate);margin:0}
+p.body{margin:14px 0 0;font-size:15.5px}
+.items{display:flex;flex-direction:column;gap:8px;margin-top:16px}
+.item{background:var(--white);border:1px solid var(--hairline);border-radius:var(--radius);padding:4px}
+.item.on{border-color:var(--forward-blue)}
+.check{display:flex;align-items:flex-start;gap:12px;padding:12px;border-radius:9px;cursor:pointer;min-height:44px}
+.check:hover{background:var(--paper)}
+.check input{width:20px;height:20px;accent-color:var(--forward-blue);flex:0 0 auto;margin:2px 0 0}
+.check input:focus-visible{outline:2px solid var(--forward-blue);outline-offset:2px}
+.qtext{font-size:15.5px;font-weight:500;display:block}
+.check small{display:block;font-size:14px;color:var(--slate);margin-top:3px;font-weight:400}
+.answer{padding:0 12px 12px 44px}
+textarea,input[type=text]{width:100%;font:inherit;font-size:16px;color:var(--ink);background:var(--paper);
+  border:1px solid var(--line);border-radius:9px;padding:10px 12px;line-height:1.5}
+textarea{resize:vertical;min-height:68px}
+textarea::placeholder,input[type=text]::placeholder{color:var(--slate);opacity:.8}
+textarea:focus-visible,input[type=text]:focus-visible{outline:2px solid var(--forward-blue);outline-offset:1px;border-color:transparent}
+.send,.approve{margin-top:44px;padding:22px 18px;background:var(--white);border:1px solid var(--hairline);border-radius:var(--radius)}
+.send h2,.approve h2{font-size:22px}
+.send label.q,.approve label.q{display:block;font-weight:600;font-size:15px;margin:18px 0 6px}
+.btn{display:inline-flex;align-items:center;justify-content:center;margin-top:18px;min-height:48px;padding:12px 26px;
+  font:inherit;font-weight:600;font-size:16px;color:var(--ink);background:var(--signal-amber);border:0;border-radius:999px;cursor:pointer}
+.btn:hover{filter:brightness(.96)}
+.btn:focus-visible{outline:2px solid var(--forward-blue);outline-offset:3px}
+.btn:disabled{opacity:.6;cursor:default}
+.btn.outline{background:transparent;border:1.5px solid var(--ink)}
+.saved-note{font-size:14px;color:var(--slate);margin:12px 0 0;min-height:1.4em}
+.sent{margin-top:16px;padding:12px 14px;background:var(--blue-soft);border-radius:9px;font-size:15px}
+.foot{margin-top:56px;padding-top:24px;border-top:1px solid var(--hairline);font-size:15px;color:var(--slate)}
+.foot .fs{font-family:var(--font-display);font-weight:600;font-size:17px;color:var(--ink);text-decoration:none}
+.foot .fs:hover{color:var(--forward-blue)}
+.foot p{margin:6px 0}
+.foot a{text-decoration:none;font-weight:500}
+.foot a:hover{text-decoration:underline}
+.foot .sep{margin:0 6px;color:var(--line)}
+.heard{margin:16px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:8px}
+.heard li{background:var(--white);border:1px solid var(--hairline);border-radius:var(--radius);padding:12px 14px;font-size:15.5px}
+.heard b{font-weight:600}
+.steps{margin:16px 0 0;padding:0;list-style:none;counter-reset:s;display:flex;flex-direction:column;gap:8px}
+.steps li{counter-increment:s;position:relative;background:var(--white);border:1px solid var(--hairline);border-radius:var(--radius);padding:14px 14px 14px 56px;font-size:15.5px}
+.steps li::before{content:counter(s);position:absolute;left:14px;top:13px;width:28px;height:28px;border-radius:50%;background:var(--blue-soft);color:var(--forward-blue);font-weight:600;font-size:14px;display:flex;align-items:center;justify-content:center}
+.steps b{display:block;font-weight:600}
+.steps span{color:var(--slate);font-size:14.5px}
+.note{margin-top:14px}
+.note label{display:block;font-size:14px;font-weight:600;color:var(--slate);margin-bottom:6px}
+.note textarea{background:var(--white)}
+.tbl{width:100%;border-collapse:collapse;margin-top:14px;background:var(--white);border:1px solid var(--hairline);border-radius:var(--radius);overflow:hidden;font-size:15px}
+.tbl th,.tbl td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--hairline);vertical-align:top}
+.tbl th{font-size:12.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--slate);background:var(--paper-warm)}
+.tbl tr:last-child td{border-bottom:0}
+.tbl td.num{text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
+.tbl tfoot td{font-weight:600;border-top:1px solid var(--line)}
+.flow{margin-top:16px;background:var(--white);border:1px solid var(--hairline);border-radius:var(--radius);padding:14px}
+.flow svg{display:block;width:100%;height:auto}
+.price{margin-top:16px;padding:18px;background:var(--white);border:1px solid var(--forward-blue);border-radius:var(--radius)}
+.price .fee{font-family:var(--font-display);font-size:34px;font-weight:500;line-height:1.1;margin:0}
+.price .fee small{font-family:var(--font-body);font-size:15px;color:var(--slate);font-weight:400}
+.price p{margin:8px 0 0;font-size:15px}
+.option{background:var(--white);border:1px solid var(--hairline);border-radius:var(--radius);padding:12px 14px;font-size:15.5px;margin-top:8px}
+.option b{display:block}
+.option span{color:var(--slate);font-size:14.5px}
+.done-close{margin-top:12px;font-size:14.5px;color:var(--slate);border-left:2px solid var(--sky-blue);padding-left:12px}
+@media print{.send .btn,.approve,.saved-note{display:none} .answer[hidden]{display:none!important}}
+</style>
+</head>
+<body>
+<main class="wrap">
+
+  <a class="brand" href="https://gottamoveforward.com/">
+    <img src="data:image/png;base64,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" alt="" width="37" height="30">
+    <span>Forward Solutions</span>
+  </a>
+
+  <p class="eyebrow">Proposal · Team activity tracker</p>
+  <h1>Your team’s activity tracker</h1>
+
+  <p class="intro">Cole, this is the app you saw on Tuesday, built for real in Arnion Group’s Google Workspace: what it does, what I need from you, and the price. It’s ready to approve whenever you are.</p>
+  <p class="intro soft">Section Two has the few things I need before we build. Tick an item and jot a note, or bring the answers to Friday. Anything you type stays on this phone or computer, and sending it is optional.</p>
+
+  <div class="when">
+    <span><b>Build session</b>Friday, October 16, 2:30–3:30 pm, Google Meet</span>
+    <span><b>Version</b>October 13, 2026</span>
+  </div>
+
+  <form id="notesForm" name="arnion-group-tracker-notes" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" netlify-honeypot="bot-field">
+    <input type="hidden" name="form-name" value="arnion-group-tracker-notes">
+    <p class="hp"><label>Leave this blank: <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+    <textarea name="prompt" id="promptField" class="hp" tabindex="-1" aria-hidden="true"></textarea>
+
+<section class="section" data-title="What’s being built">
+<span class="section-num">One</span>
+<h2>What’s being built</h2>
+<p class="body">A phone app your team uses to log their day with one tap: a call made, a person talked to, an application submitted. Each tap is worth points. Everyone sees their own score for today, this week and this month. Mid admins see their own and their reps’. You see everyone’s.</p>
+<p class="body">Every tap is saved as its own line with the time, not just a running count. So later you can see <em>when</em> people are productive, not only how much.</p>
+
+<h3>What we settled on Tuesday</h3>
+<ul class="heard">
+  <li><b>Built in Arnion Group’s Google Workspace, owned by you.</b> I’m added as an editor so I can build and maintain it.</li>
+  <li><b>Three levels:</b> you as top admin, mid admins, and reps. Admins log their own activity too.</li>
+  <li><b>Scores are private by role</b>, unless you choose a leaderboard (Section Two).</li>
+  <li><b>Misclicks are easy to undo.</b> Anyone can delete their own entries.</li>
+  <li><b>We start fresh.</b> Your current sheet stays as an archive.</li>
+  <li><b>No public access.</b> Only people you add can open it.</li>
+</ul>
+
+<h3>How it works</h3>
+<div class="flow">
+<svg viewBox="0 0 600 300" role="img" aria-labelledby="flowT">
+  <title id="flowT">A tap on a phone adds a row to the log sheet, scores are calculated from the log, and each person sees what their role allows.</title>
+  <defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1E5BBA"/></marker></defs>
+  <g font-family="Inter, system-ui, sans-serif" font-size="20" fill="#1A1D24">
+    <rect x="10" y="20" width="250" height="90" rx="12" fill="#E8EFF9" stroke="#1E5BBA"/>
+    <text x="135" y="58" text-anchor="middle" font-weight="600">Tap “Calls Made”</text>
+    <text x="135" y="82" text-anchor="middle" fill="#5B6470" font-size="16">on the phone app</text>
+    <rect x="340" y="20" width="250" height="90" rx="12" fill="#FFFFFF" stroke="#1E5BBA"/>
+    <text x="465" y="58" text-anchor="middle" font-weight="600">A row in the Log</text>
+    <text x="465" y="82" text-anchor="middle" fill="#5B6470" font-size="16">who, what, points, time</text>
+    <rect x="340" y="190" width="250" height="90" rx="12" fill="#FFFFFF" stroke="#1E5BBA"/>
+    <text x="465" y="228" text-anchor="middle" font-weight="600">Scores calculated</text>
+    <text x="465" y="252" text-anchor="middle" fill="#5B6470" font-size="16">today · this week · this month</text>
+    <rect x="10" y="190" width="250" height="90" rx="12" fill="#E8EFF9" stroke="#1E5BBA"/>
+    <text x="135" y="228" text-anchor="middle" font-weight="600">Each person sees</text>
+    <text x="135" y="252" text-anchor="middle" fill="#5B6470" font-size="16">what their role allows</text>
+    <line x1="262" y1="65" x2="336" y2="65" stroke="#1E5BBA" stroke-width="2" marker-end="url(#ah)"/>
+    <line x1="465" y1="112" x2="465" y2="186" stroke="#1E5BBA" stroke-width="2" marker-end="url(#ah)"/>
+    <line x1="338" y1="235" x2="264" y2="235" stroke="#1E5BBA" stroke-width="2" marker-end="url(#ah)"/>
+  </g>
+</svg>
+</div>
+
+<h3>What it runs on</h3>
+<table class="tbl">
+  <thead><tr><th>Layer</th><th>Service</th><th>Whose account</th></tr></thead>
+  <tbody>
+    <tr><td>Data</td><td>Google Sheet</td><td>Arnion Group (you)</td></tr>
+    <tr><td>App</td><td>AppSheet (part of Google Workspace)</td><td>Arnion Group (you)</td></tr>
+    <tr><td>Sign-in</td><td>Google accounts</td><td>Each person on the team</td></tr>
+  </tbody>
+</table>
+
+<h3>What the sheet holds</h3>
+<table class="tbl">
+  <thead><tr><th>Tab</th><th>One row per</th></tr></thead>
+  <tbody>
+    <tr><td>Users</td><td>Person: name, email, role, manager, active</td></tr>
+    <tr><td>Activities</td><td>Counter: name, points, order on screen, active</td></tr>
+    <tr><td>Log</td><td>Tap: who, which activity, points, date and time</td></tr>
+    <tr><td>Settings</td><td>Who the top admin is, so it’s changed in one place</td></tr>
+  </tbody>
+</table>
+<div class="note"><label for="note_built">Comments or questions on this section</label><textarea id="note_built" class="notebox" data-k="note_built" rows="3" placeholder="Optional"></textarea></div>
+</section>
+
+<section class="section" data-title="What I need from you">
+<span class="section-num">Two</span>
+<h2>What I need from you</h2>
+<p class="section-sub">Bring these to Friday, or tick and answer here. If something isn’t ready, we’ll fill it in together.</p>
+<div class="items">
+<div class="item" data-k="q1">
+<label class="check"><input type="checkbox" id="q1_c" aria-controls="q1_w"><span><span class="qtext">Every counter and its points</span><small>So far I have Calls Made 2, People Talked To 3, Applications Submitted 4. What else is on your current sheet, and in what order should they show on the screen?</small></span></label>
+<div class="answer" id="q1_w" hidden><label class="sr" for="q1_a">Your notes</label><textarea id="q1_a" rows="3" placeholder="Counter: points, one per line"></textarea></div>
+</div>
+<div class="item" data-k="q2">
+<label class="check"><input type="checkbox" id="q2_c" aria-controls="q2_w"><span><span class="qtext">Who will use it</span><small>For each person: name, email, role (top admin, mid admin or rep) and who they report to.</small></span></label>
+<div class="answer" id="q2_w" hidden><label class="sr" for="q2_a">Your notes</label><textarea id="q2_a" rows="4" placeholder="Name, email, role, reports to"></textarea></div>
+</div>
+<div class="item" data-k="q3">
+<label class="check"><input type="checkbox" id="q3_c" aria-controls="q3_w"><span><span class="qtext">Does each of them have an Arnion Group email, or their own?</span><small>This is the one that matters most. It decides how they sign in, and whether Google charges a license per person. Both options are below.</small></span></label>
+<div class="answer" id="q3_w" hidden><label class="sr" for="q3_a">Your notes</label><textarea id="q3_a" rows="2" placeholder="Who has which, and which option you’d like"></textarea></div>
+</div>
+<div class="item" data-k="q4">
+<label class="check"><input type="checkbox" id="q4_c" aria-controls="q4_w"><span><span class="qtext">Leaderboard: which kind, if any?</span><small>Everyone’s daily scores visible to the whole team, just the top few without exact numbers, or keep scores private.</small></span></label>
+<div class="answer" id="q4_w" hidden><label class="sr" for="q4_a">Your notes</label><textarea id="q4_a" rows="2" placeholder="Your call"></textarea></div>
+</div>
+<div class="item" data-k="q5">
+<label class="check"><input type="checkbox" id="q5_c" aria-controls="q5_w"><span><span class="qtext">Can a mid admin delete a rep’s entries?</span><small>Everyone can delete their own. The question is whether a mid admin can also clean up for their reps.</small></span></label>
+<div class="answer" id="q5_w" hidden><label class="sr" for="q5_a">Your notes</label><textarea id="q5_a" rows="2" placeholder="Yes or no"></textarea></div>
+</div>
+<div class="item" data-k="q6">
+<label class="check"><input type="checkbox" id="q6_c" aria-controls="q6_w"><span><span class="qtext">Who is the admin on Arnion Group’s Google Workspace?</span><small>One or two settings there let the app work for your team. If that’s you, we’ll do it together on Friday.</small></span></label>
+<div class="answer" id="q6_w" hidden><label class="sr" for="q6_a">Your notes</label><textarea id="q6_a" rows="2" placeholder="Name"></textarea></div>
+</div>
+</div>
+
+<h3>Google’s licenses: two ways to sign your team in</h3>
+<div class="option"><b>A. Each agent gets an Arnion Group account</b><span>Google Workspace Business Starter is $7 per person per month on an annual plan, and the app is included. It works exactly like the demo, and it also gives them Arnion email and Drive for the folders you plan to share.</span></div>
+<div class="option"><b>B. Agents keep their own Google accounts</b><span>Each one needs an AppSheet license: $10 per person per month, or possibly less through Google’s pooled “User Pass.” I’ll confirm that price before we choose.</span></div>
+<p class="body" style="font-size:14.5px;color:var(--slate)">These are Google’s charges, billed to Arnion Group, and they’re separate from my price below. Prices checked October 13, 2026. You and your staff who already have Arnion accounts are covered either way.</p>
+<div class="note"><label for="note_need">Comments or questions on this section</label><textarea id="note_need" class="notebox" data-k="note_need" rows="3" placeholder="Optional"></textarea></div>
+</section>
+
+<section class="section" data-title="Definition of done">
+<span class="section-num">Three</span>
+<h2>Definition of done</h2>
+<ol class="steps">
+  <li><b>The app runs in Arnion Group’s Workspace</b><span>Owned by you, with me as an editor.</span></li>
+  <li><b>One tap logs an activity</b><span>Every counter on your list, with your point values, in your order.</span></li>
+  <li><b>Scores for today, this week and this month</b><span>Shown for each person.</span></li>
+  <li><b>Each role sees the right people</b><span>Reps see themselves, mid admins see themselves and their reps, and you see everyone. Checked by signing in as each role.</span></li>
+  <li><b>Anyone can delete their own entries</b><span>For misclicks.</span></li>
+  <li><b>The leaderboard, if you choose one</b><span>The kind you pick in Section Two.</span></li>
+  <li><b>Your team is loaded and can sign in on their phones</b><span>Everyone on the list you give me.</span></li>
+  <li><b>A short how-to for you</b><span>How to add or remove a person, add a counter or change its points, and install the app on a phone.</span></li>
+</ol>
+<p class="done-close">Demonstration of the above ends the engagement. It is not conditioned on features listed under exclusions in Section Five.</p>
+<div class="note"><label for="note_done">Comments or questions on this section</label><textarea id="note_done" class="notebox" data-k="note_done" rows="3" placeholder="Optional"></textarea></div>
+</section>
+
+<section class="section" data-title="Price and hours">
+<span class="section-num">Four</span>
+<h2>Price and hours</h2>
+<div class="price">
+  <p class="fee">$375 <small>covering 3 hours at $125/hr</small></p>
+  <p><b>Not to exceed $375.</b> If it takes longer, that’s on me.</p>
+  <p><b>Timeline:</b> about one week from Friday’s session.</p>
+  <p><b>Payment:</b> the full fee is invoiced when the agreement is signed.</p>
+</div>
+<table class="tbl">
+  <thead><tr><th>What you get</th><th class="num">Hours</th></tr></thead>
+  <tbody>
+    <tr><td>Planning session with you: counters, people, roles and leaderboard settled</td><td class="num">1</td></tr>
+    <tr><td>Your app in Arnion Group’s Workspace: one-tap logging, scores, private views by role, undo, leaderboard</td><td class="num">1.25</td></tr>
+    <tr><td>Setup and testing: your team loaded, each role checked, how-to written</td><td class="num">0.75</td></tr>
+  </tbody>
+  <tfoot><tr><td>Total</td><td class="num">3</td></tr></tfoot>
+</table>
+<div class="note"><label for="note_price">Comments or questions on this section</label><textarea id="note_price" class="notebox" data-k="note_price" rows="3" placeholder="Optional"></textarea></div>
+</section>
+
+<section class="section" data-title="Not included">
+<span class="section-num">Five</span>
+<h2>Not included</h2>
+<p class="section-sub">Each of these can be quoted separately whenever you want it.</p>
+<ul class="heard">
+  <li><b>Google’s license fees.</b> Billed by Google to Arnion Group (Section Two).</li>
+  <li><b>Creating Google accounts for your agents.</b> Done in your Workspace admin. I’ll show you where.</li>
+  <li><b>Bringing over history from your current sheet.</b> It stays as your archive.</li>
+  <li><b>Charts and reports beyond the three score periods</b>, like activity by time of day or team totals over time. A natural next step once there’s a few weeks of data.</li>
+  <li><b>Moving your folder structure into the Arnion Group Workspace.</b></li>
+  <li><b>A branded app in the app stores.</b> Your team uses the AppSheet app or a link.</li>
+  <li><b>Changes after done</b>, such as new roles or new screens.</li>
+</ul>
+<div class="note"><label for="note_excl">Comments or questions on this section</label><textarea id="note_excl" class="notebox" data-k="note_excl" rows="3" placeholder="Optional"></textarea></div>
+</section>
+
+    <section class="section">
+      <span class="section-num">Last</span>
+      <h2>Anything else</h2>
+      <div class="note"><label for="note_else">Anything that didn’t fit above</label><textarea id="note_else" class="notebox" data-k="note_else" rows="4" placeholder="Optional"></textarea></div>
+    </section>
+
+    <div class="send">
+      <h2>Send your notes</h2>
+      <p class="section-sub">Optional. Send what you have; you can send again as you add more. This doesn’t approve anything.</p>
+      <button class="btn outline" type="submit" id="submitBtn">Send notes to Lee</button>
+      <p class="saved-note" id="savedNote" role="status"></p>
+      <div class="sent" id="sentNote" hidden></div>
+    </div>
+  </form>
+
+  <form id="approveForm" class="approve" name="arnion-group-tracker-approve" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" netlify-honeypot="bot-field">
+    <input type="hidden" name="form-name" value="arnion-group-tracker-approve">
+    <p class="hp"><label>Leave this blank: <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+    <input type="hidden" name="proposal" value="Arnion Group - Team activity tracker">
+    <input type="hidden" name="proposal_version_date" value="2026-10-13">
+    <input type="hidden" name="flat_fee" value="$375 (3 hours at $125/hr, not to exceed $375)">
+    <div id="approveBody">
+      <h2>Approve this proposal</h2>
+      <p class="section-sub">Approving tells Lee you’re ready. He’ll send an agreement to sign, and work begins once that’s signed.</p>
+      <label class="q" for="approved_by">Your full name</label>
+      <input type="text" id="approved_by" name="approved_by" autocomplete="name">
+      <button class="btn" type="submit" id="approveBtn" disabled>Approve this proposal</button>
+      <p class="saved-note" id="approveNote" role="status"></p>
+    </div>
+    <div class="sent" id="approvedNote" hidden></div>
+  </form>
+
+  <footer class="foot">
+    <p><a class="fs" href="https://gottamoveforward.com/">Forward Solutions</a></p>
+    <p>Lee Pettijohn</p>
+    <p>(970) 712-6933 <span class="sep">&middot;</span> <a href="tel:+19707126933">Call</a> <span class="sep">&middot;</span> <a href="sms:+19707126933">Text</a></p>
+    <p><a href="mailto:leepettijohn@gottamoveforward.com">leepettijohn@gottamoveforward.com</a></p>
+  </footer>
+
+</main>
+<script>
+(function(){
+  "use strict";
+  var KEY="arnion-group-tracker-proposal";
+  var form=document.getElementById("notesForm");
+  var items=form.querySelectorAll(".item");
+  var notes=form.querySelectorAll(".notebox");
+  var note=document.getElementById("savedNote");
+  var sent=document.getElementById("sentNote");
+  var btn=document.getElementById("submitBtn");
+  var state={items:{},notes:{},sentAt:"",approvedAt:"",approvedBy:""};
+  try{ var raw=localStorage.getItem(KEY); if(raw){ var p=JSON.parse(raw); if(p&&p.items){ state=p; state.notes=state.notes||{}; } } }catch(e){}
+  function save(){ try{ localStorage.setItem(KEY,JSON.stringify(state)); note.textContent="Saved on this device."; }catch(e){ note.textContent=""; } }
+  var timer=null; function later(){ clearTimeout(timer); timer=setTimeout(save,500); }
+  function showSent(){ if(!state.sentAt) return; sent.hidden=false; sent.textContent="Sent to Lee on "+state.sentAt+". Your notes are still here on this device."; btn.textContent="Send an update"; }
+  for(var i=0;i<items.length;i++){(function(it){
+    var k=it.getAttribute("data-k"), cb=it.querySelector("input[type=checkbox]"), wrap=it.querySelector(".answer"), ta=it.querySelector("textarea");
+    var s=state.items[k]||{};
+    if(s.c){ cb.checked=true; wrap.hidden=false; it.classList.add("on"); }
+    if(s.a) ta.value=s.a;
+    cb.addEventListener("change",function(){ wrap.hidden=!cb.checked; it.classList.toggle("on",cb.checked); state.items[k]={c:cb.checked,a:ta.value}; save(); if(cb.checked) ta.focus(); });
+    ta.addEventListener("input",function(){ state.items[k]={c:cb.checked,a:ta.value}; later(); });
+  })(items[i]);}
+  for(var j=0;j<notes.length;j++){(function(nb){
+    var k=nb.getAttribute("data-k"); if(state.notes[k]) nb.value=state.notes[k];
+    nb.addEventListener("input",function(){ state.notes[k]=nb.value; later(); });
+  })(notes[j]);}
+  showSent();
+  function buildPrompt(){
+    var L=[];
+    L.push("Notes from Cole Mathews (Arnion Group) on the team activity tracker proposal page, version 2026-10-13.");
+    L.push("Sent on "+new Date().toLocaleString());
+    L.push("");
+    L.push("File these as received in going-forward-solutions/clients/arnion-group/projects/activity-tracker/source/, update that project's state.md and its Open list, and tell me whether anything changes the scope or the price on the proposal page.");
+    var secs=form.querySelectorAll(".section[data-title]");
+    for(var s=0;s<secs.length;s++){
+      var lines=[];
+      var its=secs[s].querySelectorAll(".item");
+      for(var j=0;j<its.length;j++){
+        var c=its[j].querySelector("input[type=checkbox]").checked, a=its[j].querySelector("textarea").value.trim();
+        lines.push("- ["+(c?"x":" ")+"] "+its[j].querySelector(".qtext").textContent);
+        if(c&&a) lines.push("  Answer: "+a.replace(/\n+/g," / "));
+      }
+      var nb=secs[s].querySelector(".notebox"), nv=nb?nb.value.trim():"";
+      if(nv) lines.push("Section notes: "+nv.replace(/\n+/g," / "));
+      if(its.length||nv){ L.push(""); L.push("## "+secs[s].getAttribute("data-title")); L=L.concat(lines); }
+    }
+    var ae=document.getElementById("note_else").value.trim();
+    if(ae){ L.push(""); L.push("## Anything else"); L.push(ae.replace(/\n+/g," / ")); }
+    return L.join("\n");
+  }
+  function post(f){ return fetch("/",{method:"POST",headers:{"Content-Type":"application/x-www-form-urlencoded"},body:new URLSearchParams(new FormData(f)).toString()}).then(function(r){ if(!r.ok) throw new Error("bad"); }); }
+  form.addEventListener("submit",function(e){
+    e.preventDefault();
+    btn.disabled=true; var old=btn.textContent; btn.textContent="Sending…";
+    document.getElementById("promptField").value=buildPrompt();
+    post(form).then(function(){ state.sentAt=new Date().toLocaleString([],{weekday:"long",hour:"numeric",minute:"2-digit"}); save(); btn.disabled=false; showSent(); note.textContent=""; })
+    .catch(function(){ btn.disabled=false; btn.textContent=old; note.textContent="That didn’t send. Check your connection and try again. Your notes are saved."; });
+  });
+
+  var af=document.getElementById("approveForm"), an=document.getElementById("approved_by"), ab=document.getElementById("approveBtn");
+  var aBody=document.getElementById("approveBody"), aDone=document.getElementById("approvedNote"), aNote=document.getElementById("approveNote");
+  function showApproved(){ if(!state.approvedAt) return; aBody.hidden=true; aDone.hidden=false; aDone.textContent="Approved by "+state.approvedBy+" on "+state.approvedAt+". Lee will send the agreement to sign; work begins once it’s signed."; }
+  an.addEventListener("input",function(){ ab.disabled=an.value.trim().length<2; });
+  af.addEventListener("submit",function(e){
+    e.preventDefault();
+    if(an.value.trim().length<2) return;
+    ab.disabled=true; ab.textContent="Sending…";
+    post(af).then(function(){ state.approvedBy=an.value.trim(); state.approvedAt=new Date().toLocaleString([],{month:"long",day:"numeric",hour:"numeric",minute:"2-digit"}); save(); note.textContent=""; showApproved(); })
+    .catch(function(){ ab.disabled=false; ab.textContent="Approve this proposal"; aNote.textContent="That didn’t send. Check your connection and try again."; });
+  });
+  showApproved();
+})();
+</script>
+</body>
+</html>
