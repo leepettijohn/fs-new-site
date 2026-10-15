@@ -13,6 +13,12 @@
 // Label = the page's <title>, falling back to a tidied filename.
 // Date  = <meta name="date" content="2026-09-22"> if present,
 //         else the date the file was first committed to git.
+// Group = <meta name="category" content="standing"> pins a page to the top;
+//         otherwise pages group under <meta name="client">, groups ordered by
+//         their newest page; pages with neither go in "Other" at the bottom.
+//         Inside a group, the "Client - " part of the title is dropped.
+// Badge = the category tag (discovery, proposal, feedback, approval, audit,
+//         foundation, standing). Rules for each: standards/shared-pages.md.
 // PIN   = set SHARE_PIN in Netlify > Site configuration > Environment variables.
 //         Only its SHA-256 hash is written into the page, never the PIN.
 
@@ -45,6 +51,39 @@ function titleOf(html, fallback) {
   return m[1].trim().replace(/\s+/g, " ")
     .replace(/&amp;/g, "&").replace(/&lt;/g, "<").replace(/&gt;/g, ">")
     .replace(/&quot;/g, '"').replace(/&#39;/g, "'");
+}
+
+function metaOf(html, name) {
+  const m = html.match(new RegExp(`<meta\\s+name=["']${name}["']\\s+content=["']([^"']*)["']`, "i"));
+  return m ? m[1].trim() : "";
+}
+
+const CATEGORY_LABELS = {
+  discovery: "Discovery", proposal: "Proposal", feedback: "Feedback", approval: "Approval",
+  audit: "Audit", foundation: "Foundation", standing: "Standing",
+};
+
+// Pinned (standing) first, then one group per client ordered by its newest page,
+// then "Other". Pages arrive newest first, so each group stays newest first.
+function groupPages(pages) {
+  const pinned = { name: "Pinned", pages: [], pinned: true };
+  const other = { name: "Other", pages: [] };
+  const byClient = new Map();
+  for (const p of pages) {
+    if (p.category === "standing") pinned.pages.push(p);
+    else if (p.client) {
+      if (!byClient.has(p.client)) byClient.set(p.client, { name: p.client, pages: [] });
+      byClient.get(p.client).pages.push(p);
+    } else other.pages.push(p);
+  }
+  return [pinned, ...byClient.values(), other].filter((g) => g.pages.length);
+}
+
+// Inside a client group the header names the client, so drop "Client - " from the title.
+function shortTitle(title, group) {
+  if (group.pinned || group.name === "Other") return title;
+  const i = title.indexOf(" - ");
+  return i > 0 ? title.slice(i + 3) : title;
 }
 
 function dateOf(html, file) {
@@ -84,7 +123,10 @@ function collectDir(dirName, prefix) {
   }
   return found.map((p) => {
     const html = readHtml(p.file);
-    return { href: p.href, title: titleOf(html, p.fallback), date: dateOf(html, p.file) };
+    return {
+      href: p.href, title: titleOf(html, p.fallback), date: dateOf(html, p.file),
+      client: metaOf(html, "client"), category: metaOf(html, "category").toLowerCase(),
+    };
   });
 }
 
@@ -98,13 +140,22 @@ function render(pages, pinHash, ix) {
   const fmt = (d) =>
     d.toLocaleDateString("en-US", { year: "numeric", month: "short", day: "numeric", timeZone: "America/Chicago" });
 
-  const rows = pages.map((p) => `      <li>
+  const row = (p, g) => {
+    const cat = CATEGORY_LABELS[p.category];
+    return `      <li>
         <div class="info">
-          <a href="${esc(p.href)}" target="_blank" rel="noopener">${esc(p.title)}</a>
-          <span class="date">${esc(fmt(p.date))}</span>
+          <a href="${esc(p.href)}" target="_blank" rel="noopener">${esc(shortTitle(p.title, g))}</a>
+          <span class="date">${cat ? `<span class="badge">${esc(cat)}</span>` : ""}${esc(fmt(p.date))}</span>
         </div>
         <button class="copy" data-href="${esc(p.href)}">Copy</button>
-      </li>`).join("\n");
+      </li>`;
+  };
+  const rows = groupPages(pages).map((g) => `  <section class="group${g.pinned ? " pinned" : ""}">
+    <h2>${esc(g.name)}${g.pinned ? "" : ` <span class="count">&middot; ${g.pages.length}</span>`}</h2>
+    <ul>
+${g.pages.map((p) => row(p, g)).join("\n")}
+    </ul>
+  </section>`).join("\n");
 
   return `<!doctype html>
 <html lang="en">
@@ -153,6 +204,14 @@ function render(pages, pinHash, ix) {
   .info a { color:var(--ink); font-weight:600; text-decoration:none; display:block; overflow-wrap:anywhere; }
   .info a:hover { color:var(--accent); }
   .date { color:var(--muted); font-size:13px; }
+  .group { margin-bottom:28px; }
+  .group h2 { font-size:12px; font-weight:600; letter-spacing:0.08em; text-transform:uppercase;
+              color:var(--muted); margin:0 0 10px; }
+  .group h2 .count { font-weight:500; }
+  .group.pinned li { border-left-color:#3FA9F5; }
+  .badge { display:inline-block; font-size:11px; font-weight:600; letter-spacing:0.04em;
+           text-transform:uppercase; color:var(--accent); border:1px solid var(--line);
+           border-radius:999px; padding:1px 8px; margin-right:8px; }
   button { font:inherit; font-size:14px; font-weight:500; border:1px solid var(--line); background:transparent;
            color:var(--ink); border-radius:8px; padding:7px 14px; cursor:pointer; }
   button:hover { border-color:var(--accent); color:var(--accent); }
@@ -190,8 +249,8 @@ function render(pages, pinHash, ix) {
 </div></header>
 <main>
   <h1>${esc(ix.heading)}</h1>
-  <p class="sub">${pages.length} page${pages.length === 1 ? "" : "s"} &middot; newest first &middot; Copy puts the link on your clipboard</p>
-  ${pages.length ? `<ul>\n${rows}\n  </ul>` : `<p class="empty">Nothing in ${esc(ix.dir)}/ yet.</p>`}
+  <p class="sub">${pages.length} page${pages.length === 1 ? "" : "s"} &middot; grouped by client, newest first &middot; Copy puts the link on your clipboard</p>
+  ${pages.length ? rows : `<p class="empty">Nothing in ${esc(ix.dir)}/ yet.</p>`}
 </main>
 <footer>Forward Solutions &middot; gottamoveforward.com</footer>
 </div>
