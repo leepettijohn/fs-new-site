@@ -1,0 +1,341 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="date" content="2026-10-15">
+<meta name="client" content="Healthy Home Network">
+<title>Healthy Home Network - Member onboarding: Lovable changes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&display=swap">
+<style>
+:root{
+  --forward-blue:#1E5BBA;--sky-blue:#3FA9F5;--signal-amber:#F5A524;--ink:#1A1D24;--slate:#5B6470;
+  --paper:#F7F6F2;--paper-warm:#EFEEE8;--white:#FFFFFF;--hairline:rgba(26,29,36,.08);--line:rgba(26,29,36,.14);
+  --blue-soft:#E8EFF9;--red:#B42318;--radius:12px;
+  --font-display:'Fraunces',Georgia,serif;--font-body:'Inter',system-ui,-apple-system,sans-serif;
+  color-scheme:light;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--font-body);font-size:16px;line-height:1.6;
+  -webkit-font-smoothing:antialiased;padding:0 20px env(safe-area-inset-bottom,0px)}
+a{color:var(--forward-blue)}
+[hidden]{display:none!important}
+.wrap{max-width:1000px;margin:0 auto;padding-block:calc(28px + env(safe-area-inset-top,0px)) 80px}
+p{max-width:70ch}
+.brand{display:inline-flex;align-items:center;gap:10px;text-decoration:none;margin-bottom:40px}
+.brand img{height:30px;width:auto;display:block}
+.brand span{font-family:var(--font-display);font-weight:600;font-size:17px;color:var(--ink);letter-spacing:-.01em}
+.eyebrow{font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--forward-blue);margin:0 0 12px}
+h1{font-family:var(--font-display);font-weight:500;font-size:clamp(32px,7vw,46px);line-height:1.08;letter-spacing:-.02em;margin:0 0 20px;text-wrap:balance;max-width:22ch}
+h2.block{font-family:var(--font-display);font-weight:500;font-size:24px;margin:0 0 6px}
+.intro{font-size:17px;margin:0 0 12px}
+.intro.soft{color:var(--slate)}
+.steps{margin:16px 0 0;padding-left:22px;font-size:15.5px;max-width:70ch}
+.steps li{margin:6px 0}
+.tally{margin:28px 0 0;font-size:15px;color:var(--slate)}
+.tally b{color:var(--forward-blue);font-variant-numeric:tabular-nums}
+.tap{font-size:14.5px;color:var(--slate);margin:20px 0 10px}
+
+details.item{background:var(--white);border:1px solid var(--hairline);border-radius:var(--radius);margin-top:10px}
+details.item>summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:12px;padding:14px 16px;border-radius:var(--radius);min-height:56px}
+details.item>summary::-webkit-details-marker{display:none}
+details.item>summary::after{content:"";flex:0 0 auto;width:9px;height:9px;margin:0 4px 5px 4px;border-right:2px solid var(--slate);border-bottom:2px solid var(--slate);transform:rotate(45deg);transition:transform .15s}
+details.item[open]>summary::after{transform:rotate(-135deg);margin-bottom:-5px}
+details.item>summary:focus-visible{outline:2px solid var(--forward-blue);outline-offset:2px}
+details.item.ok{border-color:var(--forward-blue)}
+.num{flex:0 0 auto;min-width:30px;height:30px;padding:0 6px;border-radius:15px;background:var(--blue-soft);color:var(--forward-blue);font-weight:600;font-size:13px;display:flex;align-items:center;justify-content:center;font-variant-numeric:tabular-nums}
+details.item.ok .num{background:var(--forward-blue);color:#fff}
+details.item.skip .num{background:var(--paper-warm);color:var(--slate)}
+.ititle{flex:1 1 auto;min-width:0}
+.ititle h3{margin:0;font-size:16.5px;font-weight:600;line-height:1.35}
+.ititle .sub:empty{display:none}
+.ititle .sub{display:block;font-size:13.5px;color:var(--slate);margin-top:2px}
+.tags{display:flex;flex-direction:column;align-items:flex-end;gap:4px;flex:0 0 auto}
+.label{font-size:12px;font-weight:600;padding:2px 10px;border-radius:999px;white-space:nowrap}
+.label.wait{background:#FEF3DD;color:#8A5300}
+.label.ok{background:var(--forward-blue);color:#fff}
+.label.skip{background:var(--paper-warm);color:var(--slate)}
+.label.edit{background:var(--blue-soft);color:var(--forward-blue)}
+.ibody{padding:0 16px 16px}
+.lab{display:block;font-size:11.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--slate);margin:14px 0 4px}
+.today{margin:0;font-size:15px;background:var(--paper);border-radius:9px;padding:10px 12px;max-width:none}
+textarea{width:100%;font:inherit;font-size:15.5px;color:var(--ink);background:var(--white);border:1px solid var(--line);border-radius:9px;padding:10px 12px;line-height:1.5;resize:vertical}
+textarea:focus-visible,input:focus-visible{outline:2px solid var(--forward-blue);outline-offset:1px;border-color:transparent}
+textarea.change{min-height:220px}
+.rowlinks{display:flex;gap:18px;flex-wrap:wrap}
+.linkbtn{background:none;border:0;padding:4px 0;margin:4px 0 0;font:inherit;font-size:13.5px;color:var(--slate);text-decoration:underline;cursor:pointer}
+.linkbtn.arm{color:var(--red);font-weight:600}
+fieldset.choices{border:0;margin:14px 0 0;padding:0;display:flex;flex-direction:column;gap:6px}
+.opt{display:flex;align-items:center;gap:10px;padding:8px 12px;min-height:44px;border:1px solid var(--line);border-radius:9px;background:var(--white);cursor:pointer;font-size:15px}
+.opt:hover{border-color:var(--forward-blue)}
+.opt input{width:18px;height:18px;accent-color:var(--forward-blue);margin:0;flex:0 0 auto}
+.opt:has(input:checked){border-color:var(--forward-blue);background:var(--blue-soft)}
+@media(min-width:640px){fieldset.choices{flex-direction:row}fieldset.choices .opt{flex:1 1 0}}
+
+.panel{margin-top:32px;padding:22px 18px;background:var(--white);border:1px solid var(--hairline);border-radius:var(--radius)}
+.check{display:flex;align-items:flex-start;gap:10px;padding:10px 12px;margin-top:8px;border:1px solid var(--line);border-radius:9px;cursor:pointer;font-size:15px}
+.check input{width:18px;height:18px;margin:3px 0 0;accent-color:var(--forward-blue);flex:0 0 auto}
+.check:has(input:checked){border-color:var(--forward-blue);background:var(--blue-soft)}
+.check small{display:block;color:var(--slate);font-size:13.5px}
+.btn{display:inline-flex;align-items:center;justify-content:center;margin-top:18px;min-height:48px;padding:12px 26px;font:inherit;font-weight:600;font-size:16px;color:var(--ink);background:var(--signal-amber);border:0;border-radius:999px;cursor:pointer}
+.btn:hover{filter:brightness(.96)}
+.btn:disabled{opacity:.5;cursor:default;filter:none}
+.btn:focus-visible{outline:2px solid var(--forward-blue);outline-offset:3px}
+.btn2{display:inline-flex;align-items:center;min-height:44px;padding:8px 20px;font:inherit;font-weight:600;font-size:15px;color:var(--forward-blue);background:var(--blue-soft);border:0;border-radius:999px;cursor:pointer;margin-top:10px}
+.why{font-size:14px;color:var(--slate);margin:10px 0 0;min-height:1.4em}
+textarea.out{min-height:320px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:13.5px;background:var(--paper)}
+.copied{font-size:14px;color:var(--forward-blue);margin-left:12px}
+.startover{margin-top:28px;font-size:14px}
+.foot{margin-top:28px;padding-top:24px;border-top:1px solid var(--hairline);font-size:15px;color:var(--slate)}
+.foot .fs{font-family:var(--font-display);font-weight:600;font-size:17px;color:var(--ink);text-decoration:none}
+.foot p{margin:6px 0}
+.foot a{text-decoration:none;font-weight:500}
+.foot .sep{margin:0 6px;color:var(--line)}
+@media(prefers-reduced-motion:reduce){details.item>summary::after{transition:none}}
+@media(max-width:560px){details.item>summary{flex-wrap:wrap}.ititle{flex-basis:calc(100% - 80px)}.tags{order:3;flex-direction:row;flex-basis:100%;padding-left:42px}}
+@media print{.btn,.btn2,.startover,.linkbtn{display:none}details.item>.ibody{display:block}}
+</style>
+</head>
+<body>
+<main class="wrap">
+  <a class="brand" href="https://gottamoveforward.com/"><img src="data:image/png;base64,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" alt="" width="37" height="30"><span>Forward Solutions</span></a>
+  <p class="eyebrow">Healthy Home Network &middot; Lee and Dusty</p>
+  <h1>Member onboarding: the Lovable changes</h1>
+  <p class="intro">Dusty, I read through the HHN Lovable project. Most of Member onboarding is already built: the application, approval, Stripe checkout, the portal, Refer &amp; Earn and the emails. These are the changes that make it match what we decided. I only read the project; nothing in Lovable has been changed.</p>
+  <p class="intro soft">Open each change, edit the wording if it&rsquo;s not right, then pick Approve or Not now. Your edits save on this device. When every change has a pick and the safety steps are done, the button at the bottom writes one prompt for Lovable. Nothing gets sent from this page.</p>
+  <ol class="steps">
+    <li>Go through the changes below.</li>
+    <li>Do the safety steps.</li>
+    <li>Click <b>Create Lovable Prompt</b>, copy it, and paste it into Lovable in <b>Plan</b> mode.</li>
+    <li>When Lovable finishes, copy its report and send it to Lee.</li>
+  </ol>
+  <p class="tally" role="status"><b id="tallyN">0</b> of <span id="tallyT">0</span> changes picked on this device.</p>
+  <p class="tap">Tap a change to open it.</p>
+  <div id="list"></div>
+
+  <section class="panel" aria-labelledby="safeH">
+    <h2 class="block" id="safeH">Safety steps, before Lovable changes anything</h2>
+    <p class="intro soft" style="font-size:15.5px">Lovable&rsquo;s restore brings back code only, not the data in the tables, so the exports matter. Tick each one once it&rsquo;s done.</p>
+    <div id="safe"></div>
+  </section>
+
+  <section class="panel" aria-labelledby="goH">
+    <h2 class="block" id="goH">Create the Lovable prompt</h2>
+    <label class="lab" for="extra">Anything else Lovable should know (optional)</label>
+    <textarea id="extra" rows="3" placeholder="Goes at the end of the prompt"></textarea>
+    <div class="rowlinks"><button type="button" class="linkbtn clr" data-for="extra" hidden>Clear</button></div>
+    <button type="button" class="btn" id="make" disabled>Create Lovable Prompt</button>
+    <p class="why" id="why" role="status"></p>
+    <div id="outWrap" hidden>
+      <label class="lab" for="out">Your prompt: paste it into Lovable with the mode set to Plan</label>
+      <textarea id="out" class="out" readonly></textarea>
+      <button type="button" class="btn2" id="copy">Copy prompt</button><span class="copied" id="copied" role="status"></span>
+      <p class="intro soft" style="font-size:15px;margin-top:14px">Lovable will show a plan first. Approve it there, and it builds. At the end it writes a report headed <b>HHN task 17: Lovable report</b>. Copy that whole report and send it to Lee by text or email. He&rsquo;ll go through anything that came up.</p>
+    </div>
+  </section>
+
+  <p class="startover"><button type="button" class="linkbtn" id="startOver">Start over</button></p>
+
+  <footer class="foot">
+    <p><a class="fs" href="https://gottamoveforward.com/">Forward Solutions</a></p>
+    <p>Lee Pettijohn</p>
+    <p>(970) 712-6933 <span class="sep">&middot;</span> <a href="tel:+19707126933">Call</a> <span class="sep">&middot;</span> <a href="sms:+19707126933">Text</a></p>
+    <p><a href="mailto:leepettijohn@gottamoveforward.com">leepettijohn@gottamoveforward.com</a></p>
+  </footer>
+</main>
+
+<script>
+(function(){
+"use strict";
+var KEY="hhn-lovable-changes-2026-10-15";
+
+var CHANGES=[
+{k:"referral",t:"Referral pay: a flat $89.50, first year only",
+today:"Referrers earn $50 to $250 depending on whether they are a Member or a Supporter and who they refer. Founding Members earn 50% of the first payment and 20% of every renewal. A referrer who goes inactive loses commissions not yet paid.",
+text:"Replace the Refer & Earn commission rules (computeCommission in src/lib/referrals.ts, and where the payments webhook creates commissions) with one flat rule:\n- Every Member who refers a new business earns $89.50 when that business joins and pays. Same amount whoever refers whom. Supporters who refer earn the same $89.50.\n- No Founding Member percentages, and no renewal commissions. Paid once per new Membership, on the first year only.\n- A referral counts when the new business names the referrer on its application or uses their link, and pays.\n- Paid within 30 days after the new Member's payment clears (keep the 30-day hold before an admin approves it).\n- Not paid if that payment is refunded or reversed.\n- No self-referrals, and no referring a second business the referrer owns. Flag these on the admin Referrals desk for review rather than blocking them automatically.\n- The referrer must be in good standing when it's paid.\n- Referral pay already earned is still paid after the referrer leaves (drop the rule that an inactive referrer's commission becomes ineligible).\n- Leave every commission already recorded exactly as it is. The new rule applies only to referrals made after this change.\n- Update the Refer & Earn tab and the admin Referrals desk wording to match, and remove the Founding Member 50% / 20% panel."},
+
+{k:"founding",t:"Founding Members: keep their price, no new ones",
+today:"When an application is approved it can be marked Founding, which bills $495 a year instead of $895.",
+text:"- Existing Founding Members keep their $495 yearly price at every renewal while they stay active. Don't change their subscriptions.\n- New applications can no longer be marked Founding. Remove the founding option from the admin approve step, so every new Member checkout uses the $895 yearly price.\n- Keep the founding_member flag and the Founding Member badge on existing records.\n- Founding Members will also get 40% off a la carte marketing services, but that menu doesn't exist yet. Build nothing for it now."},
+
+{k:"proof",t:"Members approve their profile before it goes live",
+today:"When payment clears, the profile is created already public, with AI-written bios, and shows in the directory straight away.",
+text:"- After payment, create the member record as not public (active = false) with bio_status \"proof\". Keep generating the bios as now.\n- In the portal, show the Member a preview of their profile exactly as it will appear, with two buttons: \"Approve my profile\" and \"Request changes\" (a text box that saves the request and emails hello@healthyhome.network). They can keep editing their fields before approving.\n- When the Member approves, record the date and email hello@healthyhome.network. An admin then publishes it with the existing active toggle in the Members grid.\n- In the Members grid, show which profiles are waiting on the Member's approval and which are approved but not yet published, with the number of business days since the Member approved. Our target is live within 5 business days of having everything.\n- Members who are already live are not affected."},
+
+{k:"accept",t:"Application: Middle Tennessee, licensed and insured",
+today:"The Member application asks for the faith statement, location, service area and categories. It doesn't ask about licensing or insurance, or confirm the business serves Middle Tennessee.",
+text:"- Add three required checkboxes to the Member application on /join, saved on the applications table and shown to admins in the Applications tab:\n  - \"My business serves Middle Tennessee.\"\n  - \"I hold every license my work requires.\"\n  - \"I carry the insurance my work requires.\"\n- In the Applications tab, show the acceptance rules beside Approve and Decline. A business is accepted when it signs the statement of faith and the agreements, serves Middle Tennessee, offers a service on HHN's category list, holds every license and the insurance its work requires, and has no unresolved pattern of complaints or poor reviews. It's declined when any of these isn't met."},
+
+{k:"cancel",t:"Cancelling is a request, and no refunds",
+today:"The Billing button opens Stripe's own billing page, which may let a Member cancel on the spot. Nothing on the site says there are no refunds.",
+text:"- Add a \"Request to cancel\" button to the portal's billing area. It opens a short form (reason, optional note), saves the request, emails hello@healthyhome.network, and tells the Member: \"We've got your request. Someone from HHN will reach out within 2 business days.\"\n- Add an admin list of cancel requests with a status (open, kept, cancelled) and a button that sets that Member's Stripe subscription to cancel at the end of the paid year.\n- When a Member cancels, their profile stays live to the end of the paid year, then comes down. Portal access ends when the profile comes down. Referral pay already earned is still paid, and Academy events already paid for are honored.\n- Show \"Memberships are not refundable.\" on the billing page and in the request form.\n- Keep Stripe's billing page for updating the card only: create the billing portal session with cancelling turned off. If that can't be set from the app, say so in the report and say where it has to be changed."},
+
+{k:"start",t:"A \"Start here\" step in the Member portal",
+today:"The portal opens on the Profile tab. There's no welcome, no list of benefits and no policies to confirm.",
+text:"Add a \"Start here\" tab first in the Member portal, open by default until the Member's profile is approved. This is the one onboarding step.\n- At the top, say plainly: \"Membership is visibility and connection. Lead generation is our Growth Partner service.\"\n- A checklist: finish your profile, add your logo, approve your profile proof, read your benefits, confirm the policies.\n- Your Member benefits:\n  - A profile page on healthyhome.network\n  - A listing in the HHN directory and on the map\n  - Early-bird registration for paid Academy events\n  - Host your own Academy event: tell HHN when you'd like to put one on\n  - Be featured once a year in an Educational Panel or networking event (first come, first served; you reach out to us)\n  - The monthly Member newsletter, including Members' own events\n  - A monthly report of your profile's clicks and traffic (list this only once that report is built)\n  - $89.50 referral pay for each new Member you bring in\n  - The HHN Member badge and media kit\n  - This portal: profile updates, billing and renewal\n- One checkbox to confirm the policies: no refunds; cancelling is a request made through the portal; the good standing rules; support through the portal or hello@healthyhome.network, answered within 2 business days. Save the date they confirmed.\n- Supporters see the same tab without the Member-only benefits."},
+
+{k:"badge",t:"Badge and media kit for every Member",
+today:"The Resources tab shows the Founding Member badge to Founding Members only. Everything else there says \"coming soon\".",
+text:"In the portal's Resources tab, every active Member gets:\n- The HHN Member badge, light and dark versions (start from the existing hhn-badge asset; HHN will supply other versions if needed)\n- How to use the badge and the HHN logo, and how not to\n- This paragraph with their business name filled in: \"[Business] is a Member of Healthy Home Network, a network of faith-based businesses in Middle Tennessee who help families live more intentionally while learning to reduce and remove toxins in life.\"\n- Three sample posts announcing their Membership\n- Their profile link and a QR code to it\nMembers may show the badge anywhere. Founding Members keep the Founding Member badge as well. The badge comes off a Member's site and materials within 30 days of leaving; say so with the badge."},
+
+{k:"host",t:"Request to host an Academy event",
+today:"Members can't tell HHN from the portal that they'd like to host an event. The My Academy tab is a placeholder.",
+text:"In the portal's My Academy tab, add \"Host an Academy event\": a short form (topic, who it's for, preferred dates, notes) that saves the request and emails hello@healthyhome.network. Admins see the requests, with a status, in the Academy panel. The price and the money split are decided per event, so the form doesn't ask for them."},
+
+{k:"featured",t:"Request the yearly featured spot",
+today:"Featured spots exist (the featured field), but a Member can't ask for one.",
+text:"In the portal's My Academy tab, add \"Request my featured spot\": a Member asks to be featured in an Educational Panel or networking event. One per Member per membership year, first come, first served. Save the request, email hello@healthyhome.network, and give admins a list with a status. Show the Member whether this year's spot is still available or already used."},
+
+{k:"academy",t:"Academy: early-bird registration, no discounts",
+today:"Academy events carry Member and Supporter discount prices, and some can be marked Member-only.",
+text:"- Stop showing Member or Supporter discount prices on Academy events. Keep the columns; just don't show them on public pages or in the portal.\n- Add an early-bird date to each paid event: Members can register from the early-bird date, everyone else from the public date.\n- Educational Panels and Coffee with a Pro are free and open to the public. Academy workshops are paid and open to the public too."},
+
+{k:"standing",t:"Good standing and complaints",
+today:"Nothing tracks complaints, warnings, suspension or appeals.",
+text:"- Add a standing to each Member: good, warning, suspended or removed. Admin only.\n- A Member is in good standing when their Membership is paid and current, their profile information is accurate, they hold the licenses their work requires, and they have no unresolved complaint.\n- An admin-only complaint log per Member: date received, who it's from, summary, date HHN contacted the Member, outcome (resolved, written warning, suspension, removal), appeal received, appeal outcome. Highlight any complaint 5 business days old with no contact yet.\n- Suspended hides the profile. Removed takes the profile down right away with no refund and ends portal access. Referral pay already earned is still paid.\n- The Member may appeal once, in writing, within 14 days.\n- Show these rules to the Member in the portal's policies."},
+
+{k:"support",t:"Member support in the portal",
+today:"The portal has no support message box and doesn't say how fast HHN answers.",
+text:"Add to the portal: \"Need help? Message HHN here or email hello@healthyhome.network. We answer within 2 business days.\" with a message box that saves the message for admins and emails hello@healthyhome.network."},
+
+{k:"traffic",t:"Monthly clicks-and-traffic report",def:"skip",
+today:"Nothing records how many people view a profile or click its links. This is the one change that's a new build rather than an adjustment.",
+text:"- Count each profile page's views, and clicks on its website, phone, email and social links. Store counts only, nothing that identifies a visitor.\n- Once a month, email each active Member last month's views and clicks, and show the same numbers in their portal.\n- Admins can see every Member's numbers."}
+];
+
+var SAFE=[
+{k:"q",t:"Close the open question in Lovable's chat",s:"It's asking whether to run a check of the biweekly billing and draft flow. Answer or skip it first so it isn't mixed into this work."},
+{k:"bm",t:"Bookmark the current version",s:"In Lovable's History panel, bookmark the latest version so it's easy to go back to."},
+{k:"ex",t:"Export the tables these changes touch",s:"members, applications, referrals, referral_commissions and member_invoices. Download each as a file and keep them."},
+{k:"gh",t:"Connect the project to an HHN-owned GitHub account",s:"A full copy of the code outside Lovable."},
+{k:"pl",t:"Set Lovable's chat to Plan mode",s:"Bottom of the chat box: switch Build to Plan, so Lovable plans first and changes nothing until you approve."}
+];
+
+var S=load();
+function load(){try{return JSON.parse(localStorage.getItem(KEY))||{}}catch(e){return {}}}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}}
+S.c=S.c||{};S.s=S.s||{};
+function esc(x){return String(x).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;"}[c]})}
+function cur(c){var v=S.c[c.k];return (v&&typeof v.text==="string")?v.text:c.text}
+function pick(c){var v=S.c[c.k];return v&&v.pick?v.pick:""}
+
+var list=document.getElementById("list");
+CHANGES.forEach(function(c,i){
+  var d=document.createElement("details");d.className="item";d.dataset.k=c.k;
+  d.innerHTML='<summary><span class="num">'+(i+1)+'</span><span class="ititle"><h3>'+esc(c.t)+'</h3><span class="sub"></span></span><span class="tags"><span class="label st"></span><span class="label edit ed" hidden>Edited</span></span></summary>'+
+  '<div class="ibody"><span class="lab">What the site does today</span><p class="today">'+esc(c.today)+'</p>'+
+  '<label class="lab" for="t-'+c.k+'">The change (edit if needed)</label><textarea class="change" id="t-'+c.k+'"></textarea>'+
+  '<div class="rowlinks"><button type="button" class="linkbtn reset" hidden>Put back the original wording</button></div>'+
+  '<fieldset class="choices"><legend class="lab" style="margin:0 0 4px">Your pick</legend>'+
+  '<label class="opt"><input type="radio" name="p-'+c.k+'" value="ok"> Approve</label>'+
+  '<label class="opt"><input type="radio" name="p-'+c.k+'" value="skip"> Not now</label></fieldset>'+
+  '<div class="rowlinks"><button type="button" class="linkbtn clrpick">Clear choice</button></div></div>';
+  list.appendChild(d);
+  var ta=d.querySelector("textarea");ta.value=cur(c);
+  ta.addEventListener("input",function(){S.c[c.k]=S.c[c.k]||{};S.c[c.k].text=ta.value;save();paint()});
+  d.querySelectorAll("input[type=radio]").forEach(function(r){
+    if(r.value===pick(c))r.checked=true;
+    r.addEventListener("change",function(){S.c[c.k]=S.c[c.k]||{};S.c[c.k].pick=r.value;save();paint()})});
+  d.querySelector(".clrpick").addEventListener("click",function(){d.querySelectorAll("input[type=radio]").forEach(function(r){r.checked=false});if(S.c[c.k])delete S.c[c.k].pick;save();paint()});
+  twoTap(d.querySelector(".reset"),"Tap again to put it back",function(){ta.value=c.text;if(S.c[c.k])delete S.c[c.k].text;save();paint()});
+});
+// default "Not now" for changes that start that way
+CHANGES.forEach(function(c){if(c.def&&!S.c[c.k]){S.c[c.k]={pick:c.def};var r=document.querySelector('input[name="p-'+c.k+'"][value="'+c.def+'"]');if(r)r.checked=true}});save();
+
+var safe=document.getElementById("safe");
+SAFE.forEach(function(s){
+  var l=document.createElement("label");l.className="check";
+  l.innerHTML='<input type="checkbox"><span><b>'+esc(s.t)+'</b><small>'+esc(s.s)+'</small></span>';
+  var cb=l.querySelector("input");cb.checked=!!S.s[s.k];
+  cb.addEventListener("change",function(){S.s[s.k]=cb.checked;save();paint()});
+  safe.appendChild(l)});
+
+var extra=document.getElementById("extra");extra.value=S.extra||"";
+extra.addEventListener("input",function(){S.extra=extra.value;save();paint()});
+document.querySelectorAll(".clr").forEach(function(b){var t=document.getElementById(b.dataset.for);
+  twoTap(b,"Tap again to clear",function(){t.value="";S.extra="";save();paint()})});
+
+function twoTap(btn,armText,fn){var orig=btn.textContent,timer;
+  btn.addEventListener("click",function(){
+    if(btn.classList.contains("arm")){clearTimeout(timer);btn.classList.remove("arm");btn.textContent=orig;fn();return}
+    btn.classList.add("arm");btn.textContent=armText;
+    timer=setTimeout(function(){btn.classList.remove("arm");btn.textContent=orig},3000)})}
+
+var makeBtn=document.getElementById("make"),why=document.getElementById("why");
+function paint(){
+  var picked=0;
+  CHANGES.forEach(function(c){
+    var d=document.querySelector('details[data-k="'+c.k+'"]'),p=pick(c),st=d.querySelector(".st"),edited=cur(c)!==c.text;
+    if(p)picked++;
+    d.classList.toggle("ok",p==="ok");d.classList.toggle("skip",p==="skip");
+    st.className="label st "+(p==="ok"?"ok":p==="skip"?"skip":"wait");
+    st.textContent=p==="ok"?"Approved":p==="skip"?"Not now":"Needs your pick";
+    d.querySelector(".ed").hidden=!edited;
+    d.querySelector(".reset").hidden=!edited;
+  });
+  document.getElementById("tallyN").textContent=picked;
+  document.getElementById("tallyT").textContent=CHANGES.length;
+  document.querySelectorAll(".clr").forEach(function(b){b.hidden=!document.getElementById(b.dataset.for).value});
+  var safeDone=SAFE.every(function(s){return S.s[s.k]});
+  var anyOk=CHANGES.some(function(c){return pick(c)==="ok"});
+  var msg="";
+  if(picked<CHANGES.length)msg=(CHANGES.length-picked)+" change"+(CHANGES.length-picked===1?"":"s")+" still need Approve or Not now.";
+  else if(!anyOk)msg="Approve at least one change.";
+  else if(!safeDone)msg="Tick every safety step first.";
+  makeBtn.disabled=!!msg;why.textContent=msg;
+}
+
+function build(){
+  var ok=CHANGES.filter(function(c){return pick(c)==="ok"}),no=CHANGES.filter(function(c){return pick(c)==="skip"});
+  var L=[];
+  L.push("HHN Member onboarding changes (task 17). Plan first: write one plan covering every change below, with the exact files and any database changes, and wait for my approval before building anything.");
+  L.push("");
+  L.push("Guardrails:");
+  L.push("- Keep each change as small as possible. Reuse the existing tables, components, admin panels and email templates; don't build parallel versions.");
+  L.push("- Don't touch Growth Partners, Intake, Contacts/CRM, the connected import, or admin roles, except where a change below says so.");
+  L.push("- Don't create or change real member, application, payment, invoice or referral records. Test with synthetic records only, and delete them afterward.");
+  L.push("- Don't send any email to a real Member while testing. Leave Stripe in the mode it's in now.");
+  L.push("- If a change conflicts with what's already built, or needs a decision, stop on that change, note it for the report, and carry on with the others.");
+  L.push("- Make the changes in the order listed.");
+  L.push("");
+  L.push("CHANGES TO MAKE");
+  ok.forEach(function(c,i){L.push("");L.push((i+1)+". "+c.t);L.push(cur(c).trim())});
+  if(no.length){L.push("");L.push("NOT NOW: don't build these yet");no.forEach(function(c){L.push("- "+c.t)})}
+  var ex=(S.extra||"").trim();
+  if(ex){L.push("");L.push("ALSO FROM DUSTY");L.push(ex)}
+  L.push("");
+  L.push("WHEN YOU'RE DONE, write a report I can copy and send to Lee. Start it with the heading \"HHN task 17: Lovable report\" and include:");
+  L.push("- For each numbered change: done, partly done or not done, and what was changed (files, tables, columns, migrations).");
+  L.push("- How each change was tested.");
+  L.push("- Anything that needs a decision from Lee or Dusty, and anything you stopped on and why.");
+  L.push("- Anything that has to be done outside Lovable (for example a Stripe setting), with where to do it.");
+  L.push("- Anything you noticed that doesn't match these instructions.");
+  L.push("Keep the report in plain words.");
+  return L.join("\n");
+}
+
+var out=document.getElementById("out"),outWrap=document.getElementById("outWrap");
+makeBtn.addEventListener("click",function(){out.value=build();outWrap.hidden=false;out.scrollIntoView({behavior:"smooth",block:"center"})});
+document.getElementById("copy").addEventListener("click",function(){
+  var done=function(){document.getElementById("copied").textContent="Copied";setTimeout(function(){document.getElementById("copied").textContent=""},2500)};
+  if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(out.value).then(done,function(){out.select();document.execCommand("copy");done()})}
+  else{out.select();document.execCommand("copy");done()}});
+
+twoTap(document.getElementById("startOver"),"Tap again to clear everything",function(){
+  S={c:{},s:{}};CHANGES.forEach(function(c){if(c.def)S.c[c.k]={pick:c.def}});save();
+  CHANGES.forEach(function(c){var d=document.querySelector('details[data-k="'+c.k+'"]');d.querySelector("textarea").value=c.text;
+    d.querySelectorAll("input[type=radio]").forEach(function(r){r.checked=(r.value===c.def)})});
+  document.querySelectorAll("#safe input").forEach(function(cb){cb.checked=false});
+  extra.value="";outWrap.hidden=true;out.value="";paint();
+  why.textContent="Cleared on this device. Anything already pasted into Lovable isn't affected.";
+});
+
+paint();
+})();
+</script>
+</body>
+</html>
