@@ -19,8 +19,12 @@
 //         Inside a group, the "Client - " part of the title is dropped.
 // Badge = the category tag (discovery, proposal, feedback, approval, audit,
 //         foundation, standing). Rules for each: standards/shared-pages.md.
-// PIN   = set SHARE_PIN in Netlify > Site configuration > Environment variables.
-//         Only its SHA-256 hash is written into the page, never the PIN.
+// Code  = set SHARE_PIN in Netlify > Site configuration > Environment variables.
+//         The list is encrypted with it (AES-256-GCM, key from PBKDF2-SHA256,
+//         600,000 rounds, random salt each build). Neither the code nor the list
+//         is in the page; only the right code can unscramble it in the browser.
+//         Use a long code (four random words, 20+ characters): a short PIN can be
+//         guessed offline against the scrambled list.
 
 const fs = require("fs");
 const path = require("path");
@@ -136,7 +140,20 @@ function collect(ix) {
   return all.sort((a, b) => b.date - a.date);
 }
 
-function render(pages, pinHash, ix) {
+const KDF_ROUNDS = 600000;
+
+// Encrypts the list so the browser can open it with the code. WebCrypto's AES-GCM
+// expects the auth tag on the end of the ciphertext, so it's appended here.
+function seal(text, code) {
+  const salt = crypto.randomBytes(16);
+  const iv = crypto.randomBytes(12);
+  const key = crypto.pbkdf2Sync(code, salt, KDF_ROUNDS, 32, "sha256");
+  const c = crypto.createCipheriv("aes-256-gcm", key, iv);
+  const ct = Buffer.concat([c.update(text, "utf8"), c.final(), c.getAuthTag()]);
+  return { salt: salt.toString("base64"), iv: iv.toString("base64"), ct: ct.toString("base64") };
+}
+
+function render(pages, code, ix) {
   const fmt = (d) =>
     d.toLocaleDateString("en-US", { year: "numeric", month: "short", day: "numeric", timeZone: "America/Chicago" });
 
@@ -156,6 +173,11 @@ function render(pages, pinHash, ix) {
 ${g.pages.map((p) => row(p, g)).join("\n")}
     </ul>
   </section>`).join("\n");
+
+  const listHtml = `  <h1>${esc(ix.heading)}</h1>
+  <p class="sub">${pages.length} page${pages.length === 1 ? "" : "s"} &middot; grouped by client, newest first &middot; Copy puts the link on your clipboard</p>
+  ${pages.length ? rows : `<p class="empty">Nothing in ${esc(ix.dir)}/ yet.</p>`}`;
+  const sealed = code ? JSON.stringify(seal(listHtml, code)) : "null";
 
   return `<!doctype html>
 <html lang="en">
@@ -223,7 +245,7 @@ ${g.pages.map((p) => row(p, g)).join("\n")}
   #gate h1 { font-size:26px; }
   #gate input { font:inherit; width:100%; padding:11px 12px; border:1px solid var(--line);
                 border-radius:8px; background:var(--card); color:var(--ink); margin:16px 0 10px;
-                text-align:center; letter-spacing:4px; }
+                text-align:center; letter-spacing:1px; }
   #gate input:focus { outline:2px solid var(--accent); outline-offset:1px; }
   #err { color:#c0392b; font-size:14px; min-height:20px; margin-top:10px; }
   .hidden { display:none; }
@@ -236,10 +258,10 @@ ${g.pages.map((p) => row(p, g)).join("\n")}
   <a class="brand" href="/"><img src="/images/logo-mark.png" alt="">Forward Solutions</a>
   <h1>${esc(ix.heading)}</h1>
   <form id="pinForm">
-    <input id="pin" type="password" inputmode="numeric" autocomplete="off" placeholder="PIN" autofocus>
+    <input id="pin" type="password" autocomplete="current-password" placeholder="Code" autofocus>
     <button type="submit" class="primary">Open</button>
   </form>
-  <div id="err">${pinHash ? "" : "SHARE_PIN is not set in Netlify yet."}</div>
+  <div id="err">${code ? "" : "SHARE_PIN is not set in Netlify yet."}</div>
 </div>
 
 <div id="list" class="hidden">
@@ -247,60 +269,85 @@ ${g.pages.map((p) => row(p, g)).join("\n")}
   <a class="brand" href="/"><img src="/images/logo-mark.png" alt="">Forward Solutions</a>
   <span class="tag">${esc(ix.tag)}</span>
 </div></header>
-<main>
-  <h1>${esc(ix.heading)}</h1>
-  <p class="sub">${pages.length} page${pages.length === 1 ? "" : "s"} &middot; grouped by client, newest first &middot; Copy puts the link on your clipboard</p>
-  ${pages.length ? rows : `<p class="empty">Nothing in ${esc(ix.dir)}/ yet.</p>`}
-</main>
+<main id="main"></main>
 <footer>Forward Solutions &middot; gottamoveforward.com</footer>
 </div>
 
 <script>
-  var PIN_HASH = "${pinHash}";
+  // The list is encrypted; only the right code turns it back into the page list.
+  var SEALED = ${sealed};
+  var ROUNDS = ${KDF_ROUNDS};
+  var STORE = "shareKey:${esc(ix.dir)}";
   var gate = document.getElementById("gate");
   var list = document.getElementById("list");
+  var err = document.getElementById("err");
 
-  function unlock() {
+  function b64(s) { return Uint8Array.from(atob(s), function (c) { return c.charCodeAt(0); }); }
+  function toB64(buf) { return btoa(String.fromCharCode.apply(null, new Uint8Array(buf))); }
+
+  async function keyFromCode(code) {
+    var base = await crypto.subtle.importKey("raw", new TextEncoder().encode(code), "PBKDF2", false, ["deriveKey"]);
+    return crypto.subtle.deriveKey(
+      { name: "PBKDF2", salt: b64(SEALED.salt), iterations: ROUNDS, hash: "SHA-256" },
+      base, { name: "AES-GCM", length: 256 }, true, ["decrypt"]);
+  }
+
+  async function unlockWith(key) {
+    var plain = await crypto.subtle.decrypt({ name: "AES-GCM", iv: b64(SEALED.iv) }, key, b64(SEALED.ct));
+    document.getElementById("main").innerHTML = new TextDecoder().decode(plain);
+    wireCopy();
     gate.classList.add("hidden");
     list.classList.remove("hidden");
-    try { sessionStorage.setItem("shareUnlocked", PIN_HASH); } catch (e) {}
   }
-  try { if (PIN_HASH && sessionStorage.getItem("shareUnlocked") === PIN_HASH) unlock(); } catch (e) {}
 
-  async function sha256(text) {
-    var buf = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(text));
-    return Array.from(new Uint8Array(buf)).map(function (b) {
-      return b.toString(16).padStart(2, "0");
-    }).join("");
-  }
+  // Stay open for this tab: keep the derived key (not the code), tied to this build's salt.
+  (async function () {
+    try {
+      var saved = sessionStorage.getItem(STORE);
+      if (SEALED && saved && saved.indexOf(SEALED.salt + "|") === 0) {
+        var raw = b64(saved.slice(SEALED.salt.length + 1));
+        await unlockWith(await crypto.subtle.importKey("raw", raw, "AES-GCM", false, ["decrypt"]));
+      }
+    } catch (e) {}
+  })();
 
   document.getElementById("pinForm").addEventListener("submit", async function (e) {
     e.preventDefault();
-    var val = document.getElementById("pin").value.trim();
-    if (PIN_HASH && (await sha256(val)) === PIN_HASH) unlock();
-    else document.getElementById("err").textContent = "Wrong PIN.";
+    if (!SEALED) return;
+    var btn = e.target.querySelector("button");
+    btn.disabled = true; err.textContent = "";
+    try {
+      var key = await keyFromCode(document.getElementById("pin").value.trim());
+      await unlockWith(key);
+      try { sessionStorage.setItem(STORE, SEALED.salt + "|" + toB64(await crypto.subtle.exportKey("raw", key))); } catch (e2) {}
+    } catch (e3) {
+      err.textContent = "Wrong code.";
+    }
+    btn.disabled = false;
   });
 
-  Array.prototype.forEach.call(document.querySelectorAll("button.copy"), function (btn) {
-    btn.addEventListener("click", async function () {
-      var url = new URL(btn.dataset.href, location.href).href;
-      try { await navigator.clipboard.writeText(url); btn.textContent = "Copied"; }
-      catch (e) { prompt("Copy this:", url); }
-      setTimeout(function () { btn.textContent = "Copy"; }, 1500);
+  function wireCopy() {
+    Array.prototype.forEach.call(document.querySelectorAll("button.copy"), function (btn) {
+      btn.addEventListener("click", async function () {
+        var url = new URL(btn.dataset.href, location.href).href;
+        try { await navigator.clipboard.writeText(url); btn.textContent = "Copied"; }
+        catch (e) { btn.textContent = "Copy failed"; }
+        setTimeout(function () { btn.textContent = "Copy"; }, 1500);
+      });
     });
-  });
+  }
 </script>
 </body>
 </html>
 `;
 }
 
-const pin = (process.env.SHARE_PIN || "").trim();
-const pinHash = pin ? crypto.createHash("sha256").update(pin).digest("hex") : "";
+const code = (process.env.SHARE_PIN || "").trim();
+if (code && code.length < 16) console.log("WARNING: SHARE_PIN is short; use four random words (20+ characters).");
 for (const ix of INDEXES) {
   const dir = path.join(ROOT, ix.dir);
   if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
   const pages = collect(ix);
-  fs.writeFileSync(path.join(dir, "index.html"), render(pages, pinHash, ix));
-  console.log(ix.dir + "/index.html built with " + pages.length + " page(s)" + (pinHash ? "" : " -- WARNING: SHARE_PIN not set"));
+  fs.writeFileSync(path.join(dir, "index.html"), render(pages, code, ix));
+  console.log(ix.dir + "/index.html built with " + pages.length + " page(s)" + (code ? "" : " -- WARNING: SHARE_PIN not set, list left out"));
 }
