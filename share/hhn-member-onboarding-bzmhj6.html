@@ -49,10 +49,14 @@ summary:focus-visible{outline:2px solid var(--forward-blue);outline-offset:2px}
 .sec>summary::after,.item>summary::after{content:"";flex:0 0 auto;width:9px;height:9px;margin:0 6px 4px auto;border-right:2px solid var(--slate);border-bottom:2px solid var(--slate);transform:rotate(45deg);transition:transform .15s}
 .sec[open]>summary::after,.item[open]>summary::after{transform:rotate(-135deg);margin-bottom:-4px}
 .sh{display:block;flex:1 1 auto;min-width:0}
-.kind{display:block;font-size:12.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;margin-bottom:4px}
-.kind.fyi{color:var(--slate)}
-.kind.fb{color:var(--forward-blue)}
-.kind.start{color:var(--forward-blue)}
+.kind{flex:0 0 auto;margin-left:auto;font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:3px 10px;border-radius:999px;white-space:nowrap}
+.kind.fyi{color:var(--slate);background:var(--paper-warm)}
+.kind.fb{color:var(--forward-blue);background:var(--blue-soft)}
+.sec>summary{flex-wrap:wrap}
+.sec>summary::after{margin-left:0!important}
+.prog{color:var(--forward-blue);font-weight:500;font-variant-numeric:tabular-nums}
+.prog.all{color:var(--ink)}
+@media(max-width:560px){.sec>summary .sh{flex-basis:100%;order:2}.kind{order:1;margin-left:0;margin-right:auto}.sec>summary::after{order:1}}
 h2{font-family:var(--font-display);font-weight:500;font-size:24px;line-height:1.15;letter-spacing:-.02em;margin:0;text-wrap:balance}
 .ssub{display:block;font-size:14.5px;color:var(--slate);margin-top:4px;max-width:70ch}
 .sbody{padding:0 18px 18px}
@@ -123,6 +127,30 @@ textarea:focus-visible{outline:2px solid var(--forward-blue);outline-offset:1px;
 .gn-panel label{display:block;font-weight:600;font-size:15px;margin-bottom:6px}
 .gn-row{display:flex;justify-content:space-between;align-items:center;margin-top:8px}
 @media(prefers-reduced-motion:reduce){summary::after{transition:none!important}}
+
+.draft{margin-top:14px;background:var(--white);border:1px solid var(--line);border-radius:9px;overflow:hidden}
+.dhead{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:8px 12px;border-bottom:1px solid var(--hairline);background:var(--paper)}
+.dhead .lab{margin:0}
+.copy{min-height:36px;padding:4px 14px;font:inherit;font-weight:600;font-size:14px;color:var(--forward-blue);background:var(--blue-soft);border:0;border-radius:999px;cursor:pointer}
+.copy.done{background:var(--forward-blue);color:#fff}
+.copy:focus-visible,.unpick:focus-visible{outline:2px solid var(--forward-blue);outline-offset:2px}
+.draft pre{margin:0;padding:12px;font-family:var(--font-body);font-size:14.5px;line-height:1.55;white-space:pre-wrap;overflow-wrap:anywhere;color:var(--ink)}
+.radios{border:0;margin:14px 0 0;padding:0;min-width:0}
+.radios legend{padding:0}
+.radio{display:flex;align-items:center;gap:10px;min-height:44px;padding:6px 10px;margin-top:4px;border:1px solid var(--line);border-radius:9px;background:var(--white);cursor:pointer;font-size:15px}
+.radio input{width:19px;height:19px;accent-color:var(--forward-blue);margin:0;flex:0 0 auto}
+.radio:has(input:checked){border-color:var(--forward-blue);background:var(--blue-soft)}
+.radio input:focus-visible{outline:2px solid var(--forward-blue);outline-offset:2px}
+.radio span:first-of-type{flex:1 1 auto}
+.lean{flex:0 0 auto;font-size:12px;font-weight:600;color:var(--forward-blue);border:1px solid var(--forward-blue);border-radius:999px;padding:1px 8px}
+.more{margin-top:8px}
+.mlab{display:block;font-weight:600;font-size:14.5px;margin-bottom:4px}
+.unpick{margin-top:6px;padding:4px 0;font:inherit;font-size:13.5px;color:var(--slate);background:none;border:0;text-decoration:underline;cursor:pointer}
+.copy.arm{background:var(--white);color:var(--red);border:1px solid var(--red)}
+.who{margin-top:18px;max-width:420px}
+.who label{display:block;font-weight:600;font-size:15px;margin-bottom:6px}
+.who input{width:100%;font:inherit;font-size:16px;color:var(--ink);background:var(--white);border:1px solid var(--line);border-radius:9px;padding:10px 12px}
+.who input:focus-visible{outline:2px solid var(--forward-blue);outline-offset:1px;border-color:transparent}
 </style>
 </head>
 <body>
@@ -131,7 +159,7 @@ textarea:focus-visible{outline:2px solid var(--forward-blue);outline-offset:1px;
   <p class="eyebrow">Healthy Home Network &middot; Lee and Dusty</p>
   <h1>Member onboarding: decision list</h1>
   <p class="intro">Dusty, this is what a new HHN Member gets and what we ask of them, sorted for our morning meeting. What&rsquo;s settled is first; the open questions follow, most pressing first.</p>
-  <p class="intro soft">When we settle a question, tick <b>Decided</b> and type what we agreed. Whatever&rsquo;s still open carries to the next morning.</p>
+  <p class="intro soft">Pick an answer, or tick <b>Decided</b> and type what we agreed. Where something has to be written, tap <b>Paste below</b> to start from the best guess and edit it. Whatever&rsquo;s still open carries to the next morning.</p>
   <div class="when"><span><b>Meeting</b>Thursday morning, October 15</span><span><b>Goal</b>Enough settled to build Member onboarding in Lovable</span><span><b>Open</b>23 questions</span></div>
   <p class="meta-note">This page carries prices, so please don&rsquo;t forward the link.</p>
   <p class="tally" role="status"><b id="tallyN">0</b> of 23 decided on this device.</p>
@@ -141,124 +169,129 @@ textarea:focus-visible{outline:2px solid var(--forward-blue);outline-offset:1px;
     <p class="hp"><label>Leave this blank: <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
     <textarea name="prompt" id="promptField" class="hp" tabindex="-1" aria-hidden="true"></textarea>
     <div class="secs">
-<details class="sec"><summary><span class="sh"><span class="kind start">Start here</span><h2>The Overall Vision</h2></span></summary>
-<div class="sbody"><p class="para">Dusty, every new Member should know on day one exactly what HHN gives them and what HHN needs from them. Right now most of that lives in our conversations and planning notes. Once we settle what&#x27;s below, I&#x27;ll build it into the Lovable portal, so every new Member gets the same clear welcome and the same steps, and the reminders go out on their own instead of depending on one of us to remember. It also draws a clean line between Membership and Growth Partner work, so nobody joins expecting ads or leads from a directory listing.</p></div></details>
-<details class="sec" data-title="Already settled"><summary><span class="sh"><span class="kind fyi">One · FYI</span><h2>Already settled</h2><span class="ssub">From the review of the ChatGPT summary. 11 items.</span></span></summary>
+<details class="sec" data-title="Already settled"><summary><span class="sh"><h2>Already settled</h2><span class="ssub prog">11 settled, 5 assumptions, 2 parked</span></span><span class="kind fyi">FYI</span></summary>
 <div class="sbody"><div class="scroll"><table><tbody><tr><td>Price</td><td>$895 a year, and it&#x27;s the current price. The allocation for it is already on the decision list.</td></tr><tr><td>Renewal</td><td>Renews automatically every year. Stripe takes the first payment and charges each year after.</td></tr><tr><td>$149 directory listing</td><td>Dropped. It isn&#x27;t offered.</td></tr><tr><td>Order</td><td>HHN approves the application before the Member pays.</td></tr><tr><td>Faith</td><td>The statement of faith and the agreements are part of the application.</td></tr><tr><td>Profile proof</td><td>The Member approves their profile before it goes live.</td></tr><tr><td>Publishing</td><td>The profile goes live within 5 business days of HHN having everything it needs.</td></tr><tr><td>Profile updates</td><td>Members send changes through the Lovable portal.</td></tr><tr><td>Member or Supporter</td><td>Each gets its own sign-up page, so a visitor always knows which one they&#x27;re joining.</td></tr><tr><td>Not in Membership</td><td>Growth Partner work: landing pages, lead funnels, Google and Meta ads, content, marketing consulting and custom systems. Supporters are a separate category ($595 a year, $395 for Founding Supporters).</td></tr><tr><td>No lead guarantee</td><td>Membership promises no number of leads, clicks, referrals or customers.</td></tr></tbody></table></div>
 <h3>Working assumptions</h3><p class="para soft">Nobody objected to these. Say so if any are wrong.</p><ul class="reful"><li>Members give accurate business details and tell HHN when they change.</li><li>Members respond when HHN needs something for their profile. The portal sends these requests automatically.</li><li>Basic support covers billing, profile fixes, portal access and questions about benefits.</li><li>Requests beyond Membership are quoted separately or pointed to Growth Partner services.</li><li>Academy events and referrals are opportunities, not requirements. No attendance or referral quotas.</li></ul>
 <h3>Parked for later</h3><ul class="reful"><li>Faith wording: older HHN text says it isn&#x27;t a religious organization, which may not fit the 508(c)(1)(a) direction. Decide once that direction is final.</li><li>The final wording of the faith FAQ for Members.</li></ul>
 <div class="notes"><label for="n_s0">Comments or questions on this section</label><textarea id="n_s0" data-n="1" rows="2" placeholder="Comments or questions"></textarea><button type="button" class="clear" data-for="n_s0" hidden>Clear</button></div></div></details>
-<details class="sec" data-title="Founding Members and referrals"><summary><span class="sh"><span class="kind fb">Two · Need your feedback</span><h2>Founding Members and referrals</h2><span class="ssub">Dusty&#x27;s call on most of these. 4 to decide.</span></span></summary>
-<div class="sbody"><div class="items"><details class="item" data-k="f1"><summary class="ihead"><span class="num">F1</span><h3 class="qtext">What does a Founding Member keep that a new Member doesn&#x27;t?</h3><span class="tag held">Held</span><span class="tag done">Decided</span></summary>
-<div class="body"><div class="ref"><b class="lab">Where it stands</b><ul class=""><li>The only difference written down so far is better referral pay.</li><li>Founding Supporters keep their $395 rate while active. Members have no matching rule yet.</li></ul></div><b class="lab">Options</b><ol class="opts"><li>Their price stays the same while they stay active</li><li>Better referral pay</li><li>Both</li><li>Something else</li></ol>
-<label class="check"><input type="checkbox" id="f1_c"><span class="dtext">Decided</span></label>
-<div class="answer" id="f1_w" hidden><label class="sr" for="f1_a">What we decided</label><textarea id="f1_a" rows="2" placeholder="What we decided"></textarea><button type="button" class="clear" data-for="f1_a" hidden>Clear</button></div>
-</div></details><details class="item" data-k="f2"><summary class="ihead"><span class="num">F2</span><h3 class="qtext">Can every Member earn referral pay, or only Founding Members?</h3><span class="tag held">Held</span><span class="tag done">Decided</span></summary>
-<div class="body">
-<label class="check"><input type="checkbox" id="f2_c"><span class="dtext">Decided</span></label>
-<div class="answer" id="f2_w" hidden><label class="sr" for="f2_a">What we decided</label><textarea id="f2_a" rows="2" placeholder="What we decided"></textarea><button type="button" class="clear" data-for="f2_a" hidden>Clear</button></div>
-</div></details><details class="item" data-k="f3"><summary class="ihead"><span class="num">F3</span><h3 class="qtext">How much is a referral worth?</h3><span class="tag held">Held</span><span class="tag done">Decided</span></summary>
-<div class="body"><div class="ref"><b class="lab">Where it stands</b><ul class=""><li>The project describes it two ways: about 50% of the Membership, and about $500. On $895, those don&#x27;t match.</li><li>The Membership allocation we decided gives Sales Commission 10%, which is $89.50. Either figure above is far more than that line.</li></ul></div><b class="lab">Options</b><ol class="opts"><li>The Sales Commission line: $89.50</li><li>A set dollar amount, paid from another line (which one?)</li><li>More for Founding Members, $89.50 for everyone else</li></ol>
-<label class="check"><input type="checkbox" id="f3_c"><span class="dtext">Decided</span></label>
-<div class="answer" id="f3_w" hidden><label class="sr" for="f3_a">What we decided</label><textarea id="f3_a" rows="2" placeholder="What we decided"></textarea><button type="button" class="clear" data-for="f3_a" hidden>Clear</button></div>
-</div></details><details class="item" data-k="f4" data-after="f3"><summary class="ihead"><span class="num">F4</span><h3 class="qtext">The referral rules</h3><span class="tag held">Held</span><span class="tag done">Decided</span></summary>
-<p class="lock">Held until F3 is decided.</p><div class="body"><div class="ref"><b class="lab">Where it stands</b><ul class=""><li>What counts as a referral, how long it stays credited, when and how it&#x27;s paid, what happens on a refund, self-referrals, and referral pay after the referrer leaves.</li></ul></div>
-<label class="check"><input type="checkbox" id="f4_c"><span class="dtext">Decided</span></label>
-<div class="answer" id="f4_w" hidden><label class="sr" for="f4_a">What we decided</label><textarea id="f4_a" rows="2" placeholder="What we decided"></textarea><button type="button" class="clear" data-for="f4_a" hidden>Clear</button></div>
-</div></details></div><div class="notes"><label for="n_s1">Comments or questions on this section</label><textarea id="n_s1" data-n="1" rows="2" placeholder="Comments or questions"></textarea><button type="button" class="clear" data-for="n_s1" hidden>Clear</button></div></div></details>
-<details class="sec" data-title="The profile and Member benefits"><summary><span class="sh"><span class="kind fb">Three · Need your feedback</span><h2>The profile and Member benefits</h2><span class="ssub">What a Member actually gets. 5 to decide.</span></span></summary>
-<div class="sbody"><div class="items"><details class="item" data-k="p1"><summary class="ihead"><span class="num">P1</span><h3 class="qtext">What exactly goes on a profile, and the limit for each field?</h3><span class="tag held">Held</span><span class="tag done">Decided</span></summary>
-<div class="body"><div class="ref"><b class="lab">Where it stands</b><ul class=""><li>Starting list: business name, contact person, email, phone, address or service area, website, category (how many?), services, description (how long?), logo (size), photos (how many?), social links.</li><li>Also decide whether a profile shows prices and reviews.</li></ul></div>
-<label class="check"><input type="checkbox" id="p1_c"><span class="dtext">Decided</span></label>
-<div class="answer" id="p1_w" hidden><label class="sr" for="p1_a">What we decided</label><textarea id="p1_a" rows="2" placeholder="What we decided"></textarea><button type="button" class="clear" data-for="p1_a" hidden>Clear</button></div>
-</div></details><details class="item" data-k="p2"><summary class="ihead"><span class="num">P2</span><h3 class="qtext">The full list of Member benefits, switched on when someone joins</h3><span class="tag held">Held</span><span class="tag done">Decided</span></summary>
-<div class="body"><div class="ref"><b class="lab">Where it stands</b><ul class=""><li>Known so far: profile, directory listing, map listing, Member pricing on paid Academy events, some free Member-only sessions, and referral pay (see f2).</li></ul></div>
-<label class="check"><input type="checkbox" id="p2_c"><span class="dtext">Decided</span></label>
-<div class="answer" id="p2_w" hidden><label class="sr" for="p2_a">What we decided</label><textarea id="p2_a" rows="2" placeholder="What we decided"></textarea><button type="button" class="clear" data-for="p2_a" hidden>Clear</button></div>
-</div></details><details class="item" data-k="p3"><summary class="ihead"><span class="num">P3</span><h3 class="qtext">What counts as a paid Academy event, and what is the Member price?</h3><span class="tag held">Held</span><span class="tag done">Decided</span></summary>
-<div class="body"><b class="lab">Options</b><ol class="opts"><li>A set percentage off every paid event</li><li>A Member price set per event</li></ol>
-<label class="check"><input type="checkbox" id="p3_c"><span class="dtext">Decided</span></label>
-<div class="answer" id="p3_w" hidden><label class="sr" for="p3_a">What we decided</label><textarea id="p3_a" rows="2" placeholder="What we decided"></textarea><button type="button" class="clear" data-for="p3_a" hidden>Clear</button></div>
-</div></details><details class="item" data-k="p4"><summary class="ihead"><span class="num">P4</span><h3 class="qtext">How many free Member-only sessions does a Member get?</h3><span class="tag held">Held</span><span class="tag done">Decided</span></summary>
-<div class="body"><div class="ref"><b class="lab">Where it stands</b><ul class=""><li>The plan says “some.” A number, or a rhythm (one a quarter, say), makes it a promise we can keep.</li></ul></div>
-<label class="check"><input type="checkbox" id="p4_c"><span class="dtext">Decided</span></label>
-<div class="answer" id="p4_w" hidden><label class="sr" for="p4_a">What we decided</label><textarea id="p4_a" rows="2" placeholder="What we decided"></textarea><button type="button" class="clear" data-for="p4_a" hidden>Clear</button></div>
-</div></details><details class="item" data-k="p5"><summary class="ihead"><span class="num">P5</span><h3 class="qtext">Do we say plainly that Membership is visibility and connection, and lead generation is a Growth Partner service?</h3><span class="tag held">Held</span><span class="tag done">Decided</span></summary>
-<div class="body"><div class="prop"><b class="lab">Lee leans</b>Yes. It keeps Members from expecting leads from a listing.</div>
-<label class="check"><input type="checkbox" id="p5_c"><span class="dtext">Decided</span></label>
-<div class="answer" id="p5_w" hidden><label class="sr" for="p5_a">What we decided</label><textarea id="p5_a" rows="2" placeholder="What we decided"></textarea><button type="button" class="clear" data-for="p5_a" hidden>Clear</button></div>
-</div></details></div><div class="notes"><label for="n_s2">Comments or questions on this section</label><textarea id="n_s2" data-n="1" rows="2" placeholder="Comments or questions"></textarea><button type="button" class="clear" data-for="n_s2" hidden>Clear</button></div></div></details>
-<details class="sec" data-title="Joining: application to live profile"><summary><span class="sh"><span class="kind fb">Four · Need your feedback</span><h2>Joining: application to live profile</h2><span class="ssub">The flow, and what it needs to run on its own. 3 to decide.</span></span></summary>
-<div class="sbody"><div class="items"><details class="item" data-k="j1"><summary class="ihead"><span class="num">J1</span><h3 class="qtext">Who gets accepted, declined or removed?</h3><span class="tag held">Held</span><span class="tag done">Decided</span></summary>
-<div class="body"><div class="ref"><b class="lab">Where it stands</b><ul class=""><li>Beyond the statement of faith, nothing written yet: licensing, insurance, reviews, service area, type of business.</li></ul></div>
-<label class="check"><input type="checkbox" id="j1_c"><span class="dtext">Decided</span></label>
-<div class="answer" id="j1_w" hidden><label class="sr" for="j1_a">What we decided</label><textarea id="j1_a" rows="2" placeholder="What we decided"></textarea><button type="button" class="clear" data-for="j1_a" hidden>Clear</button></div>
-</div></details><details class="item" data-k="j2"><summary class="ihead"><span class="num">J2</span><h3 class="qtext">Is the portal onboarding the same step as sending profile info?</h3><span class="tag held">Held</span><span class="tag done">Decided</span></summary>
-<div class="body"><div class="ref"><b class="lab">Where it stands</b><ul class=""><li>The draft listed “send profile info” and “complete the onboarding hub” as two steps.</li></ul></div><div class="prop"><b class="lab">Lee leans</b>One step. The portal is where they send profile info, read their benefits and confirm the policies.</div>
-<label class="check"><input type="checkbox" id="j2_c"><span class="dtext">Decided</span></label>
-<div class="answer" id="j2_w" hidden><label class="sr" for="j2_a">What we decided</label><textarea id="j2_a" rows="2" placeholder="What we decided"></textarea><button type="button" class="clear" data-for="j2_a" hidden>Clear</button></div>
-</div></details><details class="item" data-k="j3"><summary class="ihead"><span class="num">J3</span><h3 class="qtext">Which messages go out automatically, and how?</h3><span class="tag held">Held</span><span class="tag done">Decided</span></summary>
-<div class="body"><div class="ref"><b class="lab">Where it stands</b><ul class=""><li>Likely set: application received; approved, with the payment link; profile info due, with reminders; proof ready to approve; profile live; renewal coming up.</li><li>Decide the channel for each: email, text or portal notice.</li></ul></div>
-<label class="check"><input type="checkbox" id="j3_c"><span class="dtext">Decided</span></label>
-<div class="answer" id="j3_w" hidden><label class="sr" for="j3_a">What we decided</label><textarea id="j3_a" rows="2" placeholder="What we decided"></textarea><button type="button" class="clear" data-for="j3_a" hidden>Clear</button></div>
-</div></details></div><div class="notes"><label for="n_s3">Comments or questions on this section</label><textarea id="n_s3" data-n="1" rows="2" placeholder="Comments or questions"></textarea><button type="button" class="clear" data-for="n_s3" hidden>Clear</button></div></div></details>
-<details class="sec" data-title="After they join"><summary><span class="sh"><span class="kind fb">Five · Need your feedback</span><h2>After they join</h2><span class="ssub">The ongoing relationship. 4 to decide.</span></span></summary>
-<div class="sbody"><div class="items"><details class="item" data-k="o1"><summary class="ihead"><span class="num">O1</span><h3 class="qtext">A monthly Member newsletter with HHN events and wins?</h3><span class="tag held">Held</span><span class="tag done">Decided</span></summary>
-<div class="body"><div class="ref"><b class="lab">Where it stands</b><ul class=""><li>Who writes it, what goes in, and where it&#x27;s sent from.</li></ul></div>
-<label class="check"><input type="checkbox" id="o1_c"><span class="dtext">Decided</span></label>
-<div class="answer" id="o1_w" hidden><label class="sr" for="o1_a">What we decided</label><textarea id="o1_a" rows="2" placeholder="What we decided"></textarea><button type="button" class="clear" data-for="o1_a" hidden>Clear</button></div>
-</div></details><details class="item" data-k="o2"><summary class="ihead"><span class="num">O2</span><h3 class="qtext">An automatic profile report for each Member?</h3><span class="tag held">Held</span><span class="tag done">Decided</span></summary>
-<div class="body"><div class="ref"><b class="lab">Where it stands</b><ul class=""><li>The portal could send each Member their profile views and clicks. Profile pages would need tracking first.</li></ul></div><b class="lab">Options</b><ol class="opts"><li>Monthly</li><li>Quarterly</li><li>Not yet</li></ol>
-<label class="check"><input type="checkbox" id="o2_c"><span class="dtext">Decided</span></label>
-<div class="answer" id="o2_w" hidden><label class="sr" for="o2_a">What we decided</label><textarea id="o2_a" rows="2" placeholder="What we decided"></textarea><button type="button" class="clear" data-for="o2_a" hidden>Clear</button></div>
-</div></details><details class="item" data-k="o3"><summary class="ihead"><span class="num">O3</span><h3 class="qtext">The official support channel, and how fast we answer</h3><span class="tag held">Held</span><span class="tag done">Decided</span></summary>
-<div class="body">
-<label class="check"><input type="checkbox" id="o3_c"><span class="dtext">Decided</span></label>
-<div class="answer" id="o3_w" hidden><label class="sr" for="o3_a">What we decided</label><textarea id="o3_a" rows="2" placeholder="What we decided"></textarea><button type="button" class="clear" data-for="o3_a" hidden>Clear</button></div>
-</div></details><details class="item" data-k="o4"><summary class="ihead"><span class="num">O4</span><h3 class="qtext">What “good standing” means, and the conduct rules</h3><span class="tag held">Held</span><span class="tag done">Decided</span></summary>
-<div class="body"><div class="ref"><b class="lab">Where it stands</b><ul class=""><li>Payment only, or also conduct, licensing and fit with HHN.</li><li>How complaints, suspension, removal and appeals work.</li></ul></div>
-<label class="check"><input type="checkbox" id="o4_c"><span class="dtext">Decided</span></label>
-<div class="answer" id="o4_w" hidden><label class="sr" for="o4_a">What we decided</label><textarea id="o4_a" rows="2" placeholder="What we decided"></textarea><button type="button" class="clear" data-for="o4_a" hidden>Clear</button></div>
-</div></details></div><div class="notes"><label for="n_s4">Comments or questions on this section</label><textarea id="n_s4" data-n="1" rows="2" placeholder="Comments or questions"></textarea><button type="button" class="clear" data-for="n_s4" hidden>Clear</button></div></div></details>
-<details class="sec" data-title="Billing, renewal and leaving"><summary><span class="sh"><span class="kind fb">Six · Need your feedback</span><h2>Billing, renewal and leaving</h2><span class="ssub">3 to decide.</span></span></summary>
-<div class="sbody"><div class="items"><details class="item" data-k="b1"><summary class="ihead"><span class="num">B1</span><h3 class="qtext">Refunds</h3><span class="tag held">Held</span><span class="tag done">Decided</span></summary>
-<div class="body"><b class="lab">Options</b><ol class="opts"><li>No refunds</li><li>Full refund within the first 30 days</li><li>Other</li></ol><div class="prop"><b class="lab">Lee leans</b>No refunds.</div>
-<label class="check"><input type="checkbox" id="b1_c"><span class="dtext">Decided</span></label>
-<div class="answer" id="b1_w" hidden><label class="sr" for="b1_a">What we decided</label><textarea id="b1_a" rows="2" placeholder="What we decided"></textarea><button type="button" class="clear" data-for="b1_a" hidden>Clear</button></div>
-</div></details><details class="item" data-k="b2"><summary class="ihead"><span class="num">B2</span><h3 class="qtext">Where does a Member cancel?</h3><span class="tag held">Held</span><span class="tag done">Decided</span></summary>
-<div class="body"><div class="ref"><b class="lab">Where it stands</b><ul class=""><li>Stripe has a customer page for cancelling and updating cards. The portal can link to it.</li></ul></div><b class="lab">Options</b><ol class="opts"><li>Stripe&#x27;s page, linked from the portal</li><li>Inside the portal</li></ol>
-<label class="check"><input type="checkbox" id="b2_c"><span class="dtext">Decided</span></label>
-<div class="answer" id="b2_w" hidden><label class="sr" for="b2_a">What we decided</label><textarea id="b2_a" rows="2" placeholder="What we decided"></textarea><button type="button" class="clear" data-for="b2_a" hidden>Clear</button></div>
-</div></details><details class="item" data-k="b3"><summary class="ihead"><span class="num">B3</span><h3 class="qtext">What happens when a Member leaves or is removed?</h3><span class="tag held">Held</span><span class="tag done">Decided</span></summary>
-<div class="body"><div class="ref"><b class="lab">Where it stands</b><ul class=""><li>When the profile comes down (right away, or at the end of the paid year), portal access, referral pay already earned, Academy registrations, and badge use.</li></ul></div>
-<label class="check"><input type="checkbox" id="b3_c"><span class="dtext">Decided</span></label>
-<div class="answer" id="b3_w" hidden><label class="sr" for="b3_a">What we decided</label><textarea id="b3_a" rows="2" placeholder="What we decided"></textarea><button type="button" class="clear" data-for="b3_a" hidden>Clear</button></div>
-</div></details></div><div class="notes"><label for="n_s5">Comments or questions on this section</label><textarea id="n_s5" data-n="1" rows="2" placeholder="Comments or questions"></textarea><button type="button" class="clear" data-for="n_s5" hidden>Clear</button></div></div></details>
-<details class="sec" data-title="Supporters and the Academy"><summary><span class="sh"><span class="kind fb">Seven · Need your feedback</span><h2>Supporters and the Academy</h2><span class="ssub">Two things to clear up. 2 to decide.</span></span></summary>
-<div class="sbody"><div class="items"><details class="item" data-k="s1"><summary class="ihead"><span class="num">S1</span><h3 class="qtext">Supporters are aimed at venues and event hosts. Is that a requirement, or just who we&#x27;re looking for?</h3><span class="tag held">Held</span><span class="tag done">Decided</span></summary>
-<div class="body">
-<label class="check"><input type="checkbox" id="s1_c"><span class="dtext">Decided</span></label>
-<div class="answer" id="s1_w" hidden><label class="sr" for="s1_a">What we decided</label><textarea id="s1_a" rows="2" placeholder="What we decided"></textarea><button type="button" class="clear" data-for="s1_a" hidden>Clear</button></div>
-</div></details><details class="item" data-k="s2"><summary class="ihead"><span class="num">S2</span><h3 class="qtext">If an Academy event is public, why isn&#x27;t it something Membership provides?</h3><span class="tag held">Held</span><span class="tag done">Decided</span></summary>
-<div class="body"><div class="ref"><b class="lab">Where it stands</b><ul class=""><li>The draft&#x27;s reasoning: a public event is open to anyone, so going isn&#x27;t a Member benefit. The Member benefit is the lower price, plus the free Member-only sessions.</li></ul></div>
-<label class="check"><input type="checkbox" id="s2_c"><span class="dtext">Decided</span></label>
-<div class="answer" id="s2_w" hidden><label class="sr" for="s2_a">What we decided</label><textarea id="s2_a" rows="2" placeholder="What we decided"></textarea><button type="button" class="clear" data-for="s2_a" hidden>Clear</button></div>
-</div></details></div><div class="notes"><label for="n_s6">Comments or questions on this section</label><textarea id="n_s6" data-n="1" rows="2" placeholder="Comments or questions"></textarea><button type="button" class="clear" data-for="n_s6" hidden>Clear</button></div></div></details>
-<details class="sec" data-title="Brand, badge and media kit"><summary><span class="sh"><span class="kind fb">Eight · Need your feedback</span><h2>Brand, badge and media kit</h2><span class="ssub">2 to decide.</span></span></summary>
-<div class="sbody"><div class="items"><details class="item" data-k="m1"><summary class="ihead"><span class="num">M1</span><h3 class="qtext">May Members show an “HHN Member” badge?</h3><span class="tag held">Held</span><span class="tag done">Decided</span></summary>
-<div class="body"><div class="ref"><b class="lab">Where it stands</b><ul class=""><li>Where (website, social, signage, print), and what happens when they leave.</li></ul></div>
-<label class="check"><input type="checkbox" id="m1_c"><span class="dtext">Decided</span></label>
-<div class="answer" id="m1_w" hidden><label class="sr" for="m1_a">What we decided</label><textarea id="m1_a" rows="2" placeholder="What we decided"></textarea><button type="button" class="clear" data-for="m1_a" hidden>Clear</button></div>
-</div></details><details class="item" data-k="m2"><summary class="ihead"><span class="num">M2</span><h3 class="qtext">A Member media kit: what goes in it?</h3><span class="tag held">Held</span><span class="tag done">Decided</span></summary>
-<div class="body"><div class="ref"><b class="lab">Where it stands</b><ul class=""><li>For example: the badge and how to use it, HHN logo rules, a short “we&#x27;re a Member” description, sample posts.</li></ul></div>
-<label class="check"><input type="checkbox" id="m2_c"><span class="dtext">Decided</span></label>
-<div class="answer" id="m2_w" hidden><label class="sr" for="m2_a">What we decided</label><textarea id="m2_a" rows="2" placeholder="What we decided"></textarea><button type="button" class="clear" data-for="m2_a" hidden>Clear</button></div>
-</div></details></div><div class="notes"><label for="n_s7">Comments or questions on this section</label><textarea id="n_s7" data-n="1" rows="2" placeholder="Comments or questions"></textarea><button type="button" class="clear" data-for="n_s7" hidden>Clear</button></div></div></details>
+<details class="sec" data-title="Founding Members and referrals"><summary><span class="sh"><h2>Founding Members and referrals</h2><span class="ssub">Dusty&#x27;s call on most of these.</span><span class="ssub prog" data-prog>0 of 4 decided</span></span><span class="kind fb">Need your feedback</span></summary>
+<div class="sbody"><div class="items"><details class="item" data-k="f1" data-kind="radio"><summary class="ihead"><span class="num">F1</span><h3 class="qtext">What does a Founding Member keep that a new Member doesn&#x27;t?</h3><span class="tag held">Held</span><span class="tag done">Decided</span></summary>
+<div class="body"><div class="ref"><b class="lab">Where it stands</b><ul class=""><li>The only difference written down so far is better referral pay.</li><li>Founding Supporters keep their $395 rate while active. Members have no matching rule yet.</li></ul></div><fieldset class="radios"><legend class="lab">Choose one</legend><label class="radio" for="f1_r0"><input type="radio" name="f1" id="f1_r0" value="Their price stays the same while they stay active"><span>Their price stays the same while they stay active</span></label><label class="radio" for="f1_r1"><input type="radio" name="f1" id="f1_r1" value="Better referral pay"><span>Better referral pay</span></label><label class="radio" for="f1_r2"><input type="radio" name="f1" id="f1_r2" value="Both"><span>Both</span></label><label class="radio" for="f1_r3"><input type="radio" name="f1" id="f1_r3" value="Something else" data-more="What else?"><span>Something else</span></label><div class="more" id="f1_mw" hidden><label class="mlab" for="f1_m"></label><textarea id="f1_m" rows="2" placeholder="More detail"></textarea><button type="button" class="clear" data-for="f1_m" hidden>Clear</button></div><button type="button" class="unpick" data-k="f1" hidden>Clear choice</button></fieldset></div></details><details class="item" data-k="f2" data-kind="radio"><summary class="ihead"><span class="num">F2</span><h3 class="qtext">Can every Member earn referral pay, or only Founding Members?</h3><span class="tag held">Held</span><span class="tag done">Decided</span></summary>
+<div class="body"><fieldset class="radios"><legend class="lab">Choose one</legend><label class="radio" for="f2_r0"><input type="radio" name="f2" id="f2_r0" value="Every Member"><span>Every Member</span></label><label class="radio" for="f2_r1"><input type="radio" name="f2" id="f2_r1" value="Only Founding Members"><span>Only Founding Members</span></label><div class="more" id="f2_mw" hidden><label class="mlab" for="f2_m"></label><textarea id="f2_m" rows="2" placeholder="More detail"></textarea><button type="button" class="clear" data-for="f2_m" hidden>Clear</button></div><button type="button" class="unpick" data-k="f2" hidden>Clear choice</button></fieldset></div></details><details class="item" data-k="f3" data-kind="radio"><summary class="ihead"><span class="num">F3</span><h3 class="qtext">How much is a referral worth?</h3><span class="tag held">Held</span><span class="tag done">Decided</span></summary>
+<div class="body"><div class="ref"><b class="lab">Where it stands</b><ul class=""><li>The project describes it two ways: about 50% of the Membership, and about $500. On $895, those don&#x27;t match.</li><li>The Membership allocation we decided gives Sales Commission 10%, which is $89.50. Either figure above is far more than that line.</li></ul></div><fieldset class="radios"><legend class="lab">Choose one</legend><label class="radio" for="f3_r0"><input type="radio" name="f3" id="f3_r0" value="The Sales Commission line: $89.50"><span>The Sales Commission line: $89.50</span></label><label class="radio" for="f3_r1"><input type="radio" name="f3" id="f3_r1" value="A set dollar amount, paid from another line" data-more="How much, and from which line?"><span>A set dollar amount, paid from another line</span></label><label class="radio" for="f3_r2"><input type="radio" name="f3" id="f3_r2" value="More for Founding Members, $89.50 for everyone else" data-more="How much for Founding Members, and from which line?"><span>More for Founding Members, $89.50 for everyone else</span></label><div class="more" id="f3_mw" hidden><label class="mlab" for="f3_m"></label><textarea id="f3_m" rows="2" placeholder="More detail"></textarea><button type="button" class="clear" data-for="f3_m" hidden>Clear</button></div><button type="button" class="unpick" data-k="f3" hidden>Clear choice</button></fieldset></div></details><details class="item" data-k="f4" data-kind="check" data-after="f3"><summary class="ihead"><span class="num">F4</span><h3 class="qtext">The referral rules</h3><span class="tag held">Held</span><span class="tag done">Decided</span></summary>
+<p class="lock">Held until F3 is decided.</p><div class="body"><div class="draft"><div class="dhead"><b class="lab">Best guess to start from</b><button type="button" class="copy" data-copy="f4_d" data-k="f4">Paste below</button></div><pre id="f4_d">Referral rules (draft)
+- A referral counts when the new business names the referrer on its application (or uses their link) and pays.
+- Paid once per new Membership, on the first year only.
+- Paid within 30 days after the new Member&#x27;s payment clears.
+- Not paid if that payment is refunded or reversed.
+- No self-referrals, and no referring a second business you own.
+- The referrer must be in good standing when it&#x27;s paid.
+- Referral pay already earned is still paid after the referrer leaves.</pre></div><label class="check"><input type="checkbox" id="f4_c"><span class="dtext">Decided</span></label><div class="answer" id="f4_w" hidden><label class="sr" for="f4_a">What we decided</label><textarea id="f4_a" rows="3" placeholder="What we decided"></textarea><button type="button" class="clear" data-for="f4_a" hidden>Clear</button></div></div></details></div><div class="notes"><label for="n_s1">Comments or questions on this section</label><textarea id="n_s1" data-n="1" rows="2" placeholder="Comments or questions"></textarea><button type="button" class="clear" data-for="n_s1" hidden>Clear</button></div></div></details>
+<details class="sec" data-title="The profile and Member benefits"><summary><span class="sh"><h2>The profile and Member benefits</h2><span class="ssub">What a Member actually gets.</span><span class="ssub prog" data-prog>0 of 5 decided</span></span><span class="kind fb">Need your feedback</span></summary>
+<div class="sbody"><div class="items"><details class="item" data-k="p1" data-kind="check"><summary class="ihead"><span class="num">P1</span><h3 class="qtext">What exactly goes on a profile, and the limit for each field?</h3><span class="tag held">Held</span><span class="tag done">Decided</span></summary>
+<div class="body"><div class="draft"><div class="dhead"><b class="lab">Best guess to start from</b><button type="button" class="copy" data-copy="p1_d" data-k="p1">Paste below</button></div><pre id="p1_d">Member profile fields (draft)
+- Business name: required, up to 60 characters
+- Category: required; 1 main category, up to 2 more
+- Short description: required, up to 160 characters (shows in the directory list)
+- Full description: required, 100 to 300 words
+- Services: required, up to 10, each up to 40 characters
+- Service area: required; cities or counties served
+- Street address: optional; if hidden, the map pin sits on the town center
+- Phone: required
+- Email: required
+- Website: optional
+- Contact person: name and role; Member chooses whether it shows
+- Logo: required; square, at least 400 x 400 px, PNG or JPG
+- Photos: optional; up to 6, landscape, at least 1200 px wide, 5 MB each at most
+- Social links: optional, up to 4
+- Prices: not shown
+- Reviews: not shown on HHN; a link to their Google reviews instead</pre></div><label class="check"><input type="checkbox" id="p1_c"><span class="dtext">Decided</span></label><div class="answer" id="p1_w" hidden><label class="sr" for="p1_a">What we decided</label><textarea id="p1_a" rows="3" placeholder="What we decided"></textarea><button type="button" class="clear" data-for="p1_a" hidden>Clear</button></div></div></details><details class="item" data-k="p2" data-kind="check"><summary class="ihead"><span class="num">P2</span><h3 class="qtext">The full list of Member benefits, switched on when someone joins</h3><span class="tag held">Held</span><span class="tag done">Decided</span></summary>
+<div class="body"><div class="draft"><div class="dhead"><b class="lab">Best guess to start from</b><button type="button" class="copy" data-copy="p2_d" data-k="p2">Paste below</button></div><pre id="p2_d">Member benefits (draft)
+- A profile page on healthyhome.network
+- A listing in the HHN directory and on the map
+- The Member price on paid Academy events
+- [number] free Member-only sessions a year
+- The monthly Member newsletter
+- Referral pay for new Members they bring in (if F2 says every Member)
+- The HHN Member badge and media kit (if M1 and M2 are yes)
+- The Member portal: profile updates, benefits, billing and renewal</pre></div><label class="check"><input type="checkbox" id="p2_c"><span class="dtext">Decided</span></label><div class="answer" id="p2_w" hidden><label class="sr" for="p2_a">What we decided</label><textarea id="p2_a" rows="3" placeholder="What we decided"></textarea><button type="button" class="clear" data-for="p2_a" hidden>Clear</button></div></div></details><details class="item" data-k="p3" data-kind="radio"><summary class="ihead"><span class="num">P3</span><h3 class="qtext">What counts as a paid Academy event, and what is the Member price?</h3><span class="tag held">Held</span><span class="tag done">Decided</span></summary>
+<div class="body"><fieldset class="radios"><legend class="lab">Choose one</legend><label class="radio" for="p3_r0"><input type="radio" name="p3" id="p3_r0" value="A set percentage off every paid event" data-more="What percentage?"><span>A set percentage off every paid event</span></label><label class="radio" for="p3_r1"><input type="radio" name="p3" id="p3_r1" value="A Member price set per event"><span>A Member price set per event</span></label><div class="more" id="p3_mw" hidden><label class="mlab" for="p3_m"></label><textarea id="p3_m" rows="2" placeholder="More detail"></textarea><button type="button" class="clear" data-for="p3_m" hidden>Clear</button></div><button type="button" class="unpick" data-k="p3" hidden>Clear choice</button></fieldset></div></details><details class="item" data-k="p4" data-kind="radio"><summary class="ihead"><span class="num">P4</span><h3 class="qtext">How many free Member-only sessions does a Member get?</h3><span class="tag held">Held</span><span class="tag done">Decided</span></summary>
+<div class="body"><div class="ref"><b class="lab">Where it stands</b><ul class=""><li>The plan says “some.” A number makes it a promise we can keep.</li></ul></div><fieldset class="radios"><legend class="lab">Choose one</legend><label class="radio" for="p4_r0"><input type="radio" name="p4" id="p4_r0" value="One a quarter"><span>One a quarter</span></label><label class="radio" for="p4_r1"><input type="radio" name="p4" id="p4_r1" value="One a month"><span>One a month</span></label><label class="radio" for="p4_r2"><input type="radio" name="p4" id="p4_r2" value="Another number" data-more="How many?"><span>Another number</span></label><div class="more" id="p4_mw" hidden><label class="mlab" for="p4_m"></label><textarea id="p4_m" rows="2" placeholder="More detail"></textarea><button type="button" class="clear" data-for="p4_m" hidden>Clear</button></div><button type="button" class="unpick" data-k="p4" hidden>Clear choice</button></fieldset></div></details><details class="item" data-k="p5" data-kind="radio"><summary class="ihead"><span class="num">P5</span><h3 class="qtext">Do we say plainly that Membership is visibility and connection, and lead generation is a Growth Partner service?</h3><span class="tag held">Held</span><span class="tag done">Decided</span></summary>
+<div class="body"><fieldset class="radios"><legend class="lab">Choose one</legend><label class="radio" for="p5_r0"><input type="radio" name="p5" id="p5_r0" value="Yes, say it plainly"><span>Yes, say it plainly</span><span class="lean">Lee leans</span></label><label class="radio" for="p5_r1"><input type="radio" name="p5" id="p5_r1" value="No"><span>No</span></label><div class="more" id="p5_mw" hidden><label class="mlab" for="p5_m"></label><textarea id="p5_m" rows="2" placeholder="More detail"></textarea><button type="button" class="clear" data-for="p5_m" hidden>Clear</button></div><button type="button" class="unpick" data-k="p5" hidden>Clear choice</button></fieldset></div></details></div><div class="notes"><label for="n_s2">Comments or questions on this section</label><textarea id="n_s2" data-n="1" rows="2" placeholder="Comments or questions"></textarea><button type="button" class="clear" data-for="n_s2" hidden>Clear</button></div></div></details>
+<details class="sec" data-title="Joining: application to live profile"><summary><span class="sh"><h2>Joining: application to live profile</h2><span class="ssub">The flow, and what it needs to run on its own.</span><span class="ssub prog" data-prog>0 of 3 decided</span></span><span class="kind fb">Need your feedback</span></summary>
+<div class="sbody"><div class="items"><details class="item" data-k="j1" data-kind="check"><summary class="ihead"><span class="num">J1</span><h3 class="qtext">Who gets accepted, declined or removed?</h3><span class="tag held">Held</span><span class="tag done">Decided</span></summary>
+<div class="body"><div class="draft"><div class="dhead"><b class="lab">Best guess to start from</b><button type="button" class="copy" data-copy="j1_d" data-k="j1">Paste below</button></div><pre id="j1_d">Who becomes a Member (draft)
+Accepted when the business:
+- Signs the statement of faith and the agreements
+- Serves Middle Tennessee
+- Offers a service that fits a healthy home (on HHN&#x27;s category list)
+- Holds every license and the insurance its work requires
+- Has no unresolved pattern of complaints or poor reviews
+Declined when any of these isn&#x27;t met. Removed when one stops being true (see O4).</pre></div><label class="check"><input type="checkbox" id="j1_c"><span class="dtext">Decided</span></label><div class="answer" id="j1_w" hidden><label class="sr" for="j1_a">What we decided</label><textarea id="j1_a" rows="3" placeholder="What we decided"></textarea><button type="button" class="clear" data-for="j1_a" hidden>Clear</button></div></div></details><details class="item" data-k="j2" data-kind="radio"><summary class="ihead"><span class="num">J2</span><h3 class="qtext">Is the portal onboarding the same step as sending profile info?</h3><span class="tag held">Held</span><span class="tag done">Decided</span></summary>
+<div class="body"><div class="ref"><b class="lab">Where it stands</b><ul class=""><li>The draft listed “send profile info” and “complete the onboarding hub” as two steps.</li></ul></div><fieldset class="radios"><legend class="lab">Choose one</legend><label class="radio" for="j2_r0"><input type="radio" name="j2" id="j2_r0" value="One step: the portal is where they send profile info, read benefits and confirm policies"><span>One step: the portal is where they send profile info, read benefits and confirm policies</span><span class="lean">Lee leans</span></label><label class="radio" for="j2_r1"><input type="radio" name="j2" id="j2_r1" value="Two separate steps" data-more="What&#x27;s different about each?"><span>Two separate steps</span></label><div class="more" id="j2_mw" hidden><label class="mlab" for="j2_m"></label><textarea id="j2_m" rows="2" placeholder="More detail"></textarea><button type="button" class="clear" data-for="j2_m" hidden>Clear</button></div><button type="button" class="unpick" data-k="j2" hidden>Clear choice</button></fieldset></div></details><details class="item" data-k="j3" data-kind="check"><summary class="ihead"><span class="num">J3</span><h3 class="qtext">Which messages go out automatically, and how?</h3><span class="tag held">Held</span><span class="tag done">Decided</span></summary>
+<div class="body"><div class="draft"><div class="dhead"><b class="lab">Best guess to start from</b><button type="button" class="copy" data-copy="j3_d" data-k="j3">Paste below</button></div><pre id="j3_d">Automatic messages (draft): message / sent when / channel
+1. Application received / they submit / email
+2. Approved, with the payment link / HHN approves / email
+3. Welcome, send your profile info / payment clears / email and portal
+4. Reminder: profile info still due / 3 and 7 days later, if not done / email
+5. Your profile proof is ready / HHN finishes the profile / email
+6. Reminder: approve your proof / 3 days later, if not approved / email
+7. You&#x27;re live, with the link / profile published / email
+8. Renewal coming up / 30 days before renewal / email
+9. Payment didn&#x27;t go through / Stripe fails a charge / email (Stripe sends its own too)</pre></div><label class="check"><input type="checkbox" id="j3_c"><span class="dtext">Decided</span></label><div class="answer" id="j3_w" hidden><label class="sr" for="j3_a">What we decided</label><textarea id="j3_a" rows="3" placeholder="What we decided"></textarea><button type="button" class="clear" data-for="j3_a" hidden>Clear</button></div></div></details></div><div class="notes"><label for="n_s3">Comments or questions on this section</label><textarea id="n_s3" data-n="1" rows="2" placeholder="Comments or questions"></textarea><button type="button" class="clear" data-for="n_s3" hidden>Clear</button></div></div></details>
+<details class="sec" data-title="After they join"><summary><span class="sh"><h2>After they join</h2><span class="ssub">The ongoing relationship.</span><span class="ssub prog" data-prog>0 of 4 decided</span></span><span class="kind fb">Need your feedback</span></summary>
+<div class="sbody"><div class="items"><details class="item" data-k="o1" data-kind="check"><summary class="ihead"><span class="num">O1</span><h3 class="qtext">A monthly Member newsletter with HHN events and wins? Who writes it?</h3><span class="tag held">Held</span><span class="tag done">Decided</span></summary>
+<div class="body"><div class="draft"><div class="dhead"><b class="lab">Best guess to start from</b><button type="button" class="copy" data-copy="o1_d" data-k="o1">Paste below</button></div><pre id="o1_d">Member newsletter (draft)
+Monthly, by email, from HHN.
+- Upcoming HHN events and Academy sessions, with the Member price
+- Member wins: a project, an award, a milestone
+- New Members this month
+- One healthy-home tip
+- A reminder of a Member benefit</pre></div><label class="check"><input type="checkbox" id="o1_c"><span class="dtext">Decided</span></label><div class="answer" id="o1_w" hidden><label class="sr" for="o1_a">What we decided</label><textarea id="o1_a" rows="3" placeholder="What we decided"></textarea><button type="button" class="clear" data-for="o1_a" hidden>Clear</button></div></div></details><details class="item" data-k="o2" data-kind="radio"><summary class="ihead"><span class="num">O2</span><h3 class="qtext">An automatic profile report for each Member?</h3><span class="tag held">Held</span><span class="tag done">Decided</span></summary>
+<div class="body"><div class="ref"><b class="lab">Where it stands</b><ul class=""><li>The portal could send each Member their profile views and clicks. Profile pages would need tracking first.</li></ul></div><fieldset class="radios"><legend class="lab">Choose one</legend><label class="radio" for="o2_r0"><input type="radio" name="o2" id="o2_r0" value="Monthly"><span>Monthly</span></label><label class="radio" for="o2_r1"><input type="radio" name="o2" id="o2_r1" value="Quarterly"><span>Quarterly</span></label><label class="radio" for="o2_r2"><input type="radio" name="o2" id="o2_r2" value="Not yet"><span>Not yet</span></label><div class="more" id="o2_mw" hidden><label class="mlab" for="o2_m"></label><textarea id="o2_m" rows="2" placeholder="More detail"></textarea><button type="button" class="clear" data-for="o2_m" hidden>Clear</button></div><button type="button" class="unpick" data-k="o2" hidden>Clear choice</button></fieldset></div></details><details class="item" data-k="o3" data-kind="check"><summary class="ihead"><span class="num">O3</span><h3 class="qtext">The official support channel, and how fast we answer</h3><span class="tag held">Held</span><span class="tag done">Decided</span></summary>
+<div class="body"><div class="draft"><div class="dhead"><b class="lab">Best guess to start from</b><button type="button" class="copy" data-copy="o3_d" data-k="o3">Paste below</button></div><pre id="o3_d">Member support (draft)
+Members message HHN through the portal, or email [support address].
+HHN answers within 2 business days.</pre></div><label class="check"><input type="checkbox" id="o3_c"><span class="dtext">Decided</span></label><div class="answer" id="o3_w" hidden><label class="sr" for="o3_a">What we decided</label><textarea id="o3_a" rows="3" placeholder="What we decided"></textarea><button type="button" class="clear" data-for="o3_a" hidden>Clear</button></div></div></details><details class="item" data-k="o4" data-kind="check"><summary class="ihead"><span class="num">O4</span><h3 class="qtext">What “good standing” means, and the conduct rules</h3><span class="tag held">Held</span><span class="tag done">Decided</span></summary>
+<div class="body"><div class="draft"><div class="dhead"><b class="lab">Best guess to start from</b><button type="button" class="copy" data-copy="o4_d" data-k="o4">Paste below</button></div><pre id="o4_d">Good standing and conduct (draft)
+A Member is in good standing when:
+- Their Membership is paid and current
+- Their profile information is accurate
+- They hold the licenses their work requires
+- They have no unresolved complaint
+When a complaint comes in:
+1. HHN contacts the Member within 5 business days.
+2. Outcome: resolved, a written warning, suspension (profile hidden), or removal.
+3. The Member may appeal once, in writing, within 14 days.</pre></div><label class="check"><input type="checkbox" id="o4_c"><span class="dtext">Decided</span></label><div class="answer" id="o4_w" hidden><label class="sr" for="o4_a">What we decided</label><textarea id="o4_a" rows="3" placeholder="What we decided"></textarea><button type="button" class="clear" data-for="o4_a" hidden>Clear</button></div></div></details></div><div class="notes"><label for="n_s4">Comments or questions on this section</label><textarea id="n_s4" data-n="1" rows="2" placeholder="Comments or questions"></textarea><button type="button" class="clear" data-for="n_s4" hidden>Clear</button></div></div></details>
+<details class="sec" data-title="Billing, renewal and leaving"><summary><span class="sh"><h2>Billing, renewal and leaving</h2><span class="ssub prog" data-prog>0 of 3 decided</span></span><span class="kind fb">Need your feedback</span></summary>
+<div class="sbody"><div class="items"><details class="item" data-k="b1" data-kind="radio"><summary class="ihead"><span class="num">B1</span><h3 class="qtext">Refunds</h3><span class="tag held">Held</span><span class="tag done">Decided</span></summary>
+<div class="body"><fieldset class="radios"><legend class="lab">Choose one</legend><label class="radio" for="b1_r0"><input type="radio" name="b1" id="b1_r0" value="No refunds"><span>No refunds</span><span class="lean">Lee leans</span></label><label class="radio" for="b1_r1"><input type="radio" name="b1" id="b1_r1" value="Full refund within the first 30 days"><span>Full refund within the first 30 days</span></label><label class="radio" for="b1_r2"><input type="radio" name="b1" id="b1_r2" value="Other" data-more="What&#x27;s the rule?"><span>Other</span></label><div class="more" id="b1_mw" hidden><label class="mlab" for="b1_m"></label><textarea id="b1_m" rows="2" placeholder="More detail"></textarea><button type="button" class="clear" data-for="b1_m" hidden>Clear</button></div><button type="button" class="unpick" data-k="b1" hidden>Clear choice</button></fieldset></div></details><details class="item" data-k="b2" data-kind="radio"><summary class="ihead"><span class="num">B2</span><h3 class="qtext">Where does a Member cancel?</h3><span class="tag held">Held</span><span class="tag done">Decided</span></summary>
+<div class="body"><div class="ref"><b class="lab">Where it stands</b><ul class=""><li>Stripe has a customer page for cancelling and updating cards. The portal can link to it.</li></ul></div><fieldset class="radios"><legend class="lab">Choose one</legend><label class="radio" for="b2_r0"><input type="radio" name="b2" id="b2_r0" value="Stripe&#x27;s page, linked from the portal"><span>Stripe&#x27;s page, linked from the portal</span></label><label class="radio" for="b2_r1"><input type="radio" name="b2" id="b2_r1" value="Inside the portal"><span>Inside the portal</span></label><div class="more" id="b2_mw" hidden><label class="mlab" for="b2_m"></label><textarea id="b2_m" rows="2" placeholder="More detail"></textarea><button type="button" class="clear" data-for="b2_m" hidden>Clear</button></div><button type="button" class="unpick" data-k="b2" hidden>Clear choice</button></fieldset></div></details><details class="item" data-k="b3" data-kind="check"><summary class="ihead"><span class="num">B3</span><h3 class="qtext">What happens when a Member leaves or is removed?</h3><span class="tag held">Held</span><span class="tag done">Decided</span></summary>
+<div class="body"><div class="draft"><div class="dhead"><b class="lab">Best guess to start from</b><button type="button" class="copy" data-copy="b3_d" data-k="b3">Paste below</button></div><pre id="b3_d">When a Member leaves (draft)
+- Cancels: the profile stays live to the end of the paid year, then comes down.
+- Removed: the profile comes down right away, with no refund.
+- Portal access ends when the profile comes down.
+- Referral pay already earned is still paid.
+- Academy events already paid for are honored.
+- The HHN badge comes off their site and materials within 30 days.</pre></div><label class="check"><input type="checkbox" id="b3_c"><span class="dtext">Decided</span></label><div class="answer" id="b3_w" hidden><label class="sr" for="b3_a">What we decided</label><textarea id="b3_a" rows="3" placeholder="What we decided"></textarea><button type="button" class="clear" data-for="b3_a" hidden>Clear</button></div></div></details></div><div class="notes"><label for="n_s5">Comments or questions on this section</label><textarea id="n_s5" data-n="1" rows="2" placeholder="Comments or questions"></textarea><button type="button" class="clear" data-for="n_s5" hidden>Clear</button></div></div></details>
+<details class="sec" data-title="Supporters and the Academy"><summary><span class="sh"><h2>Supporters and the Academy</h2><span class="ssub">Two things to clear up.</span><span class="ssub prog" data-prog>0 of 2 decided</span></span><span class="kind fb">Need your feedback</span></summary>
+<div class="sbody"><div class="items"><details class="item" data-k="s1" data-kind="radio"><summary class="ihead"><span class="num">S1</span><h3 class="qtext">Supporters are aimed at venues and event hosts. Is that a requirement, or just who we&#x27;re looking for?</h3><span class="tag held">Held</span><span class="tag done">Decided</span></summary>
+<div class="body"><fieldset class="radios"><legend class="lab">Choose one</legend><label class="radio" for="s1_r0"><input type="radio" name="s1" id="s1_r0" value="A requirement"><span>A requirement</span></label><label class="radio" for="s1_r1"><input type="radio" name="s1" id="s1_r1" value="Just who we&#x27;re looking for"><span>Just who we&#x27;re looking for</span></label><div class="more" id="s1_mw" hidden><label class="mlab" for="s1_m"></label><textarea id="s1_m" rows="2" placeholder="More detail"></textarea><button type="button" class="clear" data-for="s1_m" hidden>Clear</button></div><button type="button" class="unpick" data-k="s1" hidden>Clear choice</button></fieldset></div></details><details class="item" data-k="s2" data-kind="radio"><summary class="ihead"><span class="num">S2</span><h3 class="qtext">If an Academy event is public, why isn&#x27;t it something Membership provides?</h3><span class="tag held">Held</span><span class="tag done">Decided</span></summary>
+<div class="body"><div class="ref"><b class="lab">Where it stands</b><ul class=""><li>The draft&#x27;s reasoning: a public event is open to anyone, so going isn&#x27;t a Member benefit. The Member benefit is the lower price, plus the free Member-only sessions.</li></ul></div><fieldset class="radios"><legend class="lab">Choose one</legend><label class="radio" for="s2_r0"><input type="radio" name="s2" id="s2_r0" value="That&#x27;s right"><span>That&#x27;s right</span></label><label class="radio" for="s2_r1"><input type="radio" name="s2" id="s2_r1" value="No, Members should get more" data-more="What should they get?"><span>No, Members should get more</span></label><div class="more" id="s2_mw" hidden><label class="mlab" for="s2_m"></label><textarea id="s2_m" rows="2" placeholder="More detail"></textarea><button type="button" class="clear" data-for="s2_m" hidden>Clear</button></div><button type="button" class="unpick" data-k="s2" hidden>Clear choice</button></fieldset></div></details></div><div class="notes"><label for="n_s6">Comments or questions on this section</label><textarea id="n_s6" data-n="1" rows="2" placeholder="Comments or questions"></textarea><button type="button" class="clear" data-for="n_s6" hidden>Clear</button></div></div></details>
+<details class="sec" data-title="Brand, badge and media kit"><summary><span class="sh"><h2>Brand, badge and media kit</h2><span class="ssub prog" data-prog>0 of 2 decided</span></span><span class="kind fb">Need your feedback</span></summary>
+<div class="sbody"><div class="items"><details class="item" data-k="m1" data-kind="radio"><summary class="ihead"><span class="num">M1</span><h3 class="qtext">May Members show an “HHN Member” badge?</h3><span class="tag held">Held</span><span class="tag done">Decided</span></summary>
+<div class="body"><div class="ref"><b class="lab">Where it stands</b><ul class=""><li>Rules for after they leave are in B3.</li></ul></div><fieldset class="radios"><legend class="lab">Choose one</legend><label class="radio" for="m1_r0"><input type="radio" name="m1" id="m1_r0" value="Yes, anywhere"><span>Yes, anywhere</span></label><label class="radio" for="m1_r1"><input type="radio" name="m1" id="m1_r1" value="Yes, with limits" data-more="Where can they use it?"><span>Yes, with limits</span></label><label class="radio" for="m1_r2"><input type="radio" name="m1" id="m1_r2" value="No"><span>No</span></label><div class="more" id="m1_mw" hidden><label class="mlab" for="m1_m"></label><textarea id="m1_m" rows="2" placeholder="More detail"></textarea><button type="button" class="clear" data-for="m1_m" hidden>Clear</button></div><button type="button" class="unpick" data-k="m1" hidden>Clear choice</button></fieldset></div></details><details class="item" data-k="m2" data-kind="check"><summary class="ihead"><span class="num">M2</span><h3 class="qtext">A Member media kit: what goes in it?</h3><span class="tag held">Held</span><span class="tag done">Decided</span></summary>
+<div class="body"><div class="draft"><div class="dhead"><b class="lab">Best guess to start from</b><button type="button" class="copy" data-copy="m2_d" data-k="m2">Paste below</button></div><pre id="m2_d">Member media kit (draft)
+- The HHN Member badge, light and dark versions
+- How to use the badge and the HHN logo, and how not to
+- A short paragraph: &quot;[Business] is a Member of Healthy Home Network, a network of faith-based businesses in Middle Tennessee who help families build healthy homes.&quot;
+- Three sample posts announcing their Membership
+- Their profile link and a QR code to it</pre></div><label class="check"><input type="checkbox" id="m2_c"><span class="dtext">Decided</span></label><div class="answer" id="m2_w" hidden><label class="sr" for="m2_a">What we decided</label><textarea id="m2_a" rows="3" placeholder="What we decided"></textarea><button type="button" class="clear" data-for="m2_a" hidden>Clear</button></div></div></details></div><div class="notes"><label for="n_s7">Comments or questions on this section</label><textarea id="n_s7" data-n="1" rows="2" placeholder="Comments or questions"></textarea><button type="button" class="clear" data-for="n_s7" hidden>Clear</button></div></div></details>
     </div>
     <div class="send">
       <h2>Send what we decided</h2>
-      <p class="ssub">Sending is optional and can be done more than once. Everything typed here stays on this device either way.</p>
-      <button class="btn" type="submit" id="submitBtn">Send to Lee</button>
+      <p class="ssub">Sending is optional and can be done more than once. Everything here stays on this device either way.</p>
+      <div class="who"><label for="sentBy">Your full name</label><input type="text" id="sentBy" name="sent_by" autocomplete="name" placeholder="First and last name"></div>
+      <button class="btn" type="submit" id="submitBtn" disabled>Send to Lee</button>
       <p class="saved-note" id="savedNote" role="status"></p>
       <div class="sent" id="sentNote" hidden></div>
     </div>
@@ -295,21 +328,60 @@ textarea:focus-visible{outline:2px solid var(--forward-blue);outline-offset:1px;
     var n=0;
     for(var i=0;i<items.length;i++){
       var a=items[i].getAttribute("data-after");
-      if(a)items[i].classList.toggle("locked",!(state.items[a]&&state.items[a].c));
-      if(items[i].querySelector("input[type=checkbox]").checked)n++;
+      if(a)items[i].classList.toggle("locked",!isDone(a));
+      if(isDone(items[i].getAttribute("data-k")))n++;
     }
+    var ss=document.querySelectorAll(".sec");
+    for(var z=0;z<ss.length;z++){var pg=ss[z].querySelector("[data-prog]");if(!pg)continue;
+      var its=ss[z].querySelectorAll(".item"),d=0;for(var y=0;y<its.length;y++)if(isDone(its[y].getAttribute("data-k")))d++;
+      pg.textContent=d===its.length?"All "+its.length+" decided":d+" of "+its.length+" decided";pg.classList.toggle("all",d===its.length);}
     document.getElementById("tallyN").textContent=n;
     gnDot.hidden=!gn.value.trim();
   }
+  function isDone(k){var v=state.items[k];return !!(v&&(v.c||v.r));}
   for(var i=0;i<items.length;i++){(function(it){
-    var k=it.getAttribute("data-k"),cb=it.querySelector("input[type=checkbox]"),wrap=it.querySelector(".answer"),ta=wrap.querySelector("textarea");
-    var s=state.items[k]||{};
-    if(s.c){cb.checked=true;wrap.hidden=false;it.classList.add("on");}
-    if(s.a)ta.value=s.a;
-    cb.addEventListener("change",function(){wrap.hidden=!cb.checked;it.classList.toggle("on",cb.checked);state.items[k]={c:cb.checked,a:ta.value};save();refresh();if(cb.checked)ta.focus();});
-    ta.addEventListener("input",function(){state.items[k]={c:cb.checked,a:ta.value};clearVis(ta);later();});
-    clearVis(ta);
+    var k=it.getAttribute("data-k"),s=state.items[k]||{};
+    if(it.getAttribute("data-kind")==="radio"){
+      var rs=it.querySelectorAll("input[type=radio]"),mw=it.querySelector(".more"),mt=mw.querySelector("textarea"),ml=mw.querySelector(".mlab"),un=it.querySelector(".unpick");
+      function sync(){
+        var sel=it.querySelector("input[type=radio]:checked");
+        var more=sel&&sel.getAttribute("data-more");
+        mw.hidden=!more; if(more) ml.textContent=more;
+        un.hidden=!sel; it.classList.toggle("on",!!sel);
+      }
+      for(var r=0;r<rs.length;r++){ if(s.r&&rs[r].value===s.r) rs[r].checked=true;
+        rs[r].addEventListener("change",function(){var sel=it.querySelector("input[type=radio]:checked");state.items[k]={r:sel?sel.value:"",x:mt.value};sync();save();refresh();if(!mw.hidden)mt.focus();}); }
+      if(s.x) mt.value=s.x;
+      mt.addEventListener("input",function(){var v=state.items[k]||{};v.x=mt.value;state.items[k]=v;clearVis(mt);later();});
+      un.addEventListener("click",function(){for(var r=0;r<rs.length;r++)rs[r].checked=false;mt.value="";clearVis(mt);state.items[k]={};sync();save();refresh();});
+      sync(); clearVis(mt);
+    } else {
+      var cb=it.querySelector("input[type=checkbox]"),wrap=it.querySelector(".answer"),ta=wrap.querySelector("textarea");
+      if(s.c){cb.checked=true;wrap.hidden=false;it.classList.add("on");}
+      if(s.a)ta.value=s.a;
+      cb.addEventListener("change",function(){wrap.hidden=!cb.checked;it.classList.toggle("on",cb.checked);state.items[k]={c:cb.checked,a:ta.value};save();refresh();if(cb.checked)ta.focus();});
+      ta.addEventListener("input",function(){state.items[k]={c:cb.checked,a:ta.value};clearVis(ta);later();});
+      clearVis(ta);
+    }
   })(items[i]);}
+  var copies=document.querySelectorAll(".copy");
+  for(var q=0;q<copies.length;q++){(function(b){
+    var t=null;
+    b.addEventListener("click",function(){
+      var k=b.getAttribute("data-k"),it=b.closest(".item"),cb=it.querySelector("input[type=checkbox]"),wrap=it.querySelector(".answer"),ta=wrap.querySelector("textarea");
+      var txt=document.getElementById(b.getAttribute("data-copy")).textContent;
+      if(ta.value.trim()&&!b.classList.contains("arm")){
+        b.classList.add("arm");b.textContent="Tap again to replace";
+        t=setTimeout(function(){b.classList.remove("arm");b.textContent="Paste below";},3000);return;
+      }
+      clearTimeout(t);b.classList.remove("arm");
+      cb.checked=true;wrap.hidden=false;it.classList.add("on");
+      ta.value=txt;state.items[k]={c:true,a:ta.value};clearVis(ta);save();refresh();
+      ta.focus();ta.setSelectionRange(0,0);ta.scrollTop=0;
+      ta.style.height="auto";ta.style.height=Math.min(ta.scrollHeight+4,520)+"px";
+      b.textContent="Pasted";b.classList.add("done");setTimeout(function(){b.textContent="Paste below";b.classList.remove("done");},2000);
+    });
+  })(copies[q]);}
   for(var j=0;j<nts.length;j++){(function(t){
     if(state.notes[t.id])t.value=state.notes[t.id];
     t.addEventListener("input",function(){state.notes[t.id]=t.value;clearVis(t);later();});
@@ -335,17 +407,21 @@ textarea:focus-visible{outline:2px solid var(--forward-blue);outline-offset:1px;
   })(clears[c]);}
   twoTap(document.getElementById("startOver"),"Tap again to clear everything","Start over",function(){
     state={items:{},notes:{},general:"",sentAt:state.sentAt};
-    for(var i=0;i<items.length;i++){var it=items[i];it.querySelector("input[type=checkbox]").checked=false;it.classList.remove("on");var w=it.querySelector(".answer");w.hidden=true;var ta=w.querySelector("textarea");ta.value="";clearVis(ta);}
+    for(var i=0;i<items.length;i++){var it=items[i];it.classList.remove("on");var ins=it.querySelectorAll("input");for(var u=0;u<ins.length;u++)ins[u].checked=false;var tas=it.querySelectorAll("textarea");for(var u2=0;u2<tas.length;u2++){tas[u2].value="";clearVis(tas[u2]);}var w=it.querySelector(".answer");if(w)w.hidden=true;var mw=it.querySelector(".more");if(mw)mw.hidden=true;var un=it.querySelector(".unpick");if(un)un.hidden=true;}
     for(var j=0;j<nts.length;j++){nts[j].value="";clearVis(nts[j]);}
-    gn.value="";clearVis(gn);save();refresh();
+    gn.value="";clearVis(gn);who.value="";canSend();save();refresh();
     note.textContent="Cleared on this device. Anything already sent to Lee is unchanged.";
   });
-  refresh();showSent();
+  var who=document.getElementById("sentBy");
+  who.value=state.name||"";
+  function canSend(){btn.disabled=!who.value.trim();}
+  who.addEventListener("input",function(){state.name=who.value;canSend();later();});
+  refresh();showSent();canSend();
   function one(s){return s.trim().replace(/\n+/g," / ");}
   function buildPrompt(){
     var L=[];
     L.push("Decisions from Lee and Dusty's morning meeting, sent from the HHN Member onboarding decision list page.");
-    L.push("Sent on "+new Date().toLocaleString());
+    L.push("Sent by "+who.value.trim()+" on "+new Date().toLocaleString());
     L.push("");
     L.push("Record what was decided in healthy-home-network/projects/2026-marketing-system-build/state.md under Member onboarding. Then rebuild this page in fs-new-site/share/ for the next meeting: decided items move to Already settled, open items carry forward in order, and a held item opens once the item it waits on is decided.");
     var secs=form.querySelectorAll(".sec[data-title]");
@@ -354,9 +430,10 @@ textarea:focus-visible{outline:2px solid var(--forward-blue);outline-offset:1px;
       if(!its.length&&!(nt&&nt.value.trim()))continue;
       L.push("");L.push("## "+secs[s].getAttribute("data-title"));
       for(var x=0;x<its.length;x++){
-        var cb=its[x].querySelector("input[type=checkbox]").checked,a=its[x].querySelector(".answer textarea").value;
-        L.push("- ["+(cb?"x":" ")+"] "+its[x].querySelector(".num").textContent+". "+its[x].querySelector(".qtext").textContent+(its[x].classList.contains("locked")?" (held)":""));
-        if(a.trim())L.push("  Decided: "+one(a));
+        var kk=its[x].getAttribute("data-k"),v=state.items[kk]||{};
+        L.push("- ["+(isDone(kk)?"x":" ")+"] "+its[x].querySelector(".num").textContent+". "+its[x].querySelector(".qtext").textContent+(its[x].classList.contains("locked")?" (held)":""));
+        if(v.r)L.push("  Chose: "+v.r+(v.x&&v.x.trim()?" / "+one(v.x):""));
+        if(v.c&&v.a&&v.a.trim())L.push("  Decided: "+one(v.a));
       }
       if(nt&&nt.value.trim())L.push("  Notes on this section: "+one(nt.value));
     }
@@ -368,8 +445,8 @@ textarea:focus-visible{outline:2px solid var(--forward-blue);outline-offset:1px;
     btn.disabled=true;var old=btn.textContent;btn.textContent="Sending…";
     document.getElementById("promptField").value=buildPrompt();
     fetch("/",{method:"POST",headers:{"Content-Type":"application/x-www-form-urlencoded"},body:new URLSearchParams(new FormData(form)).toString()})
-    .then(function(res){if(!res.ok)throw new Error("bad");state.sentAt=new Date().toLocaleString([],{weekday:"long",hour:"numeric",minute:"2-digit"});save();btn.disabled=false;showSent();note.textContent="";})
-    .catch(function(){btn.disabled=false;btn.textContent=old;note.textContent="That didn’t send. Check your connection and try again. Your notes are saved.";});
+    .then(function(res){if(!res.ok)throw new Error("bad");state.sentAt=new Date().toLocaleString([],{weekday:"long",hour:"numeric",minute:"2-digit"});save();showSent();canSend();note.textContent="";})
+    .catch(function(){canSend();btn.textContent=old;note.textContent="That didn’t send. Check your connection and try again. Your notes are saved.";});
   });
 })();
 </script>
