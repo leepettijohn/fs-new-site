@@ -1,0 +1,620 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="date" content="2026-10-15">
+<meta name="client" content="Healthy Home Network">
+<title>Healthy Home Network - Website check against the Member decisions</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&display=swap">
+<style>
+:root{
+  --forward-blue:#1E5BBA;--sky-blue:#3FA9F5;--signal-amber:#F5A524;--ink:#1A1D24;--slate:#5B6470;
+  --paper:#F7F6F2;--paper-warm:#EFEEE8;--white:#FFFFFF;--hairline:rgba(26,29,36,.08);--line:rgba(26,29,36,.14);
+  --blue-soft:#E8EFF9;--red:#B42318;--radius:12px;
+  --font-display:'Fraunces',Georgia,serif;--font-body:'Inter',system-ui,-apple-system,sans-serif;
+  color-scheme:light;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--font-body);font-size:16px;line-height:1.6;
+  -webkit-font-smoothing:antialiased;padding:0 20px env(safe-area-inset-bottom,0px)}
+a{color:var(--forward-blue)}
+[hidden]{display:none!important}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.hp{position:absolute;left:-9999px}
+.wrap{max-width:1000px;margin:0 auto;padding-block:calc(28px + env(safe-area-inset-top,0px)) 120px;position:relative}
+p,.plain,.section-sub{max-width:70ch}
+.brand{display:inline-flex;align-items:center;gap:10px;text-decoration:none;margin-bottom:40px}
+.brand img{height:30px;width:auto;display:block}
+.brand span{font-family:var(--font-display);font-weight:600;font-size:17px;color:var(--ink);letter-spacing:-.01em}
+.eyebrow{font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--forward-blue);margin:0 0 12px}
+h1{font-family:var(--font-display);font-weight:500;font-size:clamp(32px,7vw,46px);line-height:1.08;letter-spacing:-.02em;margin:0 0 20px;text-wrap:balance;max-width:22ch}
+.intro{font-size:17px;margin:0 0 12px}
+.intro.soft{color:var(--slate)}
+.when{display:flex;flex-wrap:wrap;gap:6px 24px;margin:24px 0 0;padding:14px 16px;background:var(--white);border:1px solid var(--hairline);border-radius:var(--radius);font-size:15px}
+.when b{font-weight:600;color:var(--forward-blue);margin-right:4px}
+.tally{margin:28px 0 0;font-size:15px;color:var(--slate)}
+.tally b{color:var(--forward-blue);font-variant-numeric:tabular-nums}
+.tap{font-size:14.5px;color:var(--slate);margin:24px 0 10px}
+
+details.section{background:var(--white);border:1px solid var(--hairline);border-radius:var(--radius);margin-top:10px}
+details.section>summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:12px;padding:16px 18px;border-radius:var(--radius);min-height:56px}
+details.section>summary::-webkit-details-marker{display:none}
+details.section>summary::after{content:"";flex:0 0 auto;width:9px;height:9px;margin:0 4px 5px 4px;border-right:2px solid var(--slate);border-bottom:2px solid var(--slate);transform:rotate(45deg);transition:transform .15s}
+details.section[open]>summary::after{transform:rotate(-135deg);margin-bottom:-5px}
+details.section>summary:focus-visible{outline:2px solid var(--forward-blue);outline-offset:2px}
+.shead{flex:1 1 auto;min-width:0}
+.section-num{display:block;font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--forward-blue)}
+.h2{display:block;font-family:var(--font-display);font-weight:500;font-size:22px;line-height:1.2;letter-spacing:-.01em}
+.section-sub{display:block;font-size:14px;color:var(--slate)}
+.badges{display:flex;flex-direction:column;align-items:flex-end;gap:4px;flex:0 0 auto}
+.label{font-size:12px;font-weight:600;padding:2px 10px;border-radius:999px;white-space:nowrap}
+.label.need{background:#FEF3DD;color:#8A5300}
+.label.fyi{background:var(--blue-soft);color:var(--forward-blue)}
+.prog{font-size:12.5px;color:var(--slate);font-variant-numeric:tabular-nums;white-space:nowrap}
+.prog.all{color:var(--forward-blue);font-weight:600}
+.sbody{padding:0 18px 18px}
+.items{display:flex;flex-direction:column;gap:10px}
+.item{border:1px solid var(--hairline);border-radius:var(--radius);padding:14px 16px;background:var(--paper)}
+.item.on{border-color:var(--forward-blue);background:var(--white)}
+.ihead{display:flex;gap:12px;align-items:flex-start}
+details.item>summary{list-style:none;cursor:pointer;align-items:center;min-height:44px;border-radius:9px}
+details.item>summary::-webkit-details-marker{display:none}
+details.item>summary::after{content:"";flex:0 0 auto;width:8px;height:8px;margin:0 4px 4px 4px;border-right:2px solid var(--slate);border-bottom:2px solid var(--slate);transform:rotate(45deg);transition:transform .15s}
+details.item[open]>summary::after{transform:rotate(-135deg);margin-bottom:-4px}
+details.item>summary:focus-visible{outline:2px solid var(--forward-blue);outline-offset:2px}
+.ititle{flex:1 1 auto;min-width:0}
+.pick{display:block;font-size:13.5px;color:var(--forward-blue);margin-top:2px}
+.pick:empty{display:none}
+details.item[open] .pick{display:none}
+.ibody{padding-top:2px}
+.num.ok{background:var(--blue-soft);color:var(--forward-blue)}
+.item.fyi{background:var(--paper)}
+.fyitext{margin:10px 0 0;font-size:15px}
+@media(prefers-reduced-motion:reduce){details.item>summary::after{transition:none}}
+.num{flex:0 0 auto;min-width:28px;height:28px;padding:0 6px;border-radius:14px;background:var(--blue-soft);color:var(--forward-blue);font-weight:600;font-size:13px;display:flex;align-items:center;justify-content:center;font-variant-numeric:tabular-nums}
+.item.on .num{background:var(--forward-blue);color:#fff}
+h3.qtext{margin:0;font-size:16.5px;font-weight:600;line-height:1.35}
+.tag{display:none;flex:0 0 auto;font-size:12px;font-weight:600;padding:2px 9px;border-radius:999px;background:var(--forward-blue);color:#fff}
+.item.on .tag{display:inline-block}
+.cmp{display:grid;grid-template-columns:1fr;gap:8px;margin:12px 0 0}
+@media(min-width:640px){.cmp{grid-template-columns:1fr 1fr}}
+.side{border-radius:9px;padding:10px 12px;font-size:15px}
+.side p{margin:2px 0 0}
+.side.site{background:var(--white);border:1px solid var(--line)}
+.side.dec{background:var(--blue-soft)}
+.lab{display:block;font-size:11.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--slate);margin:0}
+.side.dec .lab{color:var(--forward-blue)}
+.where{display:inline-block;margin-top:6px;font-size:13.5px;text-decoration:none;font-weight:500}
+.where:hover{text-decoration:underline}
+fieldset.choices{border:0;margin:14px 0 0;padding:0;display:flex;flex-direction:column;gap:6px}
+fieldset.choices legend{margin-bottom:6px}
+.opt{display:flex;align-items:center;gap:10px;padding:8px 12px;min-height:44px;border:1px solid var(--line);border-radius:9px;background:var(--white);cursor:pointer;font-size:15px}
+.opt:hover{border-color:var(--forward-blue)}
+.opt input{width:18px;height:18px;accent-color:var(--forward-blue);margin:0;flex:0 0 auto}
+.opt:has(input:checked){border-color:var(--forward-blue);background:var(--blue-soft)}
+.opt input:focus-visible{outline:2px solid var(--forward-blue);outline-offset:2px}
+@media(min-width:760px){fieldset.choices{flex-direction:row;flex-wrap:wrap}fieldset.choices .opt{flex:1 1 0}fieldset.choices legend{width:100%}}
+.other{margin-top:8px}
+textarea,input[type=text]{width:100%;font:inherit;font-size:16px;color:var(--ink);background:var(--white);border:1px solid var(--line);border-radius:9px;padding:10px 12px;line-height:1.5}
+textarea{resize:vertical;min-height:64px}
+textarea::placeholder,input[type=text]::placeholder{color:var(--slate);opacity:.8}
+textarea:focus-visible,input[type=text]:focus-visible{outline:2px solid var(--forward-blue);outline-offset:1px;border-color:transparent}
+.linkbtn{background:none;border:0;padding:4px 0;margin:4px 0 0;font:inherit;font-size:13.5px;color:var(--slate);text-decoration:underline;cursor:pointer}
+.linkbtn.arm{color:var(--red);font-weight:600}
+.notes{margin-top:16px}
+.notes label{display:block;font-weight:600;font-size:15px;margin-bottom:6px}
+.plain{margin:0;padding-left:20px;font-size:15.5px}
+.plain li{margin:8px 0}
+
+.send{margin-top:36px;padding:22px 18px;background:var(--white);border:1px solid var(--hairline);border-radius:var(--radius)}
+.send h2{font-family:var(--font-display);font-weight:500;font-size:24px;margin:0 0 4px}
+.send label.q{display:block;font-weight:600;font-size:15px;margin:18px 0 6px}
+.send input[type=text]{max-width:420px}
+.btn{display:inline-flex;align-items:center;justify-content:center;margin-top:18px;min-height:48px;padding:12px 26px;font:inherit;font-weight:600;font-size:16px;color:var(--ink);background:var(--signal-amber);border:0;border-radius:999px;cursor:pointer}
+.btn:hover{filter:brightness(.96)}
+.btn:focus-visible{outline:2px solid var(--forward-blue);outline-offset:3px}
+.btn:disabled{opacity:.6;cursor:default}
+.saved-note{font-size:14px;color:var(--slate);margin:12px 0 0;min-height:1.4em}
+.sent{margin-top:16px;padding:12px 14px;background:var(--blue-soft);border-radius:9px;font-size:15px}
+.startover{margin-top:28px;font-size:14px}
+.foot{margin-top:28px;padding-top:24px;border-top:1px solid var(--hairline);font-size:15px;color:var(--slate)}
+.foot .fs{font-family:var(--font-display);font-weight:600;font-size:17px;color:var(--ink);text-decoration:none}
+.foot .fs:hover{color:var(--forward-blue)}
+.foot p{margin:6px 0}
+.foot a{text-decoration:none;font-weight:500}
+.foot a:hover{text-decoration:underline}
+.foot .sep{margin:0 6px;color:var(--line)}
+
+.gn-dock{position:fixed;left:0;right:0;bottom:calc(16px + env(safe-area-inset-bottom,0px));pointer-events:none;padding:0 20px;z-index:20}
+.gn-inner{max-width:1000px;margin:0 auto;display:flex;flex-direction:column;align-items:flex-end;gap:10px}
+.gn-btn{pointer-events:auto;position:relative;display:inline-flex;align-items:center;gap:8px;min-height:48px;padding:10px 20px;font:inherit;font-weight:600;font-size:15px;color:#fff;background:var(--forward-blue);border:0;border-radius:999px;cursor:pointer;box-shadow:0 6px 18px rgba(26,29,36,.18)}
+.gn-btn:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
+.gn-dot{position:absolute;top:6px;right:8px;width:10px;height:10px;border-radius:50%;background:var(--signal-amber);border:2px solid var(--forward-blue)}
+.gn-panel{pointer-events:auto;width:min(380px,100%);background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:14px;box-shadow:0 10px 30px rgba(26,29,36,.18)}
+.gn-panel label{display:block;font-weight:600;font-size:15px;margin-bottom:6px}
+.gn-panel textarea{min-height:120px}
+.gn-row{display:flex;justify-content:space-between;align-items:center;margin-top:8px}
+.btn2{min-height:40px;padding:8px 18px;font:inherit;font-weight:600;font-size:14.5px;color:var(--forward-blue);background:var(--blue-soft);border:0;border-radius:999px;cursor:pointer}
+@media(prefers-reduced-motion:reduce){details.section>summary::after{transition:none}}
+@media(max-width:560px){details.section>summary{flex-wrap:wrap}.shead{flex-basis:calc(100% - 40px)}.badges{order:3;flex-direction:row;align-items:center;flex-basis:100%;gap:10px}.h2{font-size:20px}}
+@media print{.gn-dock,.send .btn,.startover{display:none}details.section{break-inside:avoid}}
+</style>
+</head>
+<body>
+<main class="wrap">
+  <a class="brand" href="https://gottamoveforward.com/"><img src="data:image/png;base64,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" alt="" width="37" height="30"><span>Forward Solutions</span></a>
+  <p class="eyebrow">Healthy Home Network &middot; Lee and Dusty</p>
+  <h1>Website check against the Member decisions</h1>
+  <p class="intro">Dusty, I went through healthyhome.network and compared it with what we decided about Membership. These are the places where the site says something different. I only read the site; nothing on it has been changed.</p>
+  <p class="intro soft">For each one, pick what should happen. Notes save on this device as you go. Send it back when you&rsquo;re ready, or just use it as a guide. Sending is optional.</p>
+  <div class="when"><span><b>Checked</b>Thursday, October 15</span><span><b>Pages</b>Home, Join, Membership and Supporter applications, Academy, About, Contact, two profiles</span><span><b>Items</b>31</span></div>
+  <p class="tally" role="status"><b id="tallyN">0</b> of 31 answered on this device.</p>
+
+  <form id="prepForm" name="hhn-site-check" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" netlify-honeypot="bot-field">
+    <input type="hidden" name="form-name" value="hhn-site-check">
+    <input type="hidden" name="subject" id="subjectField" value="">
+    <p class="hp"><label>Leave this blank: <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+    <textarea name="prompt" id="promptField" class="hp" tabindex="-1" aria-hidden="true"></textarea>
+    <input type="hidden" name="sent_by" id="sentByField" value="">
+
+    <p class="tap">Tap a section to open it, then tap an item to see it.</p>
+<details class="section">
+<summary><span class="shead"><span class="section-num">Good news</span><span class="h2">What already matches</span><span class="section-sub">No change needed</span></span><span class="badges"><span class="label fyi">FYI</span></span></summary>
+<div class="sbody"><div class="items"><details class="item fyi"><summary class="ihead"><span class="num ok">&#10003;</span><span class="ititle"><h3 class="qtext">Faith wording</h3></span></summary><div class="ibody"><p class="fyitext">The site says &ldquo;a Christian faith-based network anchored in Jesus Christ,&rdquo; and the statement of faith is in the application, with an option to talk first. The old &ldquo;not a religious organization&rdquo; line isn&rsquo;t on the site.</p></div></details><details class="item fyi"><summary class="ihead"><span class="num ok">&#10003;</span><span class="ititle"><h3 class="qtext">Approval before payment</h3></span></summary><div class="ibody"><p class="fyitext">There&rsquo;s no payment to apply, so approval comes before payment.</p></div></details><details class="item fyi"><summary class="ihead"><span class="num ok">&#10003;</span><span class="ititle"><h3 class="qtext">The Member rate</h3></span></summary><div class="ibody"><p class="fyitext">The Member rate shown on the Join page is the current annual rate.</p></div></details><details class="item fyi"><summary class="ihead"><span class="num ok">&#10003;</span><span class="ititle"><h3 class="qtext">Founding Supporters</h3></span></summary><div class="ibody"><p class="fyitext">Founding Supporters keep their rate while active.</p></div></details><details class="item fyi"><summary class="ihead"><span class="num ok">&#10003;</span><span class="ititle"><h3 class="qtext">Referral code</h3></span></summary><div class="ibody"><p class="fyitext">The application has a referral code field.</p></div></details><details class="item fyi"><summary class="ihead"><span class="num ok">&#10003;</span><span class="ititle"><h3 class="qtext">Separate sign-up pages</h3></span></summary><div class="ibody"><p class="fyitext">Members and Supporters each have their own sign-up page.</p></div></details></div></div>
+</details>
+<details class="section fb" data-title="Member benefits on the Join page">
+<summary><span class="shead"><span class="section-num">One</span><span class="h2">Member benefits on the Join page</span><span class="section-sub">healthyhome.network/join</span></span><span class="badges"><span class="label need">Need your feedback</span><span class="prog" data-prog>0 of 9 answered</span></span></summary>
+<div class="sbody"><div class="items"><details class="item" data-k="lead">
+<summary class="ihead"><span class="num">1</span><span class="ititle"><h3 class="qtext">Lead generation listed as a Member benefit</h3><span class="pick"></span></span><span class="tag done">Answered</span></summary>
+<div class="ibody">
+<div class="cmp"><div class="side site"><b class="lab">Live site says</b><p>&ldquo;Lead Generation Opportunities&rdquo; is one of the nine Member benefits.</p><a class="where" href="https://healthyhome.network/join" target="_blank" rel="noopener">/join &#8599;</a></div>
+<div class="side dec"><b class="lab">We decided</b><p>Membership is visibility and connection. Lead generation is a Growth Partner service, and the site says so plainly.</p></div></div>
+<fieldset class="choices"><legend class="lab">What should happen?</legend><label class="opt"><input type="radio" name="r_lead" value="Remove it and say the plain line"><span>Remove it and say the plain line</span></label><label class="opt"><input type="radio" name="r_lead" value="Keep it as it is"><span>Keep it as it is</span></label><label class="opt"><input type="radio" name="r_lead" value="Something else"><span>Something else</span></label></fieldset>
+<div class="other" hidden><label class="sr" for="o_lead">Say more</label><textarea id="o_lead" data-o="lead" rows="2" placeholder="What should happen instead?"></textarea></div>
+<button type="button" class="linkbtn clearchoice" hidden>Clear choice</button>
+</div></details><details class="item" data-k="disc">
+<summary class="ihead"><span class="num">2</span><span class="ititle"><h3 class="qtext">Discounted marketing services for every Member</h3><span class="pick"></span></span><span class="tag done">Answered</span></summary>
+<div class="ibody">
+<div class="cmp"><div class="side site"><b class="lab">Live site says</b><p>&ldquo;Discounted Marketing Services&rdquo;: every Member gets preferred pricing on marketing, content, video, advertising and growth services.</p><a class="where" href="https://healthyhome.network/join" target="_blank" rel="noopener">/join &#8599;</a></div>
+<div class="side dec"><b class="lab">We decided</b><p>Only Founding Members get a discount, and only on &agrave; la carte marketing services (not Core or Pro). The &agrave; la carte menu isn&rsquo;t set yet.</p></div></div>
+<fieldset class="choices"><legend class="lab">What should happen?</legend><label class="opt"><input type="radio" name="r_disc" value="Change the site to match"><span>Change the site to match</span></label><label class="opt"><input type="radio" name="r_disc" value="Keep the site as it is"><span>Keep the site as it is</span></label><label class="opt"><input type="radio" name="r_disc" value="Something else"><span>Something else</span></label></fieldset>
+<div class="other" hidden><label class="sr" for="o_disc">Say more</label><textarea id="o_disc" data-o="disc" rows="2" placeholder="What should happen instead?"></textarea></div>
+<button type="button" class="linkbtn clearchoice" hidden>Clear choice</button>
+</div></details><details class="item" data-k="coach">
+<summary class="ihead"><span class="num">3</span><span class="ititle"><h3 class="qtext">Coaching + Consulting</h3><span class="pick"></span></span><span class="tag done">Answered</span></summary>
+<div class="ibody">
+<div class="cmp"><div class="side site"><b class="lab">Live site says</b><p>&ldquo;Coaching + Consulting&rdquo;: business, marketing and growth guidance is listed as a Member benefit.</p><a class="where" href="https://healthyhome.network/join" target="_blank" rel="noopener">/join &#8599;</a></div>
+<div class="side dec"><b class="lab">We decided</b><p>Not in the Member benefits list.</p></div></div>
+<fieldset class="choices"><legend class="lab">What should happen?</legend><label class="opt"><input type="radio" name="r_coach" value="Remove it"><span>Remove it</span></label><label class="opt"><input type="radio" name="r_coach" value="Keep it as it is"><span>Keep it as it is</span></label><label class="opt"><input type="radio" name="r_coach" value="Something else"><span>Something else</span></label></fieldset>
+<div class="other" hidden><label class="sr" for="o_coach">Say more</label><textarea id="o_coach" data-o="coach" rows="2" placeholder="What should happen instead?"></textarea></div>
+<button type="button" class="linkbtn clearchoice" hidden>Clear choice</button>
+</div></details><details class="item" data-k="events">
+<summary class="ihead"><span class="num">4</span><span class="ititle"><h3 class="qtext">Member Events + Networking</h3><span class="pick"></span></span><span class="tag done">Answered</span></summary>
+<div class="ibody">
+<div class="cmp"><div class="side site"><b class="lab">Live site says</b><p>&ldquo;Member Events + Networking&rdquo;: access to member gatherings and collaborative events.</p><a class="where" href="https://healthyhome.network/join" target="_blank" rel="noopener">/join &#8599;</a></div>
+<div class="side dec"><b class="lab">We decided</b><p>Not in the list. Members are featured once a year in a panel or networking event. Educational Panels and Coffee with a Pro are free and open to the public.</p></div></div>
+<fieldset class="choices"><legend class="lab">What should happen?</legend><label class="opt"><input type="radio" name="r_events" value="Change the site to match"><span>Change the site to match</span></label><label class="opt"><input type="radio" name="r_events" value="Keep the site as it is"><span>Keep the site as it is</span></label><label class="opt"><input type="radio" name="r_events" value="Something else"><span>Something else</span></label></fieldset>
+<div class="other" hidden><label class="sr" for="o_events">Say more</label><textarea id="o_events" data-o="events" rows="2" placeholder="What should happen instead?"></textarea></div>
+<button type="button" class="linkbtn clearchoice" hidden>Clear choice</button>
+</div></details><details class="item" data-k="spot">
+<summary class="ihead"><span class="num">5</span><span class="ititle"><h3 class="qtext">Member Spotlights + Content</h3><span class="pick"></span></span><span class="tag done">Answered</span></summary>
+<div class="ibody">
+<div class="cmp"><div class="side site"><b class="lab">Live site says</b><p>&ldquo;Member Spotlights + Content Opportunities&rdquo;: features in HHN content, social media, podcasts, videos and member stories.</p><a class="where" href="https://healthyhome.network/join" target="_blank" rel="noopener">/join &#8599;</a></div>
+<div class="side dec"><b class="lab">We decided</b><p>Not in the list. The monthly newsletter carries Member wins.</p></div></div>
+<fieldset class="choices"><legend class="lab">What should happen?</legend><label class="opt"><input type="radio" name="r_spot" value="Change the site to match"><span>Change the site to match</span></label><label class="opt"><input type="radio" name="r_spot" value="Keep the site as it is"><span>Keep the site as it is</span></label><label class="opt"><input type="radio" name="r_spot" value="Something else"><span>Something else</span></label></fieldset>
+<div class="other" hidden><label class="sr" for="o_spot">Say more</label><textarea id="o_spot" data-o="spot" rows="2" placeholder="What should happen instead?"></textarea></div>
+<button type="button" class="linkbtn clearchoice" hidden>Clear choice</button>
+</div></details><details class="item" data-k="speak">
+<summary class="ihead"><span class="num">6</span><span class="ititle"><h3 class="qtext">How often Members speak</h3><span class="pick"></span></span><span class="tag done">Answered</span></summary>
+<div class="ibody">
+<div class="cmp"><div class="side site"><b class="lab">Live site says</b><p>&ldquo;Educational Speaking Opportunities&rdquo; whenever a Member&rsquo;s expertise fits the topic.</p><a class="where" href="https://healthyhome.network/join" target="_blank" rel="noopener">/join &#8599;</a></div>
+<div class="side dec"><b class="lab">We decided</b><p>Featured once a year in an educational panel or networking event, first come, first served. The Member pursues it.</p></div></div>
+<fieldset class="choices"><legend class="lab">What should happen?</legend><label class="opt"><input type="radio" name="r_speak" value="Change the site to match"><span>Change the site to match</span></label><label class="opt"><input type="radio" name="r_speak" value="Keep the site as it is"><span>Keep the site as it is</span></label><label class="opt"><input type="radio" name="r_speak" value="Something else"><span>Something else</span></label></fieldset>
+<div class="other" hidden><label class="sr" for="o_speak">Say more</label><textarea id="o_speak" data-o="speak" rows="2" placeholder="What should happen instead?"></textarea></div>
+<button type="button" class="linkbtn clearchoice" hidden>Clear choice</button>
+</div></details><details class="item" data-k="missing">
+<summary class="ihead"><span class="num">7</span><span class="ititle"><h3 class="qtext">Decided benefits the site doesn&rsquo;t mention</h3><span class="pick"></span></span><span class="tag done">Answered</span></summary>
+<div class="ibody">
+<div class="cmp"><div class="side site"><b class="lab">Live site says</b><p>None of these appear: the map listing, early-bird Academy registration, hosting their own Academy event, the monthly newsletter, the monthly clicks-and-traffic report, referral pay, the media kit, the Member portal.</p><a class="where" href="https://healthyhome.network/join" target="_blank" rel="noopener">/join &#8599;</a></div>
+<div class="side dec"><b class="lab">We decided</b><p>All of these are Member benefits, switched on when someone joins.</p></div></div>
+<fieldset class="choices"><legend class="lab">What should happen?</legend><label class="opt"><input type="radio" name="r_missing" value="Add all of them"><span>Add all of them</span></label><label class="opt"><input type="radio" name="r_missing" value="Add some of them"><span>Add some of them</span></label><label class="opt"><input type="radio" name="r_missing" value="Something else"><span>Something else</span></label></fieldset>
+<div class="other" hidden><label class="sr" for="o_missing">Say more</label><textarea id="o_missing" data-o="missing" rows="2" placeholder="What should happen instead?"></textarea></div>
+<button type="button" class="linkbtn clearchoice" hidden>Clear choice</button>
+</div></details><details class="item" data-k="badge">
+<summary class="ihead"><span class="num">8</span><span class="ititle"><h3 class="qtext">Where the badge can go</h3><span class="pick"></span></span><span class="tag done">Answered</span></summary>
+<div class="ibody">
+<div class="cmp"><div class="side site"><b class="lab">Live site says</b><p>Approved Members may show the badge on their website, marketing materials &ldquo;and other approved locations.&rdquo;</p><a class="where" href="https://healthyhome.network/join" target="_blank" rel="noopener">/join &#8599;</a></div>
+<div class="side dec"><b class="lab">We decided</b><p>Anywhere. Members also get a media kit with light and dark badges and how to use them.</p></div></div>
+<fieldset class="choices"><legend class="lab">What should happen?</legend><label class="opt"><input type="radio" name="r_badge" value="Change the site to match"><span>Change the site to match</span></label><label class="opt"><input type="radio" name="r_badge" value="Keep the site as it is"><span>Keep the site as it is</span></label><label class="opt"><input type="radio" name="r_badge" value="Something else"><span>Something else</span></label></fieldset>
+<div class="other" hidden><label class="sr" for="o_badge">Say more</label><textarea id="o_badge" data-o="badge" rows="2" placeholder="What should happen instead?"></textarea></div>
+<button type="button" class="linkbtn clearchoice" hidden>Clear choice</button>
+</div></details><details class="item" data-k="bill">
+<summary class="ihead"><span class="num">9</span><span class="ititle"><h3 class="qtext">Renewal, refunds and cancelling</h3><span class="pick"></span></span><span class="tag done">Answered</span></summary>
+<div class="ibody">
+<div class="cmp"><div class="side site"><b class="lab">Live site says</b><p>Nothing about automatic renewal, refunds or how to cancel.</p><a class="where" href="https://healthyhome.network/join" target="_blank" rel="noopener">/join &#8599;</a></div>
+<div class="side dec"><b class="lab">We decided</b><p>Renews automatically each year. No refunds. Cancelling is a request in the portal, and the profile stays up to the end of the paid year.</p></div></div>
+<fieldset class="choices"><legend class="lab">What should happen?</legend><label class="opt"><input type="radio" name="r_bill" value="Add it to the site"><span>Add it to the site</span></label><label class="opt"><input type="radio" name="r_bill" value="Leave it off the site"><span>Leave it off the site</span></label><label class="opt"><input type="radio" name="r_bill" value="Something else"><span>Something else</span></label></fieldset>
+<div class="other" hidden><label class="sr" for="o_bill">Say more</label><textarea id="o_bill" data-o="bill" rows="2" placeholder="What should happen instead?"></textarea></div>
+<button type="button" class="linkbtn clearchoice" hidden>Clear choice</button>
+</div></details></div>
+<div class="notes"><label for="n0">Comments or questions on this section</label><textarea id="n0" data-n="Member benefits on the Join page" rows="2" placeholder="Comments or questions"></textarea></div></div>
+</details>
+<details class="section fb" data-title="Founding Members">
+<summary><span class="shead"><span class="section-num">Two</span><span class="h2">Founding Members</span><span class="section-sub">healthyhome.network/join and /join/member</span></span><span class="badges"><span class="label need">Need your feedback</span><span class="prog" data-prog>0 of 2 answered</span></span></summary>
+<div class="sbody"><div class="items"><details class="item" data-k="lock">
+<summary class="ihead"><span class="num">10</span><span class="ititle"><h3 class="qtext">Who keeps their price</h3><span class="pick"></span></span><span class="tag done">Answered</span></summary>
+<div class="ibody">
+<div class="cmp"><div class="side site"><b class="lab">Live site says</b><p>The application says every Member keeps their annual rate as long as they stay active and in good standing.</p><a class="where" href="https://healthyhome.network/join/member" target="_blank" rel="noopener">/join/member &#8599;</a></div>
+<div class="side dec"><b class="lab">We decided</b><p>Keeping the same price at renewal is a Founding Member benefit.</p></div></div>
+<fieldset class="choices"><legend class="lab">What should happen?</legend><label class="opt"><input type="radio" name="r_lock" value="Change the site to match"><span>Change the site to match</span></label><label class="opt"><input type="radio" name="r_lock" value="Keep the site as it is"><span>Keep the site as it is</span></label><label class="opt"><input type="radio" name="r_lock" value="Something else"><span>Something else</span></label></fieldset>
+<div class="other" hidden><label class="sr" for="o_lock">Say more</label><textarea id="o_lock" data-o="lock" rows="2" placeholder="What should happen instead?"></textarea></div>
+<button type="button" class="linkbtn clearchoice" hidden>Clear choice</button>
+</div></details><details class="item" data-k="found">
+<summary class="ihead"><span class="num">11</span><span class="ititle"><h3 class="qtext">Founding Members aren&rsquo;t mentioned</h3><span class="pick"></span></span><span class="tag done">Answered</span></summary>
+<div class="ibody">
+<div class="cmp"><div class="side site"><b class="lab">Live site says</b><p>The site mentions Founding Supporters but not Founding Members.</p><a class="where" href="https://healthyhome.network/join" target="_blank" rel="noopener">/join &#8599;</a></div>
+<div class="side dec"><b class="lab">We decided</b><p>Founding Members keep their price and get the &agrave; la carte discount.</p></div></div>
+<fieldset class="choices"><legend class="lab">What should happen?</legend><label class="opt"><input type="radio" name="r_found" value="Add it to the site"><span>Add it to the site</span></label><label class="opt"><input type="radio" name="r_found" value="Leave it off the site"><span>Leave it off the site</span></label><label class="opt"><input type="radio" name="r_found" value="Something else"><span>Something else</span></label></fieldset>
+<div class="other" hidden><label class="sr" for="o_found">Say more</label><textarea id="o_found" data-o="found" rows="2" placeholder="What should happen instead?"></textarea></div>
+<button type="button" class="linkbtn clearchoice" hidden>Clear choice</button>
+</div></details></div>
+<div class="notes"><label for="n1">Comments or questions on this section</label><textarea id="n1" data-n="Founding Members" rows="2" placeholder="Comments or questions"></textarea></div></div>
+</details>
+<details class="section fb" data-title="Academy page">
+<summary><span class="shead"><span class="section-num">Three</span><span class="h2">Academy page</span><span class="section-sub">healthyhome.network/academy</span></span><span class="badges"><span class="label need">Need your feedback</span><span class="prog" data-prog>0 of 5 answered</span></span></summary>
+<div class="sbody"><div class="items"><details class="item" data-k="acdisc">
+<summary class="ihead"><span class="num">12</span><span class="ititle"><h3 class="qtext">Member discount on Academy events</h3><span class="pick"></span></span><span class="tag done">Answered</span></summary>
+<div class="ibody">
+<div class="cmp"><div class="side site"><b class="lab">Live site says</b><p>&ldquo;Discounted access to eligible paid Academy experiences.&rdquo;</p><a class="where" href="https://healthyhome.network/academy" target="_blank" rel="noopener">/academy &#8599;</a></div>
+<div class="side dec"><b class="lab">We decided</b><p>No Member discount for now. Members get early-bird registration.</p></div></div>
+<fieldset class="choices"><legend class="lab">What should happen?</legend><label class="opt"><input type="radio" name="r_acdisc" value="Change the site to match"><span>Change the site to match</span></label><label class="opt"><input type="radio" name="r_acdisc" value="Keep the site as it is"><span>Keep the site as it is</span></label><label class="opt"><input type="radio" name="r_acdisc" value="Something else"><span>Something else</span></label></fieldset>
+<div class="other" hidden><label class="sr" for="o_acdisc">Say more</label><textarea id="o_acdisc" data-o="acdisc" rows="2" placeholder="What should happen instead?"></textarea></div>
+<button type="button" class="linkbtn clearchoice" hidden>Clear choice</button>
+</div></details><details class="item" data-k="aconly">
+<summary class="ihead"><span class="num">13</span><span class="ititle"><h3 class="qtext">Member-only sessions</h3><span class="pick"></span></span><span class="tag done">Answered</span></summary>
+<div class="ibody">
+<div class="cmp"><div class="side site"><b class="lab">Live site says</b><p>&ldquo;Access to select complimentary Member-only sessions,&rdquo; and a &ldquo;Member-Only Experiences&rdquo; format available only to Members and Supporters.</p><a class="where" href="https://healthyhome.network/academy" target="_blank" rel="noopener">/academy &#8599;</a></div>
+<div class="side dec"><b class="lab">We decided</b><p>Academy events are paid and open to the public. Educational Panels and Coffee with a Pro are free and public. There are no Member-only sessions.</p></div></div>
+<fieldset class="choices"><legend class="lab">What should happen?</legend><label class="opt"><input type="radio" name="r_aconly" value="Change the site to match"><span>Change the site to match</span></label><label class="opt"><input type="radio" name="r_aconly" value="Keep the site as it is"><span>Keep the site as it is</span></label><label class="opt"><input type="radio" name="r_aconly" value="Something else"><span>Something else</span></label></fieldset>
+<div class="other" hidden><label class="sr" for="o_aconly">Say more</label><textarea id="o_aconly" data-o="aconly" rows="2" placeholder="What should happen instead?"></textarea></div>
+<button type="button" class="linkbtn clearchoice" hidden>Clear choice</button>
+</div></details><details class="item" data-k="acearly">
+<summary class="ihead"><span class="num">14</span><span class="ititle"><h3 class="qtext">Early access wording</h3><span class="pick"></span></span><span class="tag done">Answered</span></summary>
+<div class="ibody">
+<div class="cmp"><div class="side site"><b class="lab">Live site says</b><p>&ldquo;Early access to certain workshops and events.&rdquo;</p><a class="where" href="https://healthyhome.network/academy" target="_blank" rel="noopener">/academy &#8599;</a></div>
+<div class="side dec"><b class="lab">We decided</b><p>Early-bird registration on paid Academy events. Close, but &ldquo;certain&rdquo; is vaguer than what we decided.</p></div></div>
+<fieldset class="choices"><legend class="lab">What should happen?</legend><label class="opt"><input type="radio" name="r_acearly" value="Change the site to match"><span>Change the site to match</span></label><label class="opt"><input type="radio" name="r_acearly" value="Keep the site as it is"><span>Keep the site as it is</span></label><label class="opt"><input type="radio" name="r_acearly" value="Something else"><span>Something else</span></label></fieldset>
+<div class="other" hidden><label class="sr" for="o_acearly">Say more</label><textarea id="o_acearly" data-o="acearly" rows="2" placeholder="What should happen instead?"></textarea></div>
+<button type="button" class="linkbtn clearchoice" hidden>Clear choice</button>
+</div></details><details class="item" data-k="acsup">
+<summary class="ihead"><span class="num">15</span><span class="ititle"><h3 class="qtext">Supporters get the same Academy perks</h3><span class="pick"></span></span><span class="tag done">Answered</span></summary>
+<div class="ibody">
+<div class="cmp"><div class="side site"><b class="lab">Live site says</b><p>The Academy perks are listed for &ldquo;Members and Supporters.&rdquo;</p><a class="where" href="https://healthyhome.network/academy" target="_blank" rel="noopener">/academy &#8599;</a></div>
+<div class="side dec"><b class="lab">We decided</b><p>We only decided Member perks. Supporters&rsquo; Academy perks weren&rsquo;t discussed.</p></div></div>
+<fieldset class="choices"><legend class="lab">What should happen?</legend><label class="opt"><input type="radio" name="r_acsup" value="Members only"><span>Members only</span></label><label class="opt"><input type="radio" name="r_acsup" value="Supporters get them too"><span>Supporters get them too</span></label><label class="opt"><input type="radio" name="r_acsup" value="Something else"><span>Something else</span></label></fieldset>
+<div class="other" hidden><label class="sr" for="o_acsup">Say more</label><textarea id="o_acsup" data-o="acsup" rows="2" placeholder="What should happen instead?"></textarea></div>
+<button type="button" class="linkbtn clearchoice" hidden>Clear choice</button>
+</div></details><details class="item" data-k="acteach">
+<summary class="ihead"><span class="num">16</span><span class="ititle"><h3 class="qtext">Members hosting Academy events</h3><span class="pick"></span></span><span class="tag done">Answered</span></summary>
+<div class="ibody">
+<div class="cmp"><div class="side site"><b class="lab">Live site says</b><p>Members &ldquo;may also have opportunities&rdquo; to lead workshops and other events, subject to HHN approval.</p><a class="where" href="https://healthyhome.network/academy" target="_blank" rel="noopener">/academy &#8599;</a></div>
+<div class="side dec"><b class="lab">We decided</b><p>A Member tells HHN when they want to host one. The price and the split are decided per event.</p></div></div>
+<fieldset class="choices"><legend class="lab">What should happen?</legend><label class="opt"><input type="radio" name="r_acteach" value="Change the site to match"><span>Change the site to match</span></label><label class="opt"><input type="radio" name="r_acteach" value="Keep the site as it is"><span>Keep the site as it is</span></label><label class="opt"><input type="radio" name="r_acteach" value="Something else"><span>Something else</span></label></fieldset>
+<div class="other" hidden><label class="sr" for="o_acteach">Say more</label><textarea id="o_acteach" data-o="acteach" rows="2" placeholder="What should happen instead?"></textarea></div>
+<button type="button" class="linkbtn clearchoice" hidden>Clear choice</button>
+</div></details></div>
+<div class="notes"><label for="n2">Comments or questions on this section</label><textarea id="n2" data-n="Academy page" rows="2" placeholder="Comments or questions"></textarea></div></div>
+</details>
+<details class="section fb" data-title="Supporters">
+<summary><span class="shead"><span class="section-num">Four</span><span class="h2">Supporters</span><span class="section-sub">healthyhome.network/join and /join/supporter</span></span><span class="badges"><span class="label need">Need your feedback</span><span class="prog" data-prog>0 of 2 answered</span></span></summary>
+<div class="sbody"><div class="items"><details class="item" data-k="supdef">
+<summary class="ihead"><span class="num">17</span><span class="ititle"><h3 class="qtext">Who a Supporter is</h3><span class="pick"></span></span><span class="tag done">Answered</span></summary>
+<div class="ibody">
+<div class="cmp"><div class="side site"><b class="lab">Live site says</b><p>Two kinds: Professional Supporters (marketing, accounting, insurance, legal, consulting) and Community Supporters (restaurants, coffee shops, farms, event spaces, retailers).</p><a class="where" href="https://healthyhome.network/join" target="_blank" rel="noopener">/join &#8599;</a></div>
+<div class="side dec"><b class="lab">We decided</b><p>Supporters are any B2B service business: accountants, lawyers, insurance providers and similar.</p></div></div>
+<fieldset class="choices"><legend class="lab">What should happen?</legend><label class="opt"><input type="radio" name="r_supdef" value="Change the site to match"><span>Change the site to match</span></label><label class="opt"><input type="radio" name="r_supdef" value="Keep the site as it is"><span>Keep the site as it is</span></label><label class="opt"><input type="radio" name="r_supdef" value="Something else"><span>Something else</span></label></fieldset>
+<div class="other" hidden><label class="sr" for="o_supdef">Say more</label><textarea id="o_supdef" data-o="supdef" rows="2" placeholder="What should happen instead?"></textarea></div>
+<button type="button" class="linkbtn clearchoice" hidden>Clear choice</button>
+</div></details><details class="item" data-k="supplace">
+<summary class="ihead"><span class="num">18</span><span class="ititle"><h3 class="qtext">The &ldquo;Own a place people should know about?&rdquo; block</h3><span class="pick"></span></span><span class="tag done">Answered</span></summary>
+<div class="ibody">
+<div class="cmp"><div class="side site"><b class="lab">Live site says</b><p>Invites restaurants, coffee shops, farms and venues to become Supporters and host Connected meetups.</p><a class="where" href="https://healthyhome.network/join" target="_blank" rel="noopener">/join &#8599;</a></div>
+<div class="side dec"><b class="lab">We decided</b><p>Same as above: Supporters are B2B service businesses.</p></div></div>
+<fieldset class="choices"><legend class="lab">What should happen?</legend><label class="opt"><input type="radio" name="r_supplace" value="Remove or reword it"><span>Remove or reword it</span></label><label class="opt"><input type="radio" name="r_supplace" value="Keep it as it is"><span>Keep it as it is</span></label><label class="opt"><input type="radio" name="r_supplace" value="Something else"><span>Something else</span></label></fieldset>
+<div class="other" hidden><label class="sr" for="o_supplace">Say more</label><textarea id="o_supplace" data-o="supplace" rows="2" placeholder="What should happen instead?"></textarea></div>
+<button type="button" class="linkbtn clearchoice" hidden>Clear choice</button>
+</div></details></div>
+<div class="notes"><label for="n3">Comments or questions on this section</label><textarea id="n3" data-n="Supporters" rows="2" placeholder="Comments or questions"></textarea></div></div>
+</details>
+<details class="section fb" data-title="Membership application">
+<summary><span class="shead"><span class="section-num">Five</span><span class="h2">Membership application</span><span class="section-sub">healthyhome.network/join/member</span></span><span class="badges"><span class="label need">Need your feedback</span><span class="prog" data-prog>0 of 6 answered</span></span></summary>
+<div class="sbody"><div class="items"><details class="item" data-k="lic">
+<summary class="ihead"><span class="num">19</span><span class="ititle"><h3 class="qtext">Licenses and insurance</h3><span class="pick"></span></span><span class="tag done">Answered</span></summary>
+<div class="ibody">
+<div class="cmp"><div class="side site"><b class="lab">Live site says</b><p>No question about licenses or insurance.</p><a class="where" href="https://healthyhome.network/join/member" target="_blank" rel="noopener">/join/member &#8599;</a></div>
+<div class="side dec"><b class="lab">We decided</b><p>A Member holds every license and the insurance their work requires, to be accepted and to stay in good standing.</p></div></div>
+<fieldset class="choices"><legend class="lab">What should happen?</legend><label class="opt"><input type="radio" name="r_lic" value="Add a question"><span>Add a question</span></label><label class="opt"><input type="radio" name="r_lic" value="HHN checks it another way"><span>HHN checks it another way</span></label><label class="opt"><input type="radio" name="r_lic" value="Something else"><span>Something else</span></label></fieldset>
+<div class="other" hidden><label class="sr" for="o_lic">Say more</label><textarea id="o_lic" data-o="lic" rows="2" placeholder="What should happen instead?"></textarea></div>
+<button type="button" class="linkbtn clearchoice" hidden>Clear choice</button>
+</div></details><details class="item" data-k="agree">
+<summary class="ihead"><span class="num">20</span><span class="ititle"><h3 class="qtext">The agreements</h3><span class="pick"></span></span><span class="tag done">Answered</span></summary>
+<div class="ibody">
+<div class="cmp"><div class="side site"><b class="lab">Live site says</b><p>Applicants affirm the statement of faith only. There are no agreements to accept (refunds, cancelling, good standing and conduct, badge use).</p><a class="where" href="https://healthyhome.network/join/member" target="_blank" rel="noopener">/join/member &#8599;</a></div>
+<div class="side dec"><b class="lab">We decided</b><p>The statement of faith and the agreements are both in the application.</p></div></div>
+<fieldset class="choices"><legend class="lab">What should happen?</legend><label class="opt"><input type="radio" name="r_agree" value="Add it to the site"><span>Add it to the site</span></label><label class="opt"><input type="radio" name="r_agree" value="Leave it off the site"><span>Leave it off the site</span></label><label class="opt"><input type="radio" name="r_agree" value="Something else"><span>Something else</span></label></fieldset>
+<div class="other" hidden><label class="sr" for="o_agree">Say more</label><textarea id="o_agree" data-o="agree" rows="2" placeholder="What should happen instead?"></textarea></div>
+<button type="button" class="linkbtn clearchoice" hidden>Clear choice</button>
+</div></details><details class="item" data-k="compl">
+<summary class="ihead"><span class="num">21</span><span class="ititle"><h3 class="qtext">Complaints and reviews</h3><span class="pick"></span></span><span class="tag done">Answered</span></summary>
+<div class="ibody">
+<div class="cmp"><div class="side site"><b class="lab">Live site says</b><p>Nothing about complaints or reviews.</p><a class="where" href="https://healthyhome.network/join/member" target="_blank" rel="noopener">/join/member &#8599;</a></div>
+<div class="side dec"><b class="lab">We decided</b><p>Accepted only with no unresolved pattern of complaints or poor reviews.</p></div></div>
+<fieldset class="choices"><legend class="lab">What should happen?</legend><label class="opt"><input type="radio" name="r_compl" value="Add a question"><span>Add a question</span></label><label class="opt"><input type="radio" name="r_compl" value="HHN checks it another way"><span>HHN checks it another way</span></label><label class="opt"><input type="radio" name="r_compl" value="Something else"><span>Something else</span></label></fieldset>
+<div class="other" hidden><label class="sr" for="o_compl">Say more</label><textarea id="o_compl" data-o="compl" rows="2" placeholder="What should happen instead?"></textarea></div>
+<button type="button" class="linkbtn clearchoice" hidden>Clear choice</button>
+</div></details><details class="item" data-k="area">
+<summary class="ihead"><span class="num">22</span><span class="ititle"><h3 class="qtext">Area served</h3><span class="pick"></span></span><span class="tag done">Answered</span></summary>
+<div class="ibody">
+<div class="cmp"><div class="side site"><b class="lab">Live site says</b><p>&ldquo;What area do you serve?&rdquo; suggests counties, statewide, nationwide or online.</p><a class="where" href="https://healthyhome.network/join/member" target="_blank" rel="noopener">/join/member &#8599;</a></div>
+<div class="side dec"><b class="lab">We decided</b><p>A Member serves Middle Tennessee.</p></div></div>
+<fieldset class="choices"><legend class="lab">What should happen?</legend><label class="opt"><input type="radio" name="r_area" value="Change the site to match"><span>Change the site to match</span></label><label class="opt"><input type="radio" name="r_area" value="Keep the site as it is"><span>Keep the site as it is</span></label><label class="opt"><input type="radio" name="r_area" value="Something else"><span>Something else</span></label></fieldset>
+<div class="other" hidden><label class="sr" for="o_area">Say more</label><textarea id="o_area" data-o="area" rows="2" placeholder="What should happen instead?"></textarea></div>
+<button type="button" class="linkbtn clearchoice" hidden>Clear choice</button>
+</div></details><details class="item" data-k="ref">
+<summary class="ihead"><span class="num">23</span><span class="ititle"><h3 class="qtext">Who can refer</h3><span class="pick"></span></span><span class="tag done">Answered</span></summary>
+<div class="ibody">
+<div class="cmp"><div class="side site"><b class="lab">Live site says</b><p>&ldquo;Were you referred by a Healthy Home Network Member or Supporter?&rdquo;</p><a class="where" href="https://healthyhome.network/join/member" target="_blank" rel="noopener">/join/member &#8599;</a></div>
+<div class="side dec"><b class="lab">We decided</b><p>Every Member earns referral pay. Whether Supporters do wasn&rsquo;t decided.</p></div></div>
+<fieldset class="choices"><legend class="lab">What should happen?</legend><label class="opt"><input type="radio" name="r_ref" value="Members only"><span>Members only</span></label><label class="opt"><input type="radio" name="r_ref" value="Supporters too"><span>Supporters too</span></label><label class="opt"><input type="radio" name="r_ref" value="Something else"><span>Something else</span></label></fieldset>
+<div class="other" hidden><label class="sr" for="o_ref">Say more</label><textarea id="o_ref" data-o="ref" rows="2" placeholder="What should happen instead?"></textarea></div>
+<button type="button" class="linkbtn clearchoice" hidden>Clear choice</button>
+</div></details><details class="item" data-k="cats">
+<summary class="ihead"><span class="num">24</span><span class="ititle"><h3 class="qtext">Categories</h3><span class="pick"></span></span><span class="tag done">Answered</span></summary>
+<div class="ibody">
+<div class="cmp"><div class="side site"><b class="lab">Live site says</b><p>&ldquo;Pick every category that fits. You can add your own.&rdquo;</p><a class="where" href="https://healthyhome.network/join/member" target="_blank" rel="noopener">/join/member &#8599;</a></div>
+<div class="side dec"><b class="lab">We decided</b><p>One main category and up to two more, from HHN&rsquo;s category list.</p></div></div>
+<fieldset class="choices"><legend class="lab">What should happen?</legend><label class="opt"><input type="radio" name="r_cats" value="Change the site to match"><span>Change the site to match</span></label><label class="opt"><input type="radio" name="r_cats" value="Keep the site as it is"><span>Keep the site as it is</span></label><label class="opt"><input type="radio" name="r_cats" value="Something else"><span>Something else</span></label></fieldset>
+<div class="other" hidden><label class="sr" for="o_cats">Say more</label><textarea id="o_cats" data-o="cats" rows="2" placeholder="What should happen instead?"></textarea></div>
+<button type="button" class="linkbtn clearchoice" hidden>Clear choice</button>
+</div></details></div>
+<div class="notes"><label for="n4">Comments or questions on this section</label><textarea id="n4" data-n="Membership application" rows="2" placeholder="Comments or questions"></textarea></div></div>
+</details>
+<details class="section fb" data-title="Profile fields">
+<summary><span class="shead"><span class="section-num">Six</span><span class="h2">Profile fields</span><span class="section-sub">the application and live profiles</span></span><span class="badges"><span class="label need">Need your feedback</span><span class="prog" data-prog>0 of 5 answered</span></span></summary>
+<div class="sbody"><div class="items"><details class="item" data-k="logo">
+<summary class="ihead"><span class="num">25</span><span class="ititle"><h3 class="qtext">Logo size and type</h3><span class="pick"></span></span><span class="tag done">Answered</span></summary>
+<div class="ibody">
+<div class="cmp"><div class="side site"><b class="lab">Live site says</b><p>About 1500 &times; 1000 px, white or greyscale with a transparent background; PNG, JPG, WEBP or SVG; up to 5 MB.</p><a class="where" href="https://healthyhome.network/join/member" target="_blank" rel="noopener">/join/member &#8599;</a></div>
+<div class="side dec"><b class="lab">We decided</b><p>Square, at least 400 &times; 400 px, PNG or JPG.</p></div></div>
+<fieldset class="choices"><legend class="lab">What should happen?</legend><label class="opt"><input type="radio" name="r_logo" value="Change the site to match"><span>Change the site to match</span></label><label class="opt"><input type="radio" name="r_logo" value="Keep the site as it is"><span>Keep the site as it is</span></label><label class="opt"><input type="radio" name="r_logo" value="Something else"><span>Something else</span></label></fieldset>
+<div class="other" hidden><label class="sr" for="o_logo">Say more</label><textarea id="o_logo" data-o="logo" rows="2" placeholder="What should happen instead?"></textarea></div>
+<button type="button" class="linkbtn clearchoice" hidden>Clear choice</button>
+</div></details><details class="item" data-k="formmiss">
+<summary class="ihead"><span class="num">26</span><span class="ititle"><h3 class="qtext">Fields the application doesn&rsquo;t ask for</h3><span class="pick"></span></span><span class="tag done">Answered</span></summary>
+<div class="ibody">
+<div class="cmp"><div class="side site"><b class="lab">Live site says</b><p>No fields for services, photos, a street address, a Google reviews link, or the contact person&rsquo;s role and whether it shows. (The form asks open questions and HHN writes the profile from them.)</p><a class="where" href="https://healthyhome.network/join/member" target="_blank" rel="noopener">/join/member &#8599;</a></div>
+<div class="side dec"><b class="lab">We decided</b><p>Services (up to 10), photos (up to 6), optional street address, a link to Google reviews, and the contact&rsquo;s name and role with a show-or-hide choice.</p></div></div>
+<fieldset class="choices"><legend class="lab">What should happen?</legend><label class="opt"><input type="radio" name="r_formmiss" value="Add them to the application"><span>Add them to the application</span></label><label class="opt"><input type="radio" name="r_formmiss" value="Collect them in the portal instead"><span>Collect them in the portal instead</span></label><label class="opt"><input type="radio" name="r_formmiss" value="Something else"><span>Something else</span></label></fieldset>
+<div class="other" hidden><label class="sr" for="o_formmiss">Say more</label><textarea id="o_formmiss" data-o="formmiss" rows="2" placeholder="What should happen instead?"></textarea></div>
+<button type="button" class="linkbtn clearchoice" hidden>Clear choice</button>
+</div></details><details class="item" data-k="profmiss">
+<summary class="ihead"><span class="num">27</span><span class="ititle"><h3 class="qtext">What live profiles show</h3><span class="pick"></span></span><span class="tag done">Answered</span></summary>
+<div class="ibody">
+<div class="cmp"><div class="side site"><b class="lab">Live site says</b><p>Profiles show no services list, photos or Google reviews link.</p><a class="where" href="https://healthyhome.network/directory/jf-healthy-homes" target="_blank" rel="noopener">/directory/jf-healthy-homes &#8599;</a></div>
+<div class="side dec"><b class="lab">We decided</b><p>Profiles show services, photos and a link to Google reviews.</p></div></div>
+<fieldset class="choices"><legend class="lab">What should happen?</legend><label class="opt"><input type="radio" name="r_profmiss" value="Add it to the site"><span>Add it to the site</span></label><label class="opt"><input type="radio" name="r_profmiss" value="Leave it off the site"><span>Leave it off the site</span></label><label class="opt"><input type="radio" name="r_profmiss" value="Something else"><span>Something else</span></label></fieldset>
+<div class="other" hidden><label class="sr" for="o_profmiss">Say more</label><textarea id="o_profmiss" data-o="profmiss" rows="2" placeholder="What should happen instead?"></textarea></div>
+<button type="button" class="linkbtn clearchoice" hidden>Clear choice</button>
+</div></details><details class="item" data-k="pro2col">
+<summary class="ihead"><span class="num">28</span><span class="ititle"><h3 class="qtext">The Pro2col&rsquo;s profile</h3><span class="pick"></span></span><span class="tag done">Answered</span></summary>
+<div class="ibody">
+<div class="cmp"><div class="side site"><b class="lab">Live site says</b><p>No full description, and five tags (Human Performance, Recovery, Nutrition, Longevity, Root Cause) that aren&rsquo;t on HHN&rsquo;s category list.</p><a class="where" href="https://healthyhome.network/directory/the-pro2col" target="_blank" rel="noopener">/directory/the-pro2col &#8599;</a></div>
+<div class="side dec"><b class="lab">We decided</b><p>A full description of 100 to 300 words, and one main category plus up to two more from the list.</p></div></div>
+<fieldset class="choices"><legend class="lab">What should happen?</legend><label class="opt"><input type="radio" name="r_pro2col" value="Change the site to match"><span>Change the site to match</span></label><label class="opt"><input type="radio" name="r_pro2col" value="Keep the site as it is"><span>Keep the site as it is</span></label><label class="opt"><input type="radio" name="r_pro2col" value="Something else"><span>Something else</span></label></fieldset>
+<div class="other" hidden><label class="sr" for="o_pro2col">Say more</label><textarea id="o_pro2col" data-o="pro2col" rows="2" placeholder="What should happen instead?"></textarea></div>
+<button type="button" class="linkbtn clearchoice" hidden>Clear choice</button>
+</div></details><details class="item" data-k="bugs">
+<summary class="ihead"><span class="num">29</span><span class="ititle"><h3 class="qtext">Two small display bugs</h3><span class="pick"></span></span><span class="tag done">Answered</span></summary>
+<div class="ibody">
+<div class="cmp"><div class="side site"><b class="lab">Live site says</b><p>Profiles read &ldquo;Serving Serving Middle TN,&rdquo; and the logo area shows as a grey box.</p><a class="where" href="https://healthyhome.network/directory/jf-healthy-homes" target="_blank" rel="noopener">/directory/jf-healthy-homes &#8599;</a></div>
+<div class="side dec"><b class="lab">We decided</b><p>Not a decision, just worth fixing.</p></div></div>
+<fieldset class="choices"><legend class="lab">What should happen?</legend><label class="opt"><input type="radio" name="r_bugs" value="Fix them"><span>Fix them</span></label><label class="opt"><input type="radio" name="r_bugs" value="Leave them"><span>Leave them</span></label><label class="opt"><input type="radio" name="r_bugs" value="Something else"><span>Something else</span></label></fieldset>
+<div class="other" hidden><label class="sr" for="o_bugs">Say more</label><textarea id="o_bugs" data-o="bugs" rows="2" placeholder="What should happen instead?"></textarea></div>
+<button type="button" class="linkbtn clearchoice" hidden>Clear choice</button>
+</div></details></div>
+<div class="notes"><label for="n5">Comments or questions on this section</label><textarea id="n5" data-n="Profile fields" rows="2" placeholder="Comments or questions"></textarea></div></div>
+</details>
+<details class="section fb" data-title="Directory">
+<summary><span class="shead"><span class="section-num">Seven</span><span class="h2">Directory</span><span class="section-sub">healthyhome.network home page</span></span><span class="badges"><span class="label need">Need your feedback</span><span class="prog" data-prog>0 of 1 answered</span></span></summary>
+<div class="sbody"><div class="items"><details class="item" data-k="outside">
+<summary class="ihead"><span class="num">30</span><span class="ititle"><h3 class="qtext">Listings outside Middle Tennessee</h3><span class="pick"></span></span><span class="tag done">Answered</span></summary>
+<div class="ibody">
+<div class="cmp"><div class="side site"><b class="lab">Live site says</b><p>Revivals for Jesus (&ldquo;Global Ministry&rdquo;), Exodus Wild School (&ldquo;26 States and Growing&rdquo;), and location filters for &ldquo;Nationwide&rdquo; and &ldquo;Online / Remote.&rdquo;</p><a class="where" href="https://healthyhome.network/" target="_blank" rel="noopener">/ &#8599;</a></div>
+<div class="side dec"><b class="lab">We decided</b><p>A Member serves Middle Tennessee.</p></div></div>
+<fieldset class="choices"><legend class="lab">What should happen?</legend><label class="opt"><input type="radio" name="r_outside" value="Fine if they also serve Middle Tennessee"><span>Fine if they also serve Middle Tennessee</span></label><label class="opt"><input type="radio" name="r_outside" value="Review these listings"><span>Review these listings</span></label><label class="opt"><input type="radio" name="r_outside" value="Something else"><span>Something else</span></label></fieldset>
+<div class="other" hidden><label class="sr" for="o_outside">Say more</label><textarea id="o_outside" data-o="outside" rows="2" placeholder="What should happen instead?"></textarea></div>
+<button type="button" class="linkbtn clearchoice" hidden>Clear choice</button>
+</div></details></div>
+<div class="notes"><label for="n6">Comments or questions on this section</label><textarea id="n6" data-n="Directory" rows="2" placeholder="Comments or questions"></textarea></div></div>
+</details>
+<details class="section fb" data-title="Support">
+<summary><span class="shead"><span class="section-num">Eight</span><span class="h2">Support</span><span class="section-sub">healthyhome.network/contact</span></span><span class="badges"><span class="label need">Need your feedback</span><span class="prog" data-prog>0 of 1 answered</span></span></summary>
+<div class="sbody"><div class="items"><details class="item" data-k="support">
+<summary class="ihead"><span class="num">31</span><span class="ititle"><h3 class="qtext">How Members get help</h3><span class="pick"></span></span><span class="tag done">Answered</span></summary>
+<div class="ibody">
+<div class="cmp"><div class="side site"><b class="lab">Live site says</b><p>The contact form only. No support email and no response time.</p><a class="where" href="https://healthyhome.network/contact" target="_blank" rel="noopener">/contact &#8599;</a></div>
+<div class="side dec"><b class="lab">We decided</b><p>Members message HHN through the portal or email hello@healthyhome.network, answered within 2 business days.</p></div></div>
+<fieldset class="choices"><legend class="lab">What should happen?</legend><label class="opt"><input type="radio" name="r_support" value="Add it to the contact page"><span>Add it to the contact page</span></label><label class="opt"><input type="radio" name="r_support" value="The portal is enough"><span>The portal is enough</span></label><label class="opt"><input type="radio" name="r_support" value="Something else"><span>Something else</span></label></fieldset>
+<div class="other" hidden><label class="sr" for="o_support">Say more</label><textarea id="o_support" data-o="support" rows="2" placeholder="What should happen instead?"></textarea></div>
+<button type="button" class="linkbtn clearchoice" hidden>Clear choice</button>
+</div></details></div>
+<div class="notes"><label for="n7">Comments or questions on this section</label><textarea id="n7" data-n="Support" rows="2" placeholder="Comments or questions"></textarea></div></div>
+</details>
+
+    <div class="send">
+      <h2>Send your answers to Lee</h2>
+      <p class="section-sub">Only what you&rsquo;ve picked or written goes. You can send more than once; everything stays on this device either way.</p>
+      <label class="q" for="nameBox">Your full name</label>
+      <input type="text" id="nameBox" autocomplete="name" placeholder="Your full name">
+      <button class="btn" type="submit" id="submitBtn">Send to Lee</button>
+      <p class="saved-note" id="savedNote" role="status"></p>
+      <div class="sent" id="sentNote" hidden></div>
+    </div>
+  </form>
+
+  <p class="startover"><button type="button" class="linkbtn" id="startOver">Start over</button></p>
+
+  <footer class="foot">
+    <p><a class="fs" href="https://gottamoveforward.com/">Forward Solutions</a></p>
+    <p>Lee Pettijohn</p>
+    <p>(970) 712-6933 <span class="sep">&middot;</span> <a href="tel:+19707126933">Call</a> <span class="sep">&middot;</span> <a href="sms:+19707126933">Text</a></p>
+    <p><a href="mailto:leepettijohn@gottamoveforward.com">leepettijohn@gottamoveforward.com</a></p>
+  </footer>
+</main>
+
+<div class="gn-dock"><div class="gn-inner">
+  <div class="gn-panel" id="gnPanel" hidden>
+    <label for="gnBox">General notes</label>
+    <textarea id="gnBox" placeholder="Anything that doesn't fit a section"></textarea>
+    <div class="gn-row"><span></span><button type="button" class="btn2" id="gnDone">Done</button></div>
+  </div>
+  <button type="button" class="gn-btn" id="gnBtn" aria-expanded="false" aria-controls="gnPanel">General Notes<span class="gn-dot" id="gnDot" hidden></span></button>
+</div></div>
+
+<script>
+(function(){
+  "use strict";
+  var KEY="hhn-site-check-2026-10-15", TITLE="Healthy Home Network - Website check against the Member decisions";
+  var form=document.getElementById("prepForm");
+  var items=[].slice.call(form.querySelectorAll(".item[data-k]"));
+  var notes=[].slice.call(form.querySelectorAll("textarea[data-n]"));
+  var nameBox=document.getElementById("nameBox"), gnBox=document.getElementById("gnBox");
+  var noteEl=document.getElementById("savedNote"), sentEl=document.getElementById("sentNote"), btn=document.getElementById("submitBtn");
+  var state={r:{},o:{},n:{},gn:"",name:"",sentAt:""};
+  try{var raw=localStorage.getItem(KEY); if(raw){var p=JSON.parse(raw); if(p&&typeof p==="object"){for(var k in state){if(p[k]!==undefined) state[k]=p[k];}}}}catch(e){}
+  function save(){try{localStorage.setItem(KEY,JSON.stringify(state)); noteEl.textContent="Saved on this device.";}catch(e){noteEl.textContent="";}}
+  var t=null; function later(){clearTimeout(t); t=setTimeout(save,400);}
+  function isOther(v){return v==="Something else"||v==="Add some of them";}
+
+  /* Clear links under every text box: two taps */
+  function addClear(ta,onClear){
+    var b=document.createElement("button"); b.type="button"; b.className="linkbtn"; b.textContent="Clear"; b.hidden=!ta.value;
+    ta.insertAdjacentElement("afterend",b); var armT=null;
+    function disarm(){b.classList.remove("arm"); b.textContent="Clear"; clearTimeout(armT);}
+    b.addEventListener("click",function(){
+      if(!b.classList.contains("arm")){b.classList.add("arm"); b.textContent="Tap again to clear"; armT=setTimeout(disarm,3000); return;}
+      disarm(); ta.value=""; b.hidden=true; onClear(); save();
+    });
+    ta.addEventListener("input",function(){b.hidden=!ta.value;});
+    ta._clear=b; return b;
+  }
+
+  function refresh(){
+    var total=0;
+    [].forEach.call(form.querySelectorAll("details.fb"),function(sec){
+      var its=sec.querySelectorAll(".item"), n=0;
+      [].forEach.call(its,function(it){if(state.r[it.getAttribute("data-k")]) n++;});
+      total+=n; var p=sec.querySelector("[data-prog]");
+      p.textContent=n+" of "+its.length+" answered"; p.classList.toggle("all",n===its.length);
+    });
+    document.getElementById("tallyN").textContent=total;
+  }
+
+  items.forEach(function(it){
+    var k=it.getAttribute("data-k"), radios=it.querySelectorAll("input[type=radio]");
+    var other=it.querySelector(".other"), ta=other.querySelector("textarea"), clr=it.querySelector(".clearchoice"), pick=it.querySelector(".pick");
+    function show(){
+      var v=state.r[k]||""; it.classList.toggle("on",!!v); clr.hidden=!v; other.hidden=!isOther(v); ta.placeholder=(v==="Add some of them")?"Which ones?":"What should happen instead?"; pick.textContent=v;
+    }
+    [].forEach.call(radios,function(r){
+      if(state.r[k]===r.value) r.checked=true;
+      r.addEventListener("change",function(){ if(r.checked){state.r[k]=r.value; show(); save(); refresh(); if(isOther(r.value)) ta.focus();} });
+    });
+    if(state.o[k]) ta.value=state.o[k];
+    ta.addEventListener("input",function(){state.o[k]=ta.value; later();});
+    addClear(ta,function(){state.o[k]="";});
+    clr.addEventListener("click",function(){[].forEach.call(radios,function(r){r.checked=false;}); delete state.r[k]; show(); save(); refresh();});
+    show();
+  });
+  notes.forEach(function(ta){
+    if(state.n[ta.id]) ta.value=state.n[ta.id];
+    ta.addEventListener("input",function(){state.n[ta.id]=ta.value; later();});
+    addClear(ta,function(){state.n[ta.id]="";});
+  });
+  nameBox.value=state.name||"";
+  nameBox.addEventListener("input",function(){state.name=nameBox.value; later();});
+
+  /* General notes */
+  var gnBtn=document.getElementById("gnBtn"), gnPanel=document.getElementById("gnPanel"), gnDot=document.getElementById("gnDot");
+  gnBox.value=state.gn||""; function dot(){gnDot.hidden=!gnBox.value.trim();} dot();
+  gnBox.addEventListener("input",function(){state.gn=gnBox.value; dot(); later();});
+  addClear(gnBox,function(){state.gn=""; dot();});
+  function openGN(o){gnPanel.hidden=!o; gnBtn.setAttribute("aria-expanded",o?"true":"false"); if(o) gnBox.focus(); else {save(); gnBtn.focus();}}
+  gnBtn.addEventListener("click",function(){openGN(gnPanel.hidden);});
+  document.getElementById("gnDone").addEventListener("click",function(){openGN(false);});
+  document.addEventListener("keydown",function(e){if(e.key==="Escape"&&!gnPanel.hidden) openGN(false);});
+
+  /* Start over: two taps */
+  var so=document.getElementById("startOver"), soT=null;
+  so.addEventListener("click",function(){
+    if(!so.classList.contains("arm")){so.classList.add("arm"); so.textContent="Tap again to clear everything"; soT=setTimeout(function(){so.classList.remove("arm"); so.textContent="Start over";},3000); return;}
+    clearTimeout(soT); var sentAt=state.sentAt;
+    state={r:{},o:{},n:{},gn:"",name:"",sentAt:sentAt};
+    [].forEach.call(form.querySelectorAll("input[type=radio]"),function(r){r.checked=false;});
+    [].forEach.call(document.querySelectorAll("textarea:not(#promptField)"),function(ta){ta.value=""; if(ta._clear) ta._clear.hidden=true;});
+    nameBox.value=""; dot();
+    items.forEach(function(it){it.classList.remove("on"); it.querySelector(".clearchoice").hidden=true; it.querySelector(".other").hidden=true; it.querySelector(".pick").textContent="";});
+    save(); refresh(); so.classList.remove("arm"); so.textContent="Start over";
+    noteEl.textContent="Cleared on this device. Anything already sent to Lee is unchanged.";
+  });
+
+  function showSent(){if(!state.sentAt) return; sentEl.hidden=false; sentEl.textContent="Sent to Lee on "+state.sentAt+". Your answers are still here on this device."; btn.textContent="Send an update";}
+  refresh(); showSent();
+
+  function clean(s){return s.trim().replace(/\n+/g," / ");}
+  function buildPrompt(who){
+    var L=[];
+    L.push("Dusty's answers on the website check (task 18), sent from the HHN website check page.");
+    L.push("Sent by "+(who||"(no name)")+" on "+new Date().toLocaleString());
+    L.push("");
+    L.push("Record these in healthy-home-network/projects/2026-marketing-system-build/state.md under task 18. Items marked 'Change the site' or 'Add' become changes for the live HHN site; nothing changes there without Dusty knowing. Items that keep the site as it is reopen the matching Member decision in task 17.");
+    [].forEach.call(form.querySelectorAll("details.fb"),function(sec){
+      var lines=[];
+      [].forEach.call(sec.querySelectorAll(".item"),function(it){
+        var k=it.getAttribute("data-k"), v=state.r[k], o=(state.o[k]||"").trim();
+        if(!v&&!o) return;
+        lines.push("- "+it.querySelector(".num").textContent+". "+it.querySelector(".qtext").textContent+": "+(v||"(no choice)")+(o?" / "+clean(o):""));
+      });
+      var nt=sec.querySelector("textarea[data-n]"), nv=nt?nt.value.trim():"";
+      if(nv) lines.push("  Notes on this section: "+clean(nv));
+      if(lines.length){L.push(""); L.push("## "+sec.getAttribute("data-title")); L=L.concat(lines);}
+    });
+    var g=gnBox.value.trim(); if(g){L.push(""); L.push("## General notes"); L.push(g);}
+    return L.join("\n");
+  }
+  form.addEventListener("submit",function(e){
+    e.preventDefault();
+    var who=nameBox.value.trim();
+    btn.disabled=true; var old=btn.textContent; btn.textContent="Sending…";
+    document.getElementById("promptField").value=buildPrompt(who);
+    document.getElementById("sentByField").value=who;
+    document.getElementById("subjectField").value="FS form: "+TITLE+(who?" (from "+who+")":"");
+    fetch("/",{method:"POST",headers:{"Content-Type":"application/x-www-form-urlencoded"},body:new URLSearchParams(new FormData(form)).toString()})
+    .then(function(res){
+      if(!res.ok) throw new Error("bad");
+      state.sentAt=new Date().toLocaleString([],{weekday:"long",hour:"numeric",minute:"2-digit"});
+      save(); btn.disabled=false; showSent(); noteEl.textContent="";
+    }).catch(function(){
+      btn.disabled=false; btn.textContent=old;
+      noteEl.textContent="That didn’t send. Check your connection and try again. Your answers are saved.";
+    });
+  });
+})();
+</script>
+</body>
+</html>
