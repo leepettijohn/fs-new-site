@@ -1,0 +1,350 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="date" content="2026-10-16">
+<meta name="category" content="discovery">
+<meta name="client" content="IEP">
+<title>IEP - Person profiles</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&display=swap">
+<style>
+:root{
+  --forward-blue:#1E5BBA;--sky-blue:#3FA9F5;--signal-amber:#F5A524;--ink:#1A1D24;--slate:#5B6470;
+  --paper:#F7F6F2;--paper-warm:#EFEEE8;--white:#FFFFFF;--hairline:rgba(26,29,36,.08);--line:rgba(26,29,36,.14);
+  --blue-soft:#E8EFF9;--red:#B42318;--radius:12px;
+  --font-display:'Fraunces',Georgia,serif;--font-body:'Inter',system-ui,-apple-system,sans-serif;
+  color-scheme:light;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--font-body);font-size:16px;line-height:1.6;
+  -webkit-font-smoothing:antialiased;padding:0 20px env(safe-area-inset-bottom,0px)}
+a{color:var(--forward-blue)}
+[hidden]{display:none!important}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.hp{position:absolute;left:-9999px}
+.wrap{max-width:1000px;margin:0 auto;padding-block:calc(28px + env(safe-area-inset-top,0px)) 120px;position:relative}
+p,.plain,.section-sub{max-width:70ch}
+.brand{display:inline-flex;align-items:center;gap:10px;text-decoration:none;margin-bottom:40px}
+.brand img{height:30px;width:auto;display:block}
+.brand span{font-family:var(--font-display);font-weight:600;font-size:17px;color:var(--ink);letter-spacing:-.01em}
+.eyebrow{font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--forward-blue);margin:0 0 12px}
+h1{font-family:var(--font-display);font-weight:500;font-size:clamp(32px,7vw,46px);line-height:1.08;letter-spacing:-.02em;margin:0 0 20px;text-wrap:balance;max-width:22ch}
+.intro{font-size:17px;margin:0 0 12px}
+.intro.soft{color:var(--slate)}
+.when{display:flex;flex-wrap:wrap;gap:6px 24px;margin:24px 0 0;padding:14px 16px;background:var(--white);border:1px solid var(--hairline);border-radius:var(--radius);font-size:15px}
+.when b{font-weight:600;color:var(--forward-blue);margin-right:4px}
+.tally{margin:28px 0 0;font-size:15px;color:var(--slate)}
+.tally b{color:var(--forward-blue);font-variant-numeric:tabular-nums}
+.tap{font-size:14.5px;color:var(--slate);margin:24px 0 10px}
+
+details.section{background:var(--white);border:1px solid var(--hairline);border-radius:var(--radius);margin-top:10px}
+details.section>summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:12px;padding:16px 18px;border-radius:var(--radius);min-height:56px}
+details.section>summary::-webkit-details-marker{display:none}
+details.section>summary::after{content:"";flex:0 0 auto;width:9px;height:9px;margin:0 4px 5px 4px;border-right:2px solid var(--slate);border-bottom:2px solid var(--slate);transform:rotate(45deg);transition:transform .15s}
+details.section[open]>summary::after{transform:rotate(-135deg);margin-bottom:-5px}
+details.section>summary:focus-visible{outline:2px solid var(--forward-blue);outline-offset:2px}
+.shead{flex:1 1 auto;min-width:0}
+.section-num{display:block;font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--forward-blue)}
+.h2{display:block;font-family:var(--font-display);font-weight:500;font-size:22px;line-height:1.2;letter-spacing:-.01em}
+.section-sub{display:block;font-size:14px;color:var(--slate)}
+.badges{display:flex;flex-direction:column;align-items:flex-end;gap:4px;flex:0 0 auto}
+.label{font-size:12px;font-weight:600;padding:2px 10px;border-radius:999px;white-space:nowrap}
+.label.need{background:#FEF3DD;color:#8A5300}
+.label.fyi{background:var(--blue-soft);color:var(--forward-blue)}
+.prog{font-size:12.5px;color:var(--slate);font-variant-numeric:tabular-nums;white-space:nowrap}
+.prog.all{color:var(--forward-blue);font-weight:600}
+.sbody{padding:0 18px 18px}
+.items{display:flex;flex-direction:column;gap:10px}
+.item{border:1px solid var(--hairline);border-radius:var(--radius);padding:14px 16px;background:var(--paper)}
+.item.on{border-color:var(--forward-blue);background:var(--white)}
+.ihead{display:flex;gap:12px;align-items:flex-start}
+details.item>summary{list-style:none;cursor:pointer;align-items:center;min-height:44px;border-radius:9px}
+details.item>summary::-webkit-details-marker{display:none}
+details.item>summary::after{content:"";flex:0 0 auto;width:8px;height:8px;margin:0 4px 4px 4px;border-right:2px solid var(--slate);border-bottom:2px solid var(--slate);transform:rotate(45deg);transition:transform .15s}
+details.item[open]>summary::after{transform:rotate(-135deg);margin-bottom:-4px}
+details.item>summary:focus-visible{outline:2px solid var(--forward-blue);outline-offset:2px}
+.ititle{flex:1 1 auto;min-width:0}
+.pick{display:block;font-size:13.5px;color:var(--forward-blue);margin-top:2px}
+.pick:empty{display:none}
+details.item[open] .pick{display:none}
+.ibody{padding-top:2px}
+.num.ok{background:var(--blue-soft);color:var(--forward-blue)}
+.item.fyi{background:var(--paper)}
+.fyitext{margin:10px 0 0;font-size:15px}
+@media(prefers-reduced-motion:reduce){details.item>summary::after{transition:none}}
+.num{flex:0 0 auto;min-width:28px;height:28px;padding:0 6px;border-radius:14px;background:var(--blue-soft);color:var(--forward-blue);font-weight:600;font-size:13px;display:flex;align-items:center;justify-content:center;font-variant-numeric:tabular-nums}
+.item.on .num{background:var(--forward-blue);color:#fff}
+h3.qtext{margin:0;font-size:16.5px;font-weight:600;line-height:1.35}
+.tag{display:none;flex:0 0 auto;font-size:12px;font-weight:600;padding:2px 9px;border-radius:999px;background:var(--forward-blue);color:#fff}
+.item.on .tag{display:inline-block}
+.cmp{display:grid;grid-template-columns:1fr;gap:8px;margin:12px 0 0}
+@media(min-width:640px){.cmp{grid-template-columns:1fr 1fr}}
+.side{border-radius:9px;padding:10px 12px;font-size:15px}
+.side p{margin:2px 0 0}
+.side.site{background:var(--white);border:1px solid var(--line)}
+.side.dec{background:var(--blue-soft)}
+.lab{display:block;font-size:11.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--slate);margin:0}
+.side.dec .lab{color:var(--forward-blue)}
+.where{display:inline-block;margin-top:6px;font-size:13.5px;text-decoration:none;font-weight:500}
+.where:hover{text-decoration:underline}
+fieldset.choices{border:0;margin:14px 0 0;padding:0;display:flex;flex-direction:column;gap:6px}
+fieldset.choices legend{margin-bottom:6px}
+.opt{display:flex;align-items:center;gap:10px;padding:8px 12px;min-height:44px;border:1px solid var(--line);border-radius:9px;background:var(--white);cursor:pointer;font-size:15px}
+.opt:hover{border-color:var(--forward-blue)}
+.opt input{width:18px;height:18px;accent-color:var(--forward-blue);margin:0;flex:0 0 auto}
+.opt:has(input:checked){border-color:var(--forward-blue);background:var(--blue-soft)}
+.opt input:focus-visible{outline:2px solid var(--forward-blue);outline-offset:2px}
+@media(min-width:760px){fieldset.choices{flex-direction:row;flex-wrap:wrap}fieldset.choices .opt{flex:1 1 0}fieldset.choices legend{width:100%}}
+.other{margin-top:8px}
+textarea,input[type=text]{width:100%;font:inherit;font-size:16px;color:var(--ink);background:var(--white);border:1px solid var(--line);border-radius:9px;padding:10px 12px;line-height:1.5}
+textarea{resize:vertical;min-height:64px}
+textarea::placeholder,input[type=text]::placeholder{color:var(--slate);opacity:.8}
+textarea:focus-visible,input[type=text]:focus-visible{outline:2px solid var(--forward-blue);outline-offset:1px;border-color:transparent}
+.linkbtn{background:none;border:0;padding:4px 0;margin:4px 0 0;font:inherit;font-size:13.5px;color:var(--slate);text-decoration:underline;cursor:pointer}
+.linkbtn.arm{color:var(--red);font-weight:600}
+.notes{margin-top:16px}
+.notes label{display:block;font-weight:600;font-size:15px;margin-bottom:6px}
+.plain{margin:0;padding-left:20px;font-size:15.5px}
+.plain li{margin:8px 0}
+
+.send{margin-top:36px;padding:22px 18px;background:var(--white);border:1px solid var(--hairline);border-radius:var(--radius)}
+.send h2{font-family:var(--font-display);font-weight:500;font-size:24px;margin:0 0 4px}
+.send label.q{display:block;font-weight:600;font-size:15px;margin:18px 0 6px}
+.send input[type=text]{max-width:420px}
+.btn{display:inline-flex;align-items:center;justify-content:center;margin-top:18px;min-height:48px;padding:12px 26px;font:inherit;font-weight:600;font-size:16px;color:var(--ink);background:var(--signal-amber);border:0;border-radius:999px;cursor:pointer}
+.btn:hover{filter:brightness(.96)}
+.btn:focus-visible{outline:2px solid var(--forward-blue);outline-offset:3px}
+.btn:disabled{opacity:.6;cursor:default}
+.saved-note{font-size:14px;color:var(--slate);margin:12px 0 0;min-height:1.4em}
+.sent{margin-top:16px;padding:12px 14px;background:var(--blue-soft);border-radius:9px;font-size:15px}
+.startover{margin-top:28px;font-size:14px}
+.foot{margin-top:28px;padding-top:24px;border-top:1px solid var(--hairline);font-size:15px;color:var(--slate)}
+.foot .fs{font-family:var(--font-display);font-weight:600;font-size:17px;color:var(--ink);text-decoration:none}
+.foot .fs:hover{color:var(--forward-blue)}
+.foot p{margin:6px 0}
+.foot a{text-decoration:none;font-weight:500}
+.foot a:hover{text-decoration:underline}
+.foot .sep{margin:0 6px;color:var(--line)}
+
+.gn-dock{position:fixed;left:0;right:0;bottom:calc(16px + env(safe-area-inset-bottom,0px));pointer-events:none;padding:0 20px;z-index:20}
+.gn-inner{max-width:1000px;margin:0 auto;display:flex;flex-direction:column;align-items:flex-end;gap:10px}
+.gn-btn{pointer-events:auto;position:relative;display:inline-flex;align-items:center;gap:8px;min-height:48px;padding:10px 20px;font:inherit;font-weight:600;font-size:15px;color:#fff;background:var(--forward-blue);border:0;border-radius:999px;cursor:pointer;box-shadow:0 6px 18px rgba(26,29,36,.18)}
+.gn-btn:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
+.gn-dot{position:absolute;top:6px;right:8px;width:10px;height:10px;border-radius:50%;background:var(--signal-amber);border:2px solid var(--forward-blue)}
+.gn-panel{pointer-events:auto;width:min(380px,100%);background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:14px;box-shadow:0 10px 30px rgba(26,29,36,.18)}
+.gn-panel label{display:block;font-weight:600;font-size:15px;margin-bottom:6px}
+.gn-panel textarea{min-height:120px}
+.gn-row{display:flex;justify-content:space-between;align-items:center;margin-top:8px}
+.btn2{min-height:40px;padding:8px 18px;font:inherit;font-weight:600;font-size:14.5px;color:var(--forward-blue);background:var(--blue-soft);border:0;border-radius:999px;cursor:pointer}
+@media(prefers-reduced-motion:reduce){details.section>summary::after{transition:none}}
+@media(max-width:560px){details.section>summary{flex-wrap:wrap}.shead{flex-basis:calc(100% - 40px)}.badges{order:3;flex-direction:row;align-items:center;flex-basis:100%;gap:10px}.h2{font-size:20px}}
+@media print{.gn-dock,.send .btn,.startover{display:none}details.section{break-inside:avoid}}
+
+.steps-link{font-weight:600}
+.howto{margin:10px 0 0;padding-left:20px;font-size:15px}
+.howto li{margin:6px 0}
+.tip{margin:10px 0 0;padding:10px 12px;background:var(--blue-soft);border-radius:9px;font-size:14.5px;max-width:none}
+.warn{margin:10px 0 0;padding:10px 12px;background:#FEF3DD;border-radius:9px;font-size:14.5px;max-width:none}
+.copyrow{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:8px}
+code{font-family:ui-monospace,Menlo,monospace;font-size:14px;background:var(--paper-warm);padding:2px 6px;border-radius:6px}
+
+.promptbox{font-size:14.5px;background:var(--paper-warm);min-height:200px}
+.copyrow .saved-note{margin:0}
+.tlist .plain{max-width:none}
+.tlist .lab{margin-bottom:4px}
+.send #nameBox{margin-top:18px}
+</style>
+</head>
+<body>
+<main class="wrap">
+  <a class="brand" href="https://gottamoveforward.com/"><img src="data:image/png;base64,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" alt="" width="37" height="30"><span>Forward Solutions</span></a>
+  <p class="eyebrow">Hrishue &amp; Lee &middot; IEP and Forward Solutions</p>
+  <h1>Two profiles, one envelope</h1>
+  <p class="intro">Hrishue, here’s what I said I’d send: the template, and mine filled in. Read mine, write yours, and tell me what I got wrong about myself. Once I have both, I’ll write the questions for you and we’ll see what comes out of it.</p>
+  <p class="intro soft">What you write saves on this device. Send it when you’re ready with the button at the bottom; you can send more than once.</p>
+  <p class="tally" role="status"><b id="tallyN">0</b> of 10 boxes filled in on this device.</p>
+
+  <form id="prepForm" name="iep-person-profiles" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" netlify-honeypot="bot-field">
+    <input type="hidden" name="form-name" value="iep-person-profiles">
+    <input type="hidden" name="subject" id="subjectField" value="">
+    <p class="hp"><label>Leave this blank: <input name="bot-field" id="botField" tabindex="-1" autocomplete="off"></label></p>
+    <textarea name="prompt" id="promptField" class="hp" tabindex="-1" aria-hidden="true"></textarea>
+    <input type="hidden" name="sent_by" id="sentByField" value="">
+
+    <p class="tap">Tap a section to open it, then tap an item to see it.</p>
+<details class="section " data-title="How this works"><summary><span class="shead"><span class="section-num">Start here</span><span class="h2">How this works</span><span class="section-sub">Why profiles, and what happens after</span></span><span class="badges"><span class="label fyi">FYI</span></span></summary><div class="sbody"><div class="items"><details class="item fyi"><summary class="ihead"><span class="num ok">i</span><span class="ititle"><h3 class="qtext">Why profiles</h3></span></summary><div class="ibody"><p class="fyitext">On the call I described an envelope with our names on it. We open it and there’s a business model inside that makes us both say “this is perfect.” It’s probably not something new. It’s what we already do and want, put in a shape we can act on. Two honest profiles are the raw material for that.</p></div></details><details class="item fyi"><summary class="ihead"><span class="num ok">i</span><span class="ititle"><h3 class="qtext">Three steps</h3></span></summary><div class="ibody"><ol class="howto"><li>You read mine in section Two and write yours in section Three.</li><li>I put both profiles together and write the questions for you that come out of them.</li><li>From your answers we get a few ideas for how we work together, and pick what to try.</li></ol></div></details><details class="item fyi"><summary class="ihead"><span class="num ok">i</span><span class="ititle"><h3 class="qtext">The fastest way to write yours</h3></span></summary><div class="ibody"><p class="fyitext">Copy the prompt in section One into the AI you use most. It already knows a lot about you. Read what comes back, fix what’s wrong, and paste it into section Three. Or write it yourself under each heading. Either works.</p></div></details></div><div class="notes"><label for="n0">Comments or questions on this section</label><textarea id="n0" data-n="How this works" rows="2" placeholder="Comments or questions"></textarea></div></div></details><details class="section " data-title="The template"><summary><span class="shead"><span class="section-num">One</span><span class="h2">The template</span><span class="section-sub">Nine headings, and a prompt that fills them in</span></span><span class="badges"><span class="label fyi">FYI</span></span></summary><div class="sbody"><div class="items"><details class="item fyi"><summary class="ihead"><span class="num ok">i</span><span class="ititle"><h3 class="qtext">The prompt to paste into your AI</h3></span></summary><div class="ibody"><textarea id="promptCopy" readonly rows="12" class="promptbox">Using what you know about me from our conversations, write a factual person profile of me. Not sugar-coated, not doomsday: strengths and weaknesses as they are. Use these nine headings, with short bullet points under each:
+
+1. Background and past work: Where you’ve worked, what you’ve built or run, roles you’ve held.
+2. Hard skills: Tools you use and things you can do yourself today, without hiring it out.
+3. Strengths: What people come to you for. What you do better than most.
+4. Weaknesses and blind spots: Where you drop the ball, what you put off, what someone else usually covers for you.
+5. How I work best: Pace, structure, alone or together, how you like to get information and make decisions.
+6. What energizes me, what drains me: The work you’d do for free, and the work you dread.
+7. Time I can give right now: What already fills your week, and when that changes.
+8. What I need from the next thing: Income, how much risk, how much travel, how long you’d wait for it to pay.
+9. Ideas I’m already drawn to: Anything you keep coming back to, finished or half-formed.
+
+Mark anything you’re guessing at with (guess) so I can check it. Keep each bullet to one line.</textarea><div class="copyrow"><button type="button" class="btn2" id="copyBtn">Copy the prompt</button><span id="copyMsg" class="saved-note" role="status"></span></div></div></details><div class="item fyi tlist"><p class="lab">The nine headings</p><ul class="plain"><li><b>Background and past work</b>: Where you’ve worked, what you’ve built or run, roles you’ve held.</li><li><b>Hard skills</b>: Tools you use and things you can do yourself today, without hiring it out.</li><li><b>Strengths</b>: What people come to you for. What you do better than most.</li><li><b>Weaknesses and blind spots</b>: Where you drop the ball, what you put off, what someone else usually covers for you.</li><li><b>How I work best</b>: Pace, structure, alone or together, how you like to get information and make decisions.</li><li><b>What energizes me, what drains me</b>: The work you’d do for free, and the work you dread.</li><li><b>Time I can give right now</b>: What already fills your week, and when that changes.</li><li><b>What I need from the next thing</b>: Income, how much risk, how much travel, how long you’d wait for it to pay.</li><li><b>Ideas I’m already drawn to</b>: Anything you keep coming back to, finished or half-formed.</li></ul></div></div><div class="notes"><label for="n1">Comments or questions on this section</label><textarea id="n1" data-n="The template" rows="2" placeholder="Comments or questions"></textarea></div></div></details><details class="section " data-title="Lee’s profile"><summary><span class="shead"><span class="section-num">Two</span><span class="h2">Lee’s profile</span><span class="section-sub">Mine, under the same nine headings</span></span><span class="badges"><span class="label fyi">FYI</span></span></summary><div class="sbody"><div class="items"><details class="item fyi"><summary class="ihead"><span class="num ok">i</span><span class="ititle"><h3 class="qtext">Background and past work</h3></span></summary><div class="ibody"><ul class="howto"><li>I run Forward Solutions, my own business, from Spring Hill, Tennessee. We moved from Missouri this year.</li><li>Clients are small businesses and organizations: operational systems, automations, document automation, financial admin, SaaS architecture, websites and website audits.</li><li>With you at IEP: built the Community Atlas for Western Kansas, 2024 through 2026, and helped plan and run the Non-ference.</li><li>Ran Hermann Cottage, a short-term rental, with Keely for ten years.</li><li>BNI: secretary-treasurer for a term in Columbia, Missouri. Now president of my chapter here.</li></ul></div></details><details class="item fyi"><summary class="ihead"><span class="num ok">i</span><span class="ititle"><h3 class="qtext">Hard skills</h3></span></summary><div class="ibody"><ul class="howto"><li>Airtable, Zapier and Make: databases, automations, and client portals on top of them.</li><li>Google Workspace builds for teams, like a daily activity tracker for a sales team.</li><li>Web pages and small sites published through GitHub and Netlify, this page included.</li><li>AI as a daily working partner. Claude runs my client records, follow-ups, page building and the processes I repeat.</li><li>Data into reports: the Atlas pipeline that turns survey and census data into published pages and charts.</li></ul></div></details><details class="item fyi"><summary class="ihead"><span class="num ok">i</span><span class="ititle"><h3 class="qtext">Strengths</h3></span></summary><div class="ibody"><ul class="howto"><li>My superpower: asking questions and working out solutions for process and automation problems.</li><li>Organizing. Turning a messy process into a system people actually follow.</li><li>Scope. I’d rather cut something on purpose than carry work nobody priced.</li><li>Taking your bird’s-eye first pass and filling in the detail.</li><li>Follow-through. I record calls and keep track of what each side said they’d do.</li><li>Stepping up when nobody else will. That’s how I became BNI president.</li><li>Building fast and learning by running it, not by planning it.</li></ul></div></details><details class="item fyi"><summary class="ihead"><span class="num ok">i</span><span class="ititle"><h3 class="qtext">Weaknesses and blind spots</h3></span></summary><div class="ibody"><ul class="howto"><li>I’d rather be in the background than lead the room. I speak up on what I’m passionate about.</li><li>I go down the rabbit hole. I’ll get organized about how to get organized.</li><li>I can start building before the market has said yes.</li><li>I carry a lot of threads at once. A new one needs a clear scope or it waits.</li><li>Asking for the money doesn’t come as naturally as doing the work.</li></ul></div></details><details class="item fyi"><summary class="ihead"><span class="num ok">i</span><span class="ititle"><h3 class="qtext">How I work best</h3></span></summary><div class="ibody"><ul class="howto"><li>One thing at a time, finished before the next.</li><li>Something built and tried beats a plan reviewed. If it’s wrong, we change it.</li><li>Two modes: brainstorm, where I want wide and outside-the-box, and build, where I know what I want and just execute.</li><li>Questions written down up front, so the other person can answer when it suits them.</li><li>In the same room for the big thinking, apart for the doing.</li></ul></div></details><details class="item fyi"><summary class="ihead"><span class="num ok">i</span><span class="ititle"><h3 class="qtext">What energizes me, what drains me</h3></span></summary><div class="ibody"><ul class="howto"><li>Energizes: a system that saves someone hours every week. Being in the room with you, in Wichita and at the Non-ference. Getting people together and taking care of them. Learning a new tool by building something real with it.</li><li>Drains: scope that keeps growing with no price on it. Pushing something the client isn’t asking for. Loose ends nobody owns.</li></ul></div></details><details class="item fyi"><summary class="ihead"><span class="num ok">i</span><span class="ititle"><h3 class="qtext">Time I can give right now</h3></span></summary><div class="ibody"><ul class="howto"><li>3 hours a week now, then more as the plan starts to take shape.</li></ul></div></details><details class="item fyi"><summary class="ihead"><span class="num ok">i</span><span class="ititle"><h3 class="qtext">What I need from the next thing</h3></span></summary><div class="ibody"><ul class="howto"><li>It has to pay us both, eventually. I’d run the first version at break-even, but not forever.</li><li>Some travel I enjoy: a few trips a year, somewhere people want to go.</li><li>You in it. We make a great team, and I want that to be part of whatever comes next.</li></ul></div></details><details class="item fyi"><summary class="ihead"><span class="num ok">i</span><span class="ititle"><h3 class="qtext">Ideas I’m already drawn to</h3></span></summary><div class="ibody"><ul class="howto"><li>The Non-ference format, or full company retreats: two people from an organization in a room with others working on the same problems.</li><li>Katie’s ask: peer groups, and papers on what we’re learning.</li><li>Your AI tool for the nonprofit. I’d like to hear where it is.</li><li>Longer term: hospitality. Rentals, an event venue, event planning.</li></ul></div></details></div><div class="notes"><label for="n2">Anything here that’s off, or missing, from where you sit?</label><textarea id="n2" data-n="Lee’s profile" rows="2" placeholder="Comments or questions"></textarea></div></div></details><details class="section fb" data-title="Your profile"><summary><span class="shead"><span class="section-num">Three</span><span class="h2">Your profile</span><span class="section-sub">Paste it in one box, or fill in each heading</span></span><span class="badges"><span class="label need">Need your feedback</span><span class="prog" data-prog></span></span></summary><div class="sbody"><div class="items"><details class="item" data-k="all"><summary class="ihead"><span class="num">★</span><span class="ititle"><h3 class="qtext">Paste your AI’s whole answer here</h3><span class="pick"></span></span><span class="tag done">Answered</span></summary><div class="ibody"><p class="fyitext">If you used the prompt, paste the whole answer in this one box and skip the rest. Fix anything it got wrong first.</p><label class="sr" for="a_all">Paste your AI’s whole answer here</label><textarea id="a_all" data-a="all" rows="8" placeholder="Paste here"></textarea></div></details><details class="item" data-k="bg"><summary class="ihead"><span class="num">1</span><span class="ititle"><h3 class="qtext">Background and past work</h3><span class="pick"></span></span><span class="tag done">Answered</span></summary><div class="ibody"><p class="fyitext">Where you’ve worked, what you’ve built or run, roles you’ve held.</p><label class="sr" for="a_bg">Background and past work</label><textarea id="a_bg" data-a="bg" rows="3" placeholder="Short bullet points are fine"></textarea></div></details><details class="item" data-k="skills"><summary class="ihead"><span class="num">2</span><span class="ititle"><h3 class="qtext">Hard skills</h3><span class="pick"></span></span><span class="tag done">Answered</span></summary><div class="ibody"><p class="fyitext">Tools you use and things you can do yourself today, without hiring it out.</p><label class="sr" for="a_skills">Hard skills</label><textarea id="a_skills" data-a="skills" rows="3" placeholder="Short bullet points are fine"></textarea></div></details><details class="item" data-k="str"><summary class="ihead"><span class="num">3</span><span class="ititle"><h3 class="qtext">Strengths</h3><span class="pick"></span></span><span class="tag done">Answered</span></summary><div class="ibody"><p class="fyitext">What people come to you for. What you do better than most.</p><label class="sr" for="a_str">Strengths</label><textarea id="a_str" data-a="str" rows="3" placeholder="Short bullet points are fine"></textarea></div></details><details class="item" data-k="weak"><summary class="ihead"><span class="num">4</span><span class="ititle"><h3 class="qtext">Weaknesses and blind spots</h3><span class="pick"></span></span><span class="tag done">Answered</span></summary><div class="ibody"><p class="fyitext">Where you drop the ball, what you put off, what someone else usually covers for you.</p><label class="sr" for="a_weak">Weaknesses and blind spots</label><textarea id="a_weak" data-a="weak" rows="3" placeholder="Short bullet points are fine"></textarea></div></details><details class="item" data-k="work"><summary class="ihead"><span class="num">5</span><span class="ititle"><h3 class="qtext">How I work best</h3><span class="pick"></span></span><span class="tag done">Answered</span></summary><div class="ibody"><p class="fyitext">Pace, structure, alone or together, how you like to get information and make decisions.</p><label class="sr" for="a_work">How I work best</label><textarea id="a_work" data-a="work" rows="3" placeholder="Short bullet points are fine"></textarea></div></details><details class="item" data-k="energy"><summary class="ihead"><span class="num">6</span><span class="ititle"><h3 class="qtext">What energizes me, what drains me</h3><span class="pick"></span></span><span class="tag done">Answered</span></summary><div class="ibody"><p class="fyitext">The work you’d do for free, and the work you dread.</p><label class="sr" for="a_energy">What energizes me, what drains me</label><textarea id="a_energy" data-a="energy" rows="3" placeholder="Short bullet points are fine"></textarea></div></details><details class="item" data-k="time"><summary class="ihead"><span class="num">7</span><span class="ititle"><h3 class="qtext">Time I can give right now</h3><span class="pick"></span></span><span class="tag done">Answered</span></summary><div class="ibody"><p class="fyitext">What already fills your week, and when that changes.</p><label class="sr" for="a_time">Time I can give right now</label><textarea id="a_time" data-a="time" rows="3" placeholder="Short bullet points are fine"></textarea></div></details><details class="item" data-k="need"><summary class="ihead"><span class="num">8</span><span class="ititle"><h3 class="qtext">What I need from the next thing</h3><span class="pick"></span></span><span class="tag done">Answered</span></summary><div class="ibody"><p class="fyitext">Income, how much risk, how much travel, how long you’d wait for it to pay.</p><label class="sr" for="a_need">What I need from the next thing</label><textarea id="a_need" data-a="need" rows="3" placeholder="Short bullet points are fine"></textarea></div></details><details class="item" data-k="ideas"><summary class="ihead"><span class="num">9</span><span class="ititle"><h3 class="qtext">Ideas I’m already drawn to</h3><span class="pick"></span></span><span class="tag done">Answered</span></summary><div class="ibody"><p class="fyitext">Anything you keep coming back to, finished or half-formed.</p><label class="sr" for="a_ideas">Ideas I’m already drawn to</label><textarea id="a_ideas" data-a="ideas" rows="3" placeholder="Short bullet points are fine"></textarea></div></details></div><div class="notes"><label for="n3">Comments or questions on this section</label><textarea id="n3" data-n="Your profile" rows="2" placeholder="Comments or questions"></textarea></div></div></details>
+
+    <div class="send">
+      <h2>Send your profile to Lee</h2>
+      <p class="section-sub">Only what you’ve written goes. Everything stays on this device either way.</p>
+      <label class="sr" for="nameBox">Your full name</label>
+      <input type="text" id="nameBox" autocomplete="name" placeholder="Your full name">
+      <button class="btn" type="submit" id="submitBtn">Send to Lee</button>
+      <p class="saved-note" id="savedNote" role="status"></p>
+      <div class="sent" id="sentNote" hidden></div>
+    </div>
+  </form>
+
+  <p class="startover"><button type="button" class="linkbtn" id="startOver">Start over</button></p>
+
+  <footer class="foot">
+    <p><a class="fs" href="https://gottamoveforward.com/">Forward Solutions</a></p>
+    <p>Lee Pettijohn</p>
+    <p>(970) 712-6933 <span class="sep">&middot;</span> <a href="tel:+19707126933">Call</a> <span class="sep">&middot;</span> <a href="sms:+19707126933">Text</a></p>
+    <p><a href="mailto:leepettijohn@gottamoveforward.com">leepettijohn@gottamoveforward.com</a></p>
+  </footer>
+</main>
+
+<div class="gn-dock"><div class="gn-inner">
+  <div class="gn-panel" id="gnPanel" hidden>
+    <label for="gnBox">General notes</label>
+    <textarea id="gnBox" placeholder="Anything that doesn't fit a section"></textarea>
+    <div class="gn-row"><span></span><button type="button" class="btn2" id="gnDone">Done</button></div>
+  </div>
+  <button type="button" class="gn-btn" id="gnBtn" aria-expanded="false" aria-controls="gnPanel">General Notes<span class="gn-dot" id="gnDot" hidden></span></button>
+</div></div>
+
+<script>
+(function(){
+  "use strict";
+  var KEY="iep-person-profiles-2026-10-16", TITLE="IEP - Person profiles", FORM="iep-person-profiles";
+  var form=document.getElementById("prepForm");
+  var items=[].slice.call(form.querySelectorAll(".item[data-k]"));
+  var notes=[].slice.call(form.querySelectorAll("textarea[data-n]"));
+  var nameBox=document.getElementById("nameBox"), gnBox=document.getElementById("gnBox");
+  var noteEl=document.getElementById("savedNote"), sentEl=document.getElementById("sentNote"), btn=document.getElementById("submitBtn");
+  var state={a:{},n:{},gn:"",name:"",sentAt:""};
+  try{var raw=localStorage.getItem(KEY); if(raw){var p=JSON.parse(raw); if(p&&typeof p==="object"){for(var k in state){if(p[k]!==undefined) state[k]=p[k];}}}}catch(e){}
+  function save(){try{localStorage.setItem(KEY,JSON.stringify(state)); noteEl.textContent="Saved on this device.";}catch(e){noteEl.textContent="";}}
+  var t=null; function later(){clearTimeout(t); t=setTimeout(save,400);}
+
+  function addClear(ta,onClear){
+    var b=document.createElement("button"); b.type="button"; b.className="linkbtn"; b.textContent="Clear"; b.hidden=!ta.value;
+    ta.insertAdjacentElement("afterend",b); var armT=null;
+    function disarm(){b.classList.remove("arm"); b.textContent="Clear"; clearTimeout(armT);}
+    b.addEventListener("click",function(){
+      if(!b.classList.contains("arm")){b.classList.add("arm"); b.textContent="Tap again to clear"; armT=setTimeout(disarm,3000); return;}
+      disarm(); ta.value=""; b.hidden=true; onClear(); save();
+    });
+    ta.addEventListener("input",function(){b.hidden=!ta.value;});
+    ta._clear=b; return b;
+  }
+
+  function refresh(){
+    var total=0;
+    [].forEach.call(form.querySelectorAll("details.fb"),function(sec){
+      var its=sec.querySelectorAll(".item[data-k]"), n=0;
+      [].forEach.call(its,function(it){if((state.a[it.getAttribute("data-k")]||"").trim()) n++;});
+      total+=n; var p=sec.querySelector("[data-prog]");
+      p.textContent=n+" of "+its.length+" filled in"; p.classList.toggle("all",n===its.length);
+    });
+    document.getElementById("tallyN").textContent=total;
+  }
+
+  items.forEach(function(it){
+    var k=it.getAttribute("data-k"), ta=it.querySelector("textarea[data-a]"), pick=it.querySelector(".pick");
+    function show(){var v=(state.a[k]||"").trim(); it.classList.toggle("on",!!v); pick.textContent=v?(v.length>70?v.slice(0,70)+"…":v):"";}
+    if(state.a[k]) ta.value=state.a[k];
+    ta.addEventListener("input",function(){state.a[k]=ta.value; show(); refresh(); later();});
+    addClear(ta,function(){state.a[k]=""; show(); refresh();});
+    show();
+  });
+  notes.forEach(function(ta){
+    if(state.n[ta.id]) ta.value=state.n[ta.id];
+    ta.addEventListener("input",function(){state.n[ta.id]=ta.value; later();});
+    addClear(ta,function(){state.n[ta.id]="";});
+  });
+  nameBox.value=state.name||"";
+  nameBox.addEventListener("input",function(){state.name=nameBox.value; later();});
+
+  var cb=document.getElementById("copyBtn"), cm=document.getElementById("copyMsg"), pc=document.getElementById("promptCopy");
+  cb.addEventListener("click",function(){
+    function done(){cm.textContent="Copied. Paste it into your AI.";}
+    function fallback(){pc.focus(); pc.select(); try{document.execCommand("copy"); done();}catch(e){cm.textContent="Select the text above and copy it.";}}
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(pc.value).then(done,fallback);} else fallback();
+  });
+
+  var gnBtn=document.getElementById("gnBtn"), gnPanel=document.getElementById("gnPanel"), gnDot=document.getElementById("gnDot");
+  gnBox.value=state.gn||""; function dot(){gnDot.hidden=!gnBox.value.trim();} dot();
+  gnBox.addEventListener("input",function(){state.gn=gnBox.value; dot(); later();});
+  addClear(gnBox,function(){state.gn=""; dot();});
+  function openGN(o){gnPanel.hidden=!o; gnBtn.setAttribute("aria-expanded",o?"true":"false"); if(o) gnBox.focus(); else {save(); gnBtn.focus();}}
+  gnBtn.addEventListener("click",function(){openGN(gnPanel.hidden);});
+  document.getElementById("gnDone").addEventListener("click",function(){openGN(false);});
+  document.addEventListener("keydown",function(e){if(e.key==="Escape"&&!gnPanel.hidden) openGN(false);});
+
+  var so=document.getElementById("startOver"), soT=null;
+  so.addEventListener("click",function(){
+    if(!so.classList.contains("arm")){so.classList.add("arm"); so.textContent="Tap again to clear everything"; soT=setTimeout(function(){so.classList.remove("arm"); so.textContent="Start over";},3000); return;}
+    clearTimeout(soT); var sentAt=state.sentAt;
+    state={a:{},n:{},gn:"",name:"",sentAt:sentAt};
+    [].forEach.call(document.querySelectorAll("textarea:not(#promptField):not(#promptCopy)"),function(ta){ta.value=""; if(ta._clear) ta._clear.hidden=true;});
+    nameBox.value=""; dot();
+    items.forEach(function(it){it.classList.remove("on"); it.querySelector(".pick").textContent="";});
+    save(); refresh(); so.classList.remove("arm"); so.textContent="Start over";
+    noteEl.textContent="Cleared on this device. Anything already sent to Lee is unchanged.";
+  });
+
+  function showSent(){if(!state.sentAt) return; sentEl.hidden=false; sentEl.textContent="Sent to Lee on "+state.sentAt+". What you wrote is still here on this device."; btn.textContent="Send an update";}
+  refresh(); showSent();
+
+  function buildPrompt(who){
+    var L=[];
+    L.push("Hrishue's person profile, from the IEP person profiles page.");
+    L.push("Sent by "+(who||"(no name)")+" on "+new Date().toLocaleString());
+    L.push("");
+    L.push("File this in iep/projects/next-chapter/source/ as a dated record of Hrishue's profile, tick the matching follow-up in Airtable, and update state.md. Next step: write the questions for Hrishue from both profiles. Notes on Lee's profile are corrections to Lee's own profile.");
+    [].forEach.call(form.querySelectorAll("details.section"),function(sec){
+      var lines=[];
+      [].forEach.call(sec.querySelectorAll(".item[data-k]"),function(it){
+        var v=(state.a[it.getAttribute("data-k")]||"").trim();
+        if(v) {lines.push("### "+it.querySelector(".qtext").textContent); lines.push(v);}
+      });
+      var nt=sec.querySelector("textarea[data-n]"), nv=nt?nt.value.trim():"";
+      if(nv) lines.push("Notes on this section: "+nv);
+      if(lines.length){L.push(""); L.push("## "+sec.getAttribute("data-title")); L=L.concat(lines);}
+    });
+    var g=gnBox.value.trim(); if(g){L.push(""); L.push("## General notes"); L.push(g);}
+    return L.join("\n");
+  }
+  form.addEventListener("submit",function(e){
+    e.preventDefault();
+    var who=nameBox.value.trim();
+    btn.disabled=true; var old=btn.textContent; btn.textContent="Sending…";
+    var body=new URLSearchParams();
+    body.append("form-name",FORM);
+    body.append("subject","FS form: "+TITLE+(who?" (from "+who+")":""));
+    body.append("prompt",buildPrompt(who));
+    body.append("sent_by",who);
+    body.append("bot-field",document.getElementById("botField").value);
+    fetch("/",{method:"POST",headers:{"Content-Type":"application/x-www-form-urlencoded"},body:body.toString()})
+    .then(function(res){
+      if(!res.ok) throw new Error("bad");
+      state.sentAt=new Date().toLocaleString([],{weekday:"long",hour:"numeric",minute:"2-digit"});
+      save(); btn.disabled=false; showSent(); noteEl.textContent="";
+    }).catch(function(){
+      btn.disabled=false; btn.textContent=old;
+      noteEl.textContent="That didn’t send. Check your connection and try again. What you wrote is saved.";
+    });
+  });
+})();
+</script>
+</body>
+</html>
