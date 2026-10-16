@@ -1,0 +1,344 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="date" content="2026-10-16">
+<meta name="category" content="feedback">
+<meta name="client" content="Rain or Shine">
+<title>Rain or Shine - Google Business Profile setup</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&display=swap">
+<style>
+:root{
+  --forward-blue:#1E5BBA;--sky-blue:#3FA9F5;--signal-amber:#F5A524;--ink:#1A1D24;--slate:#5B6470;
+  --paper:#F7F6F2;--paper-warm:#EFEEE8;--white:#FFFFFF;--hairline:rgba(26,29,36,.08);--line:rgba(26,29,36,.14);
+  --blue-soft:#E8EFF9;--red:#B42318;--radius:12px;
+  --font-display:'Fraunces',Georgia,serif;--font-body:'Inter',system-ui,-apple-system,sans-serif;
+  color-scheme:light;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--font-body);font-size:16px;line-height:1.6;
+  -webkit-font-smoothing:antialiased;padding:0 20px env(safe-area-inset-bottom,0px)}
+a{color:var(--forward-blue)}
+[hidden]{display:none!important}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.hp{position:absolute;left:-9999px}
+.wrap{max-width:1000px;margin:0 auto;padding-block:calc(28px + env(safe-area-inset-top,0px)) 120px;position:relative}
+p,.plain,.section-sub{max-width:70ch}
+.brand{display:inline-flex;align-items:center;gap:10px;text-decoration:none;margin-bottom:40px}
+.brand img{height:30px;width:auto;display:block}
+.brand span{font-family:var(--font-display);font-weight:600;font-size:17px;color:var(--ink);letter-spacing:-.01em}
+.eyebrow{font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--forward-blue);margin:0 0 12px}
+h1{font-family:var(--font-display);font-weight:500;font-size:clamp(32px,7vw,46px);line-height:1.08;letter-spacing:-.02em;margin:0 0 20px;text-wrap:balance;max-width:22ch}
+.intro{font-size:17px;margin:0 0 12px}
+.intro.soft{color:var(--slate)}
+.when{display:flex;flex-wrap:wrap;gap:6px 24px;margin:24px 0 0;padding:14px 16px;background:var(--white);border:1px solid var(--hairline);border-radius:var(--radius);font-size:15px}
+.when b{font-weight:600;color:var(--forward-blue);margin-right:4px}
+.tally{margin:28px 0 0;font-size:15px;color:var(--slate)}
+.tally b{color:var(--forward-blue);font-variant-numeric:tabular-nums}
+.tap{font-size:14.5px;color:var(--slate);margin:24px 0 10px}
+
+details.section{background:var(--white);border:1px solid var(--hairline);border-radius:var(--radius);margin-top:10px}
+details.section>summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:12px;padding:16px 18px;border-radius:var(--radius);min-height:56px}
+details.section>summary::-webkit-details-marker{display:none}
+details.section>summary::after{content:"";flex:0 0 auto;width:9px;height:9px;margin:0 4px 5px 4px;border-right:2px solid var(--slate);border-bottom:2px solid var(--slate);transform:rotate(45deg);transition:transform .15s}
+details.section[open]>summary::after{transform:rotate(-135deg);margin-bottom:-5px}
+details.section>summary:focus-visible{outline:2px solid var(--forward-blue);outline-offset:2px}
+.shead{flex:1 1 auto;min-width:0}
+.section-num{display:block;font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--forward-blue)}
+.h2{display:block;font-family:var(--font-display);font-weight:500;font-size:22px;line-height:1.2;letter-spacing:-.01em}
+.section-sub{display:block;font-size:14px;color:var(--slate)}
+.badges{display:flex;flex-direction:column;align-items:flex-end;gap:4px;flex:0 0 auto}
+.label{font-size:12px;font-weight:600;padding:2px 10px;border-radius:999px;white-space:nowrap}
+.label.need{background:#FEF3DD;color:#8A5300}
+.label.fyi{background:var(--blue-soft);color:var(--forward-blue)}
+.prog{font-size:12.5px;color:var(--slate);font-variant-numeric:tabular-nums;white-space:nowrap}
+.prog.all{color:var(--forward-blue);font-weight:600}
+.sbody{padding:0 18px 18px}
+.items{display:flex;flex-direction:column;gap:10px}
+.item{border:1px solid var(--hairline);border-radius:var(--radius);padding:14px 16px;background:var(--paper)}
+.item.on{border-color:var(--forward-blue);background:var(--white)}
+.ihead{display:flex;gap:12px;align-items:flex-start}
+details.item>summary{list-style:none;cursor:pointer;align-items:center;min-height:44px;border-radius:9px}
+details.item>summary::-webkit-details-marker{display:none}
+details.item>summary::after{content:"";flex:0 0 auto;width:8px;height:8px;margin:0 4px 4px 4px;border-right:2px solid var(--slate);border-bottom:2px solid var(--slate);transform:rotate(45deg);transition:transform .15s}
+details.item[open]>summary::after{transform:rotate(-135deg);margin-bottom:-4px}
+details.item>summary:focus-visible{outline:2px solid var(--forward-blue);outline-offset:2px}
+.ititle{flex:1 1 auto;min-width:0}
+.pick{display:block;font-size:13.5px;color:var(--forward-blue);margin-top:2px}
+.pick:empty{display:none}
+details.item[open] .pick{display:none}
+.ibody{padding-top:2px}
+.num.ok{background:var(--blue-soft);color:var(--forward-blue)}
+.item.fyi{background:var(--paper)}
+.fyitext{margin:10px 0 0;font-size:15px}
+@media(prefers-reduced-motion:reduce){details.item>summary::after{transition:none}}
+.num{flex:0 0 auto;min-width:28px;height:28px;padding:0 6px;border-radius:14px;background:var(--blue-soft);color:var(--forward-blue);font-weight:600;font-size:13px;display:flex;align-items:center;justify-content:center;font-variant-numeric:tabular-nums}
+.item.on .num{background:var(--forward-blue);color:#fff}
+h3.qtext{margin:0;font-size:16.5px;font-weight:600;line-height:1.35}
+.tag{display:none;flex:0 0 auto;font-size:12px;font-weight:600;padding:2px 9px;border-radius:999px;background:var(--forward-blue);color:#fff}
+.item.on .tag{display:inline-block}
+.cmp{display:grid;grid-template-columns:1fr;gap:8px;margin:12px 0 0}
+@media(min-width:640px){.cmp{grid-template-columns:1fr 1fr}}
+.side{border-radius:9px;padding:10px 12px;font-size:15px}
+.side p{margin:2px 0 0}
+.side.site{background:var(--white);border:1px solid var(--line)}
+.side.dec{background:var(--blue-soft)}
+.lab{display:block;font-size:11.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--slate);margin:0}
+.side.dec .lab{color:var(--forward-blue)}
+.where{display:inline-block;margin-top:6px;font-size:13.5px;text-decoration:none;font-weight:500}
+.where:hover{text-decoration:underline}
+fieldset.choices{border:0;margin:14px 0 0;padding:0;display:flex;flex-direction:column;gap:6px}
+fieldset.choices legend{margin-bottom:6px}
+.opt{display:flex;align-items:center;gap:10px;padding:8px 12px;min-height:44px;border:1px solid var(--line);border-radius:9px;background:var(--white);cursor:pointer;font-size:15px}
+.opt:hover{border-color:var(--forward-blue)}
+.opt input{width:18px;height:18px;accent-color:var(--forward-blue);margin:0;flex:0 0 auto}
+.opt:has(input:checked){border-color:var(--forward-blue);background:var(--blue-soft)}
+.opt input:focus-visible{outline:2px solid var(--forward-blue);outline-offset:2px}
+@media(min-width:760px){fieldset.choices{flex-direction:row;flex-wrap:wrap}fieldset.choices .opt{flex:1 1 0}fieldset.choices legend{width:100%}}
+.other{margin-top:8px}
+textarea,input[type=text]{width:100%;font:inherit;font-size:16px;color:var(--ink);background:var(--white);border:1px solid var(--line);border-radius:9px;padding:10px 12px;line-height:1.5}
+textarea{resize:vertical;min-height:64px}
+textarea::placeholder,input[type=text]::placeholder{color:var(--slate);opacity:.8}
+textarea:focus-visible,input[type=text]:focus-visible{outline:2px solid var(--forward-blue);outline-offset:1px;border-color:transparent}
+.linkbtn{background:none;border:0;padding:4px 0;margin:4px 0 0;font:inherit;font-size:13.5px;color:var(--slate);text-decoration:underline;cursor:pointer}
+.linkbtn.arm{color:var(--red);font-weight:600}
+.notes{margin-top:16px}
+.notes label{display:block;font-weight:600;font-size:15px;margin-bottom:6px}
+.plain{margin:0;padding-left:20px;font-size:15.5px}
+.plain li{margin:8px 0}
+
+.send{margin-top:36px;padding:22px 18px;background:var(--white);border:1px solid var(--hairline);border-radius:var(--radius)}
+.send h2{font-family:var(--font-display);font-weight:500;font-size:24px;margin:0 0 4px}
+.send label.q{display:block;font-weight:600;font-size:15px;margin:18px 0 6px}
+.send input[type=text]{max-width:420px}
+.btn{display:inline-flex;align-items:center;justify-content:center;margin-top:18px;min-height:48px;padding:12px 26px;font:inherit;font-weight:600;font-size:16px;color:var(--ink);background:var(--signal-amber);border:0;border-radius:999px;cursor:pointer}
+.btn:hover{filter:brightness(.96)}
+.btn:focus-visible{outline:2px solid var(--forward-blue);outline-offset:3px}
+.btn:disabled{opacity:.6;cursor:default}
+.saved-note{font-size:14px;color:var(--slate);margin:12px 0 0;min-height:1.4em}
+.sent{margin-top:16px;padding:12px 14px;background:var(--blue-soft);border-radius:9px;font-size:15px}
+.startover{margin-top:28px;font-size:14px}
+.foot{margin-top:28px;padding-top:24px;border-top:1px solid var(--hairline);font-size:15px;color:var(--slate)}
+.foot .fs{font-family:var(--font-display);font-weight:600;font-size:17px;color:var(--ink);text-decoration:none}
+.foot .fs:hover{color:var(--forward-blue)}
+.foot p{margin:6px 0}
+.foot a{text-decoration:none;font-weight:500}
+.foot a:hover{text-decoration:underline}
+.foot .sep{margin:0 6px;color:var(--line)}
+
+.gn-dock{position:fixed;left:0;right:0;bottom:calc(16px + env(safe-area-inset-bottom,0px));pointer-events:none;padding:0 20px;z-index:20}
+.gn-inner{max-width:1000px;margin:0 auto;display:flex;flex-direction:column;align-items:flex-end;gap:10px}
+.gn-btn{pointer-events:auto;position:relative;display:inline-flex;align-items:center;gap:8px;min-height:48px;padding:10px 20px;font:inherit;font-weight:600;font-size:15px;color:#fff;background:var(--forward-blue);border:0;border-radius:999px;cursor:pointer;box-shadow:0 6px 18px rgba(26,29,36,.18)}
+.gn-btn:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
+.gn-dot{position:absolute;top:6px;right:8px;width:10px;height:10px;border-radius:50%;background:var(--signal-amber);border:2px solid var(--forward-blue)}
+.gn-panel{pointer-events:auto;width:min(380px,100%);background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:14px;box-shadow:0 10px 30px rgba(26,29,36,.18)}
+.gn-panel label{display:block;font-weight:600;font-size:15px;margin-bottom:6px}
+.gn-panel textarea{min-height:120px}
+.gn-row{display:flex;justify-content:space-between;align-items:center;margin-top:8px}
+.btn2{min-height:40px;padding:8px 18px;font:inherit;font-weight:600;font-size:14.5px;color:var(--forward-blue);background:var(--blue-soft);border:0;border-radius:999px;cursor:pointer}
+@media(prefers-reduced-motion:reduce){details.section>summary::after{transition:none}}
+@media(max-width:560px){details.section>summary{flex-wrap:wrap}.shead{flex-basis:calc(100% - 40px)}.badges{order:3;flex-direction:row;align-items:center;flex-basis:100%;gap:10px}.h2{font-size:20px}}
+@media print{.gn-dock,.send .btn,.startover{display:none}details.section{break-inside:avoid}}
+
+.steps-link{font-weight:600}
+.howto{margin:10px 0 0;padding-left:20px;font-size:15px}
+.howto li{margin:6px 0}
+.tip{margin:10px 0 0;padding:10px 12px;background:var(--blue-soft);border-radius:9px;font-size:14.5px;max-width:none}
+.warn{margin:10px 0 0;padding:10px 12px;background:#FEF3DD;border-radius:9px;font-size:14.5px;max-width:none}
+.copyrow{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:8px}
+code{font-family:ui-monospace,Menlo,monospace;font-size:14px;background:var(--paper-warm);padding:2px 6px;border-radius:6px}
+</style>
+</head>
+<body>
+<main class="wrap">
+  <a class="brand" href="https://gottamoveforward.com/"><img src="data:image/png;base64,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" alt="" width="37" height="30"><span>Forward Solutions</span></a>
+  <p class="eyebrow">Rain or Shine Pet Grooming &middot; Tatyana, Gordon and Lee</p>
+  <h1>Getting Rain or Shine set up on Google</h1>
+  <p class="intro">Tatyana and Gordon, this is the whole path from no Google profile to a verified one that’s collecting real reviews. Work through it at your own pace, in order. Most of it takes one sitting, plus the wait for Google to verify.</p>
+  <p class="intro soft">Mark each step as you go. Your answers save on this device. When you hit a question or finish a section, send it to Lee with the button at the bottom. You can send as many times as you like. Sending is optional; it’s a guide first.</p>
+  <div class="when"><span><b>Owner</b>Tatyana</span><span><b>Address</b>12729-5 McGregor Blvd, Fort Myers</span><span><b>Steps</b>18</span></div>
+  <p class="tally" role="status"><b id="tallyN">0</b> of 18 answered on this device.</p>
+
+  <form id="prepForm" name="rain-or-shine-google-profile" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" netlify-honeypot="bot-field">
+    <input type="hidden" name="form-name" value="rain-or-shine-google-profile">
+    <input type="hidden" name="subject" id="subjectField" value="">
+    <p class="hp"><label>Leave this blank: <input name="bot-field" id="botField" tabindex="-1" autocomplete="off"></label></p>
+    <textarea name="prompt" id="promptField" class="hp" tabindex="-1" aria-hidden="true"></textarea>
+    <input type="hidden" name="sent_by" id="sentByField" value="">
+
+    <p class="tap">Tap a section to open it, then tap a step to see it.</p>
+<details class="section" data-title="Why a new profile"><summary><span class="shead"><span class="section-num">Start here</span><span class="h2">Why a new profile</span><span class="section-sub">Why we’re not taking over Callin’ All Paws</span></span><span class="badges"><span class="label fyi">FYI</span></span></summary><div class="sbody"><div class="items"><details class="item fyi"><summary class="ihead"><span class="num ok">i</span><span class="ititle"><h3 class="qtext">Google treats Rain or Shine as a new business</h3></span></summary><div class="ibody"><p class="fyitext">When a business keeps its name and gets a new owner, Google lets the profile and its reviews carry over. When the name changes completely, Google counts it as a <b>new business</b>. Callin’ All Paws to Rain or Shine is a complete change.</p></div></details><details class="item fyi"><summary class="ihead"><span class="num ok">i</span><span class="ititle"><h3 class="qtext">Renaming the old profile could get it shut down</h3></span></summary><div class="ibody"><p class="fyitext">Taking over Callin’ All Paws and renaming it would break that rule. Google can suspend a profile for it, and the old reviews were written about someone else’s grooming, so they can’t honestly count for you anyway.</p></div></details><details class="item fyi"><summary class="ihead"><span class="num ok">i</span><span class="ititle"><h3 class="qtext">No logins or passwords needed from anyone</h3></span></summary><div class="ibody"><p class="fyitext">You don’t need anything from Alisha or her friend. Rain or Shine gets its own profile under your Google account, and the old listing gets marked closed, which anyone can suggest on Google Maps.</p></div></details><details class="item fyi"><summary class="ihead"><span class="num ok">i</span><span class="ititle"><h3 class="qtext">What you end up with</h3></span></summary><div class="ibody"><p class="fyitext">A profile that’s yours from day one, under your own name, that nobody else can lock you out of. Every review on it is about your work. It starts at zero, and the steps in section Five are how it grows.</p></div></details></div><div class="notes"><label for="n0">Comments or questions on this section</label><textarea id="n0" data-n="Why a new profile" rows="2" placeholder="Comments or questions"></textarea></div></div></details><details class="section fb" data-title="Before you start"><summary><span class="shead"><span class="section-num">One</span><span class="h2">Before you start</span><span class="section-sub">About 10 minutes to check</span></span><span class="badges"><span class="label need">Need your feedback</span><span class="prog" data-prog>0 of 4 answered</span></span></summary><div class="sbody"><div class="items"><details class="item" data-k="acct" data-other="I want to use a different account|Stuck"><summary class="ihead"><span class="num">1</span><span class="ititle"><h3 class="qtext">Use your own Google account</h3><span class="pick"></span></span><span class="tag done">Answered</span></summary><div class="ibody"><p class="fyitext">Sign in as <b>tatyana.strahan@gmail.com</b>, or another Google account you’ll always have. You’ll be the owner. Lee gets added later as a manager, so he can help without needing your password.</p><fieldset class="choices"><legend class="lab">Where are you with this?</legend><label class="opt"><input type="radio" data-g="acct" value="Ready"><span>Ready</span></label><label class="opt"><input type="radio" data-g="acct" value="I want to use a different account"><span>I want to use a different account</span></label><label class="opt"><input type="radio" data-g="acct" value="Stuck"><span>Stuck</span></label></fieldset><div class="other" hidden><label class="sr" for="o_acct">Say more</label><textarea id="o_acct" data-o="acct" rows="2" placeholder="Which account, or what&#x27;s the question?"></textarea></div><button type="button" class="linkbtn clearchoice" hidden>Clear choice</button></div></details><details class="item" data-k="open" data-other="Not yet|Something else"><summary class="ihead"><span class="num">2</span><span class="ititle"><h3 class="qtext">Is the shop already grooming dogs?</h3><span class="pick"></span></span><span class="tag done">Answered</span></summary><div class="ibody"><p class="fyitext">This decides one setting. If you’re open and taking appointments, the profile goes live as open. If you haven’t opened yet, Google lets you set an opening date. But until that date, <b>nobody can leave a review</b>, so only use it if you truly aren’t open yet.</p><fieldset class="choices"><legend class="lab">Where are you with this?</legend><label class="opt"><input type="radio" data-g="open" value="Yes, we’re open"><span>Yes, we’re open</span></label><label class="opt"><input type="radio" data-g="open" value="Not yet"><span>Not yet</span></label><label class="opt"><input type="radio" data-g="open" value="Something else"><span>Something else</span></label></fieldset><div class="other" hidden><label class="sr" for="o_open">Say more</label><textarea id="o_open" data-o="open" rows="2" placeholder="When do you open?"></textarea></div><button type="button" class="linkbtn clearchoice" hidden>Clear choice</button></div></details><details class="item" data-k="sign" data-other="Not up yet|Stuck"><summary class="ihead"><span class="num">3</span><span class="ititle"><h3 class="qtext">A sign outside with the Rain or Shine name</h3><span class="pick"></span></span><span class="tag done">Answered</span></summary><div class="ibody"><p class="fyitext">Google usually confirms a new business with a short live video call from the shop. They’ll want to see a sign with the business name, the street or nearby businesses, your grooming tools, and you unlocking the door or getting into a staff-only area.</p><fieldset class="choices"><legend class="lab">Where are you with this?</legend><label class="opt"><input type="radio" data-g="sign" value="The sign is up"><span>The sign is up</span></label><label class="opt"><input type="radio" data-g="sign" value="Not up yet"><span>Not up yet</span></label><label class="opt"><input type="radio" data-g="sign" value="Stuck"><span>Stuck</span></label></fieldset><div class="other" hidden><label class="sr" for="o_sign">Say more</label><textarea id="o_sign" data-o="sign" rows="2" placeholder="When will it be up? A printed sign in the window can work in the meantime."></textarea></div><button type="button" class="linkbtn clearchoice" hidden>Clear choice</button></div></details><details class="item" data-k="info" data-other="Something needs fixing"><summary class="ihead"><span class="num">4</span><span class="ititle"><h3 class="qtext">Your details, exactly as they should show</h3><span class="pick"></span></span><span class="tag done">Answered</span></summary><div class="ibody"><p class="fyitext">Check these against your business card and fix anything that’s off in the notes box:</p><ul class="howto"><li>Name: <b>Rain or Shine Pet Grooming</b></li><li>Address: <b>12729-5 McGregor Blvd, Fort Myers, FL 33919</b></li><li>Phone: <b>(239) 237-2566</b></li><li>Website: <b>rainorshinepetgrooming.com</b></li><li>Category: <b>Pet groomer</b></li></ul><p class="tip">The name has to be just the business name. Adding words like “Best Dog Grooming Fort Myers” is against Google’s rules and can get the profile suspended.</p><fieldset class="choices"><legend class="lab">Where are you with this?</legend><label class="opt"><input type="radio" data-g="info" value="All correct"><span>All correct</span></label><label class="opt"><input type="radio" data-g="info" value="Something needs fixing"><span>Something needs fixing</span></label></fieldset><div class="other" hidden><label class="sr" for="o_info">Say more</label><textarea id="o_info" data-o="info" rows="2" placeholder="What should it say?"></textarea></div><button type="button" class="linkbtn clearchoice" hidden>Clear choice</button></div></details></div><div class="notes"><label for="n1">Comments or questions on this section</label><textarea id="n1" data-n="Before you start" rows="2" placeholder="Comments or questions"></textarea></div></div></details><details class="section fb" data-title="Create the profile"><summary><span class="shead"><span class="section-num">Two</span><span class="h2">Create the profile</span><span class="section-sub">On your phone or a computer, about 15 minutes</span></span><span class="badges"><span class="label need">Need your feedback</span><span class="prog" data-prog>0 of 5 answered</span></span></summary><div class="sbody"><div class="items"><details class="item" data-k="start" data-other="Stuck|Something else"><summary class="ihead"><span class="num">5</span><span class="ititle"><h3 class="qtext">Start at google.com/business</h3><span class="pick"></span></span><span class="tag done">Answered</span></summary><div class="ibody"><ol class="howto"><li>Go to <a href="https://www.google.com/business/" target="_blank" rel="noopener">google.com/business</a> and sign in.</li><li>Choose <b>Manage now</b> (or <b>Add business</b> if you already manage something else).</li><li>Type <b>Rain or Shine Pet Grooming</b>. If Google shows a match, it may already exist. Choose it and claim it. If there’s no match, choose to create a business with that name.</li></ol><fieldset class="choices"><legend class="lab">Where are you with this?</legend><label class="opt"><input type="radio" data-g="start" value="Done"><span>Done</span></label><label class="opt"><input type="radio" data-g="start" value="Not yet"><span>Not yet</span></label><label class="opt"><input type="radio" data-g="start" value="Stuck"><span>Stuck</span></label></fieldset><div class="other" hidden><label class="sr" for="o_start">Say more</label><textarea id="o_start" data-o="start" rows="2" placeholder="What happened, or what&#x27;s the question?"></textarea></div><button type="button" class="linkbtn clearchoice" hidden>Clear choice</button></div></details><details class="item" data-k="callin" data-other="Stuck|Something else"><summary class="ihead"><span class="num">6</span><span class="ititle"><h3 class="qtext">If Google suggests Callin’ All Paws, skip it</h3><span class="pick"></span></span><span class="tag done">Answered</span></summary><div class="ibody"><p class="fyitext">Because the address is the same, Google may ask whether you’re one of the businesses already there. Choose <b>none of these</b> (or <b>continue</b>) so you create a new one. Don’t pick Callin’ All Paws.</p><fieldset class="choices"><legend class="lab">Where are you with this?</legend><label class="opt"><input type="radio" data-g="callin" value="Done"><span>Done</span></label><label class="opt"><input type="radio" data-g="callin" value="Google didn’t ask"><span>Google didn’t ask</span></label><label class="opt"><input type="radio" data-g="callin" value="Stuck"><span>Stuck</span></label></fieldset><div class="other" hidden><label class="sr" for="o_callin">Say more</label><textarea id="o_callin" data-o="callin" rows="2" placeholder="What happened, or what&#x27;s the question?"></textarea></div><button type="button" class="linkbtn clearchoice" hidden>Clear choice</button></div></details><details class="item" data-k="details" data-other="Stuck|Something else"><summary class="ihead"><span class="num">7</span><span class="ititle"><h3 class="qtext">Fill in the details from section One</h3><span class="pick"></span></span><span class="tag done">Answered</span></summary><div class="ibody"><ol class="howto"><li>Category: <b>Pet groomer</b>.</li><li>When asked if customers can visit: <b>Yes</b>, then the address.</li><li>Phone and website from section One.</li><li>If Google asks about service areas, you can skip it. Customers come to you.</li></ol><fieldset class="choices"><legend class="lab">Where are you with this?</legend><label class="opt"><input type="radio" data-g="details" value="Done"><span>Done</span></label><label class="opt"><input type="radio" data-g="details" value="Not yet"><span>Not yet</span></label><label class="opt"><input type="radio" data-g="details" value="Stuck"><span>Stuck</span></label></fieldset><div class="other" hidden><label class="sr" for="o_details">Say more</label><textarea id="o_details" data-o="details" rows="2" placeholder="What happened, or what&#x27;s the question?"></textarea></div><button type="button" class="linkbtn clearchoice" hidden>Clear choice</button></div></details><details class="item" data-k="verify" data-other="Waiting on Google|Stuck"><summary class="ihead"><span class="num">8</span><span class="ititle"><h3 class="qtext">Verify the business</h3><span class="pick"></span></span><span class="tag done">Answered</span></summary><div class="ibody"><p class="fyitext">Google picks the method. It may be a phone or text code, an email, a live video call or a postcard. For a video call:</p><ol class="howto"><li>Be at the shop during your business hours.</li><li>Start outside: the sign, the street, the businesses next door.</li><li>Walk in using your keys.</li><li>Show the grooming table, tub, dryers and tools.</li></ol><p class="tip">Postcards can take up to 14 days. If Google offers anything faster, take it.</p><fieldset class="choices"><legend class="lab">Where are you with this?</legend><label class="opt"><input type="radio" data-g="verify" value="Verified"><span>Verified</span></label><label class="opt"><input type="radio" data-g="verify" value="Waiting on Google"><span>Waiting on Google</span></label><label class="opt"><input type="radio" data-g="verify" value="Stuck"><span>Stuck</span></label></fieldset><div class="other" hidden><label class="sr" for="o_verify">Say more</label><textarea id="o_verify" data-o="verify" rows="2" placeholder="Which method did Google give you?"></textarea></div><button type="button" class="linkbtn clearchoice" hidden>Clear choice</button></div></details><details class="item" data-k="lee" data-other="Stuck|Something else"><summary class="ihead"><span class="num">9</span><span class="ititle"><h3 class="qtext">Add Lee as a manager</h3><span class="pick"></span></span><span class="tag done">Answered</span></summary><div class="ibody"><p class="fyitext">Once you’re verified:</p><ol class="howto"><li>Open your profile at business.google.com.</li><li>Open the menu, then <b>Business Profile settings</b>, then <b>People and access</b>.</li><li>Tap <b>Add</b> and enter <b>leepettijohn@gottamoveforward.com</b>.</li><li>Choose <b>Manager</b>, then send the invite.</li></ol><p class="fyitext">You stay the owner. A manager can edit the profile and answer reviews, but can’t remove you or delete it.</p><fieldset class="choices"><legend class="lab">Where are you with this?</legend><label class="opt"><input type="radio" data-g="lee" value="Done"><span>Done</span></label><label class="opt"><input type="radio" data-g="lee" value="Not yet"><span>Not yet</span></label><label class="opt"><input type="radio" data-g="lee" value="Stuck"><span>Stuck</span></label></fieldset><div class="other" hidden><label class="sr" for="o_lee">Say more</label><textarea id="o_lee" data-o="lee" rows="2" placeholder="What happened, or what&#x27;s the question?"></textarea></div><button type="button" class="linkbtn clearchoice" hidden>Clear choice</button></div></details></div><div class="notes"><label for="n2">Comments or questions on this section</label><textarea id="n2" data-n="Create the profile" rows="2" placeholder="Comments or questions"></textarea></div></div></details><details class="section fb" data-title="Close out Callin’ All Paws"><summary><span class="shead"><span class="section-num">Three</span><span class="h2">Close out Callin’ All Paws</span><span class="section-sub">So Google stops showing two groomers at your address</span></span><span class="badges"><span class="label need">Need your feedback</span><span class="prog" data-prog>0 of 1 answered</span></span></summary><div class="sbody"><div class="items"><details class="item" data-k="closed" data-other="Stuck"><summary class="ihead"><span class="num">10</span><span class="ititle"><h3 class="qtext">Mark the old listing permanently closed</h3><span class="pick"></span></span><span class="tag done">Answered</span></summary><div class="ibody"><ol class="howto"><li>Sign in to Google, then open Google Maps.</li><li>Search <b>Callin’ All Paws Pet Grooming Fort Myers</b> and open it.</li><li>Tap <b>Suggest an edit</b>, then <b>Place closed or not here</b>.</li><li>Choose <b>Permanently closed</b>, then <b>Submit</b>.</li></ol><p class="fyitext">Google reviews these suggestions, so it can take a few days. Gordon or Linda can submit the same suggestion from their own accounts. It doesn’t hurt.</p><fieldset class="choices"><legend class="lab">Where are you with this?</legend><label class="opt"><input type="radio" data-g="closed" value="Submitted"><span>Submitted</span></label><label class="opt"><input type="radio" data-g="closed" value="Google shows it closed"><span>Google shows it closed</span></label><label class="opt"><input type="radio" data-g="closed" value="Stuck"><span>Stuck</span></label></fieldset><div class="other" hidden><label class="sr" for="o_closed">Say more</label><textarea id="o_closed" data-o="closed" rows="2" placeholder="What happened, or what&#x27;s the question?"></textarea></div><button type="button" class="linkbtn clearchoice" hidden>Clear choice</button></div></details><details class="item fyi"><summary class="ihead"><span class="num ok">i</span><span class="ititle"><h3 class="qtext">If you do reach Alisha’s friend</h3></span></summary><div class="ibody"><p class="fyitext">You don’t need them for any of this. If they still manage the old profile, the cleanest thing they can do is mark it permanently closed from inside it. Please don’t ask for their password.</p></div></details></div><div class="notes"><label for="n3">Comments or questions on this section</label><textarea id="n3" data-n="Close out Callin’ All Paws" rows="2" placeholder="Comments or questions"></textarea></div></div></details><details class="section fb" data-title="Fill it out once you’re verified"><summary><span class="shead"><span class="section-num">Four</span><span class="h2">Fill it out once you’re verified</span><span class="section-sub">What helps you show up in searches</span></span><span class="badges"><span class="label need">Need your feedback</span><span class="prog" data-prog>0 of 4 answered</span></span></summary><div class="sbody"><div class="items"><details class="item" data-k="hours" data-other="Stuck|Something else"><summary class="ihead"><span class="num">11</span><span class="ititle"><h3 class="qtext">Hours</h3><span class="pick"></span></span><span class="tag done">Answered</span></summary><div class="ibody"><p class="fyitext">If you work by appointment, set the hours you normally take appointments. A profile with no hours can look closed. The booking link in the next item tells people to book first.</p><fieldset class="choices"><legend class="lab">Where are you with this?</legend><label class="opt"><input type="radio" data-g="hours" value="Done"><span>Done</span></label><label class="opt"><input type="radio" data-g="hours" value="Not yet"><span>Not yet</span></label><label class="opt"><input type="radio" data-g="hours" value="Stuck"><span>Stuck</span></label></fieldset><div class="other" hidden><label class="sr" for="o_hours">Say more</label><textarea id="o_hours" data-o="hours" rows="2" placeholder="What happened, or what&#x27;s the question?"></textarea></div><button type="button" class="linkbtn clearchoice" hidden>Clear choice</button></div></details><details class="item" data-k="book" data-other="Stuck|Something else"><summary class="ihead"><span class="num">12</span><span class="ititle"><h3 class="qtext">Booking link and services</h3><span class="pick"></span></span><span class="tag done">Answered</span></summary><div class="ibody"><ol class="howto"><li>Add the website as your booking link.</li><li>Add your services: full groom, bath and brush out, nail trim and file, ear cleaning. Use the same names as the website.</li></ol><fieldset class="choices"><legend class="lab">Where are you with this?</legend><label class="opt"><input type="radio" data-g="book" value="Done"><span>Done</span></label><label class="opt"><input type="radio" data-g="book" value="Not yet"><span>Not yet</span></label><label class="opt"><input type="radio" data-g="book" value="Stuck"><span>Stuck</span></label></fieldset><div class="other" hidden><label class="sr" for="o_book">Say more</label><textarea id="o_book" data-o="book" rows="2" placeholder="What happened, or what&#x27;s the question?"></textarea></div><button type="button" class="linkbtn clearchoice" hidden>Clear choice</button></div></details><details class="item" data-k="desc" data-other="Stuck"><summary class="ihead"><span class="num">13</span><span class="ititle"><h3 class="qtext">Description</h3><span class="pick"></span></span><span class="tag done">Answered</span></summary><div class="ibody"><p class="fyitext">A few plain sentences about you and the shop: your 5+ years, your background in rescue and fostering, your focus on skin and coat health. No links, phone numbers or sale offers in the description. Google removes them.</p><p class="tip">Want Lee to write a first draft for you to edit? Say so in the notes box below.</p><fieldset class="choices"><legend class="lab">Where are you with this?</legend><label class="opt"><input type="radio" data-g="desc" value="Done"><span>Done</span></label><label class="opt"><input type="radio" data-g="desc" value="Not yet"><span>Not yet</span></label><label class="opt"><input type="radio" data-g="desc" value="Stuck"><span>Stuck</span></label><label class="opt"><input type="radio" data-g="desc" value="I’d like Lee to draft it"><span>I’d like Lee to draft it</span></label></fieldset><div class="other" hidden><label class="sr" for="o_desc">Say more</label><textarea id="o_desc" data-o="desc" rows="2" placeholder="What happened, or what&#x27;s the question?"></textarea></div><button type="button" class="linkbtn clearchoice" hidden>Clear choice</button></div></details><details class="item" data-k="photos" data-other="Stuck|Something else"><summary class="ihead"><span class="num">14</span><span class="ititle"><h3 class="qtext">Real photos</h3><span class="pick"></span></span><span class="tag done">Answered</span></summary><div class="ibody"><p class="fyitext">Add a photo of the outside with the sign, a couple of the inside, you at work, and some real dogs after a groom (with their owners’ OK). Add new ones every few weeks. Real, recent photos help more than polished ones.</p><p class="warn">Use the original photos, not AI-edited versions. An edited photo can change the dog’s face, and customers comparing it with their own dog notice.</p><fieldset class="choices"><legend class="lab">Where are you with this?</legend><label class="opt"><input type="radio" data-g="photos" value="Done"><span>Done</span></label><label class="opt"><input type="radio" data-g="photos" value="Not yet"><span>Not yet</span></label><label class="opt"><input type="radio" data-g="photos" value="Stuck"><span>Stuck</span></label></fieldset><div class="other" hidden><label class="sr" for="o_photos">Say more</label><textarea id="o_photos" data-o="photos" rows="2" placeholder="What happened, or what&#x27;s the question?"></textarea></div><button type="button" class="linkbtn clearchoice" hidden>Clear choice</button></div></details></div><div class="notes"><label for="n4">Comments or questions on this section</label><textarea id="n4" data-n="Fill it out once you’re verified" rows="2" placeholder="Comments or questions"></textarea></div></div></details><details class="section fb" data-title="Getting your first reviews"><summary><span class="shead"><span class="section-num">Five</span><span class="h2">Getting your first reviews</span><span class="section-sub">The right way, so they stick</span></span><span class="badges"><span class="label need">Need your feedback</span><span class="prog" data-prog>0 of 3 answered</span></span></summary><div class="sbody"><div class="items"><details class="item fyi"><summary class="ihead"><span class="num ok">i</span><span class="ititle"><h3 class="qtext">Who can and can’t review</h3></span></summary><div class="ibody"><p class="fyitext">Google removes reviews from the owner, staff, family and friends, and can flag a profile that has them. Reviews about the website don’t count either. The first reviews need to come from real customers about a real groom. It’s slower at the start, and it’s the only kind that lasts.</p><p class="fyitext">Also off-limits: discounts or freebies in exchange for a review, and only asking the customers you know are happy. Ask everyone.</p></div></details><details class="item" data-k="link" data-other="Stuck"><summary class="ihead"><span class="num">15</span><span class="ititle"><h3 class="qtext">Get your review link</h3><span class="pick"></span></span><span class="tag done">Answered</span></summary><div class="ibody"><p class="fyitext">On your profile, find <b>Ask for reviews</b> (or <b>Share review form</b>) and copy the link. Paste it in the notes box below so Lee can put it on the website.</p><fieldset class="choices"><legend class="lab">Where are you with this?</legend><label class="opt"><input type="radio" data-g="link" value="Got it, it’s in the notes"><span>Got it, it’s in the notes</span></label><label class="opt"><input type="radio" data-g="link" value="Stuck"><span>Stuck</span></label></fieldset><div class="other" hidden><label class="sr" for="o_link">Say more</label><textarea id="o_link" data-o="link" rows="2" placeholder="What happened, or what&#x27;s the question?"></textarea></div><button type="button" class="linkbtn clearchoice" hidden>Clear choice</button></div></details><details class="item" data-k="qr" data-other="Something else"><summary class="ihead"><span class="num">16</span><span class="ititle"><h3 class="qtext">A QR code that goes straight to reviews</h3><span class="pick"></span></span><span class="tag done">Answered</span></summary><div class="ibody"><p class="fyitext">The QR code on your business card goes to the website, and that works well. Once the website has a review button, people can get to reviews from there. For the most reviews, put a second QR code that goes <b>straight to the review page</b> by the register or on a small card handed out at pickup, when the owner is happiest.</p><fieldset class="choices"><legend class="lab">Where are you with this?</legend><label class="opt"><input type="radio" data-g="qr" value="Yes, make me a review QR card"><span>Yes, make me a review QR card</span></label><label class="opt"><input type="radio" data-g="qr" value="Website button is enough for now"><span>Website button is enough for now</span></label><label class="opt"><input type="radio" data-g="qr" value="Something else"><span>Something else</span></label></fieldset><div class="other" hidden><label class="sr" for="o_qr">Say more</label><textarea id="o_qr" data-o="qr" rows="2" placeholder="What would you like?"></textarea></div><button type="button" class="linkbtn clearchoice" hidden>Clear choice</button></div></details><details class="item" data-k="ask" data-other="Something else"><summary class="ihead"><span class="num">17</span><span class="ititle"><h3 class="qtext">Ask at pickup, every time</h3><span class="pick"></span></span><span class="tag done">Answered</span></summary><div class="ibody"><p class="fyitext">Something like: “If you’re happy with how they look, a Google review really helps a new shop. Here’s the code.” Then reply to every review, good or bad, within a few days.</p><fieldset class="choices"><legend class="lab">Where are you with this?</legend><label class="opt"><input type="radio" data-g="ask" value="Will do"><span>Will do</span></label><label class="opt"><input type="radio" data-g="ask" value="Something else"><span>Something else</span></label></fieldset><div class="other" hidden><label class="sr" for="o_ask">Say more</label><textarea id="o_ask" data-o="ask" rows="2" placeholder="What happened, or what&#x27;s the question?"></textarea></div><button type="button" class="linkbtn clearchoice" hidden>Clear choice</button></div></details></div><div class="notes"><label for="n5">Comments or questions on this section</label><textarea id="n5" data-n="Getting your first reviews" rows="2" placeholder="Comments or questions"></textarea></div></div></details><details class="section fb" data-title="The website"><summary><span class="shead"><span class="section-num">Six</span><span class="h2">The website</span><span class="section-sub">What Lee will change once the profile is live</span></span><span class="badges"><span class="label need">Need your feedback</span><span class="prog" data-prog>0 of 1 answered</span></span></summary><div class="sbody"><div class="items"><details class="item fyi"><summary class="ihead"><span class="num ok">i</span><span class="ititle"><h3 class="qtext">Review button on the home page</h3></span></summary><div class="ibody"><p class="fyitext">Lee will add a “Leave us a Google review” button on the home page, linked to your review link from section Five. It goes in once the link exists, so it never points to the wrong place.</p></div></details><details class="item" data-k="pic" data-other="A new photo (I’ll send one)|Something else"><summary class="ihead"><span class="num">18</span><span class="ititle"><h3 class="qtext">Which photo goes on the services page?</h3><span class="pick"></span></span><span class="tag done">Answered</span></summary><div class="ibody"><p class="fyitext">Gordon sent two versions of the photo of you with the Yorkie: the original, and one Google’s AI sharpened and warmed up. The AI version changed more than the lighting. The dog’s face and coat, your face and the room are all redrawn. For a photo meant to show your results, we recommend a real one, either the original or a new photo.</p><fieldset class="choices"><legend class="lab">Where are you with this?</legend><label class="opt"><input type="radio" data-g="pic" value="The original photo"><span>The original photo</span></label><label class="opt"><input type="radio" data-g="pic" value="A new photo (I’ll send one)"><span>A new photo (I’ll send one)</span></label><label class="opt"><input type="radio" data-g="pic" value="The AI version"><span>The AI version</span></label><label class="opt"><input type="radio" data-g="pic" value="Something else"><span>Something else</span></label></fieldset><div class="other" hidden><label class="sr" for="o_pic">Say more</label><textarea id="o_pic" data-o="pic" rows="2" placeholder="Anything Lee should know about the photo?"></textarea></div><button type="button" class="linkbtn clearchoice" hidden>Clear choice</button></div></details></div><div class="notes"><label for="n6">Comments or questions on this section</label><textarea id="n6" data-n="The website" rows="2" placeholder="Comments or questions"></textarea></div></div></details>
+
+    <div class="send">
+      <h2>Send an update to Lee</h2>
+      <p class="section-sub">Only what you’ve marked or written goes. Send whenever you’re stuck or finish a section; everything stays on this device either way.</p>
+      <label class="q" for="nameBox">Your full name</label>
+      <input type="text" id="nameBox" autocomplete="name" placeholder="Your full name">
+      <button class="btn" type="submit" id="submitBtn">Send to Lee</button>
+      <p class="saved-note" id="savedNote" role="status"></p>
+      <div class="sent" id="sentNote" hidden></div>
+    </div>
+  </form>
+
+  <p class="startover"><button type="button" class="linkbtn" id="startOver">Start over</button></p>
+
+  <footer class="foot">
+    <p><a class="fs" href="https://gottamoveforward.com/">Forward Solutions</a></p>
+    <p>Lee Pettijohn</p>
+    <p>(970) 712-6933 <span class="sep">&middot;</span> <a href="tel:+19707126933">Call</a> <span class="sep">&middot;</span> <a href="sms:+19707126933">Text</a></p>
+    <p><a href="mailto:leepettijohn@gottamoveforward.com">leepettijohn@gottamoveforward.com</a></p>
+  </footer>
+</main>
+
+<div class="gn-dock"><div class="gn-inner">
+  <div class="gn-panel" id="gnPanel" hidden>
+    <label for="gnBox">General notes</label>
+    <textarea id="gnBox" placeholder="Anything that doesn't fit a section"></textarea>
+    <div class="gn-row"><span></span><button type="button" class="btn2" id="gnDone">Done</button></div>
+  </div>
+  <button type="button" class="gn-btn" id="gnBtn" aria-expanded="false" aria-controls="gnPanel">General Notes<span class="gn-dot" id="gnDot" hidden></span></button>
+</div></div>
+
+<script>
+(function(){
+  "use strict";
+  var KEY="ros-google-profile-2026-10-16", TITLE="Rain or Shine - Google Business Profile setup";
+  var form=document.getElementById("prepForm");
+  var items=[].slice.call(form.querySelectorAll(".item[data-k]"));
+  var notes=[].slice.call(form.querySelectorAll("textarea[data-n]"));
+  var nameBox=document.getElementById("nameBox"), gnBox=document.getElementById("gnBox");
+  var noteEl=document.getElementById("savedNote"), sentEl=document.getElementById("sentNote"), btn=document.getElementById("submitBtn");
+  var state={r:{},o:{},n:{},gn:"",name:"",sentAt:""};
+  try{var raw=localStorage.getItem(KEY); if(raw){var p=JSON.parse(raw); if(p&&typeof p==="object"){for(var k in state){if(p[k]!==undefined) state[k]=p[k];}}}}catch(e){}
+  function save(){try{localStorage.setItem(KEY,JSON.stringify(state)); noteEl.textContent="Saved on this device.";}catch(e){noteEl.textContent="";}}
+  var t=null; function later(){clearTimeout(t); t=setTimeout(save,400);}
+
+  function addClear(ta,onClear){
+    var b=document.createElement("button"); b.type="button"; b.className="linkbtn"; b.textContent="Clear"; b.hidden=!ta.value;
+    ta.insertAdjacentElement("afterend",b); var armT=null;
+    function disarm(){b.classList.remove("arm"); b.textContent="Clear"; clearTimeout(armT);}
+    b.addEventListener("click",function(){
+      if(!b.classList.contains("arm")){b.classList.add("arm"); b.textContent="Tap again to clear"; armT=setTimeout(disarm,3000); return;}
+      disarm(); ta.value=""; b.hidden=true; onClear(); save();
+    });
+    ta.addEventListener("input",function(){b.hidden=!ta.value;});
+    ta._clear=b; return b;
+  }
+
+  function refresh(){
+    var total=0;
+    [].forEach.call(form.querySelectorAll("details.fb"),function(sec){
+      var its=sec.querySelectorAll(".item[data-k]"), n=0;
+      [].forEach.call(its,function(it){if(state.r[it.getAttribute("data-k")]) n++;});
+      total+=n; var p=sec.querySelector("[data-prog]");
+      p.textContent=n+" of "+its.length+" answered"; p.classList.toggle("all",n===its.length);
+    });
+    document.getElementById("tallyN").textContent=total;
+  }
+
+  /* Radios carry no name (so nothing extra reaches Netlify); grouping is done here */
+  items.forEach(function(it){
+    var k=it.getAttribute("data-k"), radios=[].slice.call(it.querySelectorAll("input[type=radio]"));
+    var otherVals=(it.getAttribute("data-other")||"").split("|");
+    var other=it.querySelector(".other"), ta=other.querySelector("textarea"), clr=it.querySelector(".clearchoice"), pick=it.querySelector(".pick");
+    function isOther(v){return otherVals.indexOf(v)>-1;}
+    function show(){
+      var v=state.r[k]||""; it.classList.toggle("on",!!v); clr.hidden=!v; other.hidden=!isOther(v)&&!ta.value; pick.textContent=v;
+      radios.forEach(function(r){r.checked=(r.value===v);});
+    }
+    radios.forEach(function(r){
+      r.addEventListener("change",function(){ if(r.checked){state.r[k]=r.value; show(); save(); refresh(); if(isOther(r.value)) ta.focus();} });
+    });
+    if(state.o[k]) ta.value=state.o[k];
+    ta.addEventListener("input",function(){state.o[k]=ta.value; later();});
+    addClear(ta,function(){state.o[k]=""; show();});
+    clr.addEventListener("click",function(){delete state.r[k]; show(); save(); refresh();});
+    show();
+  });
+  notes.forEach(function(ta){
+    if(state.n[ta.id]) ta.value=state.n[ta.id];
+    ta.addEventListener("input",function(){state.n[ta.id]=ta.value; later();});
+    addClear(ta,function(){state.n[ta.id]="";});
+  });
+  nameBox.value=state.name||"";
+  nameBox.addEventListener("input",function(){state.name=nameBox.value; later();});
+
+  var gnBtn=document.getElementById("gnBtn"), gnPanel=document.getElementById("gnPanel"), gnDot=document.getElementById("gnDot");
+  gnBox.value=state.gn||""; function dot(){gnDot.hidden=!gnBox.value.trim();} dot();
+  gnBox.addEventListener("input",function(){state.gn=gnBox.value; dot(); later();});
+  addClear(gnBox,function(){state.gn=""; dot();});
+  function openGN(o){gnPanel.hidden=!o; gnBtn.setAttribute("aria-expanded",o?"true":"false"); if(o) gnBox.focus(); else {save(); gnBtn.focus();}}
+  gnBtn.addEventListener("click",function(){openGN(gnPanel.hidden);});
+  document.getElementById("gnDone").addEventListener("click",function(){openGN(false);});
+  document.addEventListener("keydown",function(e){if(e.key==="Escape"&&!gnPanel.hidden) openGN(false);});
+
+  var so=document.getElementById("startOver"), soT=null;
+  so.addEventListener("click",function(){
+    if(!so.classList.contains("arm")){so.classList.add("arm"); so.textContent="Tap again to clear everything"; soT=setTimeout(function(){so.classList.remove("arm"); so.textContent="Start over";},3000); return;}
+    clearTimeout(soT); var sentAt=state.sentAt;
+    state={r:{},o:{},n:{},gn:"",name:"",sentAt:sentAt};
+    [].forEach.call(form.querySelectorAll("input[type=radio]"),function(r){r.checked=false;});
+    [].forEach.call(document.querySelectorAll("textarea:not(#promptField)"),function(ta){ta.value=""; if(ta._clear) ta._clear.hidden=true;});
+    nameBox.value=""; dot();
+    items.forEach(function(it){it.classList.remove("on"); it.querySelector(".clearchoice").hidden=true; it.querySelector(".other").hidden=true; it.querySelector(".pick").textContent="";});
+    save(); refresh(); so.classList.remove("arm"); so.textContent="Start over";
+    noteEl.textContent="Cleared on this device. Anything already sent to Lee is unchanged.";
+  });
+
+  function showSent(){if(!state.sentAt) return; sentEl.hidden=false; sentEl.textContent="Sent to Lee on "+state.sentAt+". Your answers are still here on this device."; btn.textContent="Send an update";}
+  refresh(); showSent();
+
+  function clean(s){return s.trim().replace(/\n+/g," / ");}
+  function buildPrompt(who){
+    var L=[];
+    L.push("Update from the Rain or Shine Google Business Profile setup page (Tatyana LaBlue / Gordon Malik).");
+    L.push("Sent by "+(who||"(no name)")+" on "+new Date().toLocaleString());
+    L.push("");
+    L.push("File this in going-forward-solutions/clients/rain-or-shine-pet-grooming as a new dated record, update state.md, and tick or add the matching Follow-ups in Airtable. Anything marked Stuck needs Lee's reply. A review link in the notes is for the website's review button.");
+    [].forEach.call(form.querySelectorAll("details.fb"),function(sec){
+      var lines=[];
+      [].forEach.call(sec.querySelectorAll(".item[data-k]"),function(it){
+        var k=it.getAttribute("data-k"), v=state.r[k], o=(state.o[k]||"").trim();
+        if(!v&&!o) return;
+        lines.push("- "+it.querySelector(".num").textContent+". "+it.querySelector(".qtext").textContent+": "+(v||"(no choice)")+(o?" / "+clean(o):""));
+      });
+      var nt=sec.querySelector("textarea[data-n]"), nv=nt?nt.value.trim():"";
+      if(nv) lines.push("  Notes on this section: "+clean(nv));
+      if(lines.length){L.push(""); L.push("## "+sec.getAttribute("data-title")); L=L.concat(lines);}
+    });
+    [].forEach.call(form.querySelectorAll("details.section:not(.fb)"),function(sec){
+      var nt=sec.querySelector("textarea[data-n]"), nv=nt?nt.value.trim():"";
+      if(nv){L.push(""); L.push("## "+sec.getAttribute("data-title")); L.push("  Notes on this section: "+clean(nv));}
+    });
+    var g=gnBox.value.trim(); if(g){L.push(""); L.push("## General notes"); L.push(g);}
+    return L.join("\n");
+  }
+  form.addEventListener("submit",function(e){
+    e.preventDefault();
+    var who=nameBox.value.trim();
+    btn.disabled=true; var old=btn.textContent; btn.textContent="Sending…";
+    var body=new URLSearchParams();
+    body.append("form-name","rain-or-shine-google-profile");
+    body.append("subject","FS form: "+TITLE+(who?" (from "+who+")":""));
+    body.append("prompt",buildPrompt(who));
+    body.append("sent_by",who);
+    body.append("bot-field",document.getElementById("botField").value);
+    fetch("/",{method:"POST",headers:{"Content-Type":"application/x-www-form-urlencoded"},body:body.toString()})
+    .then(function(res){
+      if(!res.ok) throw new Error("bad");
+      state.sentAt=new Date().toLocaleString([],{weekday:"long",hour:"numeric",minute:"2-digit"});
+      save(); btn.disabled=false; showSent(); noteEl.textContent="";
+    }).catch(function(){
+      btn.disabled=false; btn.textContent=old;
+      noteEl.textContent="That didn’t send. Check your connection and try again. Your answers are saved.";
+    });
+  });
+})();
+</script>
+</body>
+</html>
