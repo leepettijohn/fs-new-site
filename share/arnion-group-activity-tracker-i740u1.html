@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex, nofollow">
-<meta name="date" content="2026-10-13">
+<meta name="date" content="2026-10-16">
 <meta name="category" content="proposal">
 <meta name="client" content="Arnion Group">
 <title>Arnion Group - Team activity tracker proposal</title>
@@ -158,6 +158,10 @@ body{padding-bottom:calc(88px + env(safe-area-inset-bottom,0px))}
 .addon-price{display:inline-block;margin-left:6px;font-size:13.5px;font-weight:600;color:var(--forward-blue);white-space:nowrap}
 .addon-total{margin-top:14px;padding:12px 14px;background:var(--blue-soft);border-radius:9px;font-size:15px}
 .approve-sum{margin:0 0 6px;font-size:16px}
+.why{margin-top:16px;padding:14px 16px;background:var(--blue-soft);border-radius:var(--radius);font-size:15px}
+.why p{margin:0;max-width:70ch}
+.why ul{margin:8px 0 0;padding-left:20px}
+.why li{margin:2px 0}
 @media print{.gn-wrap{display:none} .act{display:none} .send .btn,.approve,.saved-note{display:none} .answer[hidden]{display:none!important}}
 </style>
 </head>
@@ -174,8 +178,8 @@ body{padding-bottom:calc(88px + env(safe-area-inset-bottom,0px))}
 
 
   <div class="when" style="margin-top:0">
-    <span><b>Build session</b>Friday, October 16, 2:30–3:30 pm, Google Meet</span>
-    <span><b>Version</b>October 13, 2026</span>
+    <span><b>Revised</b>October 16, 2026, after our Friday call</span>
+    <span><b>Version</b>October 16, 2026</span>
   </div>
 
   <form id="notesForm" name="arnion-group-tracker-notes" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" netlify-honeypot="bot-field">
@@ -187,44 +191,45 @@ body{padding-bottom:calc(88px + env(safe-area-inset-bottom,0px))}
 <details class="section" data-title="The Overall Vision">
 <summary><span class="sum-text"><span class="section-num">Start Here</span><span class="h2">The Overall Vision</span></span><span class="badge fyi">FYI</span><span class="chev" aria-hidden="true"></span></summary>
 <div class="sec-body">
-<p class="body">Cole, this is a great idea. When you first described it, I heard a scorecard; once I caught your vision, I saw a way for your team to see their own effort as it happens, and for you to see your team. You said the goal is “to make it easy for us to be able to track and see our own activity,” and this is ready to do that now, not someday. I can see it saving a lot of time: no sheet to update at the end of the day, no chasing numbers on Friday, just one tap and the work is counted. Reps get feedback while there’s still time to change their day, and managers can see who’s on a roll and who could use a call before the week gets away. It’s built on Google’s own tools in your Workspace, which makes it a solid stack to grow on, so if you ever want daily recaps, goals or charts, they build on what’s here instead of starting over.</p>
+<p class="body">Cole, after Friday I’m even more convinced this is the right tool, and the right way to build it. Your company CRM is, in your words, “so close and yet so far”: logging one call takes a whole form, when your team makes hundreds a day. This is the opposite. One tap and it counts, on any phone or computer, with nothing to install and no license for anyone to buy. The points system your coaches gave you is built right in, so everyone sees their day add up and the whole team can see who’s putting in the work. Because it costs nothing per person, it can go wherever you take it: to a new recruit next week, or back to the coaches who gave you the idea, as a thank-you that actually helps them.</p>
 <div class="note"><label for="note_vision">Comments or questions on this section</label><textarea id="note_vision" class="notebox" data-k="note_vision" rows="3" placeholder="Optional"></textarea><button type="button" class="clear-btn" hidden>Clear</button></div>
 </div>
 </details>
 <details class="section" data-title="What’s being built">
 <summary><span class="sum-text"><span class="section-num">One</span><span class="h2">What’s being built</span></span><span class="badge fyi">FYI</span><span class="chev" aria-hidden="true"></span></summary>
 <div class="sec-body">
-<p class="body">A phone app your team uses to log their day with one tap: a call made, a person talked to, an application submitted. Each tap is worth points. Everyone sees their own score for today, this week and this month. Mid admins see their own and their reps’. You see everyone’s.</p>
-<p class="body">Every tap is saved as its own line with the time, not just a running count. So later you can see <em>when</em> people are productive, not only how much.</p>
+<p class="body">A web page your team opens on their phone or computer, laid out like the tiles in your CRM: each activity has a big live number with a plus and a minus. Tap plus and it counts. Tap minus if you tapped by mistake. Every tap is saved to a Google Sheet in your Workspace with the time, so later you can see <em>when</em> people are productive, not just how much.</p>
 
-<h3>What we settled on Tuesday</h3>
+<h3>What we settled on Friday</h3>
 <ul class="heard">
-  <li><b>Built in Arnion Group’s Google Workspace, owned by you.</b> I’m added as an editor so I can build and maintain it.</li>
-  <li><b>Three levels:</b> you as top admin, mid admins, and reps. Admins log their own activity too.</li>
-  <li><b>Scores are private by role</b>, unless you choose a leaderboard (Section Two).</li>
-  <li><b>Misclicks are easy to undo.</b> Anyone can delete their own entries.</li>
-  <li><b>We start fresh.</b> Your current sheet stays as an archive.</li>
-  <li><b>No public access.</b> Only people you add can open it.</li>
+  <li><b>Built as a web page, not an AppSheet app.</b> No license per person, so it can grow to other teams without growing a bill. Section Four explains how this changed the price.</li>
+  <li><b>Your points system, as you use it today.</b> Points equal the letters in each code, and Dials are counted but not scored. The full list is in Section Two to confirm.</li>
+  <li><b>Sign up once with name, email and a PIN.</b> The page remembers you after that. On a new phone, you just enter your email and PIN again.</li>
+  <li><b>Scores are public</b> for accountability, with a leaderboard, and a switch in the Sheet to turn public scores off if you ever want to.</li>
+  <li><b>Any depth of team.</b> Each person has a manager, and anyone above them sees their numbers, whether the team is 3 levels deep or 15.</li>
+  <li><b>Today, this week and this month</b> for each person.</li>
+  <li><b>One Sheet for everyone,</b> easy for you to filter and work with.</li>
+  <li><b>Ready for other teams later.</b> Every person carries a team name, so another team can be added without rebuilding.</li>
 </ul>
 
 <h3>How it works</h3>
 <div class="flow">
 <svg viewBox="0 0 600 300" role="img" aria-labelledby="flowT">
-  <title id="flowT">A tap on a phone adds a row to the log sheet, scores are calculated from the log, and each person sees what their role allows.</title>
+  <title id="flowT">Tapping plus on the page adds a row to the log in the Google Sheet, scores are calculated from the log, and the leaderboard and team views show them.</title>
   <defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1E5BBA"/></marker></defs>
   <g font-family="Inter, system-ui, sans-serif" font-size="20" fill="#1A1D24">
     <rect x="10" y="20" width="250" height="90" rx="12" fill="#E8EFF9" stroke="#1E5BBA"/>
-    <text x="135" y="58" text-anchor="middle" font-weight="600">Tap “Calls Made”</text>
-    <text x="135" y="82" text-anchor="middle" fill="#5B6470" font-size="16">on the phone app</text>
+    <text x="135" y="58" text-anchor="middle" font-weight="600">Tap + on a tile</text>
+    <text x="135" y="82" text-anchor="middle" fill="#5B6470" font-size="16">phone or computer</text>
     <rect x="340" y="20" width="250" height="90" rx="12" fill="#FFFFFF" stroke="#1E5BBA"/>
-    <text x="465" y="58" text-anchor="middle" font-weight="600">A row in the Log</text>
+    <text x="465" y="58" text-anchor="middle" font-weight="600">A row in the Sheet</text>
     <text x="465" y="82" text-anchor="middle" fill="#5B6470" font-size="16">who, what, points, time</text>
     <rect x="340" y="190" width="250" height="90" rx="12" fill="#FFFFFF" stroke="#1E5BBA"/>
     <text x="465" y="228" text-anchor="middle" font-weight="600">Scores calculated</text>
-    <text x="465" y="252" text-anchor="middle" fill="#5B6470" font-size="16">today · this week · this month</text>
+    <text x="465" y="252" text-anchor="middle" fill="#5B6470" font-size="16">today · week · month</text>
     <rect x="10" y="190" width="250" height="90" rx="12" fill="#E8EFF9" stroke="#1E5BBA"/>
-    <text x="135" y="228" text-anchor="middle" font-weight="600">Each person sees</text>
-    <text x="135" y="252" text-anchor="middle" fill="#5B6470" font-size="16">what their role allows</text>
+    <text x="135" y="228" text-anchor="middle" font-weight="600">Everyone sees</text>
+    <text x="135" y="252" text-anchor="middle" fill="#5B6470" font-size="16">leaderboard · team</text>
     <line x1="262" y1="65" x2="336" y2="65" stroke="#1E5BBA" stroke-width="2" marker-end="url(#ah)"/>
     <line x1="465" y1="112" x2="465" y2="186" stroke="#1E5BBA" stroke-width="2" marker-end="url(#ah)"/>
     <line x1="338" y1="235" x2="264" y2="235" stroke="#1E5BBA" stroke-width="2" marker-end="url(#ah)"/>
@@ -236,148 +241,173 @@ body{padding-bottom:calc(88px + env(safe-area-inset-bottom,0px))}
 <table class="tbl">
   <thead><tr><th>Layer</th><th>Service</th><th>Whose account</th></tr></thead>
   <tbody>
+    <tr><td>The page</td><td>Web page hosted on Netlify, from a GitHub repository</td><td>Yours (free accounts)</td></tr>
     <tr><td>Data</td><td>Google Sheet</td><td>Arnion Group (you)</td></tr>
-    <tr><td>App</td><td>AppSheet (part of Google Workspace)</td><td>Arnion Group (you)</td></tr>
-    <tr><td>Sign-in</td><td>Google accounts</td><td>Each person on the team</td></tr>
+    <tr><td>Connection</td><td>Google Apps Script, part of your Workspace</td><td>Arnion Group (you)</td></tr>
+    <tr><td>Web address</td><td>A team-neutral domain you choose</td><td>Yours</td></tr>
   </tbody>
 </table>
+<p class="body" style="font-size:14.5px;color:var(--slate)">Everything runs on your accounts, so it’s yours outright. Running costs: the Sheet and script come with your Workspace, Netlify’s free plan should cover a team this size, and a domain is about $10–15 a year.</p>
 
-<h3>What the sheet holds</h3>
+<h3>What the Sheet holds</h3>
 <table class="tbl">
   <thead><tr><th>Tab</th><th>One row per</th></tr></thead>
   <tbody>
-    <tr><td>Users</td><td>Person: name, email, role, manager, active</td></tr>
-    <tr><td>Activities</td><td>Counter: name, points, order on screen, active</td></tr>
-    <tr><td>Log</td><td>Tap: who, which activity, points, date and time</td></tr>
-    <tr><td>Settings</td><td>Who the top admin is, so it’s changed in one place</td></tr>
-    <tr><td>Log Archive</td><td>Tap older than last month, moved here automatically on the 1st so the app stays fast</td></tr>
+    <tr><td>People</td><td>Person: name, email, PIN, manager, team, active</td></tr>
+    <tr><td>Activities</td><td>Counter: name, code, points, order on screen, active</td></tr>
+    <tr><td>Log</td><td>Tap: who, which activity, plus or minus, points, date and time</td></tr>
+    <tr><td>Daily</td><td>Person and day: Revenue Power Block done, and the one-sentence note</td></tr>
+    <tr><td>Settings</td><td>Who the top admins are, and whether scores are public</td></tr>
+    <tr><td>Log Archive</td><td>Taps older than last month, moved here automatically on the 1st so the page stays fast</td></tr>
   </tbody>
 </table>
 <div class="note"><label for="note_built">Comments or questions on this section</label><textarea id="note_built" class="notebox" data-k="note_built" rows="3" placeholder="Optional"></textarea><button type="button" class="clear-btn" hidden>Clear</button></div>
 </div>
 </details>
-
 <details class="section" data-title="What I need from you">
 <summary><span class="sum-text"><span class="section-num">Two</span><span class="h2">What I need from you</span></span><span class="badge need">Need your feedback</span><span class="chev" aria-hidden="true"></span></summary>
 <div class="sec-body">
-<p class="section-sub">Bring these to Friday, or tick and answer here. If something isn’t ready, we’ll fill it in together.</p>
+<p class="section-sub">Most of this came from Friday and your sheet. Tick anything that needs changing and tell me how.</p>
+<table class="tbl">
+  <thead><tr><th>Counter</th><th>Code</th><th class="num">Points</th></tr></thead>
+  <tbody>
+    <tr><td>Dials Made</td><td>none</td><td class="num">0 (counted)</td></tr>
+    <tr><td>VM / Text</td><td>M</td><td class="num">1</td></tr>
+    <tr><td>Spoke to Someone</td><td>SS</td><td class="num">2</td></tr>
+    <tr><td>New Name &amp; Number</td><td>NaN</td><td class="num">3</td></tr>
+    <tr><td>PI Appts Booked</td><td>SET</td><td class="num">3</td></tr>
+    <tr><td>PI Appts Ran</td><td>1ON1</td><td class="num">4</td></tr>
+    <tr><td>ICAs</td><td>BPTNR</td><td class="num">5</td></tr>
+    <tr><td>Client Appts Booked</td><td>SET</td><td class="num">3</td></tr>
+    <tr><td>Client Appts Ran, 1st</td><td>APPT</td><td class="num">4</td></tr>
+    <tr><td>Client Appts Ran, 2nd</td><td>CLOS</td><td class="num">4</td></tr>
+    <tr><td>Apps Submitted</td><td>CLOSE</td><td class="num">5</td></tr>
+    <tr><td>Annual Reviews</td><td>ANNR</td><td class="num">4</td></tr>
+    <tr><td>Business Plan</td><td>BIZM</td><td class="num">4</td></tr>
+    <tr><td>Grand Opening</td><td>GOZA</td><td class="num">4</td></tr>
+  </tbody>
+</table>
 <div class="items">
 <div class="item" data-k="q1">
-<label class="check"><input type="checkbox" id="q1_c" aria-controls="q1_w"><span><span class="qtext">Every counter and its points</span><small>So far I have Calls Made 2, People Talked To 3, Applications Submitted 4. What else is on your current sheet, and in what order should they show on the screen?</small></span></label>
-<div class="answer" id="q1_w" hidden><label class="sr" for="q1_a">Your notes</label><textarea id="q1_a" rows="3" placeholder="Counter: points, one per line"></textarea><button type="button" class="clear-btn" hidden>Clear</button></div>
+<label class="check"><input type="checkbox" id="q1_c" aria-controls="q1_w"><span><span class="qtext">Change anything in the counter list above</span><small>Names, codes, points or the order on screen. The list comes from your current sheet.</small></span></label>
+<div class="answer" id="q1_w" hidden><label class="sr" for="q1_a">Your notes</label><textarea id="q1_a" rows="3" placeholder="What to change"></textarea></div>
 </div>
 <div class="item" data-k="q2">
-<label class="check"><input type="checkbox" id="q2_c" aria-controls="q2_w"><span><span class="qtext">Who will use it</span><small>For each person: name, email, role (top admin, mid admin or rep) and who they report to.</small></span></label>
-<div class="answer" id="q2_w" hidden><label class="sr" for="q2_a">Your notes</label><textarea id="q2_a" rows="4" placeholder="Name, email, role, reports to"></textarea><button type="button" class="clear-btn" hidden>Clear</button></div>
+<label class="check"><input type="checkbox" id="q2_c" aria-controls="q2_w"><span><span class="qtext">Who are the top admins?</span><small>Top admins see everything and can change the Sheet. You, and anyone else (your mentor?).</small></span></label>
+<div class="answer" id="q2_w" hidden><label class="sr" for="q2_a">Your notes</label><textarea id="q2_a" rows="2" placeholder="Names and emails"></textarea></div>
 </div>
 <div class="item" data-k="q3">
-<label class="check"><input type="checkbox" id="q3_c" aria-controls="q3_w"><span><span class="qtext">Does each of them have an Arnion Group email, or their own?</span><small>This is the one that matters most. It decides how they sign in, and whether Google charges a license per person. Both options are below.</small></span></label>
-<div class="answer" id="q3_w" hidden><label class="sr" for="q3_a">Your notes</label><textarea id="q3_a" rows="2" placeholder="Who has which, and which option you’d like"></textarea><button type="button" class="clear-btn" hidden>Clear</button></div>
+<label class="check"><input type="checkbox" id="q3_c" aria-controls="q3_w"><span><span class="qtext">Who reports to whom?</span><small>People sign themselves up, but someone has to set each person’s manager. A list of names and their managers is all I need to start.</small></span></label>
+<div class="answer" id="q3_w" hidden><label class="sr" for="q3_a">Your notes</label><textarea id="q3_a" rows="4" placeholder="Name, reports to"></textarea></div>
 </div>
 <div class="item" data-k="q4">
-<label class="check"><input type="checkbox" id="q4_c" aria-controls="q4_w"><span><span class="qtext">Leaderboard: which kind, if any?</span><small>Everyone’s daily scores visible to the whole team, just the top few without exact numbers, or keep scores private.</small></span></label>
-<div class="answer" id="q4_w" hidden><label class="sr" for="q4_a">Your notes</label><textarea id="q4_a" rows="2" placeholder="Your call"></textarea><button type="button" class="clear-btn" hidden>Clear</button></div>
+<label class="check"><input type="checkbox" id="q4_c" aria-controls="q4_w"><span><span class="qtext">What should the leaderboard rank?</span><small>Today’s points only, or tabs for this week and this month too.</small></span></label>
+<div class="answer" id="q4_w" hidden><label class="sr" for="q4_a">Your notes</label><textarea id="q4_a" rows="2" placeholder="Your call"></textarea></div>
 </div>
 <div class="item" data-k="q5">
-<label class="check"><input type="checkbox" id="q5_c" aria-controls="q5_w"><span><span class="qtext">Can a mid admin delete a rep’s entries?</span><small>Everyone can delete their own. The question is whether a mid admin can also clean up for their reps.</small></span></label>
-<div class="answer" id="q5_w" hidden><label class="sr" for="q5_a">Your notes</label><textarea id="q5_a" rows="2" placeholder="Yes or no"></textarea><button type="button" class="clear-btn" hidden>Clear</button></div>
+<label class="check"><input type="checkbox" id="q5_c" aria-controls="q5_w"><span><span class="qtext">Keep the Revenue Power Block checkbox and the one-sentence note?</span><small>They’re in your current sheet as once-a-day items, not points.</small></span></label>
+<div class="answer" id="q5_w" hidden><label class="sr" for="q5_a">Your notes</label><textarea id="q5_a" rows="2" placeholder="Keep, change or drop"></textarea></div>
 </div>
 <div class="item" data-k="q6">
-<label class="check"><input type="checkbox" id="q6_c" aria-controls="q6_w"><span><span class="qtext">Who is the admin on Arnion Group’s Google Workspace?</span><small>One or two settings there let the app work for your team. If that’s you, we’ll do it together on Friday.</small></span></label>
-<div class="answer" id="q6_w" hidden><label class="sr" for="q6_a">Your notes</label><textarea id="q6_a" rows="2" placeholder="Name"></textarea><button type="button" class="clear-btn" hidden>Clear</button></div>
+<label class="check"><input type="checkbox" id="q6_c" aria-controls="q6_w"><span><span class="qtext">Any domain names you like?</span><small>Something team-neutral, like you said. We’ll settle hosting when we talk next; ideas now just give us a head start.</small></span></label>
+<div class="answer" id="q6_w" hidden><label class="sr" for="q6_a">Your notes</label><textarea id="q6_a" rows="2" placeholder="Ideas"></textarea></div>
 </div>
 </div>
-
-<h3>Google’s licenses: two ways to sign your team in</h3>
-<div class="option"><b>A. Each agent gets an Arnion Group account</b><span>Google Workspace Business Starter is $7 per person per month on an annual plan, and the app is included. It works exactly like the demo, and it also gives them Arnion email and Drive for the folders you plan to share.</span></div>
-<div class="option"><b>B. Agents keep their own Google accounts</b><span>Each one needs an AppSheet license: $10 per person per month, or possibly less through Google’s pooled “User Pass.” I’ll confirm that price before we choose.</span></div>
-<p class="body" style="font-size:14.5px;color:var(--slate)">These are Google’s charges, billed to Arnion Group, and they’re separate from my price below. Prices checked October 13, 2026. You and your staff who already have Arnion accounts are covered either way.</p>
 <div class="note"><label for="note_need">Comments or questions on this section</label><textarea id="note_need" class="notebox" data-k="note_need" rows="3" placeholder="Optional"></textarea><button type="button" class="clear-btn" hidden>Clear</button></div>
 </div>
 </details>
-
 <details class="section" data-title="Definition of done">
 <summary><span class="sum-text"><span class="section-num">Three</span><span class="h2">Definition of done</span></span><span class="badge fyi">FYI</span><span class="chev" aria-hidden="true"></span></summary>
 <div class="sec-body">
 <ol class="steps">
-  <li><b>The app runs in Arnion Group’s Workspace</b><span>Owned by you, with me as an editor.</span></li>
-  <li><b>One tap logs an activity</b><span>Every counter on your list, with your point values, in your order.</span></li>
-  <li><b>Scores for today, this week and this month</b><span>Shown for each person.</span></li>
-  <li><b>Each role sees the right people</b><span>Reps see themselves, mid admins see themselves and their reps, and you see everyone. Checked by signing in as each role.</span></li>
-  <li><b>Anyone can delete their own entries</b><span>For misclicks.</span></li>
-  <li><b>The leaderboard, if you choose one</b><span>The kind you pick in Section Two.</span></li>
-  <li><b>Your team is loaded and can sign in on their phones</b><span>Everyone on the list you give me.</span></li>
+  <li><b>The page is live on its own web address</b><span>Hosted on your accounts, and works on iPhone, Android and a computer.</span></li>
+  <li><b>Sign up once, then stay signed in</b><span>Name, email and PIN; entered again only on a new device.</span></li>
+  <li><b>Plus and minus on every counter</b><span>Your full list, with your points, in your order. Each tap saved to the Sheet with the time.</span></li>
+  <li><b>Scores for today, this week and this month</b><span>For each person.</span></li>
+  <li><b>A public leaderboard</b><span>With the switch in the Sheet to turn public scores off.</span></li>
+  <li><b>Managers see everyone below them</b><span>At any depth, from the manager set for each person.</span></li>
+  <li><b>Revenue Power Block and the daily note</b><span>If you keep them (Section Two).</span></li>
   <li><b>Older activity archives itself</b><span>On the 1st of each month, entries from before last month move to the archive tab. Nothing is deleted.</span></li>
   <li><b>Any add-ons you choose in Section Six</b><span>Built and working as described there.</span></li>
-  <li><b>A short how-to for you</b><span>How to add or remove a person, add a counter or change its points, and install the app on a phone.</span></li>
+  <li><b>A short how-to for you</b><span>How to add a counter or change its points, set someone’s manager, reset a PIN, and turn public scores on or off.</span></li>
 </ol>
 <p class="done-close">Demonstration of the above ends the engagement. It is not conditioned on features listed under exclusions in Section Five.</p>
 <div class="note"><label for="note_done">Comments or questions on this section</label><textarea id="note_done" class="notebox" data-k="note_done" rows="3" placeholder="Optional"></textarea><button type="button" class="clear-btn" hidden>Clear</button></div>
 </div>
 </details>
-
 <details class="section" data-title="Price and hours">
 <summary><span class="sum-text"><span class="section-num">Four</span><span class="h2">Price and hours</span></span><span class="badge fyi">FYI</span><span class="chev" aria-hidden="true"></span></summary>
 <div class="sec-body">
 <div class="price">
-  <p class="fee">$375 <small>covering 3 hours at $125/hr</small></p>
-  <p><b>Not to exceed $375.</b> If it takes longer, that’s on me.</p>
-  <p><b>Timeline:</b> about one week from Friday’s session, plus a few days for any add-ons.</p>
+  <p class="fee">$625 <small>covering 5 hours at $125/hr</small></p>
+  <p><b>Not to exceed $875 (7 hours).</b> I only go past 5 hours for a specific reason that I write down and tell you about first.</p>
+  <p><b>Timeline:</b> about one week from approval, plus a few days for any add-ons.</p>
   <p><b>Payment:</b> <span class="payTerms">the full fee is invoiced when the agreement is signed.</span></p>
   <p class="addon-line" hidden><b>With your add-ons:</b> <span class="totalText"></span></p>
+</div>
+<div class="why">
+  <p><b>Why the price changed from the first version ($375 for 3 hours).</b> The first version was built on AppSheet, which supplies the screens, sign-in and privacy rules out of the box, but charges a license for every person, every month. Moving to a web page removes that cost for good: about $7–10 per person per month that you, or any team you share it with, never pay. The extra 2 hours build what AppSheet used to provide, plus what we added on Friday:</p>
+  <ul>
+    <li>Your own sign-up and sign-in, with name, email and PIN</li>
+    <li>The page itself: tiles with plus and minus, laid out for phone and computer</li>
+    <li>The connection between the page and your Sheet</li>
+    <li>Teams of any depth, and the public scores switch</li>
+    <li>Hosting the page and connecting your domain</li>
+  </ul>
 </div>
 <table class="tbl">
   <thead><tr><th>What you get</th><th class="num">Hours</th></tr></thead>
   <tbody>
-    <tr><td>Planning session with you: counters, people, roles and leaderboard settled</td><td class="num">1</td></tr>
-    <tr><td>Your app in Arnion Group’s Workspace: one-tap logging, scores, private views by role, undo, leaderboard</td><td class="num">1.25</td></tr>
-    <tr><td>Setup and testing: your team loaded, each role checked, how-to written</td><td class="num">0.75</td></tr>
+    <tr><td>Your Sheet set up: people, counters, log, settings, monthly archive</td><td class="num">1</td></tr>
+    <tr><td>The connection between the page and your Sheet: sign-up and sign-in, plus and minus, scores, team depth, leaderboard, public switch</td><td class="num">1.25</td></tr>
+    <tr><td>The page: tiles with plus and minus, phone layout, scores, leaderboard, team view</td><td class="num">1.25</td></tr>
+    <tr><td>Testing on iPhone, Android and a computer</td><td class="num">0.5</td></tr>
+    <tr><td>How-to and handover, including connecting your domain</td><td class="num">1</td></tr>
   </tbody>
-  <tfoot><tr><td>Total</td><td class="num">3</td></tr></tfoot>
+  <tfoot><tr><td>Total</td><td class="num">5</td></tr></tfoot>
 </table>
-<p class="body"><b>30 days of support.</b> For 30 days after done, I’ll fix anything that isn’t working as described and make small adjustments within this scope, like renaming a counter, changing points, or adding or removing a person. New functions are quoted separately, as a change order or a new project.</p>
+<p class="body"><b>30 days of support.</b> For 30 days after done, I’ll fix anything that isn’t working as described and make small adjustments within this scope, like renaming a counter, changing points, or resetting someone’s PIN. New functions are quoted separately, as a change order or a new project.</p>
 <div class="note"><label for="note_price">Comments or questions on this section</label><textarea id="note_price" class="notebox" data-k="note_price" rows="3" placeholder="Optional"></textarea><button type="button" class="clear-btn" hidden>Clear</button></div>
 </div>
 </details>
-
 <details class="section" data-title="Not included">
 <summary><span class="sum-text"><span class="section-num">Five</span><span class="h2">Not included</span></span><span class="badge fyi">FYI</span><span class="chev" aria-hidden="true"></span></summary>
 <div class="sec-body">
 <p class="section-sub">Each of these can be quoted separately whenever you want it.</p>
 <ul class="heard">
-  <li><b>Google’s license fees.</b> Billed by Google to Arnion Group (Section Two).</li>
-  <li><b>Creating Google accounts for your agents.</b> Done in your Workspace admin. I’ll show you where.</li>
+  <li><b>The domain itself.</b> You buy it (about $10–15 a year); connecting it is part of the handover.</li>
+  <li><b>Setting up other teams.</b> The Sheet is ready for them; adding and supporting a new team is its own job.</li>
   <li><b>Bringing over history from your current sheet.</b> It stays as your archive.</li>
   <li><b>Charts and reports beyond the three score periods</b>, unless you add them in Section Six.</li>
-  <li><b>A branded app in the app stores.</b> Your team uses the AppSheet app or a link.</li>
-  <li><b>Changes after done</b>, such as new roles or new screens.</li>
+  <li><b>An app in the app stores.</b> Your team uses the web page, and can add it to their home screen.</li>
+  <li><b>Changes after done</b>, such as new screens or new kinds of data.</li>
 </ul>
 <div class="note"><label for="note_excl">Comments or questions on this section</label><textarea id="note_excl" class="notebox" data-k="note_excl" rows="3" placeholder="Optional"></textarea><button type="button" class="clear-btn" hidden>Clear</button></div>
 </div>
 </details>
-
 <details class="section" data-title="Room to grow">
 <summary><span class="sum-text"><span class="section-num">Six</span><span class="h2">Room to grow</span></span><span class="badge need">Need your feedback</span><span class="chev" aria-hidden="true"></span></summary>
 <div class="sec-body">
-<p class="section-sub">Optional. Tick anything you’d like added to this proposal and the total updates; it goes with your approval. Each one builds on the same app, using features that come with the AppSheet license your team will already have.</p>
+<p class="section-sub">Optional. Tick anything you’d like added now and the total updates; it goes with your approval. Or come back to them once the team is using it, like you said.</p>
 <div class="items">
 <div class="item addon" data-k="add_recap" data-price="187.5" data-hours="1.5">
-<label class="check"><input type="checkbox" id="add_recap_c"><span><span class="qtext">A daily recap <span class="addon-price">$187.50 · 1.5 hrs</span></span><small>An email to you and your mid admins at the end of each day with each person’s numbers.</small></span></label>
+<label class="check"><input type="checkbox" id="add_recap_c"><span><span class="qtext">A daily recap <span class="addon-price">$187.50 · 1.5 hrs</span></span><small>An email each evening: each person gets their own day, and managers get their team’s.</small></span></label>
 </div>
 <div class="item addon" data-k="add_nudge" data-price="187.5" data-hours="1.5">
-<label class="check"><input type="checkbox" id="add_nudge_c"><span><span class="qtext">Nudges <span class="addon-price">$187.50 · 1.5 hrs</span></span><small>A reminder to anyone who hasn’t logged anything by a time you choose.</small></span></label>
+<label class="check"><input type="checkbox" id="add_nudge_c"><span><span class="qtext">Nudges <span class="addon-price">$187.50 · 1.5 hrs</span></span><small>An email reminder to anyone who hasn’t logged anything by a time you choose.</small></span></label>
 </div>
 <div class="item addon" data-k="add_charts" data-price="312.5" data-hours="2.5">
-<label class="check"><input type="checkbox" id="add_charts_c"><span><span class="qtext">Charts and a dashboard <span class="addon-price">$312.50 · 2.5 hrs</span></span><small>Activity by time of day, week over week, and team totals over time.</small></span></label>
+<label class="check"><input type="checkbox" id="add_charts_c"><span><span class="qtext">Charts and a dashboard <span class="addon-price">$312.50 · 2.5 hrs</span></span><small>Activity by time of day, week over week, and team totals over time, on a page of their own.</small></span></label>
 </div>
 <div class="item addon" data-k="add_goals" data-price="250.0" data-hours="2">
 <label class="check"><input type="checkbox" id="add_goals_c"><span><span class="qtext">Goals <span class="addon-price">$250 · 2 hrs</span></span><small>A daily or weekly target per person, with progress shown next to their score.</small></span></label>
 </div>
 </div>
 <ul class="heard">
-  <li><b>More of your workflow.</b> Leads, follow-ups or applications as their own lists, tied to the activity that created them. Too open to price here; let’s scope it together.</li>
+  <li><b>Other teams.</b> Your coaches’ team, or your mentor’s. Too open to price here; let’s scope it together when you’re ready.</li>
+  <li><b>More of your workflow.</b> Leads, follow-ups or applications as their own lists, tied to the activity that created them. Also scoped together.</li>
 </ul>
-<div class="addon-total" id="addonTotal">No add-ons selected. Your total stays $375.</div>
+<div class="addon-total" id="addonTotal">No add-ons selected. Your total stays $625.</div>
 <div class="note"><label for="note_grow">Comments or questions on this section</label><textarea id="note_grow" class="notebox" data-k="note_grow" rows="3" placeholder="Optional"></textarea><button type="button" class="clear-btn" hidden>Clear</button></div>
 </div>
 </details>
@@ -411,15 +441,15 @@ body{padding-bottom:calc(88px + env(safe-area-inset-bottom,0px))}
         <input type="hidden" name="form-name" value="arnion-group-tracker-approve">
         <p class="hp"><label>Leave this blank: <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
         <input type="hidden" name="proposal" value="Arnion Group - Team activity tracker">
-        <input type="hidden" name="proposal_version_date" value="2026-10-13">
-        <input type="hidden" name="flat_fee" value="$375 (3 hours at $125/hr, not to exceed $375)">
+        <input type="hidden" name="proposal_version_date" value="2026-10-16">
+        <input type="hidden" name="flat_fee" value="$625 (5 hours at $125/hr, not to exceed $875 / 7 hours)">
         <input type="hidden" name="add_ons" id="f_addons" value="None">
-        <input type="hidden" name="total_fee" id="f_total" value="$375">
-        <input type="hidden" name="not_to_exceed" id="f_nte" value="$375">
+        <input type="hidden" name="total_fee" id="f_total" value="$625">
+        <input type="hidden" name="not_to_exceed" id="f_nte" value="$875">
         <input type="hidden" name="payment_terms" id="f_terms" value="Full fee invoiced at signature">
         <input type="hidden" name="approved_by" id="approved_by">
         <div id="approveBody">
-          <p class="approve-sum" id="approveSum">You’re approving <b>$375</b>, not to exceed $375.</p>
+          <p class="approve-sum" id="approveSum">You’re approving <b>$625</b>, not to exceed $875.</p>
           <p class="section-sub">Approving tells Lee you’re ready. He’ll send an agreement to sign, and work begins once that’s signed.</p>
           <button class="btn" type="submit" id="approveBtn" disabled>Approve this proposal</button>
           <p class="saved-note" id="approveNote" role="status">Type your name above to approve.</p>
@@ -452,7 +482,7 @@ body{padding-bottom:calc(88px + env(safe-area-inset-bottom,0px))}
 <script>
 (function(){
   "use strict";
-  var KEY="arnion-group-tracker-proposal";
+  var KEY="arnion-group-tracker-proposal-v2";
   var form=document.getElementById("notesForm");
   var items=form.querySelectorAll(".item:not(.addon)");
   var notes=form.querySelectorAll(".notebox");
@@ -479,7 +509,7 @@ body{padding-bottom:calc(88px + env(safe-area-inset-bottom,0px))}
   showSent();
   function buildPrompt(){
     var L=[];
-    L.push("Notes from Cole Mathews (Arnion Group) on the team activity tracker proposal page, version 2026-10-13.");
+    L.push("Notes from Cole Mathews (Arnion Group) on the team activity tracker proposal page, version 2026-10-16.");
     L.push("Sent by: "+(document.getElementById("fullName").value.trim()||"name not given")+" on "+new Date().toLocaleString());
     L.push("");
     L.push("File these as received in going-forward-solutions/clients/arnion-group/projects/activity-tracker/source/, update that project's state.md and its Open list, and tell me whether anything changes the scope or the price on the proposal page.");
@@ -539,15 +569,15 @@ body{padding-bottom:calc(88px + env(safe-area-inset-bottom,0px))}
   function recalc(){
     var sum=0, hrs=0, names=[];
     for(var i=0;i<addons.length;i++){ var a=addons[i]; if(a.querySelector("input").checked){ sum+=parseFloat(a.getAttribute("data-price")); hrs+=parseFloat(a.getAttribute("data-hours")); names.push(a.querySelector(".qtext").childNodes[0].textContent.trim()+" ("+money(parseFloat(a.getAttribute("data-price")))+")"); } }
-    var total=375+sum, nte=375+(sum?Math.ceil(sum*1.1/25)*25:0);
+    var total=625+sum, nte=875+(sum?Math.ceil(sum*1.1/25)*25:0);
     var terms= total>=750 ? "Half invoiced at signature, half when done is demonstrated" : "Full fee invoiced at signature";
-    var line= sum ? names.length+" add-on"+(names.length>1?"s":"")+", "+hrs+" hrs, "+money(sum)+". New total "+money(total)+", not to exceed "+money(nte)+"." : "No add-ons selected. Your total stays $375.";
+    var line= sum ? names.length+" add-on"+(names.length>1?"s":"")+", "+hrs+" hrs, "+money(sum)+". New total "+money(total)+", not to exceed "+money(nte)+"." : "No add-ons selected. Your total stays $625.";
     document.getElementById("addonTotal").textContent=line;
-    document.querySelectorAll(".addon-line").forEach(function(el){ el.hidden=!sum; el.querySelector(".totalText").textContent=money(total)+" ("+(3+hrs)+" hours), not to exceed "+money(nte)+"."; });
+    document.querySelectorAll(".addon-line").forEach(function(el){ el.hidden=!sum; el.querySelector(".totalText").textContent=money(total)+" ("+(5+hrs)+" hours), not to exceed "+money(nte)+"."; });
     document.querySelectorAll(".payTerms").forEach(function(el){ el.textContent= total>=750 ? "half invoiced when the agreement is signed, half when done is demonstrated." : "the full fee is invoiced when the agreement is signed."; });
     document.getElementById("approveSum").innerHTML="You’re approving <b>"+money(total)+"</b>, not to exceed "+money(nte)+(sum?", including "+names.length+" add-on"+(names.length>1?"s":""):"")+".";
     document.getElementById("f_addons").value= names.length?names.join("; "):"None";
-    document.getElementById("f_total").value=money(total)+" ("+(3+hrs)+" hours at $125/hr)";
+    document.getElementById("f_total").value=money(total)+" ("+(5+hrs)+" hours at $125/hr)";
     document.getElementById("f_nte").value=money(nte);
     document.getElementById("f_terms").value=terms;
   }
