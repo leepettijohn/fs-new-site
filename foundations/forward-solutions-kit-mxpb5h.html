@@ -1,0 +1,374 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="date" content="2026-10-16">
+<meta name="client" content="Forward Solutions">
+<title>Forward Solutions - Brand Kit</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&display=swap">
+
+<style>
+:root{
+  --forward-blue:#1E5BBA;--sky-blue:#3FA9F5;--signal-amber:#F5A524;--ink:#1A1D24;--slate:#5B6470;
+  --paper:#F7F6F2;--paper-warm:#EFEEE8;--white:#FFFFFF;--hairline:rgba(26,29,36,.08);--line:rgba(26,29,36,.14);
+  --blue-soft:#E8EFF9;--radius:12px;
+  --font-display:'Fraunces',Georgia,serif;--font-body:'Inter',system-ui,-apple-system,sans-serif;
+  color-scheme:light;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--font-body);font-size:16px;
+  line-height:1.6;-webkit-font-smoothing:antialiased;padding:0 20px env(safe-area-inset-bottom,0px)}
+a{color:var(--forward-blue)}
+[hidden]{display:none!important}
+.hp{position:absolute;left:-9999px}
+.wrap{max-width:680px;margin:0 auto;padding-block:calc(28px + env(safe-area-inset-top,0px)) 56px}
+.brand{display:inline-flex;align-items:center;gap:10px;text-decoration:none;margin-bottom:40px}
+.brand img{height:30px;width:auto;display:block}
+.brand span{font-family:var(--font-display);font-weight:600;font-size:17px;color:var(--ink);letter-spacing:-.01em}
+.eyebrow{font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--forward-blue);margin:0 0 12px}
+h1{font-family:var(--font-display);font-weight:500;font-size:clamp(32px,7.5vw,46px);line-height:1.06;
+  letter-spacing:-.02em;margin:0 0 20px;text-wrap:balance}
+.intro{font-size:17px;margin:0 0 12px;max-width:62ch}
+.intro.soft{color:var(--slate)}
+.meta-note{font-size:14.5px;color:var(--slate);border-left:2px solid var(--sky-blue);padding-left:12px;margin:22px 0 0}
+.toc{list-style:none;margin:26px 0 0;padding:0;display:grid;gap:8px}
+.toc a{display:flex;gap:10px;align-items:baseline;background:var(--white);border:1px solid var(--hairline);
+  border-radius:var(--radius);padding:12px 14px;text-decoration:none;color:var(--ink);font-weight:500;font-size:15px}
+.toc a:hover{border-color:var(--forward-blue)}
+.toc span{font-size:13px;color:var(--forward-blue);font-weight:600;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap}
+.section{margin-top:48px;padding-top:28px;border-top:1px solid var(--hairline);scroll-margin-top:12px}
+.section-num{font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--forward-blue);display:block;margin-bottom:6px}
+h2{font-family:var(--font-display);font-weight:500;font-size:27px;line-height:1.15;letter-spacing:-.02em;margin:0 0 8px;text-wrap:balance}
+h3{font-family:var(--font-body);font-weight:600;font-size:16px;margin:30px 0 0}
+.section-sub{font-size:15.5px;color:var(--slate);margin:0;max-width:62ch}
+.section-sub+.section-sub{margin-top:8px}
+.items{display:flex;flex-direction:column;gap:10px;margin-top:16px}
+.item{background:var(--white);border:1px solid var(--hairline);border-radius:var(--radius);padding:16px}
+.item.on{border-color:var(--forward-blue)}
+details.item{padding:0}
+details.item>summary{list-style:none;cursor:pointer;display:flex;gap:12px;align-items:flex-start;padding:14px 16px;min-height:48px;border-radius:var(--radius)}
+details.item>summary::-webkit-details-marker{display:none}
+details.item>summary:hover{background:var(--paper)}
+details.item>summary:focus-visible{outline:2px solid var(--forward-blue);outline-offset:2px}
+details.item>summary .st{flex:1 1 auto;font-weight:600;font-size:15.5px;line-height:1.4}
+details.item>summary .st small{display:block;font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--slate);margin-bottom:2px}
+details.item>summary .done{flex:0 0 auto;font-size:12.5px;font-weight:600;color:var(--forward-blue);background:var(--blue-soft);border-radius:999px;padding:2px 10px;margin-top:1px;visibility:hidden}
+details.item.on>summary .done{visibility:visible}
+details.item>summary::after{content:"";flex:0 0 auto;width:9px;height:9px;margin:6px 4px 0 0;border-right:2px solid var(--slate);border-bottom:2px solid var(--slate);transform:rotate(45deg);transition:transform .15s}
+details.item[open]>summary::after{transform:rotate(-135deg);margin-top:10px}
+details.item>.body{padding:0 16px 16px}
+.cp{display:inline-flex;align-items:center;flex:0 0 auto;min-height:32px;padding:4px 12px;font:inherit;font-size:13px;font-weight:600;color:var(--forward-blue);background:var(--blue-soft);border:0;border-radius:999px;cursor:pointer;white-space:nowrap}
+.cp:hover{filter:brightness(.97)}
+.cp:focus-visible{outline:2px solid var(--forward-blue);outline-offset:2px}
+.row{display:flex;gap:8px;align-items:flex-start}
+.row>.opt{flex:1 1 auto}
+.row>.opt+.cp{margin-top:8px}
+.sug{display:flex;flex-direction:column;gap:6px;margin:0 0 8px}
+.sug div>span{white-space:pre-line}
+.sug div{display:flex;gap:10px;align-items:flex-start;justify-content:space-between;font-size:14.5px;padding:8px 10px 8px 12px;border:1px solid var(--hairline);border-radius:9px;background:var(--paper)}
+.part{margin-top:16px;padding-top:14px;border-top:1px solid var(--hairline)}
+.part:first-of-type{border-top:0;padding-top:0}
+.part>.plab{font-size:15px;font-weight:600;margin:0}
+.tools{display:flex;gap:8px;margin-top:14px}
+.rm{display:flex;align-items:center;gap:6px;font-size:12.5px;color:var(--slate);cursor:pointer;margin-top:3px}
+.rm input{accent-color:var(--forward-blue);margin:0;width:16px;height:16px}
+.chip:has(.rm input:checked) i{opacity:.25}
+.chip:has(.rm input:checked) code{text-decoration:line-through}
+.ty{margin-top:12px;border-top:1px solid var(--hairline)}
+.ty>div{padding:12px 0;border-bottom:1px solid var(--hairline)}
+.ty .nm{font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--slate)}
+.ty .sp{font-size:13.5px;color:var(--slate);margin:2px 0 0}
+.ty .sm{color:var(--ink);overflow-wrap:anywhere;margin:4px 0 0}
+.lab{display:block;font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--slate);margin:0 0 6px}
+.ilabel{font-weight:600;font-size:16px;margin:0 0 6px;line-height:1.35}
+.guess{font-size:15.5px;margin:0;padding:2px 0 2px 12px;border-left:2px solid var(--sky-blue)}
+.page{font-size:13.5px;color:var(--slate);margin:6px 0 0}
+.hint{font-size:14.5px;color:var(--slate);margin:4px 0 0}
+.check{display:flex;align-items:flex-start;gap:10px;padding:10px 0 0;cursor:pointer;min-height:40px;font-size:15px;font-weight:500}
+.check input{width:20px;height:20px;accent-color:var(--forward-blue);flex:0 0 auto;margin:2px 0 0}
+.check input:focus-visible{outline:2px solid var(--forward-blue);outline-offset:2px}
+.field{margin-top:10px}
+.field label{display:block;font-size:14px;font-weight:600;margin:0 0 4px}
+textarea,input[type=text]{width:100%;font:inherit;font-size:16px;color:var(--ink);background:var(--paper);
+  border:1px solid var(--line);border-radius:9px;padding:10px 12px;line-height:1.5}
+textarea{resize:vertical;min-height:64px}
+textarea.big{min-height:120px}
+textarea::placeholder{color:var(--slate);opacity:.8}
+textarea:focus-visible{outline:2px solid var(--forward-blue);outline-offset:1px;border-color:transparent}
+.opts{display:flex;flex-direction:column;gap:6px;margin-top:10px}
+.opt{display:flex;gap:10px;align-items:flex-start;padding:10px 12px;border:1px solid var(--line);border-radius:9px;cursor:pointer;font-size:15px}
+.opt:hover{background:var(--paper)}
+.opt:has(input:checked){border-color:var(--forward-blue);background:var(--blue-soft)}
+.opt input{width:18px;height:18px;accent-color:var(--forward-blue);flex:0 0 auto;margin:3px 0 0}
+.opt small{display:block;font-size:13px;color:var(--slate)}
+.inline{display:flex;flex-wrap:wrap;gap:6px 8px;align-items:center;margin-top:10px;font-size:14.5px}
+.inline b{font-weight:600;margin-right:4px}
+.pill{display:inline-flex;align-items:center;gap:6px;padding:6px 12px;border:1px solid var(--line);border-radius:999px;cursor:pointer;min-height:36px}
+.pill:has(input:checked){border-color:var(--forward-blue);background:var(--blue-soft)}
+.pill input{accent-color:var(--forward-blue);margin:0}
+.notes{margin-top:18px}
+.notes label{display:block;font-size:14px;font-weight:600;margin:0 0 4px}
+.sw{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:8px;margin-top:12px}
+.chip{display:flex;align-items:flex-start;gap:10px;font-size:13.5px;line-height:1.3}
+.chip i{flex:0 0 auto;width:34px;height:34px;border-radius:8px;border:1px solid var(--line)}
+.chip code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12.5px;color:var(--slate);display:block}
+.grp{margin-top:14px;padding-top:12px;border-top:1px solid var(--hairline)}
+.grp:first-of-type{border-top:0;padding-top:0}
+.grp p{margin:0;font-size:14.5px;font-weight:500}
+.steps{margin:10px 0 0;padding-left:22px;font-size:15.5px}
+.steps li{margin:6px 0}
+input[type=file]{font:inherit;font-size:15px;width:100%;padding:12px;background:var(--paper);border:1px dashed var(--line);border-radius:9px;margin-top:12px}
+input[type=file]:focus-visible{outline:2px solid var(--forward-blue);outline-offset:1px}
+.send{margin-top:48px;padding:22px 18px;background:var(--white);border:1px solid var(--hairline);border-radius:var(--radius)}
+.send h2{font-size:22px}
+.btn{display:inline-flex;align-items:center;justify-content:center;margin-top:18px;min-height:48px;padding:12px 26px;
+  font:inherit;font-weight:600;font-size:16px;color:var(--ink);background:var(--signal-amber);border:0;border-radius:999px;cursor:pointer}
+.btn:hover{filter:brightness(.96)}
+.btn:focus-visible{outline:2px solid var(--forward-blue);outline-offset:3px}
+.btn:disabled{opacity:.6;cursor:default}
+.saved-note{font-size:14px;color:var(--slate);margin:12px 0 0;min-height:1.4em}
+.sent{margin-top:16px;padding:12px 14px;background:var(--blue-soft);border-radius:9px;font-size:15px}
+.foot{margin-top:56px;padding-top:24px;border-top:1px solid var(--hairline);font-size:15px;color:var(--slate)}
+.foot .fs{font-family:var(--font-display);font-weight:600;font-size:17px;color:var(--ink);text-decoration:none}
+.foot p{margin:6px 0}
+.foot a{text-decoration:none;font-weight:500}
+.foot a:hover{text-decoration:underline}
+.foot .sep{margin:0 6px;color:var(--line)}
+.sw{grid-template-columns:repeat(auto-fill,minmax(150px,1fr))}
+@media print{.cp,.tools,.btn,.saved-note,.toc,input[type=file]{display:none}}
+.fdn{font-size:13.5px;color:var(--slate);margin:8px 0 0;padding-left:10px;border-left:2px solid var(--signal-amber)}
+.fdn b{font-weight:600;color:var(--ink)}
+.words{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.word{display:inline-flex;align-items:center;gap:8px;padding:6px 12px;border:1px solid var(--line);border-radius:999px;background:var(--paper);font-size:14.5px}
+.word .rm{margin:0}
+.word:has(input:checked) span.w{text-decoration:line-through;opacity:.45}
+
+.imgs{display:flex;flex-wrap:wrap;gap:10px;margin:4px 0 10px}
+.imgs figure{margin:0;display:flex;flex-direction:column;gap:4px;max-width:100%}
+.imgs .tile{padding:12px;border:1px solid var(--hairline);border-radius:9px;background:var(--white);display:flex;align-items:center;justify-content:center}
+.imgs .tile.dark{background:var(--ink)}
+.imgs img{display:block;max-width:100%;height:auto;max-height:110px}
+.imgs figcaption{font-size:12.5px;color:var(--slate);overflow-wrap:anywhere}
+.chip.ro{align-items:center}
+.spec{margin:6px 0 10px;padding:10px 0;border-top:1px solid var(--hairline);border-bottom:1px solid var(--hairline);overflow-wrap:anywhere;line-height:1.2}
+#fileHome{display:none}
+</style>
+</head>
+<body>
+<main class="wrap">
+  <a class="brand" href="https://gottamoveforward.com/">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFkAAABICAYAAACdgVmRAAATVElEQVR42u2ce3RdVZ3Hv7+99zk3NzdpHuTRZ5I2BWuKKEyxQluTLmEhrDqgQ8LDsai1FMGlsxhQ1hI5uaPDGobnGqCsQYUZRcVkZmRcLgcFp4mu8Vnro7QlLW3TR9ImadPkvs89Z+/f/HFu2rRN2qTNq+D+5yZZN7lnf853f3+PvU8IfxlnHcxM1AxqXArqLQe1t7UB2/sYrU16pPcTAEsArubCu9t3zqe/IAy4MDOaAdreCmotbyO0AVjawGgiPSJEAFIAKX0o8uAbYvYfBkVVfza7aNAVCzIJd6GKH1vEsXTtu5Dc+g6CzAQGnOEg0QD0YVSQBEAR8Jt+Ln5012Dpkf5k7aDJLvZIXpzyxKKUpxfFtCmDRoWBlJR1YcWSUMk4fE+jortz390V+R+gt9m6JmA4SBDOsrQlAJ+ZXo/FSlt3UfnBvsHao76pSgu+JJ6V1ZmMXmRg5mZYFruWbXnKhmYBGB8ymYQdG0De4DFY6YSxslkjlGCXpCk9PKCvyfeufuaZdX+iCxlkW3ObaG9oANraADQYRMmMpEiRA/n8nmOzXu8y8/pTZlG/l6np09YcdlNLWeKSjEeVHqPE2PnkQcCHAGsNNgbQPsAapLWx3IzJS8YRTsTJSqeIjAETE5MkKAnf115BV791VZF/90tPr3+u3tmkaCaDbGxtFb3l5dQOAH0NjG3NjGjUjPQrCoDHrJ7viBf/4WhmwYGEW9vj6ZoBn6uzvrkk66EqA1nqG6rQdj60AJgEPF8DngdoDzA+wKQhwCABgEgZn6xMgkLxJOxUgizXDYAzgYUAiABmQAgY3/fVrj5VExrc+Kvv33/PipUPqfb2qE/TCdJpBm1f2koByCFFtpmRQMqcIrPM9sO74kW/6D46P54QFw8aa37K50Xayy7xiKsyGmVZFiW+nQ+PBAwDrHWgRu3nQLJGgAnETBBEDCIhBJiIKOvDSicQTsQRSqUhsykQM5hEsDQghiYBYoaxFDjjamw/JBcX0e9//tJnryJq1uBmBhGryU99mqlxaTP1lredUGQTDIg4CvCpS1sFIEOPdqJky96D1T1ZUduXNVWQoi6ezNZUvrxnfhqiVJMo0ioMTQLMgGEJ9nyAvQBmNpYDCRCYiEDMQ/GMJBEDJAM1GgPpuwjFU8iLx2Clk5CeFwAUOcUip9gc3KEXoyxQMmn0GwdFRT4dvf3m995MRJ7jOCJKxEPzOv+I3QzavhTUuq0t+HtB6mNwCsQhDSgALnP4sY6B2f+7LzW3X2cWDnr2gpRxF8PDxSkt52WBcpAq9K08eCzhsQZOViQDMMFFUDCXIaagU+bFx2/j0BIXhmG7GdipJOz4IOx0GqQ9UO7XmeiEFYysILClwLEE09ZOk2db4v3LZl/38ldvf62xsUW2Dgu0NG6QAFDeRoEiR059RC6PPMI8x+kYyNvflVh40KMaH2JxLI2FGd+9OOmbch+yMivtkCesnCIZ7PuBP2p9HKQAmIlAHIDkEUGeDiG4egIJAQKBjYadySCUSiAUj8HOpEFa56CK3CuD+GxIALYUqP8YePt+T+YVWEvmh7742vN3Plpf76j29qh/KhMATMw4ORkHgLbTI7bIyUcA0My0C0cLn9qiK/b2+QsHjFk4wHphPCMWal8v8kgsSPu6GCovz5MWGALaAMYLggd8D2BjwGAiMM6qyLNVFEBwC0SgWAaE9mFl0gjHB2GnkrBcF2T0SaoOqI3VAgGyJdBzFGbnQV/ZBWrhnPArv/z39R/1VzkKpwDOQWbCKPfOCvyR/u8ICl7a687dF+tfFPf9xYfTqPS97BIW8t1JjYt8wxf5KqyyZMEjgA0HAAOIgNEGIAMwcuYocpMjHifIkWedW96CQAZQxoedSsGKxxBKxSG9LKTO3ckhfz3JRsb6WQBbEtTVB+ztNgxbVFbYHa88cuNV1dUvDDoOEB0haJMAYBPwX4Nc/vKO/opYf2LxIa2rY0ZUuVlakvJNVZq5XBtRoUN5IssASMEYA/Y8wBjA5BRJZCg3aQIIzCJIxmiCsxgOQAkZSMQYKM+DnUohlBxEKJWCyrrgnF2AZMCV+fw+Vilg3yHQvsPskzTlZQX6lmtqr3pww/VbTvXhkyDf+JN9L/xykFZ72i82hgp9O1/6QkEDML4fpD/GD1QJaAomyBgesScF5KlLzoAhjwckYobturBTMYQScViZNKTn5cxPBPKZCLAc2A8kgfd0Q3T1wZfCj+RH1PIlRWu/++gd3x7Jh0+6N5dehH/sZXK3J0J3xTwBJOJZEkQAB8kjIUgnA4byxFILcIMmLf87AUwQBCyQ8SHTadjJOMLJGKyMC+H7ADFYSLCUw1yAx+0GIy8YAgsCdh0EHToKo4QfsotU3Xz72e8/dnbAxxFZAD752+4rf3pQP34Y+avc2AAEjGYScooLlEClRIAQYBCk58HKpGAn4wglE7DcDMgYgAhGBLkM8Tn461iuRYggVevYDxwdBEmpDdmydnbo57/49t3XEjVp5hZDdOZ8RIGZvFaIr7+ffsfMq9f87OB9f0TIOeRbYU7GtCASTJNpBXw8keDcPVWeh1A6BjsRh5WKQ7keBBvoXDbAUgEMEPPEwx3KgaUEfB/o2Ac6lgApZbQRsqJYHV53a/UtRJR1HEecDfBJi91hFlECCxC/uLP38qd3m6/tSNINybQL0q7GJKiac4oVhiG8LEKpJEI5xUovG/ATAoZE7kJ5KpZTANj1wDs6IWIpkK3Y81kXRcJYs7JqzRMPfPQn9Y6j2qNntonRi5EWlmginQdg5c96m944ln20l+0qk4wZQQyGEBMTyQjSzyIUjyEcj8PKpCD8oDfDJM5ecU2SXbGlQKkMsK0TSGdASsHX2osUFlvLagu/+P0nP/FovbNJtUdX+2Oe6kg/dJhFtBlAlMzO7lj5uq3Jx7bFeW2/B8BN+YKg+HwiHjNYKRT09aDk0AGwtHJBdKhVzpjywQyyFHQ8BdrRCXI9QEpAaw27QL6nelbrphfXNblXPzhiwTFuyEOjftMm1b56tW8DuOd3B274wUGKdpvwsmxskImMAZE8L8hH+1Dc3QVWcmoVe3ojC8aWEP1J0I7OoKSXEsRG+8KS88pCf371X25dWV5enmRmHosPn1oljzraV6/2wUxZh8WTVy748d6bDl99Q2nq8dmFtuG8AsnGaOLzoCPkxKRa5xt2bQXqjQHb9wLmOGD2DVFpgYo1rVrQVF5eHnccxngBD/W6z+adDIAbW1gSkSeA+x7546HW73bhn3bapQ3JRBykPQ1xDoEx15CZLocAMzikwF39kG/tD0puEawqw9CFBWF15SVln/7S3Td1NDa2yGiU9LkVUuNtbbZAoIk0M9ONP+va8JsBbj5C4UodO6ZF0PwWY5qclIjEBlGyv3Na7IIBwJLAgR7QnsMgmet/MMDMvsrLV0urZz3y6nOfeuCKO//V+v3zG7xzr1bPYQylewDxf+zpr358Z/afd6RE00AqC/IzPojUWCCHEzFc1Ll3aiFzLnVUBOztAe0/DCg5/No0rLCsmR366W9fuuc672Mvy9E2YSfEk0cbUSIDENc7m9TNi0r3bfnw7FturszcviCMXVZhqWLDTGAz6j3M/ViTgJGYUsAggCXAb3WB9h8GW2p4q9RoUrKsWO2P3rViracNOXXbzvvizivnbY+u9h3HEW4Ly2+sqPre1g8VLP+r/MSTxRGLjZUvmLU/MkE6XmhMXvNjpDJZBmV7xz6g6whgqVzVGLzBZ+aiWcr70OWVt11z1WU9jY0tIjrKxu2k28VIo7GFZWsTaQHgni0Hr247SM/s1pHLU7F+CKM1hJQ8LLoxCdiZFMo63xpq402ugiUF2/tv7gf6YyClTtx/AoxhPxSJqBV1RZ//ziN3PD2Wxs+UQ87lm0TNbRLR1T4z59/Y1nPvr3uzXzwqQoUmEdM0rA/CRFBZF2Wdb0EaM3mKZg48N+sBOzphYikIJU/KZhjsS6tALVlgv7jpmxs+vWLVxAGevEZlsPNhAODxPx1+z0sHsg/vythrEmkXpD0fBMUkIL0syvfugtIGPBk9qFzRg0wG2NEJSmQCizDD1hSzNtKWVRX273/90udWETVlwS0G55APT4onnyH/NWAmOJvU37939taONVUfubbMu6MmIrtVQYliAxZgA5Fra06aghWQSAFb94ASbvD9MMAEGA1JFbPs/tuvrb2FiNKOU8cTCXjyIA8VMdHVvsMsUi0t8gcNC7710yt5+fKw+0JhWBGssGDD+njzf8IbPRZ4MAHathfC9QAlTorBBMA3zLMKbXF1XfHaL3zyht2NLS1yIgLd1NjFCOPOzZut55ct8wSA9b/Yfe2mY/ZTe127rnjrFg5lXeIJau6BAVgKfHQw6AWbE8334cMwe6FwgXVZje388NkN/zCRgW7aIB8PjK1DFeP+8PWvm6++uXn3F7KJlCBmMSEWYVkwvf2gXQeCHRNBp5fsbDSpfLmwUr7yq+9+/qP+yofG3VmbGXYxooMQo4n0nZs3W0RV6f+5pvrLszv2JLzeAcGKmMV59I9zB064uxeiY3/uyBqN1BMxmmxZWaL2PHz/X3/a1yycBpjJnLfCNIznly3zwEzbAD7SM9BluVyM/hijppI4Egb5+vh+33j6ELSvB7yvO+gD43TABLCviUtKrPR1y+c0rrqs+ljQ+Dm/snlGKfnUGV9KlPW1jgnLAh0dYPrzbnBXb2Bicgz9DA6O5kAKYE93cCZCqlFd0Gj4hQV58j01RXc9fO/fbKl3HNXaOrmApxcyCJKAgogtjMkVDIYh3uoGv9EJk0jBWPKE144A2MigXYqdB0EHek9u9Jxu174Kh62qitAzrU9+8lv19WPfo7uAIQd8wnlWAHGIo6VAsQRo626I3YfBzEG2cFKJxqAhv92xHzh8JGhb8qiENUtbVRbRpte/ueHvGPWqvb1ZT9U8pxWyEMCsSH5wsmt4hiCDU5imqwf48+4gHZMyOGdhGKwkNDPktn2gIwMgyzpT099oCFE6iw41ffBdtxKRdpwGAxC//SE3NgpPA909/bukkidvQuW+EkoBaRe0rRPoOABks+CwBbguaOse8EAsp2AezfZZG+aiwhAarph3x/13X9cbBLqomcqpqmmD3FtHzIDv6ThRaGQhcnBODJJAvf1ALA7MKwd6joES6aBMHi04EqCN8cPhQuvKS0q+8uyXm16rr3dUa2uTP+UrFtM8SksLxJg2+JSCyGrQW92glHtmwLn2sLQjVnWF1dL61Ce+hkms6GY85MJI/tj7EUSApc5+6IXZGLbU3FLRsemxm9e7HtNkFxwz0y6GIOeHDBAfX+l8ljcYligqsgdXXjHnJiorizkOi+gIz/i9Y5T85t6eNyewvmHNpPMjtrh8cf66J+67+c36ekdNJ+BphVyfe5VEGaKJaXdqNjqUF1FL5kee+N5jn/nPemf6fHhG2UVZST4Svdlx9SpGKzhIhtWCUnr9R8995n7acVC1R6MaM2BMn100BC/zyvOkFOenZAKMR0JWlqpDD6xr+AQRmVyg43c25BxlkmrQBGU1nSNg9jTzRYVh8+GrF3x8zepLD09HwXGmIafrg/dVpAjbt3OPWpYP0GcoyLBonIDhs9EFkUJ1WU3B574eva213nHUjzd+TmMGjWlTciMaAQC1C0qFUoRzORxqmH3LiqiaSuvf/nvjuo08hZ21CyqFm1dZCinF+CEza4iQml1KW17/xoa7PP8hwW3NGjNwTHt2saSqTGzb3YcEB97FY7IJZg9EFbNU/0c+eNmtROQ6Dgsi4pkIedqUXFfXyAAglDfo+1mfxkHIM6xLCgvEyvfNWf/QZxt2zYSC42yxY5pG8Ex31coHSvxQ8R4iURw8lH3ma2Jm3w4XqvfWFH7tRxvv+MrKh8b3kMw70pM/csO7RTgkKPiPOGfb02PNVr6qqbRefeWZtQ9pbpTt0dUaM3xMG+ShOLdkyVzYljWGwMfGkJJzS2XnM/eu+DgRwXHqJulpybeZkq9dXkd5eZYwrEc9QhvscAgUFYTcVe+b33jppZf2T9TZ4bc15CGc75o7N+W53rEzPfCqmXU4Eha1cyN3PvWlmzbndjg0LpAxjecuKHgGnygVi7t9Uiown770mdm38wpV7ey8jT9+bt236utnRmftQrILtiRhVsSWPNIjJsyaRJ6aU0K/ee3r6+/lxkbZNkMLjpkMmQBGKGSbU88bEmB8VqK8VB25Y82ioOCoq+OZWnDM6IpPCEJBxJLcnxn+zCT7BqagwJYrLiv/28/edn3nVJxZe5squVH4mhFLul2STpy90Mw6EpmlrqgtdjY+eOtPpurM2tsTcn0daQMcO5Y4JJTIxTn2pZWv5pfplh8++6mvcr2j2pubL1jAMyJPBoCS4ojKJRbakKXml8qdbY80rXM9Q9zWrHEB+vCMg1xYGGLBBM8YUTpLpT7WUHsbVVYmGhtbBF3ggGcM5NKiiPC0McUFBdYHFpfe+aUN12+50H14RmUXANC5v2dHKFwklsyXj3/7ibXfqZ+hOxwXtJJTLqzKWe7mV7+x/j5PX5gFx4yF3FixnQHgmuXVHdcuq1mb9TQc58IsOM40/h/b5x2RNzsUmgAAAABJRU5ErkJggg==" alt="">
+    <span>Forward Solutions</span>
+  </a>
+
+
+  <p class="eyebrow">Brand Kit</p>
+  <h1>Here is how your business looks. Tell me where it&rsquo;s wrong.</h1>
+  <p class="intro">Your Foundation and Brand Voice are struck, so this page is only about the look: the logo, where it goes, the colours and the type. I went through the files you sent and the colours and fonts on <b id="siteName"></b>. Nothing here goes into your Brand Kit until you&rsquo;ve confirmed it.</p>
+  <p class="intro soft"><span id="partCount"></span> Allow about thirty minutes, and it doesn&rsquo;t need to be one sitting. Where a card says <b>From your Foundation</b> or <b>From your Brand Voice</b>, that&rsquo;s a line you&rsquo;ve already struck, shown because the answer has to agree with it.</p>
+  <ul class="toc" id="toc"></ul>
+  <div class="tools"><button class="cp" type="button" id="openAll">Open every card</button><button class="cp" type="button" id="closeAll">Close every card</button></div>
+  <p class="meta-note">Everything you type is saved on this device as you go and stays here after you send. Sending is optional and can be done more than once, so send what you have and come back for the rest.</p>
+
+  <form id="intakeForm" name="foundation-kit-forward-solutions" method="POST" enctype="multipart/form-data" data-netlify="true" data-netlify-honeypot="bot-field" netlify-honeypot="bot-field">
+    <input type="hidden" name="form-name" value="foundation-kit-forward-solutions">
+    <p class="hp"><label>Leave this blank: <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+    <!-- Sent as short fields, one per part, not one long one: a single long block was filed as spam by Netlify (10 Oct 2026). -->
+    <textarea name="about" class="hp" tabindex="-1" aria-hidden="true"></textarea>
+    <textarea name="part_one" class="hp" tabindex="-1" aria-hidden="true"></textarea>
+    <textarea name="part_two" class="hp" tabindex="-1" aria-hidden="true"></textarea>
+    <textarea name="part_three" class="hp" tabindex="-1" aria-hidden="true"></textarea>
+    <textarea name="part_four" class="hp" tabindex="-1" aria-hidden="true"></textarea>
+    <textarea name="part_five" class="hp" tabindex="-1" aria-hidden="true"></textarea>
+    <textarea name="part_six" class="hp" tabindex="-1" aria-hidden="true"></textarea>
+    <textarea name="anything_else" class="hp" tabindex="-1" aria-hidden="true"></textarea>
+    <!-- The file field is in the page itself so Netlify registers it; the script moves it into the upload card. -->
+    <div id="fileHome"><input type="file" name="files" id="fileField" accept=".zip,application/zip" aria-label="Zipped folder of logo and brand files"></div>
+
+    <div id="parts"></div>
+
+    <div class="send">
+      <h2>Send what you have</h2>
+      <p class="section-sub">Sending is optional and can be done more than once. Everything typed here stays on this device either way.</p>
+      <div class="notes"><label for="note9">Anything else</label><textarea id="note9" data-k="note9" rows="2" placeholder="Comments or questions"></textarea></div>
+      <button class="btn" type="submit" id="submitBtn">Send to Lee</button>
+      <p class="saved-note" id="savedNote" role="status"></p>
+      <div class="sent" id="sentNote" hidden></div>
+    </div>
+  </form>
+
+  <footer class="foot">
+    <p><a class="fs" href="https://gottamoveforward.com/">Forward Solutions</a></p>
+    <p>Lee Pettijohn</p>
+    <p>(970) 712-6933 <span class="sep">&middot;</span> <a href="tel:+19707126933">Call</a> <span class="sep">&middot;</span> <a href="sms:+19707126933">Text</a></p>
+    <p><a href="mailto:leepettijohn@gottamoveforward.com">leepettijohn@gottamoveforward.com</a></p>
+  </footer>
+</main>
+<script id="intakeData" type="application/json">{"business": "Forward Solutions", "site": "gottamoveforward.com", "key": "foundation-kit-forward-solutions-2026-10-16", "handoff": "Save this as the raw Brand Kit record in foundations/forward-solutions/source/, as sent, and the zip beside it. The Brand Kit is written from it, the struck Foundation and Brand Voice, the site scan's Brand Kit facts, part four of the intake answers and the logo files.", "parts": [{"title": "Your logo", "nav": "Your logo", "sub": "These are the logo files you sent, and what I could tell from them. Tick what’s right. Where a card asks a question, copy the closest starting point into the box and change it until it’s true.", "cards": [{"k": "l1", "type": "guess", "label": "The logo", "text": "A three-part blue arrowhead pointing up and to the right, with “Forward” in bold and “Solutions” in light beside it, both in a slanted sans-serif. It comes stacked (on two lines) and on one line.", "page": "The nine PNGs you sent", "imgs": [{"src": "data:image/png;base64,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", "cap": "Stacked: ForwardSolutions black.png"}, {"src": "data:image/png;base64,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", "cap": "One line: ForwardSolutions.png"}, {"src": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAUAAAABkCAMAAADABBkMAAAAwFBMVEUAoN4ZYZ8ZSnsAo+EAv78ZPIIFmdUYJXIaNHwnOokWb6oAf9QAAAD///////8ZerEaQ4gAoNz///////////////////////8Ap+UGmNMDP38AqfwAVaoAAP8Af38A//8aPoUAf78ZVpcPisQZQogYQ4cZQocAf/8ZQoYZQoYZQYYZaaQAod0Ug7sBoNwAAH8Aod0AoNwAmtYAod0AqqoAoNwAVVUAntoYPooApOEYRIkAo9kBo+AAo+AAo+AXP4XFXHr2AAAAQHRSTlNV8QojBKqdH1gNnAYA/AT+/v6tLtFOb4/+/gQDAwECAf8E/v3RMbACjU9s/rL+0wJPkBNwAzEDKxTOFhWucZAlgMhvEAAAEP5JREFUeNrtnXljEzcWwE2h7R6KMDpjbCeYXCSlSxrCUdhuv/+32hmNjvekp7lsukm38wcBe0bM/Obp3VIW7A85Tk/v17tnV+GfX58ufvvhh7N/bE7YYz8W33j87enVereO5O4+LN7/8PbXF6vV6uezJz+y7V8Aq+ROTtfPIrl/3n24ff/L23+9eHHcHKuz583x+kf2+AXwGwDcnjSzdX0aRA6ROz5uZO/n5+54/Tf28vFy4+E4IMDTk/vdbhfI7b5+WiByzV9erM48vYbf954frxz/RxJ4etWQuw/kvn79dJuRc8cK0Gv5nW4esfwxrv2x2JPc+lkkt/7qZ+sxJteSXHVqLx7L5Rf2zt+KJI/mi4cMUB91h1jMJLde7+6jaf309P37txS5F93Ezei1/C7Yxt+KOCIP+bABGn+bZjGZ3G63Dv9af3p624hchVyg9/Pz5wW/m6AAGaf5qQcugeG1y8UUcsCdu10Qaq6kd1bSe/7TcnkZDDBnkgYoHjY/Ht/zEMAtJlea1hq8Cj3H7/zzu20+F7LDPGyAMr7nxcgQYv3hdhy5aDRIeo5fowBPirnwSFUgAbAjF0zrs7tPY2brgNFIx5OG33X0oJu5oGiAj0QFaggQhxCtU/LbJHJ1owHcv1fL5ZsUgQAVqODxsFUgS6+dO4AuVbIr3LlJ5HqMRsbvcrOh/KlKHDImLJkZtYyLecDX4fT02hXji6soc0/v5pIbR6/jt/zcedAeoPW3YimRSw+HHxM+evwTs6i9ifBBeS55Ivo4/U2nu24lcH3nbevxHHIDRiPnd802UJmEuaAJCXRkpNZtWFKTs/ZDKceoreKf7dDt2LwqyO0nXOJ7cWfZqAL54vbtXJkbZTSg+9zyu4EpGOBGE0ajDTiDshZGRgjNDBLdoXl3jmXWfxKGyXVBYzf9Gc68N6cZkbSvNVrGE7kfy7TXNoMLztG9qOZeVPIVFne/zAQ3ymjk/C5RCiupQFW8/uYDjSy0jXCAE9GdIxl+D8C7tP6D9KYcVV0a/wYMuiXbiLbqPFL6AhcutUbk06/H35xeG741x/nfT7YIYFUF8vTdEbAz2IngXPifKABszlM5QAP+XQ4dTQI4U3MbpKx2QesrLE7XbPPbHL33Yozaw/yAB134U3yIXwjvku+odPw8IeBQihJAMOlqOFz0A25JhblR9fbbCxoJbKzwp383dmCK0ZhGz4UfyIPOVWAeeNAPqTv9JYvnkBligUNCGHrV+bXDl8kNy+oXyA5gY4abqTxaCMvk3lh+b7IcPvCnMhsCZSgXwfI7iQEiwh4gMJv00F6Blm9Hs94LfCRydcXu/rN/nNbP7/JkUwspBfZgOE9y0JhIge64EAiVntpiXHFaJh0Jhz6yxlhRUYHA6MB7sULh9xlCuUYIb4eNyQSjgcPfZeZBZyrQsNoEdt9oOIeTPkvmUiMTwbNZnxxfAwkJb9R1n30Ryelr/QB3gYXSHWPhxpg8HRLCs+czDuc+OwPysfDzAgqT5fIlVEtAa5lSS9nWtdVI3kwOMKU/gTy1asMNbpCGRW+n9TQ5YMnR3WgEkLF7xj782mdMjs/24HdTFDEryVQJxEB0VhUKCdJhynCkMTveCo+WkAtI19stQDdTgW5wIJIxulPQ6YTprNMdO+nzaOYADPwuyyJwRZ23d43vGek4OAe1jzmgEGWjSpZ9rXLPMzpFHF3cCB9Dr8ME4MBnKsqaV1v24d/1FP3ZbH7nL0+2JUBbsbQa5/UzgMl39PFrIiRZ7rRJ4FYrKGGS8zy5DFWg6QYHRKMbr9EryBOqux5jMh3g0vNb/k50cRTWIL5okTIM5T1n4onehExARJpmkjAhIsaFWH8qoC3R0OkCpALLjHSPR3O8mssPpWBKNzr3ZrMMAwx+eeY042dKMiRs/kn392j3OS/hQ38n/NcKv0ysM+nOhKpHMxXgMhxvqC6YugqUvS/dFGUnEBxH+toWGlWQoQ80CcXbKS8oGFNFpcaj2VE5mokAI7/L7aa3MnOU5fJ1pufxSy/D5/iZSlbApxkUMCESqkCe8xDIAzK59k0imTGmq3KtR1Mak0kAf4r8QhdHtTJjUBySOWZ51hA7ERnAOOWs/5k+6bICGllQlvnY+fQs7VnJuFLW3Dbz+H1BcDWL3wXb9Banj2TFOAeAHD6FzBC4Q0VXV4YhA0BoQigeFmUSVE37xtnAM8bVuvDVqcvRzAQI+N3QbYBwdmQSKGquriHmN4xomqBOBLoqj8Q49AhtFO4+FYjcmlAjyRj3dCa0ORpsTFYz+F1W2ihLj6LsO2G+XkQFKVAF8oQlPm6eKrRIx8VEtSAzCbYCkJDhvtaOk1Pn0awmAwzuc8WDZqVc0VOY4+yegAIgCYCGmygdIWGgwfmAkC90iCMyk6BLgN0FyfCZEQCdEH4AQriazI/0oDP/QdYA2i5Ow7mYMoOYPtQsTmUe/gYMNJZ6Dvn5rE1uoIoLLE7uDneoNh7NXQqPV5P5XbPNUH/OUT2ZKlEuC5lRMO/TUFrH62TI1eDEKhoaFooyN5oXrlZ7gVRl78lge9s9SPivpvJ7U+0jLz0KKkljDcimoryAoQCCESXVa4OHFkU2ujBQ9QviXQ/3B2530aNZTeRX5KBHFuTIhiNLOWokQF1+FKxurZdJkSqw3v+Z7npMg2Xj0dw5j2Y1Ifwlc9BkT0LZNUDFeKLzcYh5X5zPy4+iR2TrPKi3Uy3I6SkAY3g8nNBfwuOCbYZ7PImeBOquFe7qga5PTssWScEUeGQSJTSV6kYGSg70L45s8T25Z18bj2YSv5uehTSwJ6EEWM404XUYoQKLQhDSlcWcNOitoEws/XaQzJqUfZ26TsR5NGdj3eceDzq7L6oTEPkLPr3Jq4X4jJYiakOgtQp8Y7N0Pvl2OLgVpXlx1+O79E93bPdkPL/z7062vU2yroPHCk32tTUug1WgNhEyq77xx3I8hUVoLvIDZh+Z7OxYEHCNRNbarvph/DXIMeXxgvY+ZHHXU5Y57Nj3y59G8su7OCY3P8b+M142p83oycUvpx13dGNmuICT9zEF4Mn2crl8PY7fNdvs1x+KGiAHriKaW3vW3cUz8sbM2i2lpkzilCkAN6wB+IoWwievEL83h1iJSTzOYZYhTh6l51VPBtggfN3vPjsDspnUpfxo1mbuC/CNB/Skn9/5lzEKsGx7HrFCqFFGc1ZA8AcGMJvHGb8+Dxo/kjMTofF4DAa9xxoc/j8H+DICXCJjkvO7GVaArv/YAndZ2NimPOQ9jpDATJ7bDl2lvs3ip2kAbxKlJITLjN8IA8IZ1XRsh57QBdAz1uB0DjN/WACjEC6zo/Gg3w3rMjtjgWEXrQ4vQ+xUJczXcPXN1n/uA9AJYc5vhAfNfWlLtdO2PaTUbeeiHASoqezN4HldlGsfAsDrDNar1wW/62ED4kNQw3uscr0OxUcAtFndWB8ppR8iwPIYpQC1z5FP3KbDgVcjTEihKr+hpznNjRkESHdx5BM4JpAmuRmdCrQHO++PB/hxGODnYQ+6E8BZtlTOUoH+rT0IgBcD/MZ50CL1N46MU4AKlJNV4Mjhx3xNfDwpGzMEcIQH7bsp+jflSCtZeaECQ6MylZAJPxXoFyHOpodn2RpX4j+gMhyHBDgqBdNpqN4ZDO8fPfhIb46XCyfGDI9SkbzMIu4vge/Y7338ql0chCbrUfFuCatV6kg14R3Pq5ehQG6MRrEaN8ZI/9N2FWV3uEZq95MPDd+exmMyXFnkibefCtfCKFzUyecB/NIH8PdROWgPsJ5IZcwoUIVA3pxXgc5PUUVhThMLjQQE3z+8czLbrH0RGRGR59SqnDu2vQCvR+YA3fNUZyJqWMmewsbFXrwozNmsB/oo64hLHbrV4Z2GRfVQU7kI2qiDARybg/blV04bOu77T4RpwjubdUoptNwQF+a8feFCuMVsSoAF6hasxK4N39k2685VRmsDGkJ85CmMbq5qgs5mLotZRSXGvpxXPehx8hfdGMXpTQpcRVj4nlUuQkkdZRKKkA67ztKvISkzCX54BYdHi3kcNx0tVlhfa8E95cZkGsCXNYDnn7fvRgOUvsZamDX/gDYUb8BTQLErQjpoX7grlkvY8hqXcXailIZncHjTLS6JS+h07PjQvrJPRp0Td287r3rQHydEFNYvHpVZjOCfIpXB4lNAsStDNehiB13Gy7ikHF6CRdoWtECEgFPElhmeBTYHBngzpQgHegCUkcDf4lymKZueQgEwqUmNUIF+Pw6VdQ9G20MMH6257yZJ236EcYaSkJMAvuvKcrMNCJhyAi7q4yjII8nAmZiHdBAadlpQ/NKhLMADqY77WiCAujfyPATA8+8+TtwPGrduaLiGBaehwBNKrAJpF7ugm8APDK8z6QzX+QEPA/CEBjiji8NJRKwqGaCGJK88oYmd4p3DwcliXZlMlXHZde/wluraNAGgZocorDeG4nK+B02GnL5vR8dZpBiRPwiqXJGTFHt6hQo0sQNa5Rv8QIC12MbLpqylZScB3MC65t5dHN3tuBhJxaW5JgPongupubI4DDLQhcqPr6DkjofP4ksIvisZak6mE/YGeDlL/gBDifbDwa1lLPkSEu9hUnGjy3pSAE8Pr+DwumK+TNrAq3T/JwF8WQI8/7Ld7xcKdA9m/BoaxenkPMwk5FktCI1WgQboAE4P32vYDdj4RGY5sIkAb/bxoCtCGGZuWclIs3pcJqHM00TwVBoSDt9j2F2mS2XdxocCeLN3G1vKD1I6KpneEZkEop4U4fYOX9LFitZtUhh9BoVsyX4AD9AGmJ6MKAW5YJWjcGCSCkzznR5e1Ohm/4tHJjtBRK9hL4DTPehaDc1QJaPk+haZBFTzlVlKgJNutO4b3tQNO67r2VwRTLTC14dVgO7GDEgmZ09ooo8IMgmFDSkyCbzMJAwMT0q1ITY17HxVdhiA1/t4MKUzmxcjfQU+udE+WZBruVTlK3QZtD2FkHX5Ax6WadYMe3a3mcM9NRK5PnwftAwbJxYA3TPbPJOA1VVIwQ5nEspZiocv1+5Qa6iKyuBEgBcjF9LMcQMNuYYwLfHSBMCQbjc1N7ovhZOGpw07ozLmua81MZlwAXPQ20Pw02Fn2O4psmQdzOHL5MWkbXN8uUdWUjEAfDG8GGXYieYIfRCAsxbSZLsshkDOwGxT2F0bFERQwhRkkbuTFHCjU8KF5+Cz4RkcXlElgm4RO1pGwmSx4/DEfODF4Txod08G7HzqJS4kagTcfiTLFhz5gKqtsbXroAVczZpSTzDAIIeXpF0i5rsfUZfrcycC/LyHAXFFx3bPa+kl0PulgsM92KwL2KVBMxPFVcKXpLjs1CfcxcTEolssSgm0h051eCq2ab5xe3SHrS4F0ck9CeA2ABzXxUFXhONmT3lsGfa0UcLvU6rQ/kES773kBzDw6eN37QjK78Jlsg2kiOHJTALYq7Dt5xAKrEaeD/C7vs2cJgCEzRW5RS2idqzkUXJEdlqAF9uUdG0akEzP8LVMQtnoUDYKT6zKdYXh65kKkGsj8j1K4S9MYEynjVzg5vlCKbhTUdgj2/UC2UY+eFnw6/b7bOSUww6XVMuKw7eaBQ4PlpVwruGuvbAAthfA/QwIb5cnucapYiVrVykJX+FFmliUZduM1a0/Lb6LA5S/RYMevkzV41+PISu3OwdgWxjeIwdN9DQSlRJG5s5xUa96zsi+1LGLy/hQo/B0gOef9/ultgON+fRX9ALhvu8qHZG19cZ1cAPrCKYB3DYALw6RQvjzHFMBXt78xW+fKby5nuPA/JmP/wJWudJ4i7tdVAAAAABJRU5ErkJggg==", "cap": "For dark backgrounds: ForwardSolutions white.png", "dark": true}]}, {"k": "l2", "type": "guess", "label": "The logo’s own colours", "text": "The arrowhead is three blues, light #01A1DD, mid #197BB2 and deep #1A4388, and the words are a near-black, #231F20. I read these from the PNGs, so they’re close but not exact. None of them is in the website’s palette: the site’s blues are Sky Blue #3FA9F5 and Forward Blue #1E5BBA.", "page": "ForwardSolutions black.png", "swatches": [["Light", "#01A1DD"], ["Mid", "#197BB2"], ["Deep", "#1A4388"], ["Words", "#231F20"], ["Site: Sky Blue", "#3FA9F5"], ["Site: Forward Blue", "#1E5BBA"]]}, {"k": "l3", "type": "ask", "label": "Should the logo colours and the site colours stay different?", "hint": "The kit records both either way. This decides whether a difference is on purpose or something to fix later.", "parts": [{"label": "", "opts": ["Yes. The logo keeps its own blues, and the site uses its own palette around it.", "No. They should match. The logo’s blues are the right ones, and the site should move to them.", "No. They should match. The site’s blues are the right ones, and the logo should move to them when it’s redrawn.", "The logo colours should ___, because ___."]}]}, {"k": "l4", "type": "ask", "label": "Which file is the main one?", "hint": "The one someone should use when nobody tells them otherwise.", "parts": [{"label": "", "opts": ["The stacked logo, ForwardSolutions black.png. White text version for dark backgrounds.", "The one-line logo, ForwardSolutions.png, wherever there’s room for it. The stacked one where there isn’t.", "The arrowhead on its own, ForwardSolutions square.png, with the name typed beside it, the way the website header does it.", "___ is the main one. ___ is for ___."]}]}, {"k": "l5", "type": "ask", "label": "Where the logo came from", "parts": [{"label": "Who made it, and when?", "opts": ["I made it myself, in ___, in ___.", "A designer made it: ___, in ___.", "I don’t know. It came with the business."]}, {"label": "What font are the words in?", "opts": ["I don’t know.", "___. I have the font file and it’s in the zip.", "___. I don’t have the font file."]}, {"label": "Do the original files still exist?", "opts": ["Yes. I have the original file, and it’s in the zip.", "The designer may still have them. I can ask ___.", "No. These PNGs are all there is."]}]}, {"k": "l6", "type": "ask", "label": "Two versions are missing for dark backgrounds", "hint": "The stacked logo has a white-text version. The one-line logo (ForwardSolutions.png) and the 500 × 333 file don’t. On a dark background, their dark words would disappear.", "parts": [{"label": "", "opts": ["I don’t need them. On dark backgrounds I use the stacked white version.", "I need a one-line white version. It should be made when the logo is redrawn as a vector.", "I need both. They should be made when the logo is redrawn as a vector."]}]}, {"k": "up", "type": "upload", "label": "Send me the vector file, the font and anything else", "hint": "A vector file (SVG, AI, EPS or the designer’s PDF) can be made any size without going blurry. Every other version of the logo is made from it. Right now the kit can only point to PNGs.", "steps": ["Make a new folder on your computer.", "Copy in any vector version of the logo you can find: SVG, AI, EPS or a PDF from whoever made it.", "Add the font file for the logo’s words, if you have it.", "Add any illustrations, icons or photos you want the kit to cover. Leave them out if you don’t.", "Zip the folder. On a Mac, right-click it and choose Compress. On Windows, right-click it and choose Send to, then Compressed (zipped) folder.", "Choose the zip below. It is sent when you press Send."], "note": "The zip can be up to 8 MB. If yours is bigger, leave this empty and email it to leepettijohn@gottamoveforward.com, or send a link to it. A file can’t be saved on this device like your typing is, so choose it just before you send. If there’s nothing to send, leave it empty."}]}, {"title": "Where the logo goes", "nav": "Where the logo goes", "sub": "These are the rules anyone placing your logo should follow, whether that’s you, a printer or a sign maker. The starting points are measured off your logo. Change any number that’s wrong.", "cards": [{"k": "p1", "type": "guess", "label": "How the website uses it", "text": "On the website, the header shows the arrowhead on its own, with “Forward Solutions” typed beside it rather than the logo file.", "page": "Every page’s header"}, {"k": "p2", "type": "ask", "label": "Clear space: how much empty room goes around it", "hint": "Measured off the logo itself, so the rule holds at any size.", "parts": [{"label": "", "opts": ["Half the height of the arrowhead, on every side. Nothing goes in that margin: no text, no edge of a photo, no other logo.", "The height of the “F” in “Forward”, on every side.", "___ on every side."]}]}, {"k": "p3", "type": "ask", "label": "Minimum size: how small it can go", "hint": "Below this, the thin “Solutions” stops reading.", "parts": [{"label": "", "opts": ["The stacked logo: 120 px wide on screen, 30 mm in print.\nThe one-line logo: 160 px, 40 mm.\nThe arrowhead alone: 24 px, 8 mm.", "Below ___, use the arrowhead on its own instead."]}]}, {"k": "p4", "type": "ask", "label": "Backgrounds", "parts": [{"label": "", "opts": ["The dark-text logo on white, Paper or Paper Warm.\nThe white-text logo on Ink or Forward Blue.\nNever on a photo.", "The logo on ___ only. Never on ___."]}]}, {"k": "p5", "type": "ask", "label": "Things never to do to it", "parts": [{"label": "", "opts": ["Change its colours.\nStretch, squash, rotate or outline it.\nAdd a shadow, glow or gradient.\nRetype the words in another font.\nRearrange the arrowhead and the words.", "Never ___."]}]}]}, {"title": "Your colours", "nav": "Your colours", "sub": "These are the 27 colours you kept at intake, in the groups I found them in. For each group, say what it’s for. That becomes the “where it goes” column in your Brand Kit.", "cards": [{"k": "c1", "type": "ask", "label": "The eight named colours", "swatches": [["Forward Blue", "#1E5BBA"], ["Sky Blue", "#3FA9F5"], ["Signal Amber", "#F5A524"], ["Ink", "#1A1D24"], ["Slate", "#5B6470"], ["Paper", "#F7F6F2"], ["Paper Warm", "#EFEEE8"], ["White", "#FFFFFF"]], "big": true, "parts": [{"label": "What each one is for", "opts": ["Forward Blue: links, labels and the main accent.\nSky Blue: lines and highlights, never text.\nSignal Amber: buttons, the one thing to press.\nInk: headings and body text.\nSlate: secondary text and captions.\nPaper: the page background.\nPaper Warm: panels and alternate sections.\nWhite: cards on top of Paper.", "___: ___."]}]}, {"k": "c2", "type": "ask", "label": "Darker blues and ambers", "page": "", "hint": "Found in the stylesheet, /tools and /pre-discovery.", "swatches": [["", "#17498F"], ["", "#174A9A"], ["", "#E0961A"], ["", "#E89818"]], "parts": [{"label": "", "opts": ["Hover colours: what a link or button turns when the pointer is over it. Not used on their own.", "___."]}]}, {"k": "c3", "type": "ask", "label": "Pale blues", "hint": "Found on /, /services, /tools and /pre-discovery.", "swatches": [["", "#F0F5FC"], ["", "#E1ECF9"], ["", "#CFE0F5"], ["", "#FBFCFE"]], "parts": [{"label": "", "opts": ["Background tints behind a highlighted panel or a selected answer.", "___."]}]}, {"k": "c4", "type": "ask", "label": "Off-whites and a grey", "hint": "Found in the stylesheet and on /.", "swatches": [["", "#FAFAF7"], ["", "#F0EFE9"], ["", "#D4D2CA"]], "parts": [{"label": "", "opts": ["Off-whites for backgrounds between Paper and White. The grey for borders and dividers.", "___."]}]}, {"k": "c5", "type": "ask", "label": "A coral, a gold and a green, used together", "hint": "Found together in the stylesheet.", "swatches": [["", "#E8856C"], ["", "#E8C36C"], ["", "#8FC58F"]], "parts": [{"label": "", "opts": ["Decoration only: the three dots on a drawn window, or similar. Never text, never a brand colour.", "A traffic-light set: problem, in progress, done.", "___."]}]}, {"k": "c6", "type": "ask", "label": "Greens and tints on one page", "hint": "Found only on /pre-discovery, except #FDF6EA on /tools.", "swatches": [["", "#3F9F6E"], ["", "#245A44"], ["", "#E8F3ED"], ["", "#FDF1DC"], ["", "#FDF6EA"]], "parts": [{"label": "", "opts": ["Status colours: green for done or confirmed, the pale tints behind a note or a warning.", "Only for that one page. They aren’t part of the brand.", "___."]}]}]}, {"title": "Your type", "nav": "Your type", "sub": "The fonts and sizes were confirmed at intake. Two things are left.", "cards": [{"k": "t1", "type": "guess", "label": "Heading 3 at one size", "text": "Heading 3 is Fraunces semibold at 24px. The site uses it at four sizes (20, 21, 22 and 24px), and 24px fits the step down from Heading 2 at 44px. The other three sizes go on your list of website updates.", "page": "Six pages, measured at desktop width", "specimen": {"font": "'Fraunces',Georgia,serif", "size": 24, "weight": 600, "text": "Heading 3, Fraunces semibold, 24px"}}, {"k": "t2", "type": "ask", "label": "Captions and form text", "hint": "These weren’t measured on the site.", "parts": [{"label": "", "opts": ["Captions: Inter, 14px, regular, in Slate.\nForm labels: Inter, 15px, semibold, in Ink.\nForm fields: Inter, 16px, regular.", "Captions: ___. Form text: ___."]}]}]}, {"title": "Who owns what", "nav": "Who owns what", "sub": "Who may use the name and logo, and what a client takes away from a build.", "cards": [{"k": "o1", "type": "ask", "label": "Who may use the name and logo", "fdn": ["Brand Voice", "B1: Going Forward Solutions LLC appears only where the law needs it. Everywhere else the business is Forward Solutions."], "parts": [{"label": "", "opts": ["Nobody but me. A client may put “Built by Forward Solutions” with a link on a site I built, and nothing more.", "Nobody but me. Not on a client’s site, not on anything else.", "Nobody but me, except ___."]}]}, {"k": "o2", "type": "ask", "label": "What a client owns from a build", "fdn": ["Foundation", "§11: Going Forward Solutions LLC, a single-member LLC registered in Tennessee."], "parts": [{"label": "", "opts": ["Once it’s paid for, the client owns everything built for them: the bases, the automations, the site files and the documentation.", "Accounts are set up in the client’s name from the start, so nothing has to be handed over.", "I keep the right to reuse my own templates and ways of working. Never a client’s data.", "The client owns ___. I keep ___."]}]}]}, {"title": "Images", "nav": "Images", "sub": "Only if you have illustrations, icons or photos you want the kit to cover. If not, say so and you’re done.", "cards": [{"k": "i1", "type": "ask", "label": "Images you want in the kit", "parts": [{"label": "", "opts": ["None. The kit covers the logo, colours and type only.", "My headshot and the work photos on the site. They’re in the zip.", "___, and they’re in the zip."]}]}]}]}</script>
+<script>
+(function(){
+  "use strict";
+  var D=JSON.parse(document.getElementById("intakeData").textContent);
+  var form=document.getElementById("intakeForm");
+  var note=document.getElementById("savedNote"), sent=document.getElementById("sentNote"), btn=document.getElementById("submitBtn");
+  var $=function(id){return document.getElementById(id);};
+  var WORDS=["one","two","three","four","five","six"];
+  function esc(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");}
+  function cap(s){return s.charAt(0).toUpperCase()+s.slice(1);}
+  $("siteName").textContent=D.site;
+  $("partCount").textContent="There are "+WORDS[D.parts.length-1]+" parts.";
+
+  // ---- build the cards
+  function cp(target,text){return '<button class="cp" type="button" data-copy="'+target+'" data-text="'+esc(text)+'">Copy to box</button>';}
+  function fdn(f){return f?'<p class="fdn"><b>From your '+esc(f[0])+',</b> '+esc(f[1])+'</p>':'';}
+  function imgs(list){
+    if(!list||!list.length) return '';
+    return '<div class="imgs">'+list.map(function(m){return '<figure><div class="tile'+(m.dark?' dark':'')+'"><img src="'+m.src+'" alt="'+esc(m.cap)+'"></div><figcaption>'+esc(m.cap)+'</figcaption></figure>';}).join("")+'</div>';
+  }
+  function sws(list){
+    if(!list||!list.length) return '';
+    return '<div class="sw">'+list.map(function(c){return '<span class="chip ro"><i style="background:'+c[1]+'"></i><span>'+(c[0]?esc(c[0]):'')+'<code>'+c[1]+'</code></span></span>';}).join("")+'</div>';
+  }
+  function spec(s){return s?'<p class="spec" style="font-family:'+s.font+';font-size:min('+s.size+'px,9vw);font-weight:'+s.weight+'">'+esc(s.text)+'</p>':'';}
+  function extras(c){return (c.hint?'<p class="hint">'+esc(c.hint)+'</p>':'')+fdn(c.fdn)+imgs(c.imgs)+sws(c.swatches)+spec(c.specimen);}
+  function card(k,title,body){
+    return '<details class="item" data-item="'+k+'"><summary><span class="st">'+esc(title)+'</span><span class="done">Done</span></summary><div class="body">'+body+'</div></details>';
+  }
+  function guess(c){
+    return card(c.k,c.label,'<p class="guess">'+esc(c.text)+'</p>'+(c.page?'<p class="page">From: '+esc(c.page)+'</p>':'')+extras(c)+
+      '<label class="check"><input type="checkbox" data-k="'+c.k+'.ok"><span>'+esc(c.tick||"That’s right")+'</span></label>'+
+      '<div class="field"><div class="row" style="justify-content:space-between;align-items:center;margin-bottom:4px"><label for="'+c.k+'t" style="margin:0">Or correct it</label>'+cp(c.k+"t",c.text)+'</div>'+
+      '<textarea id="'+c.k+'t" data-k="'+c.k+'.t" rows="3"></textarea></div>');
+  }
+  function ask(c){
+    var f=c.parts.map(function(p,j){var id=c.k+"p"+j;
+      return '<div class="part">'+(p.label?'<p class="plab">'+esc(p.label)+'</p>':'')+
+        (p.opts.length?'<span class="lab" style="margin-top:8px">Starting points</span><div class="sug">'+p.opts.map(function(o){return '<div><span>'+esc(o)+'</span>'+cp(id,o)+'</div>';}).join("")+'</div>':'')+
+        '<div class="field"><label for="'+id+'">'+(p.opts.length?'In your own words':'Your answer')+'</label><textarea id="'+id+'" data-k="'+c.k+'.'+j+'" rows="3"'+(c.big?' class="big"':'')+'></textarea></div></div>';}).join("");
+    return card(c.k,c.label,extras(c)+f);
+  }
+  function upload(c){
+    return card(c.k,c.label,extras(c)+'<ol class="steps">'+c.steps.map(function(s){return '<li>'+esc(s)+'</li>';}).join("")+'</ol><div id="fileSlot"></div><p class="hint">'+esc(c.note)+'</p>'+
+      '<div class="field"><label for="'+c.k+'t">What&rsquo;s in the zip</label><textarea id="'+c.k+'t" data-k="'+c.k+'.t" rows="2" placeholder="Optional: anything I should know about the files"></textarea></div>');
+  }
+  var T={guess:guess,ask:ask,upload:upload};
+  $("parts").innerHTML=D.parts.map(function(p,pi){
+    return '<section class="section" id="s'+(pi+1)+'"><span class="section-num">Part '+WORDS[pi]+'</span><h2>'+esc(p.title)+'</h2>'+
+      (p.sub?'<p class="section-sub">'+esc(p.sub)+'</p>':'')+'<div class="items">'+p.cards.map(function(c){return T[c.type](c);}).join("")+'</div>'+
+      '<div class="notes"><label for="note'+(pi+1)+'">Comments or questions on this part</label><textarea id="note'+(pi+1)+'" data-k="note'+(pi+1)+'" rows="2" placeholder="Comments or questions"></textarea></div></section>';
+  }).join("");
+  if($("fileSlot")) $("fileSlot").appendChild($("fileField"));
+
+  // ---- save on this device
+  var state={v:{},sentAt:""};
+  try{var raw=localStorage.getItem(D.key); if(raw){var p=JSON.parse(raw); if(p&&p.v) state=p;}}catch(e){}
+  function save(){try{localStorage.setItem(D.key,JSON.stringify(state)); note.textContent="Saved on this device.";}catch(e){note.textContent="";}}
+  var timer=null; function later(){clearTimeout(timer); timer=setTimeout(save,500);}
+  var fields=form.querySelectorAll("[data-k]");
+  function val(k){return state.v[k];}
+  for(var i=0;i<fields.length;i++){(function(el){
+    var k=el.getAttribute("data-k");
+    if(el.type==="checkbox"){ if(val(k)) el.checked=true; }
+    else if(val(k)) el.value=val(k);
+    el.addEventListener(el.tagName==="TEXTAREA"?"input":"change",function(){
+      state.v[k]=el.type==="checkbox"?el.checked:el.value;
+      if(el.tagName==="TEXTAREA") later(); else save();
+      tally();
+    });
+  })(fields[i]);}
+
+  // ---- progress
+  function touched(item){
+    var els=item.querySelectorAll("[data-k],input[type=file]");
+    for(var i=0;i<els.length;i++){var e=els[i]; if(e.type==="file"?e.files.length:(e.type==="checkbox"?e.checked:e.value.trim())) return true;}
+    return false;
+  }
+  function tally(){
+    $("toc").innerHTML=D.parts.map(function(p,pi){
+      var its=$("s"+(pi+1)).querySelectorAll("[data-item]");
+      for(var i=0;i<its.length;i++){its[i].classList.toggle("on",touched(its[i]));}
+      return '<li><a href="#s'+(pi+1)+'"><span>Part '+(pi+1)+'</span>'+esc(p.nav||p.title)+'</a></li>';
+    }).join("");
+  }
+  tally();
+  form.addEventListener("click",function(e){
+    var b=e.target.closest("[data-copy]"); if(!b) return;
+    var ta=$(b.getAttribute("data-copy")), txt=b.getAttribute("data-text");
+    ta.value=ta.value.trim()?ta.value.replace(/\s+$/,"")+"\n"+txt:txt;
+    ta.dispatchEvent(new Event("input",{bubbles:true})); ta.focus();
+    var old=b.textContent; b.textContent="Copied"; setTimeout(function(){b.textContent=old;},1200);
+  });
+  function setAll(o){var d=form.querySelectorAll("details.item"); for(var i=0;i<d.length;i++) d[i].open=o;}
+  $("openAll").addEventListener("click",function(){setAll(true);});
+  $("closeAll").addEventListener("click",function(){setAll(false);});
+  function showSent(){ if(!state.sentAt) return; sent.hidden=false; sent.textContent="Sent to Lee on "+state.sentAt+". Your answers are still here on this device."; btn.textContent="Send an update"; }
+  showSent();
+
+  // ---- what gets sent
+  function one(s){return String(s||"").trim().replace(/\n+/g," / ");}
+  function buildPrompt(){
+    var L=[], v=function(k){return state.v[k];};
+    L.push("Brand Kit answers for "+D.business+", sent from the Brand Kit page.");
+    L.push("Sent on "+new Date().toLocaleString());
+    L.push(""); L.push(D.handoff);
+    D.parts.forEach(function(p,pi){
+      L.push(""); L.push("## Part "+WORDS[pi]+": "+p.title);
+      p.cards.forEach(function(c){
+        if(c.type==="guess"){
+          var ok=v(c.k+".ok"), t=one(v(c.k+".t"));
+          L.push("- "+c.label+": "+c.text+(c.page?" ["+c.page+"]":""));
+          L.push("  "+(ok?"CONFIRMED as written":(t?"Not confirmed as written":"NOT ANSWERED")));
+          if(t) L.push("  Client: "+t);
+        } else if(c.type==="ask"){
+          L.push("- "+c.label); var any=false;
+          c.parts.forEach(function(q,j){var raw=String(v(c.k+"."+j)||"").trim(), a=one(raw); if(a){any=true;
+            L.push("  "+(q.label?q.label+": ":"")+a+(q.opts.indexOf(raw)>-1?"  [a suggested starting point, sent unedited]":""));}});
+          if(!any) L.push("  NOT ANSWERED");
+        } else if(c.type==="upload"){
+          var f=$("fileField").files[0];
+          L.push("- "+c.label+": "+(f?"zip attached to this submission ("+f.name+", "+Math.round(f.size/1024)+" KB)":"no zip attached to this submission"));
+          if(one(v(c.k+".t"))) L.push("  Client: "+one(v(c.k+".t")));
+        }
+      });
+      if(one(v("note"+(pi+1)))){L.push(""); L.push("Notes on part "+WORDS[pi]+": "+one(v("note"+(pi+1))));}
+    });
+    if(one(v("note9"))){L.push(""); L.push("## Anything else"); L.push(one(v("note9")));}
+    return L.join("\n");
+  }
+  window.__buildPrompt=buildPrompt;
+
+  var MAX=8*1024*1024;
+  $("fileField").addEventListener("change",function(){
+    var f=this.files[0];
+    if(f&&f.size>MAX){ this.value=""; note.textContent="That zip is over 8 MB, so it can’t go through this page. Email it, or send a link to it."; }
+    tally();
+  });
+  form.addEventListener("submit",function(e){
+    e.preventDefault();
+    btn.disabled=true; var old=btn.textContent; btn.textContent="Sending…";
+    var chunks=buildPrompt().split(/\n(?=## )/);
+    form.elements["about"].value=chunks[0];
+    WORDS.forEach(function(w){ form.elements["part_"+w].value=""; }); form.elements["anything_else"].value="";
+    chunks.slice(1).forEach(function(c){
+      var m=/^## Part (one|two|three|four|five|six)/.exec(c);
+      form.elements[m?"part_"+m[1]:"anything_else"].value=c;
+    });
+    fetch("/",{method:"POST",body:new FormData(form)})
+    .then(function(res){
+      if(!res.ok) throw new Error("bad");
+      state.sentAt=new Date().toLocaleString([],{weekday:"long",hour:"numeric",minute:"2-digit"});
+      save(); btn.disabled=false; showSent(); note.textContent="";
+    }).catch(function(){
+      btn.disabled=false; btn.textContent=old;
+      note.textContent="That didn’t send. Check your connection and try again. Your answers are saved.";
+    });
+  });
+})();
+</script>
+</body>
+</html>
